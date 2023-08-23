@@ -11,12 +11,50 @@
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* temporary nav in App.jsx */
+.tempNav {
+  display: flex;
+  gap: 8px;
+}
+/* delete later */
+
 body {
+  margin: 0;
+
   background-color: var(--bg-color);
   color: var(--white);
   font-family: "Roboto", serif;
+  font-weight: 400;
 }
 
 a {
   color: var(--white);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
 }

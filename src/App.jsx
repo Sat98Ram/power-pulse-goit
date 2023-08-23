@@ -1,4 +1,3 @@
-import "./App.css";
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Diary from "./pages/Diary/Diary";
@@ -6,15 +5,17 @@ import Diary from "./pages/Diary/Diary";
 function App() {
   return (
     <>
-      <nav>
+      <nav className="tempNav">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="welcome">welcome</NavLink>
-        <NavLink to="signup">signup</NavLink>
-        <NavLink to="signin">signin</NavLink>
+        <NavLink to="welcome">Welcome</NavLink>
+        <NavLink to="signup">Signup</NavLink>
+        <NavLink to="signin">Signin</NavLink>
         <NavLink to="params">Params</NavLink>
-        <NavLink to="diary">diary</NavLink>
-        <NavLink to="products">products</NavLink>
-        <NavLink to="profile">profile</NavLink>
+        <NavLink to="diary">Diary</NavLink>
+        <NavLink to="products">Products</NavLink>
+        <NavLink to="profile">
+          Profile <button type="button">button</button>
+        </NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Layout />}>

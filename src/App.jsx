@@ -1,6 +1,7 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./components/layout/Layout";
+
 import Diary from "./pages/Diary/Diary";
+import Layout from "./components/Layout/Layout/Layout";
 
 function App() {
   return (

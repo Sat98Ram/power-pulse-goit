@@ -1,0 +1,11 @@
+@import-normalize;
+
+:root {
+  --bg-color: #040404;
+  --primary-accent: #e6533c;
+  --secondary-accent: #ef8964;
+  --beige-accent: #efa082;
+  --white: #efede8;
+  --transition-duration: 250ms;
+  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+}

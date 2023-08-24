@@ -3,11 +3,11 @@ import { UserNav } from "../UserNav/UserNav";
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <Container>
         <UserNav />
       </Container>
-    </div>
+    </header>
   );
 };
 

@@ -6,8 +6,8 @@ import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/power-pulse-goit">
+    <HashRouter basename="/power-pulse-goit">
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

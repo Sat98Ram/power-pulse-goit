@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./UserNav.module.css";
 
-export const UserNav = () => {
+const UserNav = () => {
   return (
     <>
       <nav className={css.userNav}>
@@ -26,3 +26,5 @@ export const UserNav = () => {
     </>
   );
 };
+
+export default UserNav;

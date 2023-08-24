@@ -1,0 +1,20 @@
+.userBar {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.avatarWrapper {
+  box-sizing: border-box;
+  width: 37px;
+  height: 37px;
+  border: 1px solid var(--primary-accent);
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .avatarWrapper {
+    width: 46px;
+    height: 46px;
+  }
+}

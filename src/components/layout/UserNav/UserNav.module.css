@@ -1,0 +1,24 @@
+.userNav {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .userNav {
+    display: block;
+  }
+}
+
+.userNavList {
+  display: flex;
+  gap: 16px;
+}
+
+.userNavItem {
+  border: 1px solid #efede833;
+  border-radius: 12px;
+  padding: 10px 27px;
+}
+
+.userNavLink {
+  display: block;
+}

@@ -9,8 +9,6 @@ import Products from "./pages/Products/Products";
 import Exercises from "./pages/Exercices/Exercices";
 import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
-import BasicModalWindow from "./components/BasicModalWindow/BasicModalWindow";
-import { TitlePage } from "./components/TitlePage/TitlePage";
 
 function App() {
   return (
@@ -26,9 +24,7 @@ function App() {
         <NavLink to="products">Products</NavLink>
         <NavLink to="profile">Profile</NavLink>
       </nav>
-      <BasicModalWindow>
-        <TitlePage text="Exercises" />
-      </BasicModalWindow>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* <Route path="/" element={<div>public route</div>}> */}

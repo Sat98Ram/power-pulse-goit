@@ -16,8 +16,14 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
     };
   }, []);
 
+  const handleClickBackground = (e) => {
+    if (e.target.className.includes("basic_modal_window")) {
+      isOpenModalToggle();
+    }
+  };
+
   const modal = (
-    <div className={css.basic_modal_window} onClick={isOpenModalToggle}>
+    <div className={css.basic_modal_window} onClick={handleClickBackground}>
       {children}
     </div>
   );

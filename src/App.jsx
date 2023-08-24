@@ -20,10 +20,9 @@ function App() {
         <NavLink to="signin">Signin</NavLink>
         <NavLink to="params">Params</NavLink>
         <NavLink to="diary">Diary</NavLink>
+        <NavLink to="exercises">Exercises</NavLink>
         <NavLink to="products">Products</NavLink>
-        <NavLink to="profile">
-          Profile <button type="button">button</button>
-        </NavLink>
+        <NavLink to="profile">Profile</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Layout />}>

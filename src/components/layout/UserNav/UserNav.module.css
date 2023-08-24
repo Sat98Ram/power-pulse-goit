@@ -1,0 +1,8 @@
+.userNavList {
+  display: flex;
+  gap: 16px;
+}
+
+.userNavLink {
+  display: block;
+}

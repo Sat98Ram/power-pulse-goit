@@ -4,7 +4,7 @@ import css from "./UserNav.module.css";
 export const UserNav = () => {
   return (
     <>
-      <nav>
+      <nav className={css.userNav}>
         <ul className={css.userNavList}>
           <li className={css.userNavItem}>
             <NavLink to="/diary" className={css.userNavLink}>

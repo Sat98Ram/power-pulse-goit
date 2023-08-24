@@ -1,7 +1,9 @@
+import { NavLink } from "react-router-dom";
+
 const UserBar = () => {
   return (
     <>
-      <p>UserBar</p>
+      <NavLink to="/profile">Profile</NavLink>
     </>
   );
 };

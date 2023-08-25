@@ -1,0 +1,57 @@
+.page404 {
+  min-width: 280px;
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+}
+
+.left {
+  flex: 2;
+  background: #e6533c;
+
+  height: 100vh;
+}
+.container404 {
+  padding: 0 20px;
+}
+.rigth {
+  flex: 1;
+  background: rgb(48, 47, 47);
+  height: 100vh;
+}
+
+@media screen and (min-width: 375px) {
+  .page404 {
+    width: 375px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .page404 {
+    width: 768px;
+  }
+  .container404 {
+    padding: 0 32px;
+  }
+  .left {
+    flex: none;
+    width: 420px;
+  }
+  .rigth {
+    width: 348px;
+    flex: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .page404 {
+    width: 1440px;
+  }
+  .container404 {
+    padding: 0 96px;
+  }
+  .left {
+    width: 669px;
+  }
+  .rigth {
+    width: 771px;
+  }
+}

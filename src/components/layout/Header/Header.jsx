@@ -9,7 +9,7 @@ const Header = () => {
     <header className={css.header}>
       <Container>
         <div className={css.headerContent}>
-          <Logo classNameLeft={css.logo} classNameRight={css.logoText} />
+          <Logo className={css.logoIcon} />
 
           {/* {isAuth} */}
           <div className={css.authUser}>

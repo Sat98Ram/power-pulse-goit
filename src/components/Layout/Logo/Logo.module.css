@@ -1,6 +1,27 @@
-.logo {
+.logoLink {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.logoIcon {
-  fill: var(--primary-accent);
+svg:first-child {
+  width: 36px;
+  height: 13px;
+}
+
+.iconText {
+  width: 82px;
+  height: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  svg:first-child {
+    width: 44px;
+    height: 17px;
+  }
+
+  .iconText {
+    width: 100px;
+    height: 16px;
+  }
 }

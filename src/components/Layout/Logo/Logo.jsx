@@ -1,21 +1,24 @@
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./Logo.module.css";
 
-const Logo = () => {
+const Logo = ({ className }) => {
   return (
-    <div className={css.logo}>
-      <NavLink to="/diary">
-        <svg width="36" height="13" className={css.logoIcon}>
-          <use href={symbolDefs + "#gantelya"}></use>
-        </svg>
-        <svg width="82" height="12">
-          <use href={symbolDefs + "#power-pulse"}></use>
-        </svg>
-      </NavLink>
-    </div>
+    <NavLink to="/diary" className={css.logoLink}>
+      <svg className={className}>
+        <use href={symbolDefs + "#gantelya"}></use>
+      </svg>
+      <svg className={css.iconText}>
+        <use href={symbolDefs + "#power-pulse"}></use>
+      </svg>
+    </NavLink>
   );
 };
 
 export default Logo;
+
+Logo.propTypes = {
+  className: PropTypes.string,
+};

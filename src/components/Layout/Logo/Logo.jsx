@@ -7,7 +7,7 @@ import css from "./Logo.module.css";
 const Logo = ({ className }) => {
   return (
     <NavLink to="/diary" className={css.logoLink}>
-      <svg className={className}>
+      <svg className={`${className}  ${css.logoIcon}`}>
         <use href={symbolDefs + "#gantelya"}></use>
       </svg>
       <svg className={css.iconText}>

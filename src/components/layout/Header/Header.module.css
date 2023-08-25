@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.logoIcon {
+.headerLogoIcon {
   fill: var(--primary-accent);
 }
 

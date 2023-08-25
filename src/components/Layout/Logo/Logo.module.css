@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-svg:first-child {
+.logoIcon {
   width: 36px;
   height: 13px;
 }
@@ -15,7 +15,7 @@ svg:first-child {
 }
 
 @media screen and (min-width: 768px) {
-  svg:first-child {
+  .logoIcon {
     width: 44px;
     height: 17px;
   }

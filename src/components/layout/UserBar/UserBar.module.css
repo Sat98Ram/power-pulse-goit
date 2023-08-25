@@ -4,17 +4,52 @@
   align-items: center;
 }
 
+.settingsLink {
+  display: block;
+}
+
+.userSettings {
+  stroke: var(--input-normal);
+  width: 20px;
+  height: 20px;
+}
+
 .avatarWrapper {
   box-sizing: border-box;
   width: 37px;
   height: 37px;
   border: 1px solid var(--primary-accent);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userBarAvatar {
+  width: 15px;
+  height: 15px;
 }
 
 @media screen and (min-width: 768px) {
   .avatarWrapper {
     width: 46px;
     height: 46px;
+  }
+
+  .userSettings {
+    width: 24px;
+    height: 24px;
+  }
+
+  .userBarAvatar {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .userSettings {
+    width: 28px;
+    height: 28px;
   }
 }

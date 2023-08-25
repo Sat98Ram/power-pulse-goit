@@ -72,6 +72,4 @@ function pending(state) {
   state.loading = true;
 }
 
-export const { nextPage, updateFilter, resetPage } = userSlice.actions;
-
 export const usersReducer = userSlice.reducer;

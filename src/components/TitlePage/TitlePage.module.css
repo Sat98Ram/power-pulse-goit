@@ -1,0 +1,13 @@
+.title_page {
+  font-size: 24px;
+  line-height: 1.16;
+  font-weight: 700;
+  color: rgba(239, 237, 232, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .title_page {
+    font-size: 32px;
+    line-height: 1.375;
+  }
+}

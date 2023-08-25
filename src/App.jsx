@@ -2,7 +2,6 @@ import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import Welcome from "./pages/Welcome/Welcome";
 import Diary from "./pages/Diary/Diary";
 import Layout from "./components/Layout/Layout/Layout";
-import Welcome from "./pages/Welcome/Welcome";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
 import Products from "./pages/Products/Products";

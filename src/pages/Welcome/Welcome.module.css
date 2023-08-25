@@ -1,0 +1,17 @@
+.welcomeBackground {
+  position: absolute;
+  height: 100%;
+  min-width: 446px;
+  min-height: 669px;
+  background: linear-gradient(159deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
+    linear-gradient(82deg, #040404 1.35%, rgba(4, 4, 4, 0) 100%),
+    url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.buttonsLine {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}

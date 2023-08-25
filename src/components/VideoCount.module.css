@@ -1,0 +1,12 @@
+.videoCountBox {
+  border-radius: 12px;
+  background: var(--grey-background);
+  width: 146px;
+  height: 66px;
+}
+.playSymbolIcon {
+  background-color: var(--secondary-accent);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}

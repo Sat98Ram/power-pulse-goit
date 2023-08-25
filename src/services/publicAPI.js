@@ -7,7 +7,7 @@ const publicAPI = axios.create({
 
 export const login = async (body) => {
   try {
-    const { data } = await publicAPI.post("api/auth/sign-in", body);
+    const { data } = await publicAPI.post("api/users/signin", body);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -18,7 +18,7 @@ export const login = async (body) => {
 
 export const register = async (body) => {
   try {
-    const { data } = await publicAPI.post("api/auth/sign-up", body);
+    const { data } = await publicAPI.post("api/users/signup", body);
     token.set(data.token);
     return data;
   } catch (error) {

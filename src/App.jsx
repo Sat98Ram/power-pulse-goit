@@ -41,11 +41,9 @@ function App() {
           <Route path="/exercises" element={<Exercises />} />
           <Route path="/params" element={<Params />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<Page404 />} />
           {/* </Route> */}
-
-          <Route path="*" element={<Navigate to="/" />} />
         </Route>
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </>
   );

@@ -3,6 +3,9 @@ import css from "./Page404.module.css";
 import { SignBtn } from "../SignBtn/SignBtn";
 
 const Page404 = () => {
+  const handleClick = () => {
+    console.log("handleClick Page404");
+  };
   return (
     <div className={css.page404}>
       <div className={css.left}>
@@ -20,7 +23,12 @@ const Page404 = () => {
             Perhaps this page went on vacation or decided to disappear into
             another dimension. We apologize for this inconvenience.
           </p>
-          <SignBtn className={css.btn} text="Go Home" type="button" />
+          <SignBtn
+            className={css.btn}
+            text="Go Home"
+            type="button"
+            onClick={handleClick}
+          />
         </div>
       </div>
       <div className={css.rigth}></div>

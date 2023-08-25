@@ -41,11 +41,12 @@
 
 body {
   margin: 0;
-
   background-color: var(--bg-color);
   color: var(--white);
   font-family: "Roboto", serif;
   font-weight: 400;
+  font-size: 14;
+  line-height: calc(14 / 18);
 }
 
 a {

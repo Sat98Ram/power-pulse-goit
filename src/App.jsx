@@ -1,14 +1,14 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
-
+import Welcome from "./pages/Welcome/Welcome";
 import Diary from "./pages/Diary/Diary";
 import Layout from "./components/Layout/Layout/Layout";
-import Welcome from "./pages/Welcome/Welcome";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
 import Products from "./pages/Products/Products";
 import Exercises from "./pages/Exercices/Exercices";
 import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
+import Page404 from "./components/Page404/Page404";
 
 function App() {
   return (
@@ -41,11 +41,9 @@ function App() {
           <Route path="/exercises" element={<Exercises />} />
           <Route path="/params" element={<Params />} />
           <Route path="/profile" element={<Profile />} />
-
           {/* </Route> */}
-
-          <Route path="*" element={<Navigate to="/" />} />
         </Route>
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </>
   );

@@ -1,0 +1,15 @@
+.signUpBtn {
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: inherit;
+  background-color: var(--primary-accent);
+  color: var(--white);
+  border-radius: 12px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(18 / 16);
+}

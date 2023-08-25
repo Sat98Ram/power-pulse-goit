@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+
 import css from "./UserBar.module.css";
 
 const UserBar = () => {

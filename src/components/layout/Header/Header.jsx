@@ -1,15 +1,15 @@
-import { NavLink } from "react-router-dom";
 import Container from "../../Container/Container";
 import UserNav from "../UserNav/UserNav";
 import css from "./Header.module.css";
 import UserBar from "../UserBar/UserBar";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   return (
     <header className={css.header}>
       <Container>
         <div className={css.headerContent}>
-          <NavLink to="/diary">Logo will be there</NavLink>
+          <Logo classNameLeft={css.logo} classNameRight={css.logoText} />
 
           {/* {isAuth} */}
           <div className={css.authUser}>

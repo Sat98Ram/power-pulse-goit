@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const privateAPI = axios.create({
-  baseURL: "https://wallet.goit.ua/",
+  baseURL: "https://powerpulse-y0gd.onrender.com/",
 });
 
 export const token = {

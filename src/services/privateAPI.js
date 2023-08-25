@@ -15,7 +15,7 @@ export const token = {
 
 export const logout = async () => {
   try {
-    const { data } = await privateAPI.post("api/auth/sign-out");
+    const { data } = await privateAPI.post("/api/users/signout");
     return data;
   } finally {
     token.unset();

@@ -1,7 +1,7 @@
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import css from "./BasicModalWindow.module.css";
-import { createPortal } from "react-dom";
-import { useEffect } from "react";
 
 const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
     return () => {
       document.removeEventListener("keydown", closeESC);
     };
-  }, []);
+  }, [isOpenModalToggle]);
 
   const handleClickBackground = (e) => {
     if (e.target.className.includes("basic_modal_window")) {

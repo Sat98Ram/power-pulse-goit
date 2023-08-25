@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import css from "./Page404.module.css";
 
 const Page404 = () => {
@@ -5,7 +6,11 @@ const Page404 = () => {
     <div className={css.page404}>
       <div className={css.left}>
         <div className={css.container404}>
-          <h2>404</h2>
+          <button className={css.btnLogo}>
+            <Link to="/">
+              <p>PowerPulse</p>
+            </Link>
+          </button>
           <h3>В РОЗРОБЦІ</h3>
           <p>
             Sorry, you have reached a page that we could not find. It seems that

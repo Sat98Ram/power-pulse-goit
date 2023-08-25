@@ -14,6 +14,9 @@
 .container404 {
   padding: 0 20px;
 }
+.btnLogo {
+  background: transparent;
+}
 .rigth {
   flex: 1;
   background: rgb(48, 47, 47);

@@ -27,6 +27,7 @@
   --input-normal: #efede84d;
   --input-success: #3cbf61;
   --input-error: #d80027;
+  --grey-background: #303030;
   --transition-duration: 250ms;
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }

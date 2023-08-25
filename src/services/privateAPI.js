@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const privateAPI = axios.create({
-  baseURL: "https://wallet.goit.ua/",
+  baseURL: "https://powerpulse-y0gd.onrender.com/",
 });
 
 export const token = {
@@ -15,7 +15,7 @@ export const token = {
 
 export const logout = async () => {
   try {
-    const { data } = await privateAPI.post("api/auth/sign-out");
+    const { data } = await privateAPI.post("/api/users/signout");
     return data;
   } finally {
     token.unset();

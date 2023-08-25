@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import css from "./BasicModalWindow.module.css";
+import Container from "../Container/Container";
+import CloseSvg from "../CloseSvg/CloseSvg";
 
 const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   useEffect(() => {
@@ -24,7 +26,12 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
 
   const modal = (
     <div className={css.basic_modal_window} onClick={handleClickBackground}>
-      {children}
+      <Container>
+        <div className={css.modal}>
+          <CloseSvg className={css.closeSvg} />
+          {children}
+        </div>
+      </Container>
     </div>
   );
 

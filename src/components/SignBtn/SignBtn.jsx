@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import css from "./SignBtn.module.css";
 
-export const SignBtn = ({ className, text, type, onClick }) => {
+export const SignBtn = ({ className = "", text, type, onClick }) => {
   return (
     <button
       className={`${css.signBtn} ${className}`}

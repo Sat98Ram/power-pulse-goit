@@ -19,6 +19,10 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   }, [isOpenModalToggle]);
 
   const handleClickBackground = (e) => {
+    if (e.target.localName === "svg") {
+      return;
+      // isOpenModalToggle();
+    }
     if (e.target.className.includes("basic_modal_window")) {
       isOpenModalToggle();
     }
@@ -27,7 +31,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   const modal = (
     <div className={css.basic_modal_window} onClick={handleClickBackground}>
       <div className={css.modal}>
-        <CloseSvg className={css.closeSvg} />
+        <CloseSvg className={css.closeSvg} onClick={isOpenModalToggle} />
         {children}
       </div>
     </div>

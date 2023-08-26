@@ -11,8 +11,6 @@
   z-index: 10;
 }
 .modal {
-  width: 400px;
-  height: 600px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;

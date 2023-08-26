@@ -1,11 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import css from "./Page404.module.css";
 import { SignBtn } from "../SignBtn/SignBtn";
+import { useEffect } from "react";
 
 const Page404 = () => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    console.log("handleClick Page404");
+    navigate("/");
   };
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      navigate("/");
+    }, 4000);
+    return () => clearTimeout(timerId);
+  }, []);
   return (
     <div className={css.page404}>
       <div className={css.left}>
@@ -31,7 +40,9 @@ const Page404 = () => {
           />
         </div>
       </div>
-      <div className={css.rigth}></div>
+      <div className={css.rigth}>
+        <div className={css.img_url}></div>
+      </div>
     </div>
   );
 };

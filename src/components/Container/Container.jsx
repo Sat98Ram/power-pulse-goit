@@ -9,5 +9,5 @@ const Container = ({ children }) => {
 export default Container;
 
 Container.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };

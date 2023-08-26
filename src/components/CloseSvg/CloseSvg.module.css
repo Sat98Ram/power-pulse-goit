@@ -1,0 +1,16 @@
+.closeSvg {
+  width: 22px;
+  height: 22px;
+  background: #efede8;
+  fill: #efede8;
+}
+
+@media screen and (min-width: 768px) {
+  .closeSvg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

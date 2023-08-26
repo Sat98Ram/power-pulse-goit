@@ -3,6 +3,7 @@
   height: 100vh;
   display: flex;
   margin: 0 auto;
+  color: #efede8;
 }
 
 .left {
@@ -13,11 +14,39 @@
 }
 .container404 {
   padding: 0 20px;
+  padding-top: 24.5px;
+}
+.title404 {
+  font-size: 66px;
+  margin-top: 214px;
+  line-height: 1;
+  letter-spacing: 0.66px;
+}
+.text404 {
+  width: 200px;
+  font-size: 14px;
+  margin-top: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: calc(18 / 14);
+}
+.btn {
+  margin-top: 28px;
+}
+.btnLogo {
+  background: transparent;
 }
 .rigth {
   flex: 1;
-  background: rgb(48, 47, 47);
+  /* background: #040404; */
   height: 100vh;
+  background: linear-gradient(159deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
+    linear-gradient(82deg, #040404 1.35%, rgba(4, 4, 4, 0) 100%),
+    url(../../assets/images/mobile/other@2x/side-view-people-training-gym@2x.jpg),
+    lightgray 50% / cover no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @media screen and (min-width: 375px) {
@@ -30,7 +59,19 @@
     width: 768px;
   }
   .container404 {
-    padding: 0 32px;
+    padding: 32 32px;
+  }
+  .title404 {
+    font-size: 160px;
+    line-height: calc(150 / 160);
+    letter-spacing: 1.6px;
+    margin-top: 260px;
+  }
+  .text404 {
+    width: 356px;
+    font-size: 16px;
+    margin-top: 28px;
+    line-height: calc(24 / 16);
   }
   .left {
     flex: none;
@@ -46,7 +87,13 @@
     width: 1440px;
   }
   .container404 {
-    padding: 0 96px;
+    padding: 32px 96px;
+  }
+  .title404 {
+    margin-top: 172px;
+  }
+  .text404 {
+    width: 477px;
   }
   .left {
     width: 669px;

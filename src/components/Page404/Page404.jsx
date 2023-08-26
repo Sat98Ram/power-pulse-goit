@@ -11,10 +11,10 @@ const Page404 = () => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      navigate("/");
+      // navigate("/");
     }, 4000);
     return () => clearTimeout(timerId);
-  }, []);
+  }, [navigate]);
   return (
     <div className={css.page404}>
       <div className={css.left}>

@@ -6,7 +6,12 @@ import css from "./UserNav.module.css";
 const UserNavItem = ({ link, label }) => {
   return (
     <li className={css.userNavItem}>
-      <NavLink to={link} className={css.userNavLink}>
+      <NavLink
+        to={link}
+        className={({ isActive }) =>
+          isActive ? "css.userNavLinkActive" : "css.userNavLink"
+        }
+      >
         {label}
       </NavLink>
     </li>

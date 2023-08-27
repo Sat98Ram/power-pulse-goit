@@ -1,5 +1,6 @@
 .header {
-  padding: 20px 0;
+  box-sizing: border-box;
+  padding: 12px 0;
   border-bottom: 1px solid #efede833;
 }
 
@@ -7,6 +8,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.headerLogoIcon {
+  fill: var(--primary-accent);
+}
+
+@media screen and (min-width: 786px) {
+  .header {
+    padding: 19px 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {

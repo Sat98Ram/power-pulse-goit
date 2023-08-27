@@ -9,6 +9,7 @@ import Exercises from "./pages/Exercices/Exercices";
 import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
 import Page404 from "./components/Page404/Page404";
+import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
 
 function App() {
   return (
@@ -38,7 +39,12 @@ function App() {
           <Route index element={<Navigate to="diary" />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/exercises" element={<Exercises />} />
+          <Route path="exercises" element={<Exercises />}>
+            <Route index element={<Navigate to="bodyparts" />} />
+            <Route path="bodyparts" element={<ExercisesSubcategoriesList />} />
+            <Route path="muscles" element={<ExercisesSubcategoriesList />} />
+            <Route path="equipments" element={<ExercisesSubcategoriesList />} />
+          </Route>
           <Route path="/params" element={<Params />} />
           <Route path="/profile" element={<Profile />} />
           {/* </Route> */}

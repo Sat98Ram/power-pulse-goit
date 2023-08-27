@@ -16,15 +16,14 @@ const Page404 = () => {
     return () => clearTimeout(timerId);
   }, [navigate]);
   return (
-    <div className={css.page404}>
+    <section className={css.section}>
       <div className={css.left}>
-        <div className={css.container404}>
-          <button className={css.btnLogo}>
-            <Link to="/">
-              <p>PowerPulse</p>
-            </Link>
-          </button>
-
+        <button className={css.btnLogo}>
+          <Link to="/">
+            <p>PowerPulse</p>
+          </Link>
+        </button>
+        <div className={css.content}>
           <h3 className={css.title404}>404</h3>
           <p className={css.text404}>
             Sorry, you have reached a page that we could not find. It seems that
@@ -40,10 +39,7 @@ const Page404 = () => {
           />
         </div>
       </div>
-      <div className={css.rigth}>
-        <div className={css.img_url}></div>
-      </div>
-    </div>
+    </section>
   );
 };
 

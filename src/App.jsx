@@ -13,7 +13,7 @@ import Page404 from "./components/Page404/Page404";
 function App() {
   return (
     <>
-      <nav className="tempNav">
+      {/* <nav className="tempNav">
         <NavLink to="/">Home</NavLink>
         <NavLink to="welcome">Welcome</NavLink>
         <NavLink to="signup">Signup</NavLink>
@@ -23,7 +23,7 @@ function App() {
         <NavLink to="exercises">Exercises</NavLink>
         <NavLink to="products">Products</NavLink>
         <NavLink to="profile">Profile</NavLink>
-      </nav>
+      </nav> */}
 
       <Routes>
         <Route path="/" element={<Layout />}>

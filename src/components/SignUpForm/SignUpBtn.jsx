@@ -1,4 +1,3 @@
-import React from "react";
 import css from "./SignUpForm.module.css";
 
 export const SignUpBtn = () => {

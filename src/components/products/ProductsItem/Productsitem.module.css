@@ -1,0 +1,116 @@
+.products_card {
+  display: flex;
+  flex-direction: column;
+  max-width: 372px;
+  max-height: 141px;
+  padding: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
+}
+
+.products_card_diet {
+  display: inline-flex;
+  padding: 5px 7.5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: rgba(239, 237, 232, 0.05);
+  margin-right: 160px;
+}
+
+.products_card_diet_text {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.products_card_status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.products_card_info {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.products_card_info_item {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  color: rgba(239, 237, 232, 0.4);
+  font-size: 12px;
+  line-height: 18px; /* 150% */
+}
+
+.products_card_info_value {
+  color: var(--white);
+  font-size: 12px;
+  line-height: 18px; /* 150% */
+}
+
+.products_card_title {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--white);
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.products_card_title::before {
+  content: url(../../../assets/images/run-icon.svg);
+  display: block;
+  width: 24px;
+  height: 24px;
+
+  /* margin: 0; */
+}
+
+.products_card_btnAdd {
+  background: transparent;
+  border: none;
+  color: var(--primary-accent);
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.products_card_btnAdd::after {
+  content: url(../../../assets/images/arrow-products-icon.svg);
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  margin-top: -3px;
+}
+
+.products_status_recommended_text_true {
+  color: var(--white);
+  font-size: 12px;
+  line-height: 18px; /* 150% */
+  display: flex;
+  margin-right: 16px;
+  align-items: center;
+}
+
+.products_status_recommended_text_true::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  background: #419b09;
+  margin-right: 8px;
+}

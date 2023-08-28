@@ -5,6 +5,7 @@ import {
   loginThunk,
   logoutThunk,
 } from "./operations";
+import { token } from "@/services/privateAPI";
 
 export const userSlice = createSlice({
   name: "user",
@@ -13,18 +14,8 @@ export const userSlice = createSlice({
     name: "User",
     token: "",
     avatar: "",
-    loading: false,
-  },
-  reducers: {
-    nextPage: (state) => {
-      state.page = state.page + 1;
-    },
-    resetPage: (state) => {
-      state.page = 0;
-    },
-    updateFilter: (state, { payload }) => {
-      state.filter = payload;
-    },
+    isLoading: false,
+    isAuth: false,
   },
   extraReducers: (builder) =>
     builder
@@ -34,8 +25,8 @@ export const userSlice = createSlice({
       .addCase(loginThunk.pending, pending)
       .addCase(loginThunk.fulfilled, registerFulfilled)
       .addCase(loginThunk.rejected, rejected)
-      .addCase(refreshThunk.pending, pending)
-      .addCase(refreshThunk.fulfilled, updateUserFulfilled)
+      .addCase(refreshThunk.pending, pendingRefresh)
+      .addCase(refreshThunk.fulfilled, registerFulfilled)
       .addCase(refreshThunk.rejected, rejected)
       .addCase(logoutThunk.pending, pending)
       .addCase(logoutThunk.fulfilled, logout)
@@ -43,33 +34,35 @@ export const userSlice = createSlice({
 });
 
 function registerFulfilled(state, { payload }) {
-  state.loading = false;
+  state.isLoading = false;
+  state.isAuth = true;
   state.avatar = payload.avatar;
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
 }
 
-function updateUserFulfilled(state, { payload }) {
-  state.loading = false;
-  state.token = payload.token;
-}
-
 function logout(state) {
-  state.loading = false;
+  state.isLoading = false;
   state.avatar = "";
   state.name = "";
   state.token = "";
   state.email = "";
+  state.isAuth = false;
 }
 
 function rejected(state, { payload }) {
-  state.loading = false;
+  state.isLoading = false;
+  state.isAuth = false;
   console.error(`Error:${payload.message}`);
 }
 
 function pending(state) {
-  state.loading = true;
+  state.isLoading = true;
+}
+function pendingRefresh(state) {
+  state.isLoading = true;
+  token.set(state.token);
 }
 
 export const usersReducer = userSlice.reducer;

@@ -16,9 +16,15 @@
 .userNavItem {
   border: 1px solid #efede833;
   border-radius: 12px;
-  padding: 10px 27px;
+  overflow: hidden;
 }
 
 .userNavLink {
   display: block;
+  padding: 10px 27px;
+}
+
+.userNavLink:hover,
+.userNavLink:focus {
+  background-color: var(--primary-accent);
 }

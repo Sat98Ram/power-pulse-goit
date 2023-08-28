@@ -4,97 +4,69 @@ import { useMediaQuery } from "react-responsive";
 import ExercisesSubcategoriesItem from "../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem";
 import css from "./ExercisesSubcategoriesList.module.css";
 import Pagination from "../../Pagination/Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import { exerciseCategoriesThunk } from "../../../redux/exercises/operation";
+import { selectExercises } from "../../../redux/exercises/selectors";
 
-const data = [
-  "back",
-  "cardio",
-  "chest",
-  "lower arms",
-  "lower legs",
-  "neck",
-  "shoulders",
-  "upper arms",
-  "upper legs",
-  "waist",
-];
+const calculatePagination = (length, isTablet) => {
+  const limit = isTablet ? 9 : 10;
+  const page = Math.ceil(length / limit);
+  return { limit, page };
+};
+
+const CategoryPage = (isTablet, listCategory, currentPage) => {
+  if (!listCategory) {
+    return {};
+  }
+  const { limit, page } = calculatePagination(listCategory.length, isTablet);
+
+  const start = currentPage * limit - limit;
+  const finish = currentPage * limit;
+
+  return { list: listCategory.slice(start, finish), page };
+};
 
 const ExercisesSubcategoriesList = () => {
-  const [listCategory, setListCategory] = useState(null);
-  const [isDevice, setIsDevice] = useState(null);
-  const [isLimit, setLimit] = useState(null);
-  const [isPage, setIsPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const location = useLocation();
   const arrayLocation = location.pathname.split("/");
   const category = arrayLocation[arrayLocation.length - 1];
+  const dispatch = useDispatch();
 
-  const mobile = useMediaQuery({ maxWidth: 767.9 });
-  const tablet = useMediaQuery({ minWidth: 768, maxWidth: 1439.9 });
-  const desktop = useMediaQuery({ minWidth: 1440 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439.9 });
 
-  useEffect(() => {
-    setListCategory(data);
-  }, []);
+  const listCategory = useSelector(selectExercises);
+  const currentList = listCategory[category];
 
   useEffect(() => {
-    const Devise = () => {
-      if (mobile) {
-        return "mobile";
-      }
-      if (tablet) {
-        return "tablet";
-      }
-      if (desktop) {
-        return "desktop";
-      }
-    };
-    setIsDevice(Devise());
-  }, [mobile, tablet, desktop]);
+    dispatch(exerciseCategoriesThunk());
+  }, [dispatch]);
 
   useEffect(() => {
-    const limit = {
-      mobile: 10,
-      tablet: 9,
-      desktop: 10,
-    };
-
-    setLimit(limit[isDevice]);
-  }, [isDevice]);
-
-  useEffect(() => {
-    const reternMathPage = (number) => {
-      setIsPage(Math.ceil(number / isLimit));
-    };
-    reternMathPage(listCategory?.length);
-  }, [isLimit, listCategory]);
+    setCurrentPage(1);
+  }, [currentList]);
 
   const handleClickId = (page) => {
     setCurrentPage(page);
   };
 
-  const CategoryPage = (page, limit) => {
-    const start = page * limit - limit;
-    const finish = page * limit;
-    return listCategory?.slice(start, finish);
-  };
-  const isCategoryPage = CategoryPage(currentPage, isLimit);
+  const { list, page } = CategoryPage(isTablet, currentList, currentPage);
 
   return (
-    listCategory && (
+    list && (
       <div className={css.SubcategoriesList}>
         <ul className={css.exercisesList}>
-          {isCategoryPage.map((item) => (
+          {list.map((item) => (
             <ExercisesSubcategoriesItem
-              key={item}
-              item={item}
+              key={item.title}
+              item={item.title}
               category={category}
+              srcSet={item.srcSet}
             />
           ))}
         </ul>
-        {isPage > 1 && (
-          <Pagination handleClickId={handleClickId} page={isPage} />
-        )}
+        {page > 1 && <Pagination handleClickId={handleClickId} page={page} />}
       </div>
     )
   );

@@ -7,6 +7,11 @@ body {
 
 .cntr {
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
 }
 
 .btn_radio {

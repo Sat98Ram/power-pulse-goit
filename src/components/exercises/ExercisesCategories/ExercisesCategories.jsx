@@ -9,7 +9,7 @@ const ExercisesCategories = () => {
         <NavLink to="bodyparts" className={setActive}>
           <p>Body parts</p>
         </NavLink>
-        <NavLink to="muscles" className={setActive}>
+        <NavLink to="muscules" className={setActive}>
           <p>Muscles</p>
         </NavLink>
         <NavLink to="equipments" className={setActive}>

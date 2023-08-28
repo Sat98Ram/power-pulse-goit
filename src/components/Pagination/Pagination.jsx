@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 const Pagination = ({ page, handleClickId }) => {
   const IconGroup = (props) => {
     const { i, onClick } = props;
-    // const setActive = ({ isActive }) =>
-    //   isActive ? `${css.active} ${css.link_style} ` : `${css.link_style} `;
-    console.log("МАЛЮЮСЬ");
+    const setActive = ({ isActive }) =>
+      isActive ? `${css.active} ${css.link_style} ` : `${css.link_style} `;
+
     return (
       <label className={css.btn_radio}>
         <input

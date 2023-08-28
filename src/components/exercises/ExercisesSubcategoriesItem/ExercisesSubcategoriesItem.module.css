@@ -31,7 +31,7 @@
 
 @media screen and (min-width: 768px) {
   .subcategories_item {
-    width: 224px;
+    width: calc((100% - 32px) / 3);
     height: 206px;
   }
   .title {
@@ -41,6 +41,6 @@
 }
 @media screen and (min-width: 1440px) {
   .subcategories_item {
-    width: 237px;
+    width: calc((100% - 64px) / 5);
   }
 }

@@ -1,14 +1,32 @@
 import PropTypes from "prop-types";
 import css from "./Pagination.module.css";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
+import "./index.css";
 
 const Pagination = ({ page, handleClickId }) => {
   const IconGroup = (props) => {
     const { i, onClick } = props;
-    const setActive = ({ isActive }) =>
-      isActive ? `${css.active} ${css.link_style} ` : `${css.link_style} `;
+    // const setActive = ({ isActive }) => {
+    //   console.log("isActive", isActive);
+    //   return isActive ? `${css.active} ${css.cntr} ` : `${css.cntr} `;
+    // };
 
     return (
+      // <>
+      //   <input type="radio" id={i} name="contact" value="email" checked />
+      //   <label for={i}>Email</label>
+      // </>
+
+      // <>
+      //   <input type="radio" className="hidden" id={i} name="inputs" />
+      //   <label className="entry" for={i}>
+      //     <div className="circle"></div>
+      //   </label>
+
+      //   <div className="highlight"></div>
+      //   <div className="overlay"></div>
+      // </>
+
       <label className={css.btn_radio}>
         <input
           type="radio"
@@ -28,9 +46,9 @@ const Pagination = ({ page, handleClickId }) => {
           ></path>
         </svg>
       </label>
-      //   <NavLink onClick={() => onClick(i)} className={setActive}>
-      //     X{i}
-      //   </NavLink>
+      // <NavLink to="#" onClick={() => onClick(i)} className={setActive}>
+      //   X
+      // </NavLink>
     );
   };
   const forEachIcon = (page) => {

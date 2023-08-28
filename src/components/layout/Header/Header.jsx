@@ -1,3 +1,5 @@
+import { useMediaQuery } from "react-responsive";
+
 import Container from "../../Container/Container";
 import UserNav from "../UserNav/UserNav";
 import css from "./Header.module.css";
@@ -5,6 +7,8 @@ import UserBar from "../UserBar/UserBar";
 import Logo from "../Logo/Logo";
 
 const Header = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <header className={css.header}>
       <Container>
@@ -13,7 +17,8 @@ const Header = () => {
 
           {/* {isAuth} */}
           <div className={css.authUser}>
-            <UserNav />
+            {isDesktop && <UserNav />}
+            {/* <UserNav /> */}
             <UserBar />
           </div>
         </div>

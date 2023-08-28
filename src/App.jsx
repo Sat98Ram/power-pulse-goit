@@ -10,8 +10,17 @@ import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
 import Page404 from "./components/Page404/Page404";
 import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { refreshThunk } from "./redux/auth/operations";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
     <>
       <nav className="tempNav">

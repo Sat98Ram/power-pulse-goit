@@ -8,7 +8,7 @@ const ModalLogOut = ({ logout }) => {
       <h3>Do you want to logout?</h3>
 
       <button type="button" onClick={logout} className={css.btnModalLogout}>
-        Log out
+        Logout
       </button>
     </div>
   );

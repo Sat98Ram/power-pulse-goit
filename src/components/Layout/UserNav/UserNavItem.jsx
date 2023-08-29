@@ -9,7 +9,7 @@ const UserNavItem = ({ link, label }) => {
       <NavLink
         to={link}
         className={({ isActive }) =>
-          isActive ? "css.userNavLinkActive" : "css.userNavLink"
+          isActive ? css.userNavLinkActive : css.userNavLink
         }
       >
         {label}

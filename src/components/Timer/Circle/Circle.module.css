@@ -13,6 +13,6 @@
 .timerProgressCircleSec {
     fill: transparent;
     stroke-width: 4;
-    stroke: #e6533c;
+    stroke: var(--primary-accent);
     transition: stroke-dashoffset .25s linear;
 }

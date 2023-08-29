@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
-import exercise from "../../assets/images/desktop/excersises@2x/waist@2x.jpg";
 import css from "./ExersiceModalWindow.module.css";
 import Timer from "../Timer/Timer";
+// import { exerciseListThunk } from "../../redux/exercises/operation";
+// import { selectExerciseList } from "../../redux/exercises/selectors";
+import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
 
 export const ExersiceModalWindow = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const params = {
+    bodyPart: "back",
+    burnedCalories: 307,
+    equipment: "barbell",
+    gifUrl:
+      "https://res.cloudinary.com/ditdqzoio/image/upload/v1687127066/exercises/0037.gif",
+    name: "barbell decline",
+    target: "lats",
+    time: 3,
+    _id: "64e5d7a0bc1733080d78435f",
+  };
+  // const dispatch = useDispatch();
+
+  // const exercises = useSelector(selectExerciseList);
+  // console.log(exercises);
+
+  // useEffect(() => {
+  //   dispatch(exerciseListThunk());
+  // }, [dispatch]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -24,36 +46,15 @@ export const ExersiceModalWindow = () => {
             <div className={css.ExersiceModalWindow}>
               <img
                 className={css.ExersiceModalWindowImg}
-                src={exercise}
+                src={params.gifUrl}
                 alt="exercise"
               />
-              <ul className={css.ExersiceModalWindowList}>
-                <li className={css.ExersiceModalWindowLink}>
-                  <p className={css.ExersiceModalWindowLinkSub}>Name</p>
-                  <p className={css.ExersiceModalWindowLinkTitle}>Air bake</p>
-                </li>
-                <li className={css.ExersiceModalWindowLink}>
-                  <p className={css.ExersiceModalWindowLinkSub}>Target</p>
-                  <p className={css.ExersiceModalWindowLinkTitle}>Abs</p>
-                </li>
-                <li className={css.ExersiceModalWindowLink}>
-                  <p className={css.ExersiceModalWindowLinkSub}>Body Part</p>
-                  <p className={css.ExersiceModalWindowLinkTitle}>Waist</p>
-                </li>
-                <li className={css.ExersiceModalWindowLink}>
-                  <p className={css.ExersiceModalWindowLinkSub}>Equipment</p>
-                  <p className={css.ExersiceModalWindowLinkTitle}>
-                    Body weight
-                  </p>
-                </li>
-                <li className={css.ExersiceModalWindowLink}>
-                  <p className={css.ExersiceModalWindowLinkSub}>Time</p>
-                  <p className={css.ExersiceModalWindowLinkTitle}>3 minutes</p>
-                </li>
-              </ul>
+              <div className={css.SubcategoriesList}>
+                <ExersiceModalWindowList name={params.name} bodypart={params.bodyPart} target={params.target} equipment={params.equipment} time={params.time} />
+              </div>
             </div>
             <div className={css.ExersiceModalWindowTimer}>
-              <Timer />
+              <Timer burnedCalories={params.burnedCalories} />
               <button className={css.ExersiceModalWindowBtn}>
                 Add to diary
               </button>

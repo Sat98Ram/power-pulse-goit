@@ -8,7 +8,6 @@
 
 .timerTitle {
   color: rgba(239, 237, 232, 0.4);
-  font-family: Roboto;
   font-size: 10px;
   font-weight: 400;
   line-height: 14px;
@@ -16,8 +15,7 @@
 }
 
 .timerTime {
-  color: #efede8;
-  font-family: Roboto;
+  color: var(--white);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -26,7 +24,7 @@
 }
 
 .timerBtn {
-  background-color: #e6533c;
+  background-color: var(--primary-accent);
   margin-bottom: 8px;
   padding: 10px;
   border-radius: 5px;
@@ -52,8 +50,7 @@
 }
 
 .timerSub {
-  color: #e6533c;
-  font-family: Roboto;
+  color: var(--primary-accent);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -78,5 +75,5 @@
 .timerProgressCircleSec {
   fill: transparent;
   stroke-width: 4;
-  stroke: #e6533c;
+  stroke: var(--primary-accent);
 }

@@ -3,7 +3,7 @@ import css from "./Timer.module.css";
 import symbolDefs from "../../assets/images/symbol-defs.svg";
 import Circle from "./Circle/Circle";
 
-const Timer = () => {
+const Timer = ({burnedCalories}) => {
   const [fullTime, setFullTime] = useState(180);
   const [currentTime, setCurrentTime] = useState(180);
   const [isRunning, setIsRunning] = useState(false);
@@ -49,7 +49,7 @@ const Timer = () => {
       </button>
       <p className={css.timerTxt}>
         Burned calories:
-        <span className={css.timerSub}>150</span>
+        <span className={css.timerSub}> {burnedCalories}</span>
       </p>
     </div>
   );

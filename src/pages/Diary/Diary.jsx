@@ -1,7 +1,9 @@
+import DayExercises from "../../components/diary/DayExercises/DayExercises";
+
 const Diary = () => {
   return (
     <>
-      <p>Diary page</p>
+      <DayExercises></DayExercises>
     </>
   );
 };

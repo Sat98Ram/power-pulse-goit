@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import ExercisesSubcategoriesItem from "../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem";
 import css from "./ExercisesSubcategoriesList.module.css";
-import Pagination from "../../Pagination/Pagination";
-import { useDispatch, useSelector } from "react-redux";
+
 import { exerciseCategoriesThunk } from "../../../redux/exercises/operation";
 import { selectExercises } from "../../../redux/exercises/selectors";
+
+import RadioButtonPagination from "../../RadioButtonPagination/RadioButtonPagination";
 
 const calculatePagination = (length, isTablet) => {
   const limit = isTablet ? 9 : 10;
@@ -66,7 +68,14 @@ const ExercisesSubcategoriesList = () => {
             />
           ))}
         </ul>
-        {page > 1 && <Pagination handleClickId={handleClickId} page={page} />}
+
+        {page > 1 && (
+          <RadioButtonPagination
+            handleClickId={handleClickId}
+            page={page}
+            currentPage={currentPage}
+          />
+        )}
       </div>
     )
   );

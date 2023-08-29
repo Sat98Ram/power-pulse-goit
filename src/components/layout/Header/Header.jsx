@@ -8,10 +8,12 @@ import Logo from "../Logo/Logo";
 import { useState } from "react";
 import ModalLogOut from "../ModalLogOut/ModalLogOut";
 import BasicModalWindow from "../../BasicModalWindow/BasicModalWindow";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutThunk } from "../../../redux/auth/operations";
+import { selectIsAuth } from "../../../redux/auth/selectors";
 
 const Header = () => {
+  const isAuth = useSelector(selectIsAuth);
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
 
   const [isModalLogout, setIsModalLogout] = useState(false);
@@ -27,17 +29,19 @@ const Header = () => {
 
   return (
     <>
-      <header className={css.header}>
+      <header className={isAuth ? css.headerAuth : css.headerNotAuth}>
         <Container>
           <div className={css.headerContent}>
             <Logo className={css.headerLogoIcon} />
 
             {/* {isAuth} */}
-            <div className={css.authUser}>
-              {isDesktop && <UserNav />}
-              {/* <UserNav /> */}
-              <UserBar onClick={showModalLogOut} />
-            </div>
+            {isAuth && (
+              <div className={css.authUser}>
+                {isDesktop && <UserNav />}
+                {/* <UserNav /> */}
+                <UserBar onClick={showModalLogOut} />
+              </div>
+            )}
           </div>
         </Container>
       </header>

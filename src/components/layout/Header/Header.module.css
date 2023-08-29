@@ -1,7 +1,12 @@
-.header {
+.headerAuth {
   box-sizing: border-box;
   padding: 12px 0;
   border-bottom: 1px solid #efede833;
+}
+
+.headerNotAuth {
+  position: fixed;
+  top: 32px;
 }
 
 .headerContent {

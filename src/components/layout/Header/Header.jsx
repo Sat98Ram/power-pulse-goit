@@ -8,15 +8,21 @@ import Logo from "../Logo/Logo";
 import { useState } from "react";
 import ModalLogOut from "../ModalLogOut/ModalLogOut";
 import BasicModalWindow from "../../BasicModalWindow/BasicModalWindow";
+import { useDispatch } from "react-redux";
+import { logoutThunk } from "../../../redux/auth/operations";
 
 const Header = () => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
 
   const [isModalLogout, setIsModalLogout] = useState(false);
+  const dispatch = useDispatch();
+
+  const showModalLogOut = () => {
+    setIsModalLogout(!isModalLogout);
+  };
 
   const handleLogOut = () => {
-    setIsModalLogout(!isModalLogout);
+    dispatch(logoutThunk());
   };
 
   return (
@@ -30,14 +36,14 @@ const Header = () => {
             <div className={css.authUser}>
               {isDesktop && <UserNav />}
               {/* <UserNav /> */}
-              <UserBar onClick={handleLogOut} />
+              <UserBar onClick={showModalLogOut} />
             </div>
           </div>
         </Container>
       </header>
       {isModalLogout && (
-        <BasicModalWindow isOpenModalToggle={handleLogOut}>
-          <ModalLogOut />
+        <BasicModalWindow isOpenModalToggle={showModalLogOut}>
+          <ModalLogOut logout={handleLogOut} />
         </BasicModalWindow>
       )}
     </>

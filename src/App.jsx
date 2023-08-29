@@ -9,20 +9,34 @@ import Exercises from "./pages/Exercices/Exercices";
 import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
 import Page404 from "./components/Page404/Page404";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { refreshThunk } from "./redux/auth/operations";
+import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
+// import { useEffect } from "react";
+// import { useDispatch } from "react-redux";
+// import { loginThunk, refreshThunk } from "./redux/auth/operations";
+// import { SignBtn } from "./components/SignBtn/SignBtn";
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(refreshThunk());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshThunk());
+  // }, [dispatch]);
 
   return (
     <>
-      <nav className="tempNav">
+      {/* <SignBtn
+        text="Login"
+        onClick={() =>
+          dispatch(
+            loginThunk({
+              email: "newemail@example.com",
+              password: "abcdef6",
+            })
+          )
+        }
+      /> */}
+
+      {/* <nav className="tempNav">
         <NavLink to="/">Home</NavLink>
         <NavLink to="welcome">Welcome</NavLink>
         <NavLink to="signup">Signup</NavLink>
@@ -32,7 +46,7 @@ function App() {
         <NavLink to="exercises">Exercises</NavLink>
         <NavLink to="products">Products</NavLink>
         <NavLink to="profile">Profile</NavLink>
-      </nav>
+      </nav> */}
 
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -47,7 +61,12 @@ function App() {
           <Route index element={<Navigate to="diary" />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/exercises" element={<Exercises />} />
+          <Route path="exercises" element={<Exercises />}>
+            <Route index element={<Navigate to="bodyparts" />} />
+            <Route path="bodyparts" element={<ExercisesSubcategoriesList />} />
+            <Route path="muscules" element={<ExercisesSubcategoriesList />} />
+            <Route path="equipments" element={<ExercisesSubcategoriesList />} />
+          </Route>
           <Route path="/params" element={<Params />} />
           <Route path="/profile" element={<Profile />} />
           {/* </Route> */}

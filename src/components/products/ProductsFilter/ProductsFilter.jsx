@@ -1,30 +1,27 @@
+import symbolDefs from "@/assets/images/symbol-defs.svg"
 import css from "./ProductsFilter.module.css"
 import Select from "react-select"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { productCategoriesThunk } from "../../../redux/products/operation"
+import { capitalizeFirstLeter } from "../../../helpers/capitalizeFirstLeter"
+import { selectCategoriesProducts } from "../../../redux/products/selectors"
+
+const optionsRec = [
+  { value: "all", label: "All" },
+  { value: "recommended", label: "Recommended " },
+  { value: "notRecommended", label: "Not recommended" },
+]
 
 export const ProductsFilter = () => {
-  const optionsCategories = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    // .map(el=>{{ value: `${el.value}`, label: `${el.value}` }})
-  ]
-  const optionsRec = [
-    { value: "all", label: "All" },
-    { value: "recommended", label: "Recommended " },
-    { value: "notRecommended", label: "Not recommended" },
-  ]
+  const dispatch = useDispatch()
+  const categoriesList = useSelector(selectCategoriesProducts)?.map((el) => ({
+    value: el,
+    label: capitalizeFirstLeter(el),
+  }))
+  useEffect(() => {
+    dispatch(productCategoriesThunk())
+  }, [dispatch])
 
   const customStyles = {
     control: (provided) => ({
@@ -83,9 +80,24 @@ export const ProductsFilter = () => {
   return (
     <ul className={css.products_filter}>
       <li>
-        <input type="text" />
-        <button type="button">X</button>
-        <button type="button">S</button>
+        <input type="text" className={css.products_filter_search} placeholder="Search" />
+        <button
+          className={`${css.products_filter_btn_close} ${css.products_filter_btn}`}
+          type="button"
+        >
+          <svg className={css.products_filter_btn_close_icon}>
+            <use href={symbolDefs + "#close-icon"}></use>
+          </svg>
+          {/* <svg className={css.logoutIcon}>
+            <use href={symbolDefs + "#log-out-icon"}></use>
+          </svg> */}
+        </button>
+        <button
+          className={`${css.products_filter_btn_search} ${css.products_filter_btn}`}
+          type="button"
+        >
+          S
+        </button>
       </li>
       <li>
         <Select
@@ -105,7 +117,7 @@ export const ProductsFilter = () => {
           })}
           styles={customStyles}
           className={css.products_filter_select}
-          options={optionsCategories}
+          options={categoriesList || []}
         />
       </li>
       <li>
@@ -115,13 +127,13 @@ export const ProductsFilter = () => {
 
             colors: {
               ...theme.colors,
-              primary50: "rgba(255, 255, 255, 0.10)",
+              primary50: "rgba(255, 255, 255, 0.10)", // Цвет фона при нажатии на селект в меню
               primary: "transparent",
-              neutral40: "rgba(255, 255, 255, 0.60)", // ховер на птичку
-              neutral20: "transparent", // бордер
-              neutral30: "transparent", // ховер бордер
-              neutral50: "rgba(255, 255, 255, 0.6)", // цвет плейсхолдера
-              neutral80: "rgba(255, 255, 255, 0.6)",
+              neutral40: "#EFEDE8", // ховер на птичку
+              neutral20: "transparent", // дефолтный бордер
+              neutral30: "transparent", // дефолтный ховер бордер
+              neutral50: "rgba(239, 237, 232, 1)", // цвет плейсхолдера
+              neutral80: "rgba(239, 237, 232, 1)",
             },
           })}
           styles={customStyles}

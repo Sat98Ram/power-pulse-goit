@@ -169,8 +169,6 @@ import imgupperLegsx2 from "@/assets/images/desktop/excersises@2x/upper-legs@2x.
 import imgwaist from "@/assets/images/desktop/excersises@1x/waist@1x.jpg";
 import imgwaistx2 from "@/assets/images/desktop/excersises@2x/waist@2x.jpg";
 
-// import img from "../assets/images/desktop/excersises@2x/wa";
-
 export const exercisesImages = {
   abductors: {
     imgUrl: imgAbductor,

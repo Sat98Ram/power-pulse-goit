@@ -1,0 +1,30 @@
+.primary {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+    /* background-image: url(); */
+}
+
+.paginationWraper {
+    display: flex;
+    gap: 14px;
+}
+
+.pagination {
+    margin-top: 50px;
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #303030;
+}
+
+.paginationActive {
+    composes: pagination;
+    background-color: #EF8964;
+    box-shadow: 0px 1px 10px 0px rgba(230, 83, 60, 0.80);
+}
+
+.paginationCompleted {
+    composes: pagination;
+    background-color: #EFA082;
+}

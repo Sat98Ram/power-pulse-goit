@@ -1,0 +1,20 @@
+.radioGroup {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+.input {
+    border-radius: 12px;
+    border: 1px solid #E6533C;
+    width: 155px;
+    height: 46px;
+    background-color: transparent;
+    color: rgba(239, 237, 232, 0.6);
+    padding: 0 14px;
+}
+
+.stepOne {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}

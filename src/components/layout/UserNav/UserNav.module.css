@@ -13,18 +13,17 @@
   gap: 16px;
 }
 
-.userNavItem {
+.userNavLink,
+.userNavLinkActive {
   border: 1px solid #efede833;
   border-radius: 12px;
-  overflow: hidden;
-}
-
-.userNavLink {
   display: block;
   padding: 10px 27px;
 }
 
 .userNavLink:hover,
-.userNavLink:focus {
+.userNavLink:focus,
+.userNavLinkActive {
   background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
 }

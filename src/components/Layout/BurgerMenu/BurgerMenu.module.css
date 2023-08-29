@@ -1,0 +1,17 @@
+.burgerIcon {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .burgerIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.menuBtn,
+.openMenuBtn {
+  background: none;
+  padding: 0;
+}

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { exerciseCategoriesThunk, exerciseListThunk } from "./operation";
+import { exercisesImages } from "../../constants/exercisesImg";
 
 export const exrcisesSlice = createSlice({
   name: "exercises",
@@ -26,9 +27,19 @@ function pending(state) {
 }
 
 function categoryFulfilled(state, { payload }) {
-  state.bodyparts = payload.bodyparts;
-  state.muscules = payload.muscles;
-  state.equipments = payload.equipments;
+  state.bodyparts = payload.bodyparts.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
+  state.muscules = payload.muscles.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
+  state.equipments = payload.equipments.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
+
   state.isLoading = false;
 }
 

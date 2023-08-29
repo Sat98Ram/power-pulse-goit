@@ -1,5 +1,5 @@
 import axios from "axios";
-import { token } from "./privatAPI";
+import { token } from "./privateAPI";
 
 const publicAPI = axios.create({
   baseURL: "https://powerpulse-y0gd.onrender.com/",

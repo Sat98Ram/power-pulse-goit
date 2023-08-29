@@ -1,0 +1,25 @@
+.closeSvg {
+  width: 22px;
+  height: 22px;
+  background: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* fill: #efede8; */
+}
+.svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2px;
+  stroke: #efede8;
+}
+
+@media screen and (min-width: 768px) {
+  .closeSvg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

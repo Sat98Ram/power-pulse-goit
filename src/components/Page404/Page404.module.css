@@ -1,57 +1,103 @@
-.page404 {
-  min-width: 280px;
-  height: 100vh;
-  display: flex;
+.section {
+  background-image: url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  color: #efede8;
+  background-repeat: no-repeat;
+  background-position: bottom 0 right -40%;
   margin: 0 auto;
+  position: relative;
+  height: 100vh;
+  /* background-size: cover; */
 }
 
 .left {
-  flex: 2;
+  /* flex: 2; */
   background: #e6533c;
+  max-width: calc(64%);
+  height: 100%;
+  box-sizing: border-box;
+  padding: 24px 20px;
+  display: flex;
+}
+.content {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
-  height: 100vh;
+.title404 {
+  font-size: 66px;
+
+  line-height: 1;
+  letter-spacing: 0.66px;
 }
-.container404 {
-  padding: 0 20px;
+.text404 {
+  width: 200px;
+  font-size: 14px;
+  margin-top: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: calc(18 / 14);
 }
-.rigth {
-  flex: 1;
-  background: rgb(48, 47, 47);
-  height: 100vh;
+.btn {
+  margin-top: 28px;
+}
+.btnLogo {
+  background: transparent;
+  position: absolute;
+  left: 20px;
+  top: 24px;
 }
 
 @media screen and (min-width: 375px) {
-  .page404 {
-    width: 375px;
+  .section {
+    max-width: 375px;
   }
 }
 @media screen and (min-width: 768px) {
-  .page404 {
+  .section {
+    max-width: none;
     width: 768px;
+    background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
+    background-position: bottom 0 right 0%;
   }
-  .container404 {
-    padding: 0 32px;
+
+  .title404 {
+    font-size: 160px;
+    line-height: calc(150 / 160);
+    letter-spacing: 1.6px;
+  }
+  .text404 {
+    width: 356px;
+    font-size: 16px;
+    margin-top: 28px;
+    line-height: calc(24 / 16);
   }
   .left {
-    flex: none;
+    max-width: none;
     width: 420px;
-  }
-  .rigth {
-    width: 348px;
-    flex: none;
+    padding: 32 32px;
   }
 }
 @media screen and (min-width: 1440px) {
-  .page404 {
+  .section {
     width: 1440px;
+    height: 800px;
+    background-image: url(../../assets/images/desktop/other@1x/side-view-people-training-gym@1x.jpg);
   }
-  .container404 {
-    padding: 0 96px;
+
+  .text404 {
+    width: 477px;
   }
   .left {
     width: 669px;
+    padding: 32px 96px;
   }
-  .rigth {
-    width: 771px;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .img_url {
+    background-image: url(../../assets/images/mobile/other@2x/side-view-people-training-gym@2x.jpg);
   }
 }

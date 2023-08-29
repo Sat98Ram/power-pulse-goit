@@ -1,0 +1,19 @@
+.logoutBtn {
+  background-color: transparent;
+  color: inherit;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.logoutIcon {
+  fill: var(--primary-accent);
+  width: 20px;
+  height: 20px;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+  color: var(--primary-accent);
+}

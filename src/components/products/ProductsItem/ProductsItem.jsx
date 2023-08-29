@@ -4,40 +4,34 @@ export const ProductsItem = ({ el }) => {
   const onClickAdd = () => {
     console.log("click")
   }
+
   return (
     <li className={css.products_card}>
       <div className={css.products_card_status}>
         <span className={css.products_card_diet}>
           <p className={css.products_card_diet_text}>diet</p>
         </span>
-        {/* <div> */}
-        {/* <span
+        <div className={css.products_card_status_cont}>
+          <p
             className={
-              (el.groupBloodNotAllowed
-                ? css.products_status_recommended_color_green
-                : css.products_status_recommended_color_red) ||
-              css.products_status_recommended_color_red
+              Object.values(el.groupBloodNotAllowed).some((el) => el === true)
+                ? css.products_status_recommended_text_true
+                : css.products_status_recommended_text_false
             }
-          ></span> */}
-        <p
-          className={
-            (el.groupBloodNotAllowed
-              ? css.products_status_recommended_text_true
-              : css.products_status_recommended_text_falce) ||
-            css.products_status_recommended_text_true
-          }
-        >
-          {el.groupBloodNotAllowed ? "Recommended" : "Not recommended"}
-        </p>
-        {/* </div> */}
-        <button onClick={onClickAdd} className={css.products_card_btnAdd} type="button">
-          Add
-        </button>
-      </div>
+          >
+            {Object.values(el.groupBloodNotAllowed).some((el) => el === true)
+              ? "Recommended"
+              : "Not recommended"}
+          </p>
 
+          <button onClick={onClickAdd} className={css.products_card_btnAdd} type="button">
+            Add
+          </button>
+        </div>
+      </div>
       <h4 className={css.products_card_title}>
         {(el.title &&
-          (el.title.length > 27
+          (el.title.length > 15
             ? el.title.slice(0, 27).charAt(0).toUpperCase() + el.title.slice(1, 27) + "..."
             : el.title.charAt(0).toUpperCase() + el.title.slice(1))) ||
           "Title"}

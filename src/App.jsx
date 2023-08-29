@@ -10,17 +10,17 @@ import Params from "./pages/Params/Params";
 import Profile from "./pages/Profile/Profile";
 import Page404 from "./components/Page404/Page404";
 import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { loginThunk, refreshThunk } from "./redux/auth/operations";
-import { SignBtn } from "./components/SignBtn/SignBtn";
+// import { useEffect } from "react";
+// import { useDispatch } from "react-redux";
+// import { loginThunk, refreshThunk } from "./redux/auth/operations";
+// import { SignBtn } from "./components/SignBtn/SignBtn";
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(refreshThunk());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshThunk());
+  // }, [dispatch]);
 
   return (
     <>

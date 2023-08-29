@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <SignBtn
+      {/* <SignBtn
         text="Login"
         onClick={() =>
           dispatch(
@@ -34,7 +34,7 @@ function App() {
             })
           )
         }
-      />
+      /> */}
 
       <nav className="tempNav">
         <NavLink to="/">Home</NavLink>

@@ -1,15 +1,19 @@
-@media screen and (min-width: 1440px){
-    .products_section{
-        background: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0.00) 100%), url(../../assets/images/desktop/other@1x/side-view-people-training-gym-5@1x.jpg);
-        background-repeat: no-repeat;
-        background-position: right;
-        padding-top: 68px;
-        padding-bottom: 81px;
-    }
-    .products_title{
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 44px;
-        color: var(--white);
-    }
+@media screen and (min-width: 1440px) {
+  .products_section {
+    background: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
+      url(../../assets/images/desktop/other@1x/side-view-people-training-gym-5@1x.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-top: 68px;
+    padding-bottom: 81px;
+    position: relative;
+  }
+  .products_title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    color: var(--white);
+    position: absolute;
+    top: 72px;
+  }
 }

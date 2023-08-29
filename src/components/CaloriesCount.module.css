@@ -1,35 +1,40 @@
-.videoCountBox {
+.caloriesCountBox {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   gap: 8px;
   border-radius: 12px;
-  background: var(--grey-background);
-  width: 146px;
-  height: 66px;
+  background: var(--secondary-accent);
+  width: 101px;
+  height: 76px;
+  padding-left: 18px;
 }
-.videoCountBack {
+.caloriesCountBack {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30px;
   height: 30px;
-  background-color: var(--secondary-accent);
+  background-color: var(--beige-accent);
   border-radius: 50%;
 }
 
-.videoCount {
+.caloriesCount {
   color: var(--white);
   font-family: Roboto;
   font-size: 16px;
   font-weight: 700;
   line-height: calc(18 / 16);
 }
-.videoTutorial {
+.caloriesTutorial {
   color: rgba(239, 237, 232, 0.65);
   font-family: Roboto;
   font-size: 12px;
   line-height: calc(16 / 12);
+}
+.caloriesContent {
+  gap: 8px;
+  display: flex;
+  flex-wrap: nowrap;
 }

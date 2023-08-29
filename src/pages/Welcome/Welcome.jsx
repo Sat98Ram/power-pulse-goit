@@ -3,6 +3,7 @@ import SignInBtn from "../../components/SignInForm/SignInBtn";
 import SignUpBtn from "../../components/SignUpForm/SignUpBtn";
 import VideoCount from "../../components/VideoCount";
 import css from "./Welcome.module.css";
+import { NavLink } from "react-router-dom";
 import symbolDefs from "../../assets/images/symbol-defs.svg";
 const Welcome = () => {
   return (
@@ -15,8 +16,12 @@ const Welcome = () => {
         <use href={symbolDefs + "#line-icon"}></use>
       </svg>
       <div className={css.buttonsLine}>
-        <SignUpBtn />
-        <SignInBtn />
+        <NavLink to="/signup">
+          <SignUpBtn />
+        </NavLink>
+        <NavLink to="signin">
+          <SignInBtn />
+        </NavLink>
       </div>
       <VideoCount />
       <CaloriesCount />

@@ -9,6 +9,7 @@
   background: var(--grey-background);
   width: 146px;
   height: 66px;
+  margin-left: 121px;
 }
 .videoCountBack {
   display: flex;

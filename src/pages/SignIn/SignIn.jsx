@@ -1,23 +1,28 @@
 import { NavLink } from "react-router-dom";
+import CaloriesCount from "../../components/CaloriesCount";
 import SignInForm from "../../components/SignInForm/SignInForm";
+import VideoCount from "../../components/VideoCount";
 import css from "./SignIn.module.css";
-import symbolDefs from "../../assets/images/symbol-defs.svg";
+
 export const SignIn = () => {
   return (
     <section className={css.wrapper}>
       <div className={css.container}>
         <div className={css.screen}>
           <div className={css.screen__content}>
-            <NavLink to="/" className={css.logo}>
-              <svg className={css.logoSvg}>
-                <use href={symbolDefs + "#power-pulse"}></use>
-              </svg>
-              <svg className={css.logoSvg}>
-                <use href={symbolDefs + "#gantelya"}></use>
-              </svg>
-            </NavLink>
-            <h1 className={css.title}>Sign Up</h1>
+            <h2>Sign in</h2>
+            <p className={css.enterText}>
+              Please enter your credentials to login to the platform:
+            </p>
             <SignInForm />
+            <p className={css.noaccount}>
+              Don't have an account?
+              <NavLink to="/signup">
+                <span>Sign Up</span>
+              </NavLink>
+            </p>
+            <VideoCount />
+            <CaloriesCount />
           </div>
         </div>
       </div>

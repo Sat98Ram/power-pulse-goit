@@ -24,42 +24,41 @@ export const SignInForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    const { confirmPassword, ...payload } = values;
+    const { ...payload } = values;
     dispatch(registerThunk(payload));
   };
 
   const formik = useFormik({
     initialValues: {
-      username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
     validationSchema,
     onSubmit,
   });
+
   return (
-    <form className={css.login} onSubmit={formik.handleSubmit}>
-      <div className={css.login__field}>
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          autoComplete="username"
-          className={css.login__input}
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-      </div>
+    <form className={css.signin} onSubmit={formik.handleSubmit}>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        autoComplete="username"
+        className={css.signin__input}
+        onChange={formik.handleChange}
+        value={formik.values.email}
+      />
+
       {formik.touched.email && formik.errors.email ? (
         <div className={css.error_message}>{formik.errors.email}</div>
       ) : null}
+
       <input
         type="password"
         name="password"
         placeholder="Password"
         autoComplete="new-password"
-        className={css.login__input}
+        className={css.signin__input}
         onChange={formik.handleChange}
         value={formik.values.password}
       />
@@ -67,36 +66,7 @@ export const SignInForm = () => {
       {formik.touched.password && formik.errors.password ? (
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirm password"
-        autoComplete="new-password"
-        className={css.login__input}
-        onChange={formik.handleChange}
-        value={formik.values.confirmPassword}
-      />
 
-      {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-        <div className={css.error_message}>{formik.errors.confirmPassword}</div>
-      ) : null}
-
-      <input
-        type="text"
-        name="username"
-        placeholder="First name"
-        autoComplete="username"
-        className={css.login__input}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.username}
-      />
-
-      {formik.touched.username && formik.errors.username ? (
-        <div className={css.error_wrapper}>
-          <div className={css.error_message}>{formik.errors.username}</div>
-        </div>
-      ) : null}
       <SignInBtn />
     </form>
   );

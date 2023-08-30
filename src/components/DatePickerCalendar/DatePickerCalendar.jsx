@@ -219,13 +219,13 @@ const DatePickerPopupContent = ({
     onChange(new Date(item.year, item.month, item.date));
   };
 
-  const nextYear = () => {
-    setPanelYear(panelYear + 1);
-  };
+  // const nextYear = () => {
+  //   setPanelYear(panelYear + 1);
+  // };
 
-  const prevYear = () => {
-    setPanelYear(panelYear - 1);
-  };
+  // const prevYear = () => {
+  //   setPanelYear(panelYear - 1);
+  // };
 
   const nextMonth = () => {
     if (panelMonth === 11) {
@@ -363,6 +363,15 @@ const DatePickerPopupContent = ({
 
 DatePickerCalendar.propTypes = {
   value: PropTypes.Date,
+  onChange: PropTypes.func,
+  min: PropTypes.Date | undefined,
+  max: PropTypes.Date | undefined,
+  // selectedValue: PropTypes.any,
+};
+
+DatePickerPopupContent.propTypes = {
+  selectedValue: PropTypes.string,
+  inputValueDate: PropTypes.Date,
   onChange: PropTypes.func,
   min: PropTypes.Date | undefined,
   max: PropTypes.Date | undefined,

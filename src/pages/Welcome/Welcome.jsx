@@ -19,7 +19,7 @@ const Welcome = () => {
         <NavLink to="/signup">
           <SignUpBtn />
         </NavLink>
-        <NavLink to="signin">
+        <NavLink to="/signin">
           <SignInBtn />
         </NavLink>
       </div>

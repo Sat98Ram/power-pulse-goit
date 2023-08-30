@@ -23,11 +23,11 @@ const DayExercises = () => {
     })
   return (
     <div className={styles.DayExercises}>
-        <div className={styles.DayExercisesHead}><h2>Products</h2><p>Add product</p></div>
+        <div className={styles.DayExercisesHead}><h2>Exercises</h2><p>Add exercise</p></div>
         <div className={styles.DayExercisesTable}>
             <table>
                 <thead>
-                    <tr>
+                    <tr></tr>
                         <th className={styles.thBodyPart}>Body Part</th>
                         <th className={styles.thEquipment}>Equipment</th>
                         <th className={styles.thName}>Name</th>

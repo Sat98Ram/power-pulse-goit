@@ -13,6 +13,7 @@ import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcateg
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "./redux/auth/operations";
+
 import { ExercisesList } from "./components/exercises/ExercisesList/ExercisesList";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";

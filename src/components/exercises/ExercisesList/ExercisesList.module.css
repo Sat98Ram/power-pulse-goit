@@ -1,0 +1,16 @@
+.wrapper {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100vh - 312px);
+    gap: 32px 16px;
+  }
+}

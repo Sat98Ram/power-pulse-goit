@@ -9,7 +9,7 @@ export const exrcisesSlice = createSlice({
     equipments: [],
     muscules: [],
     exerciseList: [],
-    selectedCategory: {},
+    selectedCategory: "",
     isLoading: false,
   },
   extraReducers: (builder) =>
@@ -17,12 +17,15 @@ export const exrcisesSlice = createSlice({
       .addCase(exerciseCategoriesThunk.pending, pending)
       .addCase(exerciseCategoriesThunk.fulfilled, categoryFulfilled)
       .addCase(exerciseCategoriesThunk.rejected, rejected)
-      .addCase(exerciseListThunk.pending, pending)
+      .addCase(exerciseListThunk.pending, pendingList)
       .addCase(exerciseListThunk.fulfilled, listFulfilled)
       .addCase(exerciseListThunk.rejected, pending),
 });
 
 function pending(state) {
+  state.isLoading = true;
+}
+function pendingList(state) {
   state.isLoading = true;
 }
 
@@ -39,7 +42,6 @@ function categoryFulfilled(state, { payload }) {
     title: el,
     srcSet: exercisesImages[el].srcSet,
   }));
-
   state.isLoading = false;
 }
 

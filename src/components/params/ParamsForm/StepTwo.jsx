@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
+import "./index.scss";
+import sprite from "../../../assets/images/symbol-defs.svg";
 
 const blood = ["1", "2", "3", "4"];
 const sex = ["Male", "Female"];
@@ -14,17 +16,18 @@ const levelActivity = [
 const StepTwo = ({ formik, submit, prevStep }) => {
   return (
     <>
-      <form onSubmit={submit}>
-        <div>
-          <div>
+      <form onSubmit={submit} className={css.form}>
+        <div className={css.firstBlock}>
+          <div className={css.firstBlockItem}>
             <h3>Blood:</h3>
-            <ul role="radiogrup">
+            <ul className={css.fbiList}>
               {blood.map((el, i) => (
                 <li key={i}>
                   <label className={css.radioGroup}>
                     <input
                       type="radio"
                       required
+                      // checked
                       name="blood"
                       onChange={formik.handleChange}
                       value={i + 1}
@@ -35,15 +38,16 @@ const StepTwo = ({ formik, submit, prevStep }) => {
               ))}
             </ul>
           </div>
-          <div>
+          <div className={css.firstBlockItem}>
             <h3>Sex:</h3>
-            <ul>
+            <ul className={css.fbiList}>
               {sex.map((el, i) => (
                 <li key={i}>
                   <label className={css.radioGroup}>
                     <input
                       type="radio"
                       required
+                      // checked
                       name="sex"
                       onChange={formik.handleChange}
                       value={i + 1}
@@ -55,30 +59,49 @@ const StepTwo = ({ formik, submit, prevStep }) => {
             </ul>
           </div>
         </div>
-        <h3>Level Activity:</h3>
-        <ul>
-          {levelActivity.map((el, i) => (
-            <li key={i}>
-              <label className={css.radioGroup}>
-                <input
-                  type="radio"
-                  required
-                  name="levelActivity"
-                  id="levelActivity"
-                  onChange={formik.handleChange}
-                  value={i + 1}
-                />
-                {el}
-              </label>
-            </li>
-          ))}
-        </ul>
+        <div className={css.secondBlock}>
+          <h3>Level Activity:</h3>
+          <ul className={css.secondBlockList}>
+            {levelActivity.map((el, i) => (
+              <li key={i}>
+                <label className={css.radioGroup}>
+                  <input
+                    type="radio"
+                    required
+                    // checked
+                    name="levelActivity"
+                    id="levelActivity"
+                    onChange={formik.handleChange}
+                    value={i + 1}
+                  />
+                  {el}
+                </label>
+              </li>
+            ))}
+          </ul>
 
-        <button type="button" onClick={prevStep}>
-          Back
-        </button>
+          {/* <div className={css.radiobuttons}>
+          <div className={css.radiobuttons_item}>
+            radio-button
+            <input type="radio" value="1" name="radio" />
+          </div>
+        </div> */}
 
-        <button type="submit">Next</button>
+          <div className={css.btnBlock}>
+            <button type="button" onClick={prevStep} className={css.btn}>
+              <svg className={css.icon}>
+                <use href={sprite + "#icon-back"} />
+              </svg>
+              Back
+            </button>
+            <button type="submit" className={css.btnNext}>
+              Next
+              <svg className={css.icon}>
+                <use href={sprite + "#icon-next"} />
+              </svg>
+            </button>
+          </div>
+        </div>
       </form>
     </>
   );

@@ -8,8 +8,33 @@ import StepTwo from "../../components/params/ParamsForm/StepTwo";
 import StepThree from "../../components/params/ParamsForm/StepThree";
 import { TitlePage } from "../../components/TitlePage/TitlePage";
 
+// import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { updateBodyParams } from "../../redux/auth/slice";
+
+// const validationSchema = Yup.object({
+//   height: Yup.number()
+//     .required("Please enter your height")
+//     .min(150, "Height must be at least 150 сm"),
+//   currentWeight: Yup.number()
+//     .required("Please enter your current weight")
+//     .min(35, "Current weight must be at least 35 kg"),
+//   desiredWeight: Yup.number()
+//     .required("Please enter your desired weight")
+//     .min(35, "Desired weight must be at least 35 kg"),
+//   birthday: Yup.date().required("Please enter your birthday"),
+//   // .min(18, "Height must be at least 150 sm"),
+//   blood: Yup.number().required("Please enter your blood"),
+//   sex: Yup.number().required("Please enter your sex"),
+//   levelActivity: Yup.number().required("Please enter your level activity"),
+// });
+
+const bgImg = [css.stepOneBg, css.stepTwoBg, css.stepThreeBg];
+
 const Params = () => {
   const [step, setStep] = useState(1);
+
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -21,6 +46,9 @@ const Params = () => {
       sex: "",
       levelActivity: "",
     },
+
+    // validationSchema,
+    // onSubmit,
   });
 
   const prevStep = () => {
@@ -31,22 +59,20 @@ const Params = () => {
     e.preventDefault();
     console.log("result", formik.values);
     setStep((prevStep) => prevStep + 1);
-  };
-
-  const click = () => {
-    console.log("formik", formik.values);
+    dispatch(updateBodyParams(formik.values));
   };
 
   return (
-    <section className={css.primary}>
-      <Container>
-        <TitlePage text={"Get closer to your goals!"} />
-        {step === 1 && <StepOne formik={formik} submit={onSubmit} />}
-        {step === 2 && (
-          <StepTwo formik={formik} submit={onSubmit} prevStep={prevStep} />
-        )}
-        {step === 3 && <StepThree prevStep={prevStep} />}
-        <button onClick={click}>FFFFFFFF</button>
+    <section className={`${css.primary} ${bgImg[step - 1]}`}>
+      <Container className={css.container}>
+        <div>
+          {step !== 3 && <TitlePage text={"Get closer to your goals!"} />}
+          {step === 1 && <StepOne formik={formik} submit={onSubmit} />}
+          {step === 2 && (
+            <StepTwo formik={formik} submit={onSubmit} prevStep={prevStep} />
+          )}
+          {step === 3 && <StepThree prevStep={prevStep} />}
+        </div>
 
         <ul className={css.paginationWraper}>
           <li

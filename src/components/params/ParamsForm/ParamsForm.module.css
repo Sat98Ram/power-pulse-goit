@@ -1,3 +1,9 @@
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+
 .radioGroup {
     display: flex;
     gap: 9px;
@@ -13,8 +19,180 @@
     padding: 0 14px;
 }
 
+.btn {
+    background-color: transparent;
+    color: rgba(239, 237, 232, 0.60);
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
+
+.btnNext {
+    composes: btn;
+    color: #EFEDE8;
+}
+
+/* ===================StepOne====================== */
+
 .stepOne {
+    margin-top: 50px;
+
+}
+
+.soBlock {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
+    margin-bottom: 28px;
+}
+
+.text {
+    color: rgba(239, 237, 232, 0.3);
+    
+}
+
+.label {
+    position: relative;
+}
+
+.labelText {
+    position: absolute;
+    top: 11px;
+    left: 14px;
+    transition: 300ms;
+
+    color: rgba(239, 237, 232, 0.6);
+}
+
+.input:focus+p,
+.input:not(:placeholder-shown)+p {
+    top: -26px;
+    left: 0;
+    transition: 300ms;
+}
+
+.input:focus+.bastard,
+.input:not(:placeholder-shown)+.bastard {
+    top: 50px;
+    left: 0;
+    transition: 300ms;
+}
+
+
+/* ===================StepTwo====================== */
+
+.form {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    
+}
+
+.firstBlock {
+    display: flex;
+    gap: 64px;
+}
+
+.firstBlockItem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fbiList{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+}
+
+.secondBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.secondBlockList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btnBlock {
+    display: flex;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ===================StepThree====================== */
+
+.blockBtn {
+    margin-top: 28px;
+    display: flex;
+    gap: 16px;
+}
+
+/* ===================================================== */
+
+@media screen and (min-width: 768px) {
+    h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    }
+
+    .stepOne {
+    margin-top: 54px;
+    }
+
+    .soBlock {
+    margin-bottom: 32px;
+    }
+
+
+    .form {
+    margin-top: 32px;
+    gap: 32px;
+    }
+
+    .secondBlock {
+    gap: 16px;
+    }
+
+    .btn {
+    font-size: 16px;
+    line-height: 1.5;
+    }
+
+    .blockBtn {
+    margin-top: 64px;
+    }
+
+    .text {
+    max-width: 496px;
+    }
+
+    .label:hover .bastard,
+    .label:focus .bastard {
+        top: -26px;
+        
+    }
+
+    .input:focus+.bastard,
+    .input:not(:placeholder-shown)+.bastard {
+        top: -26px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .soBlock {
+           max-width: 550px;
+        }
 }

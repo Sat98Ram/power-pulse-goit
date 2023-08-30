@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import "./index.scss";
 
-
 const RadioButtonPagination = ({ page, handleClickId, currentPage }) => {
   console.log("page  ", page, "currentPage", currentPage);
 
@@ -17,7 +16,7 @@ const RadioButtonPagination = ({ page, handleClickId, currentPage }) => {
           value={i}
           checked={i + 1 === currentPage}
         />
-        <label htmlFor={`radio-${i}`} className="radio-label"></label>
+        <label htmlFor={`radio-${i}`} className="radioLabel"></label>
       </div>
     );
   };

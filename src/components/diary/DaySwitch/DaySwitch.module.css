@@ -1,0 +1,8 @@
+.date {
+  display: flex;
+  align-items: center;
+}
+.svg {
+    cursor: pointer;
+  fill: #efede8;
+}

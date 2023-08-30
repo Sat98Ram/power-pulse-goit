@@ -1,0 +1,71 @@
+.day_dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left {
+  display: flex;
+  gap: 13px;
+}
+.rigth {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between;
+  flex-wrap: wrap; */
+  gap: 20px 13px;
+}
+.btns1 {
+  display: flex;
+  gap: 13px;
+}
+.btns2 {
+  display: flex;
+  gap: 13px;
+}
+.diary_item_red {
+  background: #e6533c;
+}
+@media screen and (min-width: 768px) {
+  .day_dashboard {
+    width: 593px;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .left {
+    flex-direction: column;
+  }
+  .rigth {
+    gap: 16px;
+    flex-direction: row;
+  }
+  .btns1 {
+    flex-direction: column;
+  }
+  .btns2 {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .day_dashboard {
+    width: 380px;
+    flex-direction: column;
+  }
+  .left {
+    flex-direction: row;
+  }
+
+  .rigth {
+    flex-direction: column;
+  }
+  .btns1 {
+    flex-direction: row;
+  }
+  .btns2 {
+    flex-direction: row;
+  }
+}
+/* @media screen and (min-width: 1440px) {
+  
+} */

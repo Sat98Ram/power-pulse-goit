@@ -1,0 +1,125 @@
+.DatePicker {
+  position: relative;
+  display: inline-block;
+}
+
+.DatePicker__input {
+  border: none;
+  background: inherit;
+  /* border: 1px solid lightgrey; */
+  /* padding: 6px 12px; */
+  border-radius: 6px;
+  color: #efede8;
+
+  font-size: 18px;
+
+  font-weight: 700;
+  line-height: 20px;
+  width: 100px;
+  height: 20px;
+}
+
+.DatePicker__input:focus {
+  outline: none;
+}
+
+.DatePicker__input--invalid {
+  border-color: red;
+  color: white;
+}
+
+.DatePicker__popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.CalendarPanel {
+  /* border: 1px solid lightgrey; */
+  border-radius: 8px;
+  background: #ef8964;
+}
+.CalendarPanel__header {
+  height: 47px;
+  /* border: 1px solid lightgrey; */
+  border-bottom: none;
+  /* border-radius: 8px 8px 0 0; */
+}
+
+.CalendarPanel__date {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.CalendarPanel__content {
+  padding: 14px;
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  width: 215px;
+  height: 215px;
+  /* border: 1px solid lightgrey; */
+  /* border-radius: 0 0 8px 8px; */
+}
+.btn {
+  background-color: inherit;
+}
+.CalendarPanel__buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.CalendarPanel__buttons-right,
+.CalendarPanel__buttons-left {
+  display: flex;
+  gap: 8px;
+  margin: 0 8px;
+}
+
+.CalendarPanelItem {
+  width: 26.7px;
+  height: 26.7px;
+  font-size: 14px;
+
+  /* border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray; */
+  padding: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.CalendarPanelItem--forehead {
+  color: rgba(239, 237, 232, 0.5);
+}
+
+.CalendarPanelItem--today {
+  color: red;
+}
+
+.CalendarPanelItem__date {
+  border-radius: 50%;
+  padding: 1px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CalendarPanelItem--selected .CalendarPanelItem__date {
+  background-color: black;
+  color: white;
+}
+
+.CalendarPanelItem--not-current .CalendarPanelItem__date {
+  opacity: 0.5;
+}
+
+.CalendarPanelItem--not-in-range {
+  cursor: not-allowed;
+}
+
+.CalendarPanelItem--not-in-range .CalendarPanelItem__date {
+  opacity: 0.5;
+}

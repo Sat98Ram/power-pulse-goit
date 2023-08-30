@@ -104,20 +104,23 @@ td{
 
 }
 
-.tdTitle, .thTitle{
-    width: 212px;
+.tdBodyPart, .thBodyPart{
+    width: 115px;
 }
-.tdCategory, .thCategory{
-    width: 164px;
+.tdEquipment, .thEquipment{
+    width: 157px;
 }
-.tdCalories, .thCalories{
-    width: 105px;
+.tdName, .thName{
+    width: 131px;
 }
-.tdWeight, .thWeight{
-    width: 105px;
+.tdTarget, .thTarget{
+    width: 106px;
 }
-.tdRecommend, .thRecommend{
-    width: 110px;
+.tdBurnedCalories, .thBurnedCalories{
+    width: 91px;
+}
+.tdTime, .thTime{
+    width: 82px;
 }
 /* ---------------------------------- */
 

@@ -2,25 +2,21 @@ import React from 'react'
 import styles from './DayExercises.module.css'
 import { nanoid } from '@reduxjs/toolkit'
 const DayExercises = () => {
-    const exArr = [{Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-    {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
-]
+    const exArr = [{BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},]
     const listOfExercises = exArr.map((obj)=>{
         const num = nanoid()
         return (
             <tr key={num}>
-                <td className={styles.tdTitle}>{obj.Title}</td>
-                <td className={styles.tdCategory}>{obj.Category}</td>
-                <td className={styles.tdCalories}>{obj.Calories}</td>
-                <td className={styles.tdWeight}>{obj.Weight}</td>
-                <td className={styles.tdRecommend}>{obj.Recommend ? 
-                    (<><span><svg className={styles.recommendCircle}><circle cx="7" cy="7" r="7" fill="green"/></svg><p>Yes</p></span></>) : 
-                    (<><span><svg className={styles.recommendCircle}><circle cx="7" cy="7" r="7" fill="red"/></svg><p>No</p></span></>)}</td>
+                <td className={styles.tdBodyPart}>{obj.BodyPart}</td>
+                <td className={styles.tdEquipment}>{obj.Equipment}</td>
+                <td className={styles.tdName}>{obj.Name}</td>
+                <td className={styles.tdTarget}>{obj.Target}</td>
+                <td className={styles.tdBurnedCalories}>{obj.BurnedCalories}</td>
+                <td className={styles.tdTime}>{obj.Time}</td>
                 <td className={styles.tdDellete}><button></button></td>
             </tr>
         )
@@ -32,11 +28,12 @@ const DayExercises = () => {
             <table>
                 <thead>
                     <tr>
-                        <th className={styles.thTitle}>Title</th>
-                        <th className={styles.thCategory}>Category</th>
-                        <th className={styles.thCalories}>Calories</th>
-                        <th className={styles.thWeight}>Weight</th>
-                        <th className={styles.thRecommend}>Recommend</th>
+                        <th className={styles.thBodyPart}>Body Part</th>
+                        <th className={styles.thEquipment}>Equipment</th>
+                        <th className={styles.thName}>Name</th>
+                        <th className={styles.thTarget}>Target</th>
+                        <th className={styles.thBurnedCalories}>Burned Calories</th>
+                        <th className={styles.thTime}>Time</th>
                     </tr>
                 </thead>
                 <tbody>

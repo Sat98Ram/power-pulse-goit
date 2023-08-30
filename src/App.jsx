@@ -1,4 +1,4 @@
-import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Welcome from "./pages/Welcome/Welcome";
 import Diary from "./pages/Diary/Diary";
 import Layout from "./components/Layout/Layout/Layout";
@@ -12,8 +12,7 @@ import Page404 from "./components/Page404/Page404";
 import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { loginThunk, refreshThunk } from "./redux/auth/operations";
-import { SignBtn } from "./components/SignBtn/SignBtn";
+import { refreshThunk } from "./redux/auth/operations";
 
 import { ExercisesList } from "./components/exercises/ExercisesList/ExercisesList";
 import PublicRoute from "./routes/PublicRoute";
@@ -28,30 +27,6 @@ function App() {
 
   return (
     <>
-      <SignBtn
-        text="Login"
-        onClick={() =>
-          dispatch(
-            loginThunk({
-              email: "newemail@example.com",
-              password: "abcdef6",
-            })
-          )
-        }
-      />
-
-      <nav className="tempNav">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="welcome">Welcome</NavLink>
-        <NavLink to="signup">Signup</NavLink>
-        <NavLink to="signin">Signin</NavLink>
-        <NavLink to="params">Params</NavLink>
-        <NavLink to="diary">Diary</NavLink>
-        <NavLink to="exercises">Exercises</NavLink>
-        <NavLink to="products">Products</NavLink>
-        <NavLink to="profile">Profile</NavLink>
-      </nav>
-
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<PublicRoute />}>

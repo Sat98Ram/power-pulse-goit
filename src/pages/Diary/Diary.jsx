@@ -1,7 +1,11 @@
+import DayExercises from "../../components/diary/DayExercises/DayExercises";
+import DayProducts from "../../components/diary/DayProducts/DayProducts";
+
 const Diary = () => {
   return (
     <>
-      <p>Diary page</p>
+      <DayProducts></DayProducts>
+      <DayExercises></DayExercises>
     </>
   );
 };

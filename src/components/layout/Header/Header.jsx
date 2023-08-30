@@ -14,6 +14,7 @@ import css from "./Header.module.css";
 
 const Header = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
+
   const isAuth = useSelector(selectIsAuth);
   const [isModalLogout, setIsModalLogout] = useState(false);
   const dispatch = useDispatch();

@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './DayExercises.module.css'
+import { nanoid } from '@reduxjs/toolkit'
 const DayExercises = () => {
     const exArr = [{Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
     {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
@@ -10,8 +11,9 @@ const DayExercises = () => {
     {Title: "Title1", Category: "Category", Calories: "Calories", Weight: "Weight", Recommend: false},
 ]
     const listOfExercises = exArr.map((obj)=>{
+        const num = nanoid()
         return (
-            <tr>
+            <tr key={num}>
                 <td className={styles.tdTitle}>{obj.Title}</td>
                 <td className={styles.tdCategory}>{obj.Category}</td>
                 <td className={styles.tdCalories}>{obj.Calories}</td>

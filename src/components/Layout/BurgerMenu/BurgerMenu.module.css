@@ -14,4 +14,11 @@
 .openMenuBtn {
   background: none;
   padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 80px;
+  cursor: pointer;
 }

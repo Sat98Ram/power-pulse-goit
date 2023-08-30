@@ -62,3 +62,9 @@
     height: 28px;
   }
 }
+
+.logoutIcon {
+  fill: var(--primary-accent);
+  width: 20px;
+  height: 20px;
+}

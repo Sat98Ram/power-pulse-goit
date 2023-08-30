@@ -30,7 +30,7 @@ const UserBar = ({ onClick }) => {
         // </svg>
       )}
 
-      {isDesktop && <LogOutBtn onClick={onClick} />}
+      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutIcon} />}
     </div>
   );
 };

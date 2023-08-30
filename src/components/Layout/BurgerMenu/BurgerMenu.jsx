@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import symbolDefs from "../../../assets/images/symbol-defs.svg";
+// import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./BurgerMenu.module.css";
 
 const BurgerMenu = () => {
@@ -13,15 +13,16 @@ const BurgerMenu = () => {
   };
 
   return (
-    <button
+    <div
       type="button"
       className={isOpen ? css.menuBtn : css.openMenuBtn}
       onClick={() => handleIsOpen()}
     >
-      <svg className={css.burgerIcon}>
+      <div className={css.burgerMenuBtn}></div>
+      {/* <svg className={css.burgerIcon}>
         <use href={symbolDefs + "#burger-menu-icon"}></use>
-      </svg>
-    </button>
+      </svg> */}
+    </div>
   );
 };
 

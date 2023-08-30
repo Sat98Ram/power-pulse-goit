@@ -15,7 +15,7 @@ const RadioButtonPagination = ({ page, handleClickId, currentPage }) => {
           onChange={onClick}
           checked={i + 1 === currentPage}
         />
-        <label htmlFor={`radio-${i}`} className="radio-label"></label>
+        <label htmlFor={`radio-${i}`} className="radioLabel"></label>
       </div>
     );
   };

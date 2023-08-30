@@ -77,3 +77,7 @@ export const exerciseAddDiary = async (body) => {
 };
 
 ///exercise/add
+export const updateBody = async (body) => {
+  const { data } = await privateAPI.post("api/users/body", body);
+  return data;
+};

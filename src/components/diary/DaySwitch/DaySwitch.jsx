@@ -1,4 +1,4 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
 import css from "./DaySwitch.module.css";
 
@@ -45,9 +45,21 @@ const RigthSvg = () => {
 const MIN_DATE = new Date(2022, 6, 1);
 const MAX_DATE = new Date(2024, 8, 0);
 
-const DaySwitch = () => {
+const DaySwitch = ({ date, setDate }) => {
   // const [valueDatePicker, setValueDatePicker] = useState(new Date());
-  const [date, setDate] = useState(() => new Date());
+  // const [date, setDate] = useState(() => new Date());
+
+  const prevData = () => {
+    var d = new Date(date);
+    d = new Date(d.getTime() - 86400000);
+    setDate(new Date(d));
+  };
+  const nextData = () => {
+    var d = new Date(date);
+    d = new Date(d.getTime() + 86400000);
+    setDate(new Date(d));
+  };
+
   return (
     <div className={css.date}>
       <DatePickerCalendar
@@ -56,12 +68,24 @@ const DaySwitch = () => {
         min={MIN_DATE}
         max={MAX_DATE}
       />
-      <div className={css.svg_position}>
-        <LeftSvg />
-        <RigthSvg />
+      <div className={css.svg_btn_group}>
+        <button className={css.btnSvg} onClick={prevData}>
+          <LeftSvg />
+        </button>
+        <button className={css.btnSvg} onClick={nextData}>
+          <RigthSvg />
+        </button>
       </div>
+
+      <div className={css.svg_position}></div>
     </div>
   );
 };
 
 export default DaySwitch;
+//1693418257808
+//1693418282652
+DaySwitch.propTypes = {
+  date: PropTypes.Date,
+  setDate: PropTypes.func,
+};

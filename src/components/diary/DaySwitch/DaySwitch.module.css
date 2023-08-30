@@ -1,8 +1,17 @@
 .date {
+  width: 183px;
+  height: 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .svg {
-    cursor: pointer;
+  cursor: pointer;
   fill: #efede8;
+}
+.btnSvg {
+  height: 16px;
+  width: 16px;
+  background: transparent;
+  border: none;
 }

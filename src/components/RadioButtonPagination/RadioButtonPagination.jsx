@@ -2,18 +2,17 @@ import PropTypes from "prop-types";
 import "./index.scss";
 
 const RadioButtonPagination = ({ page, handleClickId, currentPage }) => {
-  console.log("page  ", page, "currentPage", currentPage);
-
   const IconGroup = (props) => {
     const { i, onClick } = props;
 
     return (
-      <div className="radio" onClick={onClick}>
+      <div className="radio">
         <input
           id={`radio-${i}`}
           name="radio"
           type="radio"
           value={i}
+          onChange={onClick}
           checked={i + 1 === currentPage}
         />
         <label htmlFor={`radio-${i}`} className="radio-label"></label>

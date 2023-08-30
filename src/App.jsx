@@ -15,6 +15,10 @@ import { useDispatch } from "react-redux";
 import { loginThunk, refreshThunk } from "./redux/auth/operations";
 import { SignBtn } from "./components/SignBtn/SignBtn";
 
+import { ExercisesList } from "./components/exercises/ExercisesList/ExercisesList";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -50,26 +54,27 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route path="/" element={<div>public route</div>}> */}
-          <Route index element={<Navigate to="welcome" />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-          {/* </Route> */}
-
-          {/* <Route path="/" element={<div>private route</div>}> */}
-          <Route index element={<Navigate to="diary" />} />
-          <Route path="/diary" element={<Diary />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="exercises" element={<Exercises />}>
-            <Route index element={<Navigate to="bodyparts" />} />
-            <Route path="bodyparts" element={<ExercisesSubcategoriesList />} />
-            <Route path="muscules" element={<ExercisesSubcategoriesList />} />
-            <Route path="equipments" element={<ExercisesSubcategoriesList />} />
+          <Route path="/" element={<PublicRoute />}>
+            <Route index element={<Navigate to="welcome" />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
           </Route>
-          <Route path="/params" element={<Params />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* </Route> */}
+
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="/diary" element={<Diary />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="exercises" element={<Exercises />}>
+              <Route index element={<Navigate to="bodyparts" />} />
+              <Route
+                path=":category"
+                element={<ExercisesSubcategoriesList />}
+              />
+              <Route path=":category/list" element={<ExercisesList />} />
+            </Route>
+            <Route path="/params" element={<Params />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>

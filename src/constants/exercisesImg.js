@@ -37,8 +37,8 @@ import imgLevatorx2 from "@/assets/images/desktop/excersises@2x/levator-scapulae
 import imgPectorals from "@/assets/images/desktop/excersises@1x/pectorals@1x.jpg";
 import imgPectoralsx2 from "@/assets/images/desktop/excersises@2x/pectorals@2x.jpg";
 
-import imgquads from "@/assets/images/desktop/excersises@1x/quads@1x.jpg";
-import imgquadsx2 from "@/assets/images/desktop/excersises@2x/quads@2x.jpg";
+import imgquads from "@/assets/images/desktop/excersises@1x/guads@1x.jpg";
+import imgquadsx2 from "@/assets/images/desktop/excersises@2x/guads@2x.jpg";
 
 import imgSerratus from "@/assets/images/desktop/excersises@1x/serratus-anterior@1x.jpg";
 import imgSerratusx2 from "@/assets/images/desktop/excersises@2x/serratus-anterior@2x.jpg";
@@ -55,17 +55,14 @@ import imgtricepsx2 from "@/assets/images/desktop/excersises@2x/triceps@2x.jpg";
 import imgUpperBack from "@/assets/images/desktop/excersises@1x/upper-back@1x.jpg";
 import imgUpperBackx2 from "@/assets/images/desktop/excersises@2x/upper-back@2x.jpg";
 
-import imgassisted from "@/assets/images/desktop/excersises@1x/assisted@1x.jpg";
-import imgassistedx2 from "@/assets/images/desktop/excersises@2x/assisted@2x.jpg";
-
 import imgband from "@/assets/images/desktop/excersises@1x/band@1x.jpg";
 import imgbandx2 from "@/assets/images/desktop/excersises@2x/band@2x.jpg";
 
 import imgbarbell from "@/assets/images/desktop/excersises@1x/barbell@1x.jpg";
 import imgbarbellx2 from "@/assets/images/desktop/excersises@2x/barbell@2x.jpg";
 
-import imgbody from "@/assets/images/desktop/excersises@1x/body@1x.jpg";
-import imgbodyx2 from "@/assets/images/desktop/excersises@2x/body@2x.jpg";
+import imgbody from "@/assets/images/desktop/excersises@1x/body-weight@1x.jpg";
+import imgbodyx2 from "@/assets/images/desktop/excersises@2x/body-weight@2x.jpg";
 
 import imgbosu from "@/assets/images/desktop/excersises@1x/basu-ball@1x.jpg";
 import imgbosux2 from "@/assets/images/desktop/excersises@2x/basu-ball@2x.jpg";
@@ -266,9 +263,9 @@ export const exercisesImages = {
     srcSet: `${imgUpperBack}, ${imgUpperBackx2} 2x`,
   },
   assisted: {
-    imgUrl: imgassisted,
-    imgUrlx2: imgassistedx2,
-    srcSet: `${imgassisted}, ${imgassistedx2} 2x`,
+    imgUrl: imgUpperBack,
+    imgUrlx2: imgUpperBackx2,
+    srcSet: `${imgUpperBack}, ${imgUpperBackx2} 2x`,
   },
   band: {
     imgUrl: imgband,

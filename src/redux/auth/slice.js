@@ -4,6 +4,7 @@ import {
   refreshThunk,
   loginThunk,
   logoutThunk,
+  updateBodyThunk,
 } from "./operations";
 import { token } from "@/services/privateAPI";
 
@@ -16,6 +17,13 @@ export const userSlice = createSlice({
     avatar: "",
     isLoading: false,
     isAuth: false,
+    body: {},
+    bodyData: null,
+  },
+  reducers: {
+    updateBodyParams: (state, { payload }) => {
+      state.body = { ...state.body, ...payload };
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -30,7 +38,10 @@ export const userSlice = createSlice({
       .addCase(refreshThunk.rejected, rejected)
       .addCase(logoutThunk.pending, pending)
       .addCase(logoutThunk.fulfilled, logout)
-      .addCase(logoutThunk.rejected, logout),
+      .addCase(logoutThunk.rejected, logout)
+      .addCase(updateBodyThunk.pending, pending)
+      .addCase(updateBodyThunk.fulfilled, updateBodyFulfilled)
+      .addCase(updateBodyThunk.rejected, rejected),
 });
 
 function registerFulfilled(state, { payload }) {
@@ -40,6 +51,7 @@ function registerFulfilled(state, { payload }) {
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
+  state.bodyData = payload.bodyData && null;
 }
 
 function logout(state) {
@@ -49,6 +61,7 @@ function logout(state) {
   state.token = "";
   state.email = "";
   state.isAuth = false;
+  state.bodyData = null;
 }
 
 function rejected(state, { payload }) {
@@ -65,4 +78,12 @@ function pendingRefresh(state) {
   token.set(state.token);
 }
 
+function updateBodyFulfilled(state, { payload }) {
+  state.isLoading = false;
+  state.isAuth = true;
+  state.bodyData = payload.bodyData && null;
+}
+
 export const usersReducer = userSlice.reducer;
+
+export const { updateBodyParams } = userSlice.actions;

@@ -1,0 +1,79 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-left: 72px;
+}
+
+.timerTitle {
+  color: rgba(239, 237, 232, 0.4);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 4px;
+}
+
+.timerTime {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: absolute;
+  top: 70px;
+}
+
+.timerBtn {
+  background-color: var(--primary-accent);
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.pauseIcon {
+  width: 6.667px;
+  height: 8px;
+}
+
+.playIcon {
+  width: 6.667px;
+  height: 8px;
+}
+
+.timerTxt {
+  color: rgba(239, 237, 232, 0.3);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.timerSub {
+  color: var(--primary-accent);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.timerProgress {
+  max-width: 220px;
+  margin-bottom: 14px;
+}
+
+.timerProgressWrap {
+  transform: rotateZ(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.timerProgressCircle {
+  fill: transparent;
+  stroke-width: 4;
+  stroke: rgba(239, 237, 232, 0.1);
+}
+
+.timerProgressCircleSec {
+  fill: transparent;
+  stroke-width: 4;
+  stroke: var(--primary-accent);
+}

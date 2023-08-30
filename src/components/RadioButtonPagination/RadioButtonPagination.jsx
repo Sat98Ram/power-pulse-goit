@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import "./index.scss";
 
-
 const RadioButtonPagination = ({ page, handleClickId, currentPage }) => {
   console.log("page  ", page, "currentPage", currentPage);
 

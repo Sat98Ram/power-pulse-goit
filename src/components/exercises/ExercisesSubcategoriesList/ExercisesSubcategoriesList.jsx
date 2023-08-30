@@ -30,10 +30,9 @@ const CategoryPage = (isTablet, listCategory, currentPage) => {
 
 const ExercisesSubcategoriesList = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
   const location = useLocation();
-  const arrayLocation = location.pathname.split("/");
-  const category = arrayLocation[arrayLocation.length - 1];
+  const category = location.pathname.split("/").pop();
+
   const dispatch = useDispatch();
 
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439.9 });

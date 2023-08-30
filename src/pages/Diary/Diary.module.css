@@ -1,0 +1,30 @@
+.diary_page {
+  width: 100%;
+}
+.header {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+.content {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    gap: 64px;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .content {
+    gap: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -1,13 +1,21 @@
 import React from 'react'
 import styles from './DayExercises.module.css'
 import { nanoid } from '@reduxjs/toolkit'
+
 const DayExercises = () => {
     const exArr = [{BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
     {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
     {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
     {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
-    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},]
-    const listOfExercises = exArr.map((obj)=>{
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+    {BodyPart: "BodyPart", Equipment:"Equipment", Name:"Name", Target:"aBs", BurnedCalories:"550", Time:"60"},
+]
+    const listOfExercisesTable = exArr.map((obj)=>{        
         const num = nanoid()
         return (
             <tr key={num}>
@@ -17,17 +25,20 @@ const DayExercises = () => {
                 <td className={styles.tdTarget}>{obj.Target}</td>
                 <td className={styles.tdBurnedCalories}>{obj.BurnedCalories}</td>
                 <td className={styles.tdTime}>{obj.Time}</td>
-                <td className={styles.tdDellete}><button></button></td>
+                <td className={styles.tdDellete}><button><svg><use href="../../../assets/images/symbol-defs.svg#trash-icon"></use></svg></button></td>
             </tr>
         )
     })
-  return (
+
+/* ------------------------------------------------- */
+
+  return (    
     <div className={styles.DayExercises}>
         <div className={styles.DayExercisesHead}><h2>Exercises</h2><p>Add exercise</p></div>
         <div className={styles.DayExercisesTable}>
             <table>
                 <thead>
-                    <tr></tr>
+                    <tr>
                         <th className={styles.thBodyPart}>Body Part</th>
                         <th className={styles.thEquipment}>Equipment</th>
                         <th className={styles.thName}>Name</th>
@@ -37,12 +48,13 @@ const DayExercises = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {listOfExercises}
+                    {listOfExercisesTable}
                 </tbody>
             </table>
         </div>
     </div>
   )
+
 }
 
 export default DayExercises

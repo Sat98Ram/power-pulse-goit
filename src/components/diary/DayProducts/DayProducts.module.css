@@ -1,6 +1,8 @@
 .DayProducts{
     border: 1px solid #EFEDE84D;
     border-radius: 12px;
+    background-color: #EFEDE80D;
+
     width: 826px;
     height: 234px;
     /* padding-bottom: 16px; */
@@ -36,10 +38,10 @@
     text-align: left;
     color: #E6533C;
 }
-::-webkit-scrollbar{
+.DayProducts ::-webkit-scrollbar{
     width: 6px;
 }
-::-webkit-scrollbar-thumb {
+.DayProducts ::-webkit-scrollbar-thumb {
     background: #EFEDE81A;
     border-radius: 12px;
   }
@@ -54,18 +56,18 @@ span p{
 
 /* ------------------------------------- */
 /* TABLE */
-table{
+.DayProducts table{
     position: relative;
     gap: 8px;
     border-spacing: 8px;
     border: none;
 }
 
-thead{
+.DayProducts thead{
     display: block;
     height: 18px;
 }
-tbody{
+.DayProducts tbody{
     display: block;
     height: 146px;
     margin-top: 8px;
@@ -73,14 +75,14 @@ tbody{
     overflow-y: auto;
     padding: 0px;
 }
-thead, tbody{
+.DayProducts thead, .DayProducts tbody{
     padding-right: 12px;
 }
-tbody tr{
+.DayProducts tbody tr{
     height: 40px;
 }
 
-th{        
+.DayProducts th{        
     font-family: Roboto;
     font-size: 12px;
     font-weight: 400;
@@ -92,7 +94,7 @@ th{
 
 
 }
-td{
+.DayProducts td{
     border-radius: 12px;
     border: 1px solid #EFEDE84D;
     padding-left: 14px;

@@ -48,7 +48,7 @@ export const getExercisesCategories = async () => {
 };
 
 export const getExerciseList = async (params) => {
-  const { data } = await privateAPI.get("api/exercises", params);
+  const { data } = await privateAPI.get("api/exercises", { params });
   return data;
 };
 

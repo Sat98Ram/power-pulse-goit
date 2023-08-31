@@ -119,11 +119,14 @@ const addLeadingZeroIfNeeded = (value) => {
   return `0${value}`;
 };
 
-export const getInputValueFromDate = (value) => {
+export const getInputValueFromDate = (value, form = null) => {
   const date = addLeadingZeroIfNeeded(value.getDate());
   const month = addLeadingZeroIfNeeded(value.getMonth() + 1);
   const year = value.getFullYear();
 
+  if (form) {
+    return `${date}-${month}-${year}`;
+  }
   return `${date}/${month}/${year}`;
 };
 

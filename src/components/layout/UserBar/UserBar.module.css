@@ -68,3 +68,7 @@
   width: 20px;
   height: 20px;
 }
+
+.logoutBtn {
+  stroke: var(--white);
+}

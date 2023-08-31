@@ -1,3 +1,14 @@
+.burgerMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  background-color: var(--primary-accent);
+  width: 200px;
+  height: 812px;
+  padding: 20px;
+}
+
 .menuBtn,
 .menuCloseBtn {
   background: none;
@@ -11,20 +22,27 @@
   height: 24px;
 }
 
+.menuCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.mobileMenu {
+  position: relative;
+  cursor: pointer;
+}
+
 .closeMenuIcon {
   stroke: var(--white);
 }
 
-.burgerMenu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: var(--primary-accent);
-  width: 200px;
-  height: 812px;
-}
-
 @media screen and (min-width: 768px) {
+  .burgerMenu {
+    width: 350px;
+    height: 1024px;
+  }
+
   .burgerIcon,
   .closeMenuIcon {
     width: 32px;

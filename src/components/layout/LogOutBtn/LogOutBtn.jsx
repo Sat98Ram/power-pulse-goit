@@ -7,7 +7,7 @@ const LogOutBtn = ({ onClick, className }) => {
   return (
     <button className={css.logoutBtn} onClick={onClick}>
       Logout
-      <svg className={className}>
+      <svg className={className} width="20" height="20">
         <use href={symbolDefs + "#log-out-icon"}></use>
       </svg>
     </button>

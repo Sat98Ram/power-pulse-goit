@@ -1,10 +1,11 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./BurgerMenu.module.css";
-import UserNav from "../UserNav/UserNav";
+// import UserNav from "../UserNav/UserNav";
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleIsOpen = () => {
@@ -43,7 +44,8 @@ const BurgerMenu = () => {
             </svg>
           </button>
 
-          <UserNav />
+          {children}
+          {/* <UserNav /> */}
         </div>
       )}
     </>
@@ -51,3 +53,7 @@ const BurgerMenu = () => {
 };
 
 export default BurgerMenu;
+
+BurgerMenu.propTypes = {
+  children: PropTypes.node,
+};

@@ -1,13 +1,32 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 
+import { logoutThunk } from "../../../redux/auth/operations";
+import { useDispatch } from "react-redux";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./UserBar.module.css";
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import UserNav from "../UserNav/UserNav";
+import BasicModalWindow from "../../BasicModalWindow/BasicModalWindow";
+import ModalLogOut from "../ModalLogOut/ModalLogOut";
 
 const UserBar = ({ onClick }) => {
+  const [isModalLogout, setIsModalLogout] = useState(false);
+  const dispatch = useDispatch();
+
+  const showModalLogOut = () => {
+    setIsModalLogout((prev) => !prev);
+  };
+
+  const handleLogOut = () => {
+    dispatch(logoutThunk());
+
+    showModalLogOut();
+  };
+
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div className={css.userBar}>
@@ -24,13 +43,18 @@ const UserBar = ({ onClick }) => {
       </div>
 
       {!isDesktop && (
-        <BurgerMenu />
-        // <svg className={css.burgerIcon}>
-        //   <use href={symbolDefs + "#burger-menu-icon"}></use>
-        // </svg>
+        <BurgerMenu className={css.burgerMenu}>
+          <UserNav />
+          <LogOutBtn />
+        </BurgerMenu>
+      )}
+      {isModalLogout && (
+        <BasicModalWindow isOpenModalToggle={showModalLogOut}>
+          <ModalLogOut logout={handleLogOut} />
+        </BasicModalWindow>
       )}
 
-      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutIcon} />}
+      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutBtn} />}
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.button {
+  font-size: 14px;
+  line-height: 1.286; /* 128.571% */
+  color: #efede866;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-cubic);
+}
+
+.button::before {
+  content: url(../../../assets/images/arrow-exercise-back.svg);
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

@@ -45,8 +45,8 @@ body {
   color: var(--white);
   font-family: "Roboto", serif;
   font-weight: 400;
-  font-size: 14;
-  line-height: calc(14 / 18);
+  font-size: 14px;
+  line-height: calc(18 / 14);
 }
 
 a {
@@ -83,7 +83,7 @@ button {
 
 @media screen and (min-width: 768px) {
   body {
-    font-size: 16;
-    line-height: calc(16 / 24);
+    font-size: 16px;
+    line-height: calc(24 / 16);
   }
 }

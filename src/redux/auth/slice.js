@@ -18,7 +18,17 @@ export const userSlice = createSlice({
     isLoading: false,
     isAuth: false,
     body: {},
-    bodyData: null,
+    bodyData: {
+      height: 0,
+      currentWeight: 0,
+      desiredWeight: 0,
+      birthday: 0,
+      blood: 0,
+      sex: 0,
+      levelActivity: 0,
+      dailyRateCalories: 0,
+      dailySportMin: 0,
+    },
   },
   reducers: {
     updateBodyParams: (state, { payload }) => {
@@ -34,7 +44,7 @@ export const userSlice = createSlice({
       .addCase(loginThunk.fulfilled, registerFulfilled)
       .addCase(loginThunk.rejected, rejected)
       .addCase(refreshThunk.pending, pendingRefresh)
-      .addCase(refreshThunk.fulfilled, registerFulfilled)
+      .addCase(refreshThunk.fulfilled, refreshFulfilled)
       .addCase(refreshThunk.rejected, rejected)
       .addCase(logoutThunk.pending, pending)
       .addCase(logoutThunk.fulfilled, logout)
@@ -52,6 +62,15 @@ function registerFulfilled(state, { payload }) {
   state.token = payload.token;
   state.email = payload.email;
   state.bodyData = payload.bodyData && null;
+}
+function refreshFulfilled(state, { payload }) {
+  state.isLoading = false;
+  state.isAuth = true;
+  state.avatar = payload.avatar;
+  state.name = payload.name;
+  state.token = payload.token;
+  state.email = payload.email;
+  state.bodyData = payload.bodyData;
 }
 
 function logout(state) {

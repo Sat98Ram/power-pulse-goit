@@ -7,6 +7,7 @@ import {
   updateBodyThunk,
 } from "./operations";
 import { token } from "@/services/privateAPI";
+import { toast } from "react-toastify";
 
 export const userSlice = createSlice({
   name: "user",
@@ -86,7 +87,9 @@ function logout(state) {
 function rejected(state, { error }) {
   state.isLoading = false;
   state.isAuth = false;
-  console.error(`Error:${error.message}`);
+  toast.error(error.message, {
+    position: toast.POSITION.TOP_RIGHT,
+  });
 }
 
 function pending(state) {

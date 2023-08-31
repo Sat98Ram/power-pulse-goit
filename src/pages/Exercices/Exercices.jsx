@@ -8,7 +8,7 @@ import Back from "@/components/exercises/Back/Back";
 const Exercises = () => {
   const { pathname } = useLocation();
   const isExersicesList = pathname.split("/").pop() === "list";
-  console.log("rendered exercises", isExersicesList);
+
   return (
     <section
       className={isExersicesList ? `${css.section} ${css.list}` : css.section}

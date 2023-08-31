@@ -35,6 +35,50 @@
   height: 15px;
 }
 
+.logoutIcon {
+  fill: var(--primary-accent);
+  width: 20px;
+  height: 20px;
+}
+
+.logoutBtn {
+  stroke: var(--white);
+}
+
+.mobileNav {
+  text-align: center;
+}
+
+.mobileNavItem:not(:last-child) {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.mobileNavLink,
+.mobileNavLinkActive {
+  border: 1px solid #efede833;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 10px 27px;
+}
+
+.mobileNavLink:hover,
+.mobileNavLink:focus,
+.mobileNavLinkActive {
+  border-color: var(--white);
+}
+
+.burgerLogOut {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.burgerLogOut:hover,
+.burgerLogOut:focus {
+  color: var(--secondary-accent);
+}
+
 @media screen and (min-width: 768px) {
   .userBar {
     gap: 16px;
@@ -53,6 +97,11 @@
   .userBarAvatar {
     width: 17px;
     height: 17px;
+  }
+
+  .burgerLogOut {
+    bottom: 32px;
+    left: 32px;
   }
 }
 

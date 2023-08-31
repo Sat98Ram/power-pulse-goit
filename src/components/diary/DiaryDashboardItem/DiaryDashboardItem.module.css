@@ -1,5 +1,5 @@
 .diary_item {
-  width: 161px;
+  width: 165px;
   height: 96px;
   padding: 14px;
   display: flex;
@@ -21,6 +21,8 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
 .title {
   font-size: 12px;
@@ -36,6 +38,10 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.15;
+}
+.colorSvg {
+  fill: #ef8964;
+  stroke: #ef8964;
 }
 
 @media screen and (min-width: 768px) {

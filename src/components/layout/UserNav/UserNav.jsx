@@ -33,6 +33,6 @@ export default UserNav;
 
 UserNav.propTypes = {
   className: PropTypes.string,
-  classNameLink: PropTypes.string,
+  classNameLink: PropTypes.func,
   classNameItem: PropTypes.string,
 };

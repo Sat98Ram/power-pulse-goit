@@ -64,10 +64,10 @@ function logout(state) {
   state.bodyData = null;
 }
 
-function rejected(state, { payload }) {
+function rejected(state, { error }) {
   state.isLoading = false;
   state.isAuth = false;
-  console.error(`Error:${payload.message}`);
+  console.error(`Error:${error.message}`);
 }
 
 function pending(state) {

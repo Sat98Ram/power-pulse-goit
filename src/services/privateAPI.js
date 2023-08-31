@@ -48,7 +48,7 @@ export const getExercisesCategories = async () => {
 };
 
 export const getExerciseList = async (params) => {
-  const { data } = await privateAPI.get("api/exercises", params);
+  const { data } = await privateAPI.get("api/exercises", { params });
   return data;
 };
 
@@ -62,6 +62,21 @@ export const getProductsList = async () => {
   return data;
 };
 
+export const getDiariesByDate = async (currentDate) => {
+  const { data } = await privateAPI.get("api/diaries/daily/" + currentDate);
+  return data;
+};
+
+export const productAddDiary = async (body) => {
+  const { data } = await privateAPI.post("api/diaries/product/add", body);
+  return data;
+};
+export const exerciseAddDiary = async (body) => {
+  const { data } = await privateAPI.post("api/diaries/exercise/add", body);
+  return data;
+};
+
+///exercise/add
 export const updateBody = async (body) => {
   const { data } = await privateAPI.post("api/users/body", body);
   return data;

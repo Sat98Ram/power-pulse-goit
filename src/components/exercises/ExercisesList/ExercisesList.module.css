@@ -2,15 +2,39 @@
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 16px;
+  gap: 20px;
+  width: 100%;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: #ef8964;
+  border-radius: 12px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     overflow-y: auto;
-    display: flex;
-    flex-wrap: wrap;
-    height: calc(100vh - 312px);
+    height: calc(100vh - 364px);
     gap: 32px 16px;
+    max-width: 100%;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    overflow-y: auto;
+    height: calc(100vh - 312px);
+
+    width: 850px;
+    max-width: 100%;
+  }
+}
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(239, 237, 232, 0.1);
+  border-radius: 12px;
+} */

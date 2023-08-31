@@ -2,13 +2,18 @@ import { NavLink, useLocation } from "react-router-dom";
 import css from "./Back.module.css";
 
 const Back = () => {
-  const location = useLocation();
+  const { state } = useLocation();
   const onClick = () => {
-    console.log(location);
+    console.log(state);
   };
 
   return (
-    <NavLink className={css.button} onClick={onClick} aria-label="Back button">
+    <NavLink
+      className={css.button}
+      to={state?.from ? state.from.pathname : "/exercises"}
+      onClick={onClick}
+      aria-label="Back button"
+    >
       Back
     </NavLink>
   );

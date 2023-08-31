@@ -8,6 +8,8 @@
   padding: 0;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-cubic);
+  margin-bottom: 12px;
+  margin-top: -30px;
 }
 
 .button::before {
@@ -17,9 +19,15 @@
   height: 16px;
 }
 
+.button:hover {
+  color: var(--white);
+}
+
 @media screen and (min-width: 768px) {
   .button {
     font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 16px;
+    margin-top: -40px;
   }
 }

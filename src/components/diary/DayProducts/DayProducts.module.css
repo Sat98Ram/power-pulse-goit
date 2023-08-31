@@ -56,6 +56,22 @@ span p{
 
 /* ------------------------------------- */
 /* TABLE */
+
+.DayProducts .tdDellete{
+    border: none;
+    padding: 0px;
+}
+.DayProducts .tdDellete button{
+    display: block;
+    padding: 0px;
+}
+.DayProducts .tdDellete svg{
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: #E6533C;
+}
+
 .DayProducts table{
     position: relative;
     gap: 8px;
@@ -130,3 +146,156 @@ span p{
     width: 14px;
     height: 14px;
 }
+
+@media screen and (max-width: 768px) {
+    .DayProducts{
+        width: 335px;
+        height: 1064px;
+
+        padding-left: 16px;
+        padding-right: 8px;
+    }
+    .DayProductsHead{
+        margin: 0px 8px 0px 0px;
+    }
+    .DayProductsTable{
+        padding-bottom: 16px;
+    }
+
+
+    .tdDellete{
+        padding-left: 0px;
+    }
+    .tdDellete svg{
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+
+
+
+    .DayProductsTable table{
+        border-spacing: 0px;
+    }
+    .DayProducts tbody{
+        padding-right: 0px;
+        
+        margin-top: 22px;
+
+        width: 309px;
+        height: 986px;
+    }
+    .DayProducts thead{
+        display: none;
+    }
+
+
+    .DayProducts tbody tr{
+        display: block;
+        height: 240px;
+        
+        margin-top: 24px;
+    }
+    .DayProducts td{
+        position: relative;
+
+        display: inline-grid;
+        align-items: center;
+
+        height: 38px;
+        margin-bottom: 42px;
+    }
+
+
+    .DayProducts td:nth-of-type(1) {
+        width: 297px;
+    }
+    .DayProducts td:nth-of-type(1)::before {
+        content: "Title";
+        position: absolute;
+        top: -24px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #EF8964;
+    }
+
+
+    .DayProducts td:nth-of-type(2) {
+        width: 297px;
+    }
+    .DayProducts td:nth-of-type(2)::before {
+        content: "Category";
+        position: absolute;
+        top: -24px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #EF8964;
+    }
+
+
+    .DayProducts td:nth-of-type(3) {
+        width: 81px;
+        margin-right: 16px;
+    }
+    .DayProducts td:nth-of-type(3)::before {
+        content: "Calories";
+        position: absolute;
+        top: -24px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #EF8964;
+    }
+
+
+    .DayProducts td:nth-of-type(4) {
+        width: 80px;
+        margin-right: 16px;
+    }
+    .DayProducts td:nth-of-type(4)::before {
+        content: "Weight";
+        position: absolute;
+        top: -24px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #EF8964;
+    }
+
+
+    .DayProducts td:nth-of-type(5) {
+        width: 78px;
+        margin-right: 8px;
+    }
+    .DayProducts td:nth-of-type(5)::before {
+        content: "Recomended";
+        position: absolute;
+        top: -24px;
+
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #EF8964;
+    }
+  }

@@ -21,7 +21,7 @@ const DayProducts = () => {
                 <td className={styles.tdRecommend}>{obj.Recommend ? 
                     (<><span><svg className={styles.recommendCircle}><circle cx="7" cy="7" r="7" fill="green"/></svg><p>Yes</p></span></>) : 
                     (<><span><svg className={styles.recommendCircle}><circle cx="7" cy="7" r="7" fill="red"/></svg><p>No</p></span></>)}</td>
-                <td className={styles.tdDellete}><button></button></td>
+                <td className={styles.tdDellete}><button><svg><use href="../../../assets/images/symbol-defs.svg#trash-icon"></use></svg></button></td>
             </tr>
         )
     })

@@ -33,11 +33,15 @@ const UserBar = ({ onClick }) => {
               isActive ? css.mobileNavLinkActive : css.mobileNavLink
             }
           />
-          <LogOutBtn classNameBtn={css.burgerLogOut} onClick={onClick} />
+          <LogOutBtn
+            classNameBtn={css.burgerLogOut}
+            className={css.mobileLogoutIcon}
+            onClick={onClick}
+          />
         </BurgerMenu>
       )}
 
-      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutBtn} />}
+      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutIcon} />}
     </div>
   );
 };

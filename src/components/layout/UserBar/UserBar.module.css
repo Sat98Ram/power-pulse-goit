@@ -36,12 +36,12 @@
 }
 
 .logoutIcon {
-  fill: var(--primary-accent);
+  stroke: var(--primary-accent);
   width: 20px;
   height: 20px;
 }
 
-.logoutBtn {
+.mobileLogoutIcon {
   stroke: var(--white);
 }
 

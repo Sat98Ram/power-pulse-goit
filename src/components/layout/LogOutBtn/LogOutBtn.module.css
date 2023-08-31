@@ -1,4 +1,4 @@
-.logoutBtn {
+button {
   background-color: transparent;
   color: inherit;
   display: flex;
@@ -7,7 +7,7 @@
   padding: 4px 0;
 }
 
-.logoutBtn:hover,
-.logoutBtn:focus {
+button:hover,
+button:focus {
   color: var(--primary-accent);
 }

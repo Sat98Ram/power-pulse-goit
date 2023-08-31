@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./LogOutBtn.module.css";
 
-const LogOutBtn = ({ onClick, className }) => {
+const LogOutBtn = ({ onClick, className, classNameBtn }) => {
   return (
-    <button className={css.logoutBtn} onClick={onClick}>
+    <button className={classNameBtn} onClick={onClick}>
       Logout
       <svg className={className} width="20" height="20">
         <use href={symbolDefs + "#log-out-icon"}></use>
@@ -19,4 +19,5 @@ export default LogOutBtn;
 LogOutBtn.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
+  classNameBtn: PropTypes.string,
 };

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./BurgerMenu.module.css";
-// import UserNav from "../UserNav/UserNav";
 
 const BurgerMenu = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +44,6 @@ const BurgerMenu = ({ children }) => {
           </button>
 
           {children}
-          {/* <UserNav /> */}
         </div>
       )}
     </>

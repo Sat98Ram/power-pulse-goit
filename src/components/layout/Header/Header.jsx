@@ -38,7 +38,14 @@ const Header = () => {
 
             {isAuth && (
               <div className={css.authUser}>
-                {isDesktop && <UserNav />}
+                {isDesktop && (
+                  <UserNav
+                    className={css.headerNav}
+                    classNameLink={({ isActive }) =>
+                      isActive ? css.userNavLinkActive : css.userNavLink
+                    }
+                  />
+                )}
 
                 <UserBar onClick={showModalLogOut} />
               </div>

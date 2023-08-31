@@ -6,7 +6,9 @@
   background-color: var(--primary-accent);
   width: 200px;
   height: 812px;
-  padding: 20px;
+  padding-top: 245px;
+  padding-left: 43px;
+  padding-right: 43px;
 }
 
 .menuBtn,

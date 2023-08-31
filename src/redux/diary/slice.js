@@ -23,7 +23,7 @@ export const diarySlice = createSlice({
     builder
       .addCase(getDiariesByDateThunk.pending, pending)
       .addCase(getDiariesByDateThunk.fulfilled, getDiaryFulfilled)
-      .addCase(getDiariesByDateThunk.rejected, rejected)
+      .addCase(getDiariesByDateThunk.rejected, getDiaryRejected)
 
       .addCase(addDiariesProductThunk.pending, pending)
       .addCase(addDiariesProductThunk.fulfilled, addProductFulfilled)
@@ -38,6 +38,19 @@ function pending(state) {
 }
 function rejected(state) {
   state.isLoading = false;
+}
+function getDiaryRejected(state) {
+  (state.burnedCalories = 0),
+    (state.consumedCalories = 0),
+    (state.consumedProducts = []),
+    (state.createdAt = null),
+    (state.date = null),
+    (state.doneExercises = []),
+    (state.owner = null),
+    (state.timeSport = null),
+    (state.updatedAt = null),
+    (state._id = null),
+    (state.isLoading = false);
 }
 
 function getDiaryFulfilled(state, { payload }) {

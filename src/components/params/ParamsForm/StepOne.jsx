@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
 import sprite from "../../../assets/images/symbol-defs.svg";
+import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
 
 const StepOne = ({ formik, submit }) => {
+  const date = new Date();
+
   return (
     <>
       <p className={css.text}>
@@ -55,6 +58,7 @@ const StepOne = ({ formik, submit }) => {
             />
             <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p>
           </label>
+          {/* <DatePickerCalendar value={date} /> */}
           <input
             className={css.input}
             type="date"

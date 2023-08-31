@@ -12,7 +12,7 @@ $color2: #e6533c;
   input[type="radio"] {
     position: absolute;
     opacity: 0;
-    + .radio-label {
+    + .radioLabel {
       &:before {
         content: "";
         background: $color1;
@@ -63,4 +63,5 @@ $color2: #e6533c;
       }
     }
   }
+  margin: 0;
 }

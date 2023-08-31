@@ -11,7 +11,7 @@ const Page404 = () => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      // navigate("/");
+      navigate("/");
     }, 4000);
     return () => clearTimeout(timerId);
   }, [navigate]);

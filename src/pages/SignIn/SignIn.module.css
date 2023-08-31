@@ -1,0 +1,40 @@
+.wrapper {
+}
+.container {
+  background-image: url(../../assets//images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.screen {
+  width: 335px;
+}
+.screen__content {
+  padding: 28px 20px;
+}
+h2 {
+  color: var(--white);
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: calc(28 / 24);
+  margin-bottom: 14px;
+}
+.enterText {
+  color: rgba(239, 237, 232, 0.3);
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  margin-bottom: 28px;
+}
+.noaccount {
+  color: var(--white);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: calc(18 / 12);
+  margin-bottom: 121px;
+}
+.noaccount span {
+  text-decoration: underline;
+}

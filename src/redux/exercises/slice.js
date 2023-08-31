@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { exerciseCategoriesThunk, exerciseListThunk } from "./operation";
+import { exercisesImages } from "../../constants/exercisesImg";
 
 export const exrcisesSlice = createSlice({
   name: "exercises",
@@ -8,7 +9,7 @@ export const exrcisesSlice = createSlice({
     equipments: [],
     muscules: [],
     exerciseList: [],
-    selectedCategory: {},
+    selectedCategory: "",
     isLoading: false,
   },
   extraReducers: (builder) =>
@@ -16,7 +17,7 @@ export const exrcisesSlice = createSlice({
       .addCase(exerciseCategoriesThunk.pending, pending)
       .addCase(exerciseCategoriesThunk.fulfilled, categoryFulfilled)
       .addCase(exerciseCategoriesThunk.rejected, rejected)
-      .addCase(exerciseListThunk.pending, pending)
+      .addCase(exerciseListThunk.pending, pendingList)
       .addCase(exerciseListThunk.fulfilled, listFulfilled)
       .addCase(exerciseListThunk.rejected, pending),
 });
@@ -24,11 +25,23 @@ export const exrcisesSlice = createSlice({
 function pending(state) {
   state.isLoading = true;
 }
+function pendingList(state) {
+  state.isLoading = true;
+}
 
 function categoryFulfilled(state, { payload }) {
-  state.bodyparts = payload.bodyparts;
-  state.muscules = payload.muscles;
-  state.equipments = payload.equipments;
+  state.bodyparts = payload.bodyparts.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
+  state.muscules = payload.muscles.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
+  state.equipments = payload.equipments.map((el) => ({
+    title: el,
+    srcSet: exercisesImages[el].srcSet,
+  }));
   state.isLoading = false;
 }
 

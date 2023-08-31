@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
-import "./index.scss";
 import sprite from "../../../assets/images/symbol-defs.svg";
 
 const blood = ["1", "2", "3", "4"];
@@ -22,16 +21,18 @@ const StepTwo = ({ formik, submit, prevStep }) => {
             <h3>Blood:</h3>
             <ul className={css.fbiList}>
               {blood.map((el, i) => (
-                <li key={i}>
-                  <label className={css.radioGroup}>
-                    <input
-                      type="radio"
-                      required
-                      // checked
-                      name="blood"
-                      onChange={formik.handleChange}
-                      value={i + 1}
-                    />
+                <li className={css.radioItem} key={i}>
+                  <input
+                    type="radio"
+                    required
+                    id={el}
+                    className={css.radioBtn}
+                    // checked
+                    name="blood"
+                    onChange={formik.handleChange}
+                    value={i + 1}
+                  />
+                  <label htmlFor={el} className={css.radioLabel}>
                     {el}
                   </label>
                 </li>
@@ -42,16 +43,18 @@ const StepTwo = ({ formik, submit, prevStep }) => {
             <h3>Sex:</h3>
             <ul className={css.fbiList}>
               {sex.map((el, i) => (
-                <li key={i}>
-                  <label className={css.radioGroup}>
-                    <input
-                      type="radio"
-                      required
-                      // checked
-                      name="sex"
-                      onChange={formik.handleChange}
-                      value={i + 1}
-                    />
+                <li className={css.radioItem} key={i}>
+                  <input
+                    type="radio"
+                    required
+                    id={el}
+                    className={css.radioBtn}
+                    // checked
+                    name="sex"
+                    onChange={formik.handleChange}
+                    value={i + 1}
+                  />
+                  <label htmlFor={el} className={css.radioLabel}>
                     {el}
                   </label>
                 </li>
@@ -63,29 +66,23 @@ const StepTwo = ({ formik, submit, prevStep }) => {
           <h3>Level Activity:</h3>
           <ul className={css.secondBlockList}>
             {levelActivity.map((el, i) => (
-              <li key={i}>
-                <label className={css.radioGroup}>
-                  <input
-                    type="radio"
-                    required
-                    // checked
-                    name="levelActivity"
-                    id="levelActivity"
-                    onChange={formik.handleChange}
-                    value={i + 1}
-                  />
+              <li className={css.radioItem} key={i}>
+                <input
+                  type="radio"
+                  required
+                  id={el}
+                  className={css.radioBtn}
+                  // checked
+                  name="levelActivity"
+                  onChange={formik.handleChange}
+                  value={i + 1}
+                />
+                <label htmlFor={el} className={css.radioLabel}>
                   {el}
                 </label>
               </li>
             ))}
           </ul>
-
-          {/* <div className={css.radiobuttons}>
-          <div className={css.radiobuttons_item}>
-            radio-button
-            <input type="radio" value="1" name="radio" />
-          </div>
-        </div> */}
 
           <div className={css.btnBlock}>
             <button type="button" onClick={prevStep} className={css.btn}>

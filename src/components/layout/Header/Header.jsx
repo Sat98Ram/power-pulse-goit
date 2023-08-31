@@ -47,7 +47,11 @@ const Header = () => {
                   />
                 )}
 
-                <UserBar onClick={showModalLogOut} />
+                <UserBar
+                  onClick={showModalLogOut}
+                  isModalLogout={isModalLogout}
+                  showModalLogOut={showModalLogOut}
+                />
               </div>
             )}
           </div>

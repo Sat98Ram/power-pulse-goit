@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-import css from "./UserNav.module.css";
 import UserNavItem from "./UserNavItem";
 
 const navMenu = [

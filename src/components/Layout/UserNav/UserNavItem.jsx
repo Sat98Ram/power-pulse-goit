@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
-import css from "./UserNav.module.css";
-
 const UserNavItem = ({ link, label, className, classNameItem }) => {
   return (
     <li className={classNameItem}>

@@ -1,3 +1,25 @@
 .modalLogout {
   padding: 48px 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutWarning {
+  margin-bottom: 16px;
+}
+
+.modalLogoutIcon {
+  fill: var(--primary-accent);
+  width: 20px;
+  height: 20px;
+}
+
+.btnModalLogout {
+  background-color: transparent;
+  color: inherit;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 27px;
 }

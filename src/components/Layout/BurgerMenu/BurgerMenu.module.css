@@ -45,6 +45,11 @@
     height: 1024px;
   }
 
+  .menuCloseBtn {
+    top: 26px;
+    right: 32px;
+  }
+
   .burgerIcon,
   .closeMenuIcon {
     width: 32px;

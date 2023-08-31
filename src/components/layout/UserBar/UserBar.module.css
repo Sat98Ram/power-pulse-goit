@@ -35,34 +35,6 @@
   height: 15px;
 }
 
-@media screen and (min-width: 768px) {
-  .userBar {
-    gap: 16px;
-  }
-
-  .avatarWrapper {
-    width: 46px;
-    height: 46px;
-  }
-
-  .userSettings {
-    width: 24px;
-    height: 24px;
-  }
-
-  .userBarAvatar {
-    width: 17px;
-    height: 17px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .userSettings {
-    width: 28px;
-    height: 28px;
-  }
-}
-
 .logoutIcon {
   fill: var(--primary-accent);
   width: 20px;
@@ -105,4 +77,37 @@
 .burgerLogOut:hover,
 .burgerLogOut:focus {
   color: var(--secondary-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .userBar {
+    gap: 16px;
+  }
+
+  .avatarWrapper {
+    width: 46px;
+    height: 46px;
+  }
+
+  .userSettings {
+    width: 24px;
+    height: 24px;
+  }
+
+  .userBarAvatar {
+    width: 17px;
+    height: 17px;
+  }
+
+  .burgerLogOut {
+    bottom: 32px;
+    left: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .userSettings {
+    width: 28px;
+    height: 28px;
+  }
 }

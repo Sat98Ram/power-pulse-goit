@@ -1,6 +1,6 @@
 .wrapper {
   width: 335px;
-  height: 141px;
+  min-height: 141px;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -14,33 +14,43 @@
 .btnWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .cardLabel {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  color: #fff;
+
   padding: 5px 7.5px;
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
+  text-transform: uppercase;
 }
 
 .title {
+  position: relative;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 1.333;
   color: var(--white);
-  display: flex;
-  gap: 16px;
+
   margin-bottom: 8px;
-  align-items: center;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* width: 240px; */
+  padding-left: 30px;
+  max-width: 100%;
 }
 
 .title::before {
+  position: absolute;
   content: url(../../../assets/images/run-icon.svg);
-  display: block;
   width: 24px;
   height: 24px;
-  /* margin-right: 16px; */
+  left: 0;
+  top: calc(50% - 12px);
 }
 
 .button {
@@ -48,10 +58,13 @@
   border: none;
   color: var(--primary-accent);
   font-size: 16px;
-  line-height: 24px;
-  margin-right: 8px;
+  line-height: 1.5;
   display: flex;
   align-items: center;
+  gap: 8px;
+  padding: 0;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-cubic);
 }
 
 .button::after {
@@ -59,14 +72,16 @@
   display: block;
   width: 16px;
   height: 16px;
-  margin-left: 8px;
-  margin-top: -3px;
+}
+
+.button:hover {
+  color: var(--white);
 }
 
 .list {
   display: flex;
-  flex-direction: row;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 4px 16px;
 }
 
 .listItem {
@@ -75,10 +90,20 @@
   gap: 4px;
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
-  line-height: 18px; /* 150% */
+  line-height: 1.5;
+}
+
+.listItemValue {
+  color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
+  /* .wrapper {
+
+  } */
+}
+
+@media screen and (min-width: 1440px) {
   .wrapper {
     width: 405px;
   }

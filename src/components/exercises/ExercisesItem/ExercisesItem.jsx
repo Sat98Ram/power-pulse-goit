@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import css from "./ExercisesItem.module.css";
+import { capitalizeFirstLeter } from "@/helpers/capitalizeFirstLeter.js";
 
 const texts = {
   cardLabel: "Workout",
@@ -19,20 +20,14 @@ export const ExercisesItem = (data) => {
           {texts.btnLabel}
         </button>
       </div>
-      <h3 className={css.title}>
-        {(data.name &&
-          (data.name.length > 15
-            ? data.name.slice(0, 27).charAt(0).toUpperCase() +
-              data.name.slice(1, 27) +
-              "..."
-            : data.name.charAt(0).toUpperCase() + data.name.slice(1))) ||
-          "Title"}
-      </h3>
+      <h3 className={css.title}>{capitalizeFirstLeter(data.name)}</h3>
       <ul className={css.list}>
         {Object.keys(texts.list).map((e) => (
           <li key={e} className={css.listItem}>
             {texts.list[e]}
-            <span>{data[e]}</span>
+            <span className={css.listItemValue}>
+              {capitalizeFirstLeter(String(data[e]))}
+            </span>
           </li>
         ))}
       </ul>

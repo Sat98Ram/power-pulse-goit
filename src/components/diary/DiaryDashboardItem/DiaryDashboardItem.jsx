@@ -37,7 +37,7 @@ export const DiaryDashboardItem = ({
 DiaryDashboardItem.propTypes = {
   svg: PropTypes.string,
   title: PropTypes.string,
-  content: PropTypes.number,
+  content: PropTypes.any,
   className: PropTypes.string,
   type: PropTypes.string,
 };

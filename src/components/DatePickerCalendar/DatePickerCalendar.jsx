@@ -46,7 +46,7 @@ TODO:
 */
 
 export const DatePickerCalendar = ({
-  value,
+  value = new Date(),
   onChange,
   min,
   max,
@@ -356,18 +356,18 @@ const DatePickerPopupContent = ({
 };
 
 DatePickerCalendar.propTypes = {
-  value: PropTypes.Date,
-  onChange: PropTypes.func,
-  min: PropTypes.Date | undefined,
-  max: PropTypes.Date | undefined,
+  value: PropTypes.any,
+  onChange: PropTypes.any,
+  min: PropTypes.any,
+  max: PropTypes.any,
   YearBool: PropTypes.bool,
 };
 
 DatePickerPopupContent.propTypes = {
-  selectedValue: PropTypes.string,
-  inputValueDate: PropTypes.Date,
-  onChange: PropTypes.func,
-  min: PropTypes.Date | undefined,
-  max: PropTypes.Date | undefined,
+  selectedValue: PropTypes.any,
+  inputValueDate: PropTypes.any,
+  onChange: PropTypes.any,
+  min: PropTypes.any,
+  max: PropTypes.any,
   YearBool: PropTypes.bool,
 };

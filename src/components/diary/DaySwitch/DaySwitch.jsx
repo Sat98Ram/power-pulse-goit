@@ -64,7 +64,6 @@ const DaySwitch = ({ date = "", setDate }) => {
         onChange={setDate}
         min={MIN_DATE}
         max={MAX_DATE}
-        
       />
       <div className={css.svg_btn_group}>
         <button className={css.btnSvg} onClick={prevData}>
@@ -83,6 +82,6 @@ const DaySwitch = ({ date = "", setDate }) => {
 export default DaySwitch;
 
 DaySwitch.propTypes = {
-  date: PropTypes.oneOfType([PropTypes.Date, undefined]),
+  date: PropTypes.any,
   setDate: PropTypes.func,
 };

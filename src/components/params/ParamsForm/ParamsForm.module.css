@@ -4,20 +4,13 @@ h3 {
     line-height: 1.28;
 }
 
-.radioGroup {
+.radioItem {
+    padding-left: 28px;
     display: flex;
     gap: 9px;
     align-items: center;
 }
-.input {
-    border-radius: 12px;
-    border: 1px solid #E6533C;
-    width: 155px;
-    height: 46px;
-    background-color: transparent;
-    color: rgba(239, 237, 232, 0.6);
-    padding: 0 14px;
-}
+
 
 .btn {
     background-color: transparent;
@@ -69,6 +62,29 @@ h3 {
 
     color: rgba(239, 237, 232, 0.6);
 }
+
+.input {
+    border-radius: 12px;
+    border: 1px solid rgba(239, 237, 232, 0.6);
+    width: 155px;
+    height: 46px;
+    background-color: transparent;
+    color: rgba(239, 237, 232, 0.6);
+    padding: 0 14px;
+    outline: transparent;
+}
+
+/* .input:hover,
+.input:focus {
+    border: 1px solid #E6533C;
+    transition: 300ms;
+} */
+
+.label:hover .input,
+.label:focus .input {
+    border: 1px solid #E6533C;
+}
+
 
 .input:focus+p,
 .input:not(:placeholder-shown)+p {
@@ -132,6 +148,58 @@ h3 {
     line-height: 1.5;
 }
 
+/* ===================Radio====================== 
+*/
+
+
+.radioBtn {
+    display: none;
+}
+
+.radioLabel {
+    position: relative;
+}
+
+
+.radioLabel:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -28px;
+
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #636366;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+    transition: 300ms;
+}
+.radioLabel::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -24px;
+
+    border-radius: 50%;
+    display: block;
+    background-color: #EF8964;    
+    height: 0;
+    width: 0;
+    transition: 300ms;
+}
+
+.radioBtn:checked+.radioLabel:before {
+    border: 2px solid #EF8964;
+    font-size: 20px;
+}
+.radioBtn:checked+.radioLabel:after {
+    height: 10px;
+        width: 10px;
+}
+
 /* ===================StepThree====================== */
 
 .blockBtn {
@@ -179,16 +247,17 @@ h3 {
     max-width: 496px;
     }
 
-    .label:hover .bastard,
+    /* .label:hover .bastard,
     .label:focus .bastard {
         top: -26px;
         
-    }
+    } */
 
     .input:focus+.bastard,
     .input:not(:placeholder-shown)+.bastard {
         top: -26px;
     }
+
 }
 
 @media screen and (min-width: 1440px) {

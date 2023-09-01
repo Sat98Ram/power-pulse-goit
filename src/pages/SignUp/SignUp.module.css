@@ -11,7 +11,7 @@
 .screen__content {
   padding: 28px 20px;
 }
-h2 {
+.screen h2 {
   color: var(--white);
   font-family: Roboto;
   font-size: 24px;

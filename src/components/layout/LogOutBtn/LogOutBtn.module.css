@@ -7,13 +7,7 @@
   padding: 4px 0;
 }
 
-.logoutIcon {
-  fill: var(--primary-accent);
-  width: 20px;
-  height: 20px;
-}
-
-.logoutBtn:hover,
-.logoutBtn:focus {
+button:hover,
+button:focus {
   color: var(--primary-accent);
 }

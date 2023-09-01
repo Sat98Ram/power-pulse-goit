@@ -1,14 +1,14 @@
-.userNav {
+/* .userNav {
   display: none;
-}
+} */
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .userNav {
     display: block;
   }
-}
+} */
 
-.userNavList {
+/* .userNavList {
   display: flex;
   gap: 16px;
 }
@@ -26,4 +26,4 @@
 .userNavLinkActive {
   background-color: var(--primary-accent);
   border-color: var(--primary-accent);
-}
+} */

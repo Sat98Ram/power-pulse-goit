@@ -1,7 +1,13 @@
-.header {
+.headerAuth {
   box-sizing: border-box;
   padding: 12px 0;
   border-bottom: 1px solid #efede833;
+}
+
+.headerNotAuth {
+  position: fixed;
+  z-index: 1;
+  top: 32px;
 }
 
 .headerContent {
@@ -26,4 +32,29 @@
     gap: 32px;
     align-items: center;
   }
+}
+
+.headerNav {
+  display: flex;
+  gap: 16px;
+}
+
+.userNavList {
+  display: flex;
+  gap: 16px;
+}
+
+.userNavLink,
+.userNavLinkActive {
+  border: 1px solid #efede833;
+  border-radius: 12px;
+  display: block;
+  padding: 10px 27px;
+}
+
+.userNavLink:hover,
+.userNavLink:focus,
+.userNavLinkActive {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
 }

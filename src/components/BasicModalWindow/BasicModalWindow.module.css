@@ -17,14 +17,27 @@
   position: relative;
 }
 .closeSvg {
+  width: 22px;
+  height: 22px;
+
+  border: none;
+  background: inherit;
   position: absolute;
   top: 14px;
   right: 14px;
+}
+.colorSvg {
+  fill: white;
+  /* stroke: white; */
 }
 @media screen and (min-width: 768px) {
   .modal {
     top: 16px;
     right: 16px;
+  }
+  .closeSvg {
+    width: 26px;
+    height: 26px;
   }
 }
 

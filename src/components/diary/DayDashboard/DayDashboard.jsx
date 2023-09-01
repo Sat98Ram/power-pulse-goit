@@ -7,9 +7,6 @@ const DayDashboard = ({ diary, bodyData }) => {
   const { burnedCalories, consumedCalories, timeSport } = diary;
   const { dailyRateCalories, dailySportMin } = bodyData;
 
-  const timeSportsFormat = (number) => {
-    return Math.round(number);
-  };
   return (
     <div className={css.day_dashboard_container}>
       <div className={css.day_dashboard}>
@@ -49,9 +46,7 @@ const DayDashboard = ({ diary, bodyData }) => {
             <DiaryDashboardItem
               svg="run-icon"
               title="The rest of sports"
-              content={`${timeSportsFormat(
-                dailySportMin - timeSport / 60
-              )} min`}
+              content={`${dailySportMin - timeSport} min`}
             />
           </div>
         </div>

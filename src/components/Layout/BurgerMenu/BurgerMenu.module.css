@@ -1,17 +1,58 @@
-.burgerIcon {
+.burgerMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  background-color: var(--primary-accent);
+  width: 200px;
+  height: 100vh;
+  padding-top: 245px;
+  padding-left: 43px;
+  padding-right: 43px;
+}
+
+.menuBtn,
+.menuCloseBtn {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.burgerIcon,
+.closeMenuIcon {
   width: 24px;
   height: 24px;
 }
 
+.menuCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.mobileMenu {
+  position: relative;
+  cursor: pointer;
+}
+
+.closeMenuIcon {
+  stroke: var(--white);
+}
+
 @media screen and (min-width: 768px) {
-  .burgerIcon {
+  .burgerMenu {
+    width: 350px;
+    height: 1024px;
+  }
+
+  .menuCloseBtn {
+    top: 26px;
+    right: 32px;
+  }
+
+  .burgerIcon,
+  .closeMenuIcon {
     width: 32px;
     height: 32px;
   }
-}
-
-.menuBtn,
-.openMenuBtn {
-  background: none;
-  padding: 0;
 }

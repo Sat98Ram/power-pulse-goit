@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import css from "./Page404.module.css";
 import { SignBtn } from "../SignBtn/SignBtn";
 import { useEffect } from "react";
@@ -18,11 +18,11 @@ const Page404 = () => {
   return (
     <section className={css.section}>
       <div className={css.left}>
-        <button className={css.btnLogo}>
+        {/* <button className={css.btnLogo}>
           <Link to="/">
             <p>PowerPulse</p>
           </Link>
-        </button>
+        </button> */}
         <div className={css.content}>
           <h3 className={css.title404}>404</h3>
           <p className={css.text404}>

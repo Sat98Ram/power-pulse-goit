@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 
 import css from "./Container.module.css";
 
-const Container = ({ children }) => {
-  return <div className={css.container}>{children}</div>
-}
+const Container = ({ children, className = "" }) => {
+  return <div className={`${css.container} ${className}`}>{children}</div>;
+};
 
-export default Container
+export default Container;
 
 Container.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
 };

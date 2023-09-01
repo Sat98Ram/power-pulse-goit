@@ -45,7 +45,7 @@ const RigthSvg = () => {
 const MIN_DATE = new Date(2000, 6, 1);
 const MAX_DATE = new Date(2036, 8, 0);
 
-const DaySwitch = ({ date, setDate }) => {
+const DaySwitch = ({ date = "", setDate }) => {
   const prevData = () => {
     var d = new Date(date);
     d = new Date(d.getTime() - 86400000);
@@ -80,9 +80,8 @@ const DaySwitch = ({ date, setDate }) => {
 };
 
 export default DaySwitch;
-//1693418257808
-//1693418282652
+
 DaySwitch.propTypes = {
-  date: PropTypes.Date,
+  date: PropTypes.oneOfType([PropTypes.Date, undefined]),
   setDate: PropTypes.func,
 };

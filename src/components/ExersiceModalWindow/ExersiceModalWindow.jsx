@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 import css from "./ExersiceModalWindow.module.css";
@@ -50,7 +50,13 @@ export const ExersiceModalWindow = () => {
                 alt="exercise"
               />
               <div className={css.SubcategoriesList}>
-                <ExersiceModalWindowList name={params.name} bodypart={params.bodyPart} target={params.target} equipment={params.equipment} time={params.time} />
+                <ExersiceModalWindowList
+                  name={params.name}
+                  bodypart={params.bodyPart}
+                  target={params.target}
+                  equipment={params.equipment}
+                  time={params.time}
+                />
               </div>
             </div>
             <div className={css.ExersiceModalWindowTimer}>

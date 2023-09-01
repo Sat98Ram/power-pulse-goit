@@ -5,11 +5,21 @@ import PropTypes from "prop-types";
 export const DiaryDashboardItem = ({
   svg = "",
   title = "",
-  content = "",
+  content = 0,
   className = "",
+  type = "",
 }) => {
+  const returnBorder = () => {
+    if (type === "sport" && content > 0) {
+      return css.gren;
+    } else if (type === "calories" && content < 0) {
+      return css.red;
+    }
+  };
   return (
-    <div className={` ${css.diary_item}   ${className}`}>
+    <div
+      className={` ${css.diary_item}   ${className} ${type && returnBorder()}`}
+    >
       <div className={css.header}>
         <div className={css.svg}>
           <svg className={css.colorSvg} width="20" height="20">
@@ -27,6 +37,7 @@ export const DiaryDashboardItem = ({
 DiaryDashboardItem.propTypes = {
   svg: PropTypes.string,
   title: PropTypes.string,
-  content: PropTypes.string,
+  content: PropTypes.number,
   className: PropTypes.string,
+  type: PropTypes.string,
 };

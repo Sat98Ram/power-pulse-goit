@@ -8,23 +8,29 @@ import symbolDefs from "../../assets/images/symbol-defs.svg";
 const Welcome = () => {
   return (
     <div className={css.welcomeBackground}>
-      <h1 className={css.title}>
-        Transforming your <span className={css.lineIcon}>body</span> shape with
-        Power Pulse
-      </h1>
-      <svg className={css.lineIcon} width="98" height="35">
-        <use href={symbolDefs + "#line-icon"}></use>
-      </svg>
-      <div className={css.buttonsLine}>
-        <NavLink to="/signup">
-          <SignUpBtn />
-        </NavLink>
-        <NavLink to="signin">
-          <SignInBtn />
-        </NavLink>
+      <div className={css.wrapper}>
+        <div className={css.linePosition}>
+          <h1 className={css.title}>
+            Transforming your <span className={css.bodyLine}>body</span> shape
+            with Power Pulse
+          </h1>
+          <div className={css.iconDiv}>
+            <svg className={css.lineIcon} width="98" height="35">
+              <use href={symbolDefs + "#line-icon"}></use>
+            </svg>
+          </div>
+        </div>
+        <div className={css.buttonsLine}>
+          <NavLink to="/signup">
+            <SignUpBtn />
+          </NavLink>
+          <NavLink to="/signin">
+            <SignInBtn />
+          </NavLink>
+        </div>
+        <VideoCount />
+        <CaloriesCount />
       </div>
-      <VideoCount />
-      <CaloriesCount />
     </div>
   );
 };

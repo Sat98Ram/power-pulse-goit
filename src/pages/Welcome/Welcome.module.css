@@ -1,3 +1,7 @@
+.wrapper {
+  padding-left: 20px;
+  min-width: 335px;
+}
 .welcomeBackground {
   position: absolute;
   height: 100%;
@@ -14,11 +18,25 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
+  margin-top: 40px;
+  margin-bottom: 221px;
 }
+
 .title {
   max-width: 335px;
   display: flex;
   flex-wrap: wrap;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: calc(40 / 38);
+  letter-spacing: 0.38px;
 }
-.lineIcon {
+.linePosition {
+  position: relative;
+  height: max-content;
+}
+.iconDiv {
+  position: absolute;
+  z-index: 3;
+  left: 0;
 }

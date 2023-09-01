@@ -1,10 +1,10 @@
-import SignUpBtn from "../SignUpForm/SignUpBtn";
 import css from "./SignUpForm.module.css";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
 import { registerThunk } from "../../redux/auth/operations";
+import { SignBtn } from "../SignBtn/SignBtn";
 
 const validationSchema = Yup.object({
   username: Yup.string().required("Please enter your name"),
@@ -85,7 +85,7 @@ export const SignUpForm = () => {
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
 
-      <SignUpBtn />
+      <SignBtn text="Sign Up" type="submit" onClick={onSubmit} />
     </form>
   );
 };

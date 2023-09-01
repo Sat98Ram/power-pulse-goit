@@ -18,7 +18,7 @@ export const SignIn = () => {
             <p className={css.noaccount}>
               Don't have an account?
               <NavLink to="/signup">
-                <span>Sign Up</span>
+                <span> Sign Up</span>
               </NavLink>
             </p>
             <VideoCount />

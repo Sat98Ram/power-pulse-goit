@@ -10,15 +10,15 @@ import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWind
 export const ExersiceModalWindow = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const params = {
-    bodyPart: "back",
-    burnedCalories: 307,
-    equipment: "barbell",
+    bodyPart: "waist",
+    burnedCalories: 157,
+    equipment: "body weight",
     gifUrl:
-      "https://res.cloudinary.com/ditdqzoio/image/upload/v1687127066/exercises/0037.gif",
-    name: "barbell decline",
-    target: "lats",
+      "https://res.cloudinary.com/ditdqzoio/image/upload/v1687127066/exercises/0260.gif",
+    name: "cocoons",
+    target: "abs",
     time: 3,
-    _id: "64e5d7a0bc1733080d78435f",
+    _id: "64e5d7a0bc1733080d784422",
   };
   // const dispatch = useDispatch();
 
@@ -43,18 +43,26 @@ export const ExersiceModalWindow = () => {
       {isModalOpen && (
         <BasicModalWindow isOpenModalToggle={closeModal}>
           <div className={css.ExersiceModalWindowWrap}>
-            <div className={css.ExersiceModalWindow}>
+            <div className={`${css.ExersiceModalWindow} ${css.boxImage}`}>
               <img
                 className={css.ExersiceModalWindowImg}
                 src={params.gifUrl}
                 alt="exercise"
               />
-              <div className={css.SubcategoriesList}>
-                <ExersiceModalWindowList name={params.name} bodypart={params.bodyPart} target={params.target} equipment={params.equipment} time={params.time} />
-              </div>
             </div>
-            <div className={css.ExersiceModalWindowTimer}>
+            <div className={`${css.ExersiceModalWindowTimer} ${css.boxTimer}`}>
               <Timer burnedCalories={params.burnedCalories} />
+            </div>
+            <div className={`${css.SubcategoriesList} ${css.boxList}`}>
+              <ExersiceModalWindowList
+                name={params.name}
+                bodypart={params.bodyPart}
+                target={params.target}
+                equipment={params.equipment}
+                time={params.time}
+              />
+            </div>
+            <div className={css.boxButton}>
               <button className={css.ExersiceModalWindowBtn}>
                 Add to diary
               </button>

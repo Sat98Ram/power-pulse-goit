@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const privateAPI = axios.create({
-  // baseURL: "https://powerpulse-y0gd.onrender.com/",
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://powerpulse-y0gd.onrender.com/",
+  // baseURL: "http://localhost:3000/",
 });
 
 export const token = {

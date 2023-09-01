@@ -2,6 +2,7 @@ import axios from "axios";
 
 const privateAPI = axios.create({
   baseURL: "https://powerpulse-y0gd.onrender.com/",
+  // baseURL: "http://localhost:3000/",
 });
 
 export const token = {
@@ -75,7 +76,6 @@ export const exerciseAddDiary = async (body) => {
   const { data } = await privateAPI.post("api/diaries/exercise/add", body);
   return data;
 };
-
 
 export const updateBody = async (body) => {
   const { data } = await privateAPI.post("api/users/body", body);

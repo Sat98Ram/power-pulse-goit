@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import css from "./ExercisesSubcategoriesItem.module.css";
 import { useDispatch } from "react-redux";
 import { exerciseListThunk } from "@/redux/exercises/operation";
-import { useNavigate } from "react-router-dom";
-// import background from "../../../assets/images/desktop/excersises@1x/abs@1x.jpg";
+import { NavLink, useLocation } from "react-router-dom";
+import { capitalizeFirstLeter } from "@/helpers/capitalizeFirstLeter";
 
 const getRequestBody = (category, item) => {
   const categories = {
@@ -17,28 +17,22 @@ const getRequestBody = (category, item) => {
 
 const ExercisesSubcategoriesItem = ({ item, category, srcSet }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const array = srcSet.split(",");
-
-  const firstLetterToUppercase = (title) => {
-    return title.replace(title[0], title[0].toUpperCase());
-  };
+  const loacation = useLocation();
 
   return (
-    <li
-      className={css.subcategories_item}
-      style={{
-        backgroundImage: `url(${array[0]})`,
-      }}
-      onClick={() => {
-        dispatch(exerciseListThunk(getRequestBody(category, item)));
-        navigate("list");
-      }}
-    >
-      <div className={css.block}>
-        <p className={css.title}>{firstLetterToUppercase(item)}</p>
-        <p className={css.categories}>{firstLetterToUppercase(category)}</p>
-      </div>
+    <li className={css.wrapper}>
+      <img srcSet={srcSet} alt={item} className={css.image} />
+      <NavLink
+        to="list"
+        state={{ from: loacation }}
+        className={css.link}
+        onClick={() => {
+          dispatch(exerciseListThunk(getRequestBody(category, item)));
+        }}
+      >
+        <p className={css.title}>{capitalizeFirstLeter(item)}</p>
+        <p className={css.categories}>{capitalizeFirstLeter(category)}</p>
+      </NavLink>
     </li>
   );
 };

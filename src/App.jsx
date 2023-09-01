@@ -31,14 +31,14 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<PublicRoute />}>
             <Route index element={<Navigate to="welcome" />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="welcome" element={<Welcome />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="signin" element={<SignIn />} />
           </Route>
 
           <Route path="/" element={<PrivateRoute />}>
-            <Route path="/diary" element={<Diary />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="diary" element={<Diary />} />
+            <Route path="products" element={<Products />} />
             <Route path="exercises" element={<Exercises />}>
               <Route index element={<Navigate to="bodyparts" />} />
               <Route
@@ -47,8 +47,8 @@ function App() {
               />
               <Route path=":category/list" element={<ExercisesList />} />
             </Route>
-            <Route path="/params" element={<Params />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="params" element={<Params />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
         <Route path="*" element={<Page404 />} />

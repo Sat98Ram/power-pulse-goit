@@ -1,6 +1,5 @@
 .SubcategoriesList {
-  padding-top: 40px;
-  padding-bottom: 80px;
+  margin-top: 40px;
 }
 
 .exercisesList {
@@ -11,18 +10,12 @@
 
 @media screen and (min-width: 768px) {
   .SubcategoriesList {
-    padding-top: 64px;
-    padding-bottom: 78px;
+    margin-top: 64px;
   }
 
   .exercisesList {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px 16px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .SubcategoriesList {
-    padding-bottom: 92px;
   }
 }

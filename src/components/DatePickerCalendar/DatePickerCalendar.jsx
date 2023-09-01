@@ -45,7 +45,13 @@ TODO:
 - [after video] think about solution without effects?
 */
 
-export const DatePickerCalendar = ({ value, onChange, min, max }) => {
+export const DatePickerCalendar = ({
+  value,
+  onChange,
+  min,
+  max,
+  YearBool = false,
+}) => {
   const [showPopup, setShowPopup] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const elementRef = useRef(null);
@@ -160,6 +166,7 @@ export const DatePickerCalendar = ({ value, onChange, min, max }) => {
             min={min}
             max={max}
             inputValueDate={inputValueDate}
+            YearBool={YearBool}
           />
         </div>
       )}
@@ -167,21 +174,13 @@ export const DatePickerCalendar = ({ value, onChange, min, max }) => {
   );
 };
 
-// interface DatePickerPopupContentProps {
-//   selectedValue: Date;
-//   inputValueDate?: Date;
-//   min?: Date;
-//   max?: Date;
-//   onChange: (value: Date) => void;
-// }
-
 const DatePickerPopupContent = ({
   selectedValue,
   inputValueDate,
   onChange,
   min,
   max,
-  Year = false,
+  YearBool,
 }) => {
   const [panelYear, setPanelYear] = useState(() => selectedValue.getFullYear());
   const [panelMonth, setPanelMonth] = useState(() => selectedValue.getMonth());
@@ -253,7 +252,7 @@ const DatePickerPopupContent = ({
       <div className="CalendarPanel__header">
         <div className="CalendarPanel__buttons">
           <div className="CalendarPanel__buttons-left">
-            {Year && (
+            {YearBool && (
               <button
                 className="btn"
                 data-testid="date-picker-popup-prev-year"
@@ -295,7 +294,7 @@ const DatePickerPopupContent = ({
                 <use href={symbolDefs + "#arrow-left-icon"}></use>
               </svg>
             </button>
-            {Year && (
+            {YearBool && (
               <button
                 className="btn"
                 data-testid="date-picker-popup-next-year"
@@ -361,7 +360,7 @@ DatePickerCalendar.propTypes = {
   onChange: PropTypes.func,
   min: PropTypes.Date | undefined,
   max: PropTypes.Date | undefined,
-  // selectedValue: PropTypes.any,
+  YearBool: PropTypes.bool,
 };
 
 DatePickerPopupContent.propTypes = {
@@ -370,5 +369,5 @@ DatePickerPopupContent.propTypes = {
   onChange: PropTypes.func,
   min: PropTypes.Date | undefined,
   max: PropTypes.Date | undefined,
-  Year: PropTypes.bool,
+  YearBool: PropTypes.bool,
 };

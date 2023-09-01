@@ -33,6 +33,8 @@ const bgImg = [css.stepOneBg, css.stepTwoBg, css.stepThreeBg];
 
 const Params = () => {
   const [step, setStep] = useState(1);
+  // const [date, setDate] = useState(new Date());
+  // console.log("date", date);
 
   const dispatch = useDispatch();
 
@@ -67,7 +69,14 @@ const Params = () => {
       <Container className={css.container}>
         <div>
           {step !== 3 && <TitlePage text={"Get closer to your goals!"} />}
-          {step === 1 && <StepOne formik={formik} submit={onSubmit} />}
+          {step === 1 && (
+            <StepOne
+              formik={formik}
+              submit={onSubmit}
+              // date={date}
+              // setDate={setDate}
+            />
+          )}
           {step === 2 && (
             <StepTwo formik={formik} submit={onSubmit} prevStep={prevStep} />
           )}

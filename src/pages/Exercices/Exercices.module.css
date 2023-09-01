@@ -1,13 +1,38 @@
 .header {
-  padding: 40px 0;
+  /* padding: 40px 0; */
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-bottom: 40px;
+}
+.section {
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
 }
 
 @media screen and (min-width: 768px) {
   .header {
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .section {
+    padding-top: 72px;
+    padding-bottom: 32px;
+    min-height: calc(100vh - 85px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section.list {
+    background-image: url(@/assets/images/desktop/other@1x/bg-exercise@1x.jpg);
+    background-image: -webkit-image-set(
+      url(@/assets/images/desktop/other@1x/bg-exercise@1x.jpg) 1x,
+      url(@/assets/images/desktop/other@2x/bg-exercise@2x.jpg) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom 0 right 0;
   }
 }

@@ -11,6 +11,15 @@
   border-radius: 12px;
 }
 
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: rgba(239, 237, 232, 0.1);
+  border-radius: 12px;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     overflow-y: auto;
@@ -29,12 +38,3 @@
     max-width: 100%;
   }
 }
-
-/* ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(239, 237, 232, 0.1);
-  border-radius: 12px;
-} */

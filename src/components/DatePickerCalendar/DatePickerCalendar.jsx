@@ -16,6 +16,7 @@ import {
   months,
 } from "./utils";
 import { useLatest } from "./hook.js";
+import symbolDefs from "../../assets/images/symbol-defs.svg";
 import "./DatePickerCalendar.css";
 
 // export interface DatePickerProps {
@@ -180,6 +181,7 @@ const DatePickerPopupContent = ({
   onChange,
   min,
   max,
+  Year = false,
 }) => {
   const [panelYear, setPanelYear] = useState(() => selectedValue.getFullYear());
   const [panelMonth, setPanelMonth] = useState(() => selectedValue.getMonth());
@@ -220,13 +222,13 @@ const DatePickerPopupContent = ({
     onChange(new Date(item.year, item.month, item.date));
   };
 
-  // const nextYear = () => {
-  //   setPanelYear(panelYear + 1);
-  // };
+  const nextYear = () => {
+    setPanelYear(panelYear + 1);
+  };
 
-  // const prevYear = () => {
-  //   setPanelYear(panelYear - 1);
-  // };
+  const prevYear = () => {
+    setPanelYear(panelYear - 1);
+  };
 
   const nextMonth = () => {
     if (panelMonth === 11) {
@@ -251,32 +253,28 @@ const DatePickerPopupContent = ({
       <div className="CalendarPanel__header">
         <div className="CalendarPanel__buttons">
           <div className="CalendarPanel__buttons-left">
-            {/* <button
-              data-testid="date-picker-popup-prev-year"
-              onClick={prevYear}
-            >
-              gg
-            </button> */}
+            {Year && (
+              <button
+                className="btn"
+                data-testid="date-picker-popup-prev-year"
+                onClick={prevYear}
+              >
+                <svg className="prevMonth" width="6" height="10">
+                  <use href={symbolDefs + "#arrow-right-icon"}></use>
+                </svg>
+                <svg className="prevMonth" width="6" height="10">
+                  <use href={symbolDefs + "#arrow-right-icon"}></use>
+                </svg>
+              </button>
+            )}
+
             <button
               className="btn"
               data-testid="date-picker-popup-prev-month"
               onClick={prevMonth}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-              >
-                <path
-                  d="M5 9L1 5L5 1"
-                  stroke="#EFEDE8"
-                  // strokeOpacity="0.4"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg className="prevMonth" width="6" height="10">
+                <use href={symbolDefs + "#arrow-right-icon"}></use>
               </svg>
             </button>
           </div>
@@ -293,28 +291,24 @@ const DatePickerPopupContent = ({
               data-testid="date-picker-popup-next-month"
               onClick={nextMonth}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-              >
-                <path
-                  d="M1 1L5 5L1 9"
-                  stroke="#EFEDE8"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg className="nextMonth" width="6" height="10">
+                <use href={symbolDefs + "#arrow-left-icon"}></use>
               </svg>
             </button>
-            {/* <button
-              data-testid="date-picker-popup-next-year"
-              onClick={nextYear}
-            >
-              gg
-            </button> */}
+            {Year && (
+              <button
+                className="btn"
+                data-testid="date-picker-popup-next-year"
+                onClick={nextYear}
+              >
+                <svg className="nextMonth" width="6" height="10">
+                  <use href={symbolDefs + "#arrow-left-icon"}></use>
+                </svg>
+                <svg className="nextMonth" width="6" height="10">
+                  <use href={symbolDefs + "#arrow-left-icon"}></use>
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -376,4 +370,5 @@ DatePickerPopupContent.propTypes = {
   onChange: PropTypes.func,
   min: PropTypes.Date | undefined,
   max: PropTypes.Date | undefined,
+  Year: PropTypes.bool,
 };

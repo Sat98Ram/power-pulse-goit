@@ -1,19 +1,14 @@
 .link {
   display: flex;
   gap: 28px;
-  /* color: rgba(239, 237, 232, 0.4);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28; */
 }
 .link_style {
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.28;
   position: relative;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-cubic);
 }
 .link_style:after {
   content: " ";
@@ -28,7 +23,9 @@
   transition: none;
 }
 
-.active {
+.active,
+.link_style:hover,
+.link_style:focus {
   color: #efede8;
 }
 .active:after {

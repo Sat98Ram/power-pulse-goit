@@ -42,13 +42,10 @@ const RigthSvg = () => {
   );
 };
 
-const MIN_DATE = new Date(2022, 6, 1);
-const MAX_DATE = new Date(2024, 8, 0);
+const MIN_DATE = new Date(2000, 6, 1);
+const MAX_DATE = new Date(2036, 8, 0);
 
 const DaySwitch = ({ date, setDate }) => {
-  // const [valueDatePicker, setValueDatePicker] = useState(new Date());
-  // const [date, setDate] = useState(() => new Date());
-
   const prevData = () => {
     var d = new Date(date);
     d = new Date(d.getTime() - 86400000);

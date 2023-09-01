@@ -6,6 +6,7 @@ import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./UserBar.module.css";
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import UserNav from "../UserNav/UserNav";
 
 const UserBar = ({ onClick }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
@@ -24,13 +25,23 @@ const UserBar = ({ onClick }) => {
       </div>
 
       {!isDesktop && (
-        <BurgerMenu />
-        // <svg className={css.burgerIcon}>
-        //   <use href={symbolDefs + "#burger-menu-icon"}></use>
-        // </svg>
+        <BurgerMenu className={css.burgerMenu}>
+          <UserNav
+            className={css.mobileNav}
+            classNameItem={css.mobileNavItem}
+            classNameLink={({ isActive }) =>
+              isActive ? css.mobileNavLinkActive : css.mobileNavLink
+            }
+          />
+          <LogOutBtn
+            classNameBtn={css.burgerLogOut}
+            className={css.mobileLogoutIcon}
+            onClick={onClick}
+          />
+        </BurgerMenu>
       )}
 
-      {isDesktop && <LogOutBtn onClick={onClick} />}
+      {isDesktop && <LogOutBtn onClick={onClick} className={css.logoutIcon} />}
     </div>
   );
 };

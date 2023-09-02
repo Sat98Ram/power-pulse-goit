@@ -11,6 +11,8 @@ import { TitlePage } from "../../components/TitlePage/TitlePage";
 // import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { updateBodyParams } from "../../redux/auth/slice";
+import VideoCount from "../../components/VideoCount";
+import CaloriesCount from "../../components/CaloriesCount";
 
 // const validationSchema = Yup.object({
 //   height: Yup.number()
@@ -98,6 +100,8 @@ const Params = () => {
             className={step === 3 ? css.paginationActive : css.pagination}
           ></li>
         </ul>
+        <VideoCount className={css.videoCount} />
+        <CaloriesCount className={css.caloriesCount} />
       </Container>
     </section>
   );

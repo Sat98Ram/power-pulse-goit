@@ -2,14 +2,14 @@ import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
 import sprite from "../../../assets/images/symbol-defs.svg";
 import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
-import { useState } from "react";
+// import { useState } from "react";
 
 const StepOne = ({ formik, submit }) => {
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
   // const handleChange = (date) => {
-  //   formik.handleChange;
+  //   setDate(date)
   // };
-  console.log("date", date);
+  // console.log("date", date);
 
   return (
     <>
@@ -65,7 +65,8 @@ const StepOne = ({ formik, submit }) => {
           </label>
           <DatePickerCalendar
             // value={date}
-            onChange={setDate}
+            YearBool={true}
+            // onChange={(date) => {handleChange(date)}}
           />
           {/* <input
             className={css.input}

@@ -1,23 +1,12 @@
 import React, { useState } from "react";
 import css from "./AddProductSuccess.module.css";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
-import avocado from "../../../assets/images/avocado.svg";
-import BasicModalWindow from "../../BasicModalWindow/BasicModalWindow";
+import avocado from "../../../assets/images/desktop/other@2x/avocado.png";
 
 export const AddProductSuccess = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div className={css.SuccessModalWindow}>
-        <BasicModalWindow isOpenModalToggle={closeModal}>
           <div className={css.SuccessModalWindowWrap}>
             <div className={`${css.SuccessModalWindow} ${css.boxImage}`}>
               <img
@@ -39,7 +28,6 @@ export const AddProductSuccess = () => {
               </svg>
             </p>
           </div>
-        </BasicModalWindow>
     </div>
   );
 };

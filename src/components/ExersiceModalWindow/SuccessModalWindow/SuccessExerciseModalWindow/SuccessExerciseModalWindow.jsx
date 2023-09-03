@@ -1,23 +1,13 @@
-import React, { useState } from "react";
-import BasicModalWindow from "../../../BasicModalWindow/BasicModalWindow";
+import React from "react";
 import css from "./SuccessModalWindow.module.css";
-import symbolDefs from "../../../assets/images/symbol-defs.svg";
-import thumb from "../../../../assets/images/thumb.svg";
+import symbolDefs from "../../../../assets/images/symbol-defs.svg";
+import thumb from "../../../../assets/images/desktop/other@2x/thumb.png";
+import { Link } from 'react-router-dom'; // Додайте імпорт
 
-export const SuccessExerciseModalWindow = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+export const SuccessExerciseModalWindow = ({time, calories}) => {
 
   return (
     <div className={css.SuccessModalWindow}>
-        <BasicModalWindow isOpenModalToggle={closeModal}>
           <div className={css.SuccessModalWindowWrap}>
             <div className={`${css.SuccessModalWindow} ${css.boxImage}`}>
               <img
@@ -28,22 +18,25 @@ export const SuccessExerciseModalWindow = () => {
               <p className={css.SuccessModalWindowTitle}>Well done</p>
               <p className={css.SuccessModalWindowTxt}>
                 Your time:{" "}
-                <span className={css.SuccessModalWindowSub}> 3 minutes</span>
+                <span className={css.SuccessModalWindowSub}> {time}</span>
               </p>
               <p className={css.SuccessModalWindowTxt}>
                 Burned calories:{" "}
-                <span className={css.SuccessModalWindowSub}>150</span>
+                <span className={css.SuccessModalWindowSub}>{calories}</span>
               </p>
             </div>
-            <button className={css.SuccessModalWindowBtn}>Next exercise</button>
-            <p className={css.SuccessModalWindowTxt}>
-              To the diary
-              <svg className={css.arrowIcon}>
-                <use href={symbolDefs + "#arrow-icon"}> </use>
-              </svg>
-            </p>
+            <Link to="/exercise">
+              <button className={css.SuccessModalWindowBtn}>Next exercise</button>
+            </Link>
+            <Link to="/diary">
+              <p className={css.SuccessModalWindowTxt}>
+                To the diary
+                <svg className={css.arrowIcon}>
+                  <use href={symbolDefs + "#arrow-icon"}> </use>
+                </svg>
+              </p>
+            </Link>
           </div>
-        </BasicModalWindow>
     </div>
   );
 };

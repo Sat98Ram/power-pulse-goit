@@ -17,15 +17,30 @@
   font-size: 12px;
   align-items: end;
 }
-.input {
+.inputTitle {
   width: 287px;
   height: 34px;
-  padding: 8px 193px 8px 14px;
+  padding: 8px 14px;
   border-radius: 12px;
   border: 1px solid var(--primary-accent);
   gap: 10px;
   background-color: inherit;
   color: rgba(239, 237, 232, 0.3);
+}
+.inputQuantity {
+  width: 287px;
+  height: 34px;
+  padding: 8px 14px;
+  margin-top: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--primary-accent);
+  gap: 10px;
+  background-color: inherit;
+  color: var(--white);
+}
+.inputQuantity::placeholder {
+  color: rgba(239, 237, 232, 0.3);
+  text-align: right;
 }
 .btn {
   display: flex;
@@ -68,6 +83,22 @@
 }
 
 @media screen and (min-width: 768px) {
+  .form {
+    margin: 48px 32px;
+  }
+  .input {
+    display: flex;
+  }
+  .inputTitle {
+    width: 244px;
+    height: 40px;
+  }
+  .inputQuantity {
+    width: 155px;
+    height: 40px;
+    margin-top: 0;
+    margin-left: 16px;
+  }
   .btnAdd {
     padding: 16px 60px;
     font-size: 20px;

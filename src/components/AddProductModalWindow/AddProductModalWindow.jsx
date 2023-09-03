@@ -28,19 +28,25 @@ const AddProductForm = ({ eldata, openModalToggle }) => {
   return (
     <div className={css.modal}>
       <form className={css.form}>
-        <label>
-          <input className={css.input} type="text" value={title} disabled />
-        </label>
-        <br />
-        <label>
-          <input
-            className={css.input}
-            placeholder="grams"
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-        </label>
+        <div className={css.input}>
+          <label>
+            <input
+              className={css.inputTitle}
+              type="text"
+              value={title}
+              disabled
+            />
+          </label>
+          <label>
+            <input
+              className={css.inputQuantity}
+              placeholder="grams"
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </label>
+        </div>
         <br />
         <p>
           <span className={css.calories}>

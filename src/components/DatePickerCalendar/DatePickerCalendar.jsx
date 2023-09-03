@@ -254,6 +254,7 @@ const DatePickerPopupContent = ({
           <div className="CalendarPanel__buttons-left">
             {YearBool && (
               <button
+                type="button"
                 className="btn"
                 data-testid="date-picker-popup-prev-year"
                 onClick={prevYear}
@@ -268,6 +269,7 @@ const DatePickerPopupContent = ({
             )}
 
             <button
+              type="button"
               className="btn"
               data-testid="date-picker-popup-prev-month"
               onClick={prevMonth}
@@ -286,6 +288,7 @@ const DatePickerPopupContent = ({
           </div>
           <div className="CalendarPanel__buttons-right">
             <button
+              type="button"
               className="btn"
               data-testid="date-picker-popup-next-month"
               onClick={nextMonth}
@@ -296,6 +299,7 @@ const DatePickerPopupContent = ({
             </button>
             {YearBool && (
               <button
+                type="button"
                 className="btn"
                 data-testid="date-picker-popup-next-year"
                 onClick={nextYear}

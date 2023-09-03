@@ -46,7 +46,7 @@
 }
 
 .CalendarPanel__date {
-  margin-top: 8px;
+  /* margin-top: 8px; */
   text-align: center;
 }
 
@@ -66,6 +66,7 @@
 .CalendarPanel__buttons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 0;
 }
 
@@ -133,4 +134,11 @@
 
 .CalendarPanelItem--not-in-range .CalendarPanelItem__date {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .DatePicker__input {
+    font-size: 24px;
+    width: 140px;
+  }
 }

@@ -93,6 +93,7 @@ export const DatePickerCalendar = ({
     }
 
     const isDateInRange = isInRange(date, min, max);
+
     return [date, isDateInRange];
   }, [inputValue, min, max]);
 
@@ -103,6 +104,7 @@ export const DatePickerCalendar = ({
 
     updateValueOnPopupCloseAction();
   };
+
   return (
     <div ref={elementRef} className="DatePicker" data-testid="data-picker-view">
       <input

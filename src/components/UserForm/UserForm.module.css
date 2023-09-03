@@ -1,0 +1,256 @@
+.form {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+.soBlock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.formHeader {
+  margin-bottom: 4px;
+  color: rgba(239, 237, 232, 0.5);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+}
+
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.text {
+  color: rgba(239, 237, 232, 0.3);
+}
+
+.label {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.labelText {
+  color: rgba(239, 237, 232, 0.6);
+}
+
+.input {
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.6);
+  width: 155px;
+  height: 46px;
+  background-color: transparent;
+  color: var(--white);
+  padding: 0 14px;
+  outline: transparent;
+}
+.infoInput {
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.6);
+
+  height: 46px;
+  background-color: transparent;
+  color: var(--white);
+  padding: 0 14px;
+  outline: transparent;
+  width: 100%;
+}
+.email {
+  color: rgba(239, 237, 232, 0.6);
+}
+
+.label:hover .input,
+.label:focus .input {
+  border: 1px solid #e6533c;
+}
+
+.input:focus + p,
+.input:not(:placeholder-shown) + p {
+  top: -26px;
+  left: 0;
+  transition: 300ms;
+}
+
+.input:focus + .bastard,
+.input:not(:placeholder-shown) + .bastard {
+  top: 50px;
+  left: 0;
+  transition: 300ms;
+}
+
+.firstBlock {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 42px;
+}
+
+.fbiList {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.radioItem {
+  padding-left: 28px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.secondBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.secondBlockList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btnBlock {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.radioBtn {
+  display: none;
+}
+
+.radioLabel {
+  position: relative;
+}
+
+.radioLabel:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -28px;
+
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid #636366;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0;
+  transition: 300ms;
+}
+.radioLabel::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -24px;
+
+  border-radius: 50%;
+  display: block;
+  background-color: #ef8964;
+  height: 0;
+  width: 0;
+  transition: 300ms;
+}
+
+.radioBtn:checked + .radioLabel:before {
+  border: 2px solid #ef8964;
+  font-size: 20px;
+}
+.radioBtn:checked + .radioLabel:after {
+  height: 10px;
+  width: 10px;
+}
+
+.btnSubmit {
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: var(--primary-accent);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.13;
+  color: var(--white);
+}
+.btnsubmit:disabled,
+.btnSubmit[disabled] {
+  color: rgba(239, 237, 232, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .basicInfo {
+    flex-direction: row;
+
+    gap: 14px;
+  }
+  .height {
+    width: 168px;
+  }
+  .curWeight {
+    width: 159px;
+  }
+  .desWeight {
+    width: 140px;
+  }
+  .birthday {
+    width: 187px;
+  }
+  .infoInput {
+    width: 341px;
+  }
+  .soBlock {
+    gap: 14px;
+    flex-wrap: nowrap;
+  }
+  .formHeader {
+    font-size: 14px;
+    line-height: 1.29;
+    margin-bottom: 8px;
+  }
+  .label {
+    gap: 8px;
+  }
+  .labelText {
+    font-size: 14px;
+    line-height: 1.29; /* 128.571% */
+  }
+  .soBlock {
+    margin-bottom: 32px;
+  }
+  .firstBlock {
+    gap: 32px;
+  }
+  .radioLabel:before {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+  }
+  .radioLabel:after {
+    top: 7px;
+    left: -23px;
+  }
+  .btnSubmit {
+    padding: 16px 50px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .form {
+    padding-bottom: 64px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .firstBlock {
+    margin-bottom: 32px;
+  }
+}

@@ -20,7 +20,7 @@ const DayDashboard = ({ diary, bodyData }) => {
           <DiaryDashboardItem
             svg="dumbbell-icon"
             title="Daily norm of sports"
-            content={`${dailySportMin} min`}
+            content={`${dailySportMin}`}
             className={css.diary_item_red}
           />
         </div>
@@ -42,11 +42,13 @@ const DayDashboard = ({ diary, bodyData }) => {
               svg="bubble-icon"
               title="The rest of the calories"
               content={`${dailyRateCalories - consumedCalories}`}
+              type="calories"
             />
             <DiaryDashboardItem
               svg="run-icon"
               title="The rest of sports"
-              content={`${dailySportMin - timeSport} min`}
+              content={`${dailySportMin - timeSport}`}
+              type="sport"
             />
           </div>
         </div>
@@ -76,7 +78,7 @@ DayDashboard.propTypes = {
     timeSport: PropTypes.number,
   }),
   bodyData: PropTypes.shape({
-    dailyRateCalories: PropTypes.string,
-    dailySportMin: PropTypes.string,
+    dailyRateCalories: PropTypes.number,
+    dailySportMin: PropTypes.number,
   }),
 };

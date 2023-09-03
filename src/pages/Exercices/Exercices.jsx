@@ -15,10 +15,10 @@ const Exercises = () => {
     >
       <Container>
         {isExersicesList && <Back />}
-        <header className={css.header}>
+        <div className={css.header}>
           <TitlePage text="Exercises" />
           <ExercisesCategories />
-        </header>
+        </div>
         <Outlet />
       </Container>
     </section>

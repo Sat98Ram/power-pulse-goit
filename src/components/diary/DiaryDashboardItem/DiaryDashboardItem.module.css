@@ -43,6 +43,12 @@
   fill: #ef8964;
   stroke: #ef8964;
 }
+.red {
+  border: 1px solid #e9101d;
+}
+.gren {
+  border: 1px solid #3cbf61;
+}
 
 @media screen and (min-width: 768px) {
   .diary_item {

@@ -1,16 +1,3 @@
-.products_card {
-  display: flex;
-  flex-direction: column;
-  width: 405px;
-  height: 141px;
-  padding: 16px;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  background: rgba(239, 237, 232, 0.05);
-}
-
 .products_card_diet {
   display: inline-flex;
   padding: 5px 7.5px;
@@ -60,25 +47,26 @@
 }
 
 .products_card_title {
+  position: relative;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 1.333;
   color: var(--white);
-  display: flex;
-  gap: 16px;
-  margin-bottom: 8px;
-  align-items: center;
 
-  /* text-overflow: ellipsis;
-  white-space: nowrap; */
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 40px;
+  max-width: 100%;
 }
 
 .products_card_title::before {
   content: url(../../../assets/images/run-icon.svg);
-  display: block;
+  position: absolute;
   width: 24px;
   height: 24px;
-
-  /* margin: 0; */
+  left: 0;
+  top: calc(50% - 12px);
 }
 
 .products_card_btnAdd {
@@ -142,4 +130,31 @@
 .products_card_status_cont {
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 375px) {
+  .products_card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 141px;
+    padding: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 12px;
+    border: 1px solid rgba(239, 237, 232, 0.2);
+    background: rgba(239, 237, 232, 0.05);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .products_card {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .products_card {
+    width: 405px;
+  }
 }

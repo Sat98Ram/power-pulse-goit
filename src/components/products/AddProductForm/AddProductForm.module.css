@@ -1,0 +1,109 @@
+.AddProductForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 24px;
+}
+
+.AddProductFormWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.AddProductFormInput {
+  border-radius: 12px;
+  border: 1px solid #e6533c;
+  background-color: rgba(239, 237, 232, 0);
+  color: #efede8;
+  padding: 8px 14px;
+  position: relative;
+  width: 100%;
+}
+
+.AddProductFormLabel {
+  position: absolute;
+  top: 108px;
+  right: 45px;
+  color: rgba(239, 237, 232, 0.4);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.AddProductFormTxt {
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.AddProductFormSub {
+  color: rgba(239, 237, 232, 1);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.AddProductFormWrapBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.AddProductFormBtn {
+  border-radius: 12px;
+  background: #e6533c;
+  padding: 14px 32px;
+  justify-content: center;
+  align-items: center;
+  color: #efede8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.AddProductFormBtn:hover {
+  background: var(--orange-1, #ef8964);
+  color: #efede8;
+}
+
+.AddProductFormCancelBtn {
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  background-color: rgba(239, 237, 232, 0);
+  color: #efede8;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 14px 40px;
+}
+@media screen and (min-width: 768px) {
+  .AddProductForm {
+    padding: 48px 32px;
+  }
+  .AddProductFormWrap {
+    flex-direction: row;
+  }
+
+  .AddProductFormLabel {
+    top: 57px;
+  }
+
+  .AddProductFormTxt {
+    margin-bottom: 64px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .AddProductFormTxt {
+    margin-top: 24px;
+  }
+}

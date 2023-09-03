@@ -39,8 +39,6 @@ export const ExersiceModalWindow = () => {
 
   return (
     <div className={css.ExersiceModalWindow}>
-      <button onClick={openModal}>Відкрити модальне вікно</button>
-      {isModalOpen && (
         <BasicModalWindow isOpenModalToggle={closeModal}>
           <div className={css.ExersiceModalWindowWrap}>
             <div className={`${css.ExersiceModalWindow} ${css.boxImage}`}>
@@ -69,7 +67,6 @@ export const ExersiceModalWindow = () => {
             </div>
           </div>
         </BasicModalWindow>
-      )}
     </div>
   );
 };

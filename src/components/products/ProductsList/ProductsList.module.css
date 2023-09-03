@@ -1,23 +1,37 @@
-.products_list {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  max-width: 860px;
-  max-height: 470px;
-  overflow-y: scroll;
+@media screen and (min-width: 375px) {
+  .products_list {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 700px;
+    max-width: 100%;
+  }
 }
-
-.products_list::-webkit-scrollbar {
-  width: 8px; /* ширина всей полосы прокрутки */
+@media screen and (min-width: 768px) {
 }
+@media screen and (min-width: 1440px) {
+  .products_list {
+    gap: 16px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 860px;
+    max-height: 470px;
+    overflow-y: scroll;
+  }
 
-.products_list::-webkit-scrollbar-track {
-  background: rgba(239, 237, 232, 0.1); /* цвет зоны отслеживания */
-  border-radius: 12px;
-}
+  .products_list::-webkit-scrollbar {
+    width: 8px; /* ширина всей полосы прокрутки */
+  }
 
-.products_list::-webkit-scrollbar-thumb {
-  background-color: #ef8964; /* цвет бегунка */
-  border-radius: 12px; /* округлось бегунка */
-  /* border: 3px solid orange; отступ вокруг бегунка */
+  .products_list::-webkit-scrollbar-track {
+    background: rgba(239, 237, 232, 0.1); /* цвет зоны отслеживания */
+    border-radius: 12px;
+  }
+
+  .products_list::-webkit-scrollbar-thumb {
+    background-color: #ef8964; /* цвет бегунка */
+    border-radius: 12px; /* округлось бегунка */
+    /* border: 3px solid orange; отступ вокруг бегунка */
+  }
 }

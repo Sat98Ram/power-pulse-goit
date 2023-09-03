@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./DaySwitch.module.css";
+import { getInputValueFromDate } from "../../DatePickerCalendar/utils";
 
-const LeftSvg = () => {
+const LeftSvg = ({ opacity = "1" }) => {
   return (
     <svg
       className={css.svg}
@@ -18,12 +19,12 @@ const LeftSvg = () => {
         clipRule="evenodd"
         d="M10.5428 0.542847L11.957 1.95706L6.16414 7.74995L11.957 13.5428L10.5428 14.9571L3.33571 7.74995L10.5428 0.542847Z"
         // fill="#EFEDE8"
-        // fillOpacity="0.2"
+        fillOpacity={opacity}
       />
     </svg>
   );
 };
-const RigthSvg = () => {
+const RigthSvg = ({ opacity = "1" }) => {
   return (
     <svg
       className={css.svg}
@@ -32,6 +33,7 @@ const RigthSvg = () => {
       height="16"
       viewBox="0 0 16 16"
       fill="none"
+      fillOpacity={opacity}
     >
       <path
         fillRule="evenodd"
@@ -43,10 +45,10 @@ const RigthSvg = () => {
   );
 };
 
-const MIN_DATE = new Date(2000, 6, 1);
-const MAX_DATE = new Date(2036, 8, 0);
+const DaySwitch = ({ date, setDate, minDate }) => {
+  const MIN_DATE = new Date(minDate);
+  const MAX_DATE = new Date();
 
-const DaySwitch = ({ date = "", setDate }) => {
   const prevData = () => {
     var d = new Date(date);
     d = new Date(d.getTime() - 86400000);
@@ -73,15 +75,41 @@ const DaySwitch = ({ date = "", setDate }) => {
       </div>
 
       <div className={css.svg_btn_group}>
-        <button className={css.btnSvg} onClick={prevData}>
-          <LeftSvg />
+        <button
+          className={css.btnSvg}
+          onClick={prevData}
+          disabled={
+            MIN_DATE >= date ||
+            getInputValueFromDate(date) === getInputValueFromDate(MIN_DATE)
+          }
+        >
+          <LeftSvg
+            opacity={
+              MIN_DATE > date ||
+              getInputValueFromDate(date) === getInputValueFromDate(MIN_DATE)
+                ? "0.4"
+                : "1"
+            }
+          />
         </button>
-        <button className={css.btnSvg} onClick={nextData}>
-          <RigthSvg />
+        <button
+          className={css.btnSvg}
+          onClick={nextData}
+          disabled={
+            +date >= +MAX_DATE ||
+            getInputValueFromDate(date) === getInputValueFromDate(MAX_DATE)
+          }
+        >
+          <RigthSvg
+            opacity={
+              +date >= +MAX_DATE ||
+              getInputValueFromDate(date) === getInputValueFromDate(MAX_DATE)
+                ? "0.4"
+                : "1"
+            }
+          />
         </button>
       </div>
-
-      <div className={css.svg_position}></div>
     </div>
   );
 };
@@ -91,4 +119,13 @@ export default DaySwitch;
 DaySwitch.propTypes = {
   date: PropTypes.any,
   setDate: PropTypes.func,
+  minDate: PropTypes.any,
+  opacity: PropTypes.string,
+};
+
+RigthSvg.propTypes = {
+  opacity: PropTypes.string,
+};
+LeftSvg.propTypes = {
+  opacity: PropTypes.string,
 };

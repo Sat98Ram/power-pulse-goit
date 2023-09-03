@@ -38,7 +38,7 @@ export const DiaryDashboardItem = ({
       </div>
 
       <div className={css.content}>
-        {returnContent(content)}
+        {returnContent(Math.round(content))}
 
         <span>{measurement}</span>
       </div>

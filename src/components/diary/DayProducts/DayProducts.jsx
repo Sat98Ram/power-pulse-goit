@@ -3,7 +3,7 @@ import styles from "./DayProducts.module.css";
 import { nanoid } from "@reduxjs/toolkit";
 
 const DayProducts = ({ consumedProducts }) => {
-  const listOfExercises = consumedProducts.map((obj) => {
+  const listOfProducts = consumedProducts.map((obj) => {
     const num = nanoid();
     return (
       <tr key={num}>
@@ -38,7 +38,7 @@ const DayProducts = ({ consumedProducts }) => {
       </tr>
     );
   });
-  console.log("listOfExercises", listOfExercises);
+
   return (
     <div className={styles.DayProducts}>
       <div className={styles.DayProductsHead}>
@@ -57,8 +57,8 @@ const DayProducts = ({ consumedProducts }) => {
             </tr>
           </thead>
           <tbody>
-            {listOfExercises.length > 0 ? (
-              listOfExercises
+            {listOfProducts.length > 0 ? (
+              listOfProducts
             ) : (
               <p className={styles.not_found}>Not found products</p>
             )}

@@ -2,10 +2,13 @@
   display: flex;
   gap: 14px;
   align-items: center;
+  justify-content: center;
 }
 
 .settingsLink {
   display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .userSettings {

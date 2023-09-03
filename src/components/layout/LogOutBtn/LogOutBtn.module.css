@@ -7,6 +7,10 @@
   padding: 4px 0;
 }
 
+button {
+  transition: color var(--transition-duration) var(--transition-cubic);
+}
+
 button:hover,
 button:focus {
   color: var(--primary-accent);

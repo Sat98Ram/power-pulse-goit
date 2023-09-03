@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
 import symbolDefs from "../assets/images/symbol-defs.svg";
 import css from "./CaloriesCount.module.css";
-export const CaloriesCount = () => {
+
+export const CaloriesCount = ({ className = "" }) => {
   return (
-    <div className={css.caloriesCountBox}>
+    <div className={`${css.caloriesCountBox} ${className}`}>
       <div className={css.caloriesCountBack}>
         <svg className={css.runIcon} width="17" height="17">
           <use href={symbolDefs + "#run-icon"}></use>
@@ -17,3 +19,7 @@ export const CaloriesCount = () => {
 };
 
 export default CaloriesCount;
+
+CaloriesCount.propTypes = {
+  className: PropTypes.string,
+};

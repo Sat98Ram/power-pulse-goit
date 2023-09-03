@@ -1,67 +1,80 @@
-import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import css from "./ExersiceModalWindow.module.css";
 import Timer from "../Timer/Timer";
-// import { exerciseListThunk } from "../../redux/exercises/operation";
-// import { selectExerciseList } from "../../redux/exercises/selectors";
 import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
+import { addDiaryExerciseThunk } from "../../redux/diary/operations";
+import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+import  {SuccessExerciseModalWindow}  from "./SuccessModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow";
+import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 
-export const ExersiceModalWindow = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const params = {
-    bodyPart: "back",
-    burnedCalories: 307,
-    equipment: "barbell",
-    gifUrl:
-      "https://res.cloudinary.com/ditdqzoio/image/upload/v1687127066/exercises/0037.gif",
-    name: "barbell decline",
-    target: "lats",
-    time: 3,
-    _id: "64e5d7a0bc1733080d78435f",
+export const ExersiceModalWindow = ({ data }) => {
+  const {
+    bodyPart,
+    burnedCalories,
+    equipment,
+    gifUrl,
+    name,
+    target,
+    time,
+    _id: id,
+  } = data;
+  const dispatch = useDispatch();
+  const date = getInputValueFromDate(new Date(), true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const openModalToggle = () => {
+    setIsOpenModal((prev) => !prev);
   };
-  // const dispatch = useDispatch();
-
-  // const exercises = useSelector(selectExerciseList);
-  // console.log(exercises);
-
-  // useEffect(() => {
-  //   dispatch(exerciseListThunk());
-  // }, [dispatch]);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  console.log(date);
+  const handleAddToDiary = () => {
+    dispatch(addDiaryExerciseThunk({ date, exercise: id, time: time }))
+      .then((response) => {
+        setIsSuccessModalOpen(true);
+      })
+      .catch((error) => {
+        console.error("Error adding exercise", error);
+      });
+    openModalToggle();
   };
 
   return (
     <div className={css.ExersiceModalWindow}>
-      <button onClick={openModal}>Відкрити модальне вікно</button>
-      {isModalOpen && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
-          <div className={css.ExersiceModalWindowWrap}>
-            <div className={css.ExersiceModalWindow}>
-              <img
-                className={css.ExersiceModalWindowImg}
-                src={params.gifUrl}
-                alt="exercise"
-              />
-              <div className={css.SubcategoriesList}>
-                <ExersiceModalWindowList name={params.name} bodypart={params.bodyPart} target={params.target} equipment={params.equipment} time={params.time} />
-              </div>
-            </div>
-            <div className={css.ExersiceModalWindowTimer}>
-              <Timer burnedCalories={params.burnedCalories} />
-              <button className={css.ExersiceModalWindowBtn}>
-                Add to diary
-              </button>
-            </div>
-          </div>
-        </BasicModalWindow>
-      )}
+      <div className={css.ExersiceModalWindowWrap}>
+        <div className={`${css.ExersiceModalWindow} ${css.boxImage}`}>
+          <img
+            className={css.ExersiceModalWindowImg}
+            src={gifUrl}
+            alt="exercise"
+          />
+        </div>
+        <div className={`${css.ExersiceModalWindowTimer} ${css.boxTimer}`}>
+          <Timer burnedCalories={burnedCalories} />
+        </div>
+        <div className={`${css.SubcategoriesList} ${css.boxList}`}>
+          <ExersiceModalWindowList
+            name={name}
+            bodypart={bodyPart}
+            target={target}
+            equipment={equipment}
+            time={time}
+          />
+        </div>
+        <div className={css.boxButton}>
+          <button
+            className={css.ExersiceModalWindowBtn}
+            type="button"
+            onClick={handleAddToDiary}
+          >
+            Add to diary
+          </button>
+          {isOpenModal && (
+            <BasicModalWindow isOpenModalToggle={openModalToggle}>
+              {isSuccessModalOpen && <SuccessExerciseModalWindow time={time} calories={burnedCalories} />}
+            </BasicModalWindow>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

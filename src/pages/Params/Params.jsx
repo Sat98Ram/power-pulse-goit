@@ -11,6 +11,8 @@ import { TitlePage } from "../../components/TitlePage/TitlePage";
 // import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { updateBodyParams } from "../../redux/auth/slice";
+import VideoCount from "../../components/VideoCount";
+import CaloriesCount from "../../components/CaloriesCount";
 
 // const validationSchema = Yup.object({
 //   height: Yup.number()
@@ -33,6 +35,8 @@ const bgImg = [css.stepOneBg, css.stepTwoBg, css.stepThreeBg];
 
 const Params = () => {
   const [step, setStep] = useState(1);
+  // const [date, setDate] = useState(new Date());
+  // console.log("date", date);
 
   const dispatch = useDispatch();
 
@@ -41,7 +45,7 @@ const Params = () => {
       height: "",
       currentWeight: "",
       desiredWeight: "",
-      birthday: "",
+      birthday: new Date(),
       blood: "",
       sex: "",
       levelActivity: "",
@@ -67,7 +71,14 @@ const Params = () => {
       <Container className={css.container}>
         <div>
           {step !== 3 && <TitlePage text={"Get closer to your goals!"} />}
-          {step === 1 && <StepOne formik={formik} submit={onSubmit} />}
+          {step === 1 && (
+            <StepOne
+              formik={formik}
+              submit={onSubmit}
+              // date={date}
+              // setDate={setDate}
+            />
+          )}
           {step === 2 && (
             <StepTwo formik={formik} submit={onSubmit} prevStep={prevStep} />
           )}
@@ -89,6 +100,8 @@ const Params = () => {
             className={step === 3 ? css.paginationActive : css.pagination}
           ></li>
         </ul>
+        <VideoCount className={css.videoCount} />
+        <CaloriesCount className={css.caloriesCount} />
       </Container>
     </section>
   );

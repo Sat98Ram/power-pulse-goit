@@ -16,6 +16,6 @@ export default UserNavItem;
 UserNavItem.propTypes = {
   link: PropTypes.string,
   label: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.func,
   classNameItem: PropTypes.string,
 };

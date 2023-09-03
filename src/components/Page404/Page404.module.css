@@ -1,5 +1,11 @@
 .section {
   background-image: url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-image: -webkit-image-set(
+    url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg)
+      1x,
+    url(../../assets/images/mobile/other@2x/side-view-people-training-gym@2x.jpg)
+      2x
+  );
   color: #efede8;
   background-repeat: no-repeat;
   background-position: bottom 0 right -40%;
@@ -57,6 +63,12 @@
     max-width: none;
     width: 768px;
     background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
+    background-image: -webkit-image-set(
+      url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg)
+        1x,
+      url(../../assets/images/tablet/other@2x/side-view-people-training-gym@2x.jpg)
+        2x
+    );
     background-position: bottom 0 right 0%;
   }
 
@@ -82,6 +94,12 @@
     width: 1440px;
     height: 800px;
     background-image: url(../../assets/images/desktop/other@1x/side-view-people-training-gym@1x.jpg);
+    background-image: -webkit-image-set(
+      url(../../assets/images/desktop/other@1x/side-view-people-training-gym@1x.jpg)
+        1x,
+      url(../../assets/images/desktop/other@2x/side-view-people-training-gym@2x.jpg)
+        2x
+    );
   }
 
   .text404 {
@@ -90,14 +108,5 @@
   .left {
     width: 669px;
     padding: 32px 96px;
-  }
-}
-
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .img_url {
-    background-image: url(../../assets/images/mobile/other@2x/side-view-people-training-gym@2x.jpg);
   }
 }

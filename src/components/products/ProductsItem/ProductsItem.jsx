@@ -43,9 +43,10 @@ export const ProductsItem = ({ el }) => {
         <li className={css.products_card_info_item}>
           Category:{" "}
           <p className={css.products_card_info_value}>
-            {el.category && el.category.length > 20
-              ? el.category.slice(0, 20) + "..."
-              : el.category || "category"}
+            {el.category}
+            {/* {el.category && el.category.length > 10
+              ? el.category.slice(0, 10) + "..."
+              : el.category || "category"} */}
           </p>
         </li>
         <li className={css.products_card_info_item}>

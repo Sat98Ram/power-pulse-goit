@@ -4,7 +4,7 @@ export const CaloriesCount = () => {
   return (
     <div className={css.caloriesCountBox}>
       <div className={css.caloriesCountBack}>
-        <svg width="17" height="17">
+        <svg className={css.runIcon} width="17" height="17">
           <use href={symbolDefs + "#run-icon"}></use>
         </svg>
       </div>

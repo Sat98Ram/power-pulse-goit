@@ -33,7 +33,9 @@
   background-color: var(--beige-accent);
   border-radius: 50%;
 }
-
+.runIcon {
+  fill: rgba(239, 237, 232, 1);
+}
 .caloriesCount {
   color: var(--white);
   font-family: Roboto;

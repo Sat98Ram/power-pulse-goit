@@ -2,6 +2,9 @@
   padding-left: 20px;
   min-width: 335px;
 }
+.container {
+  padding-left: 20px;
+}
 .welcomeBackground {
   position: absolute;
   height: 100%;
@@ -11,9 +14,24 @@
     linear-gradient(82deg, #040404 1.35%, rgba(4, 4, 4, 0) 100%),
     url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: bottom 0 right -40%;
+  margin: 0 auto;
 }
+@media screen and (min-width: 768px) {
+  .welcomeBackground {
+    position: absolute;
+    height: 100%;
+    min-width: 446px;
+    min-height: 669px;
+    background: linear-gradient(159deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
+      linear-gradient(82deg, #040404 1.35%, rgba(4, 4, 4, 0) 100%),
+      url(../../assets//images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom 0 right -30%;
+    margin: 0 auto;
+  }
+}
+
 .buttonsLine {
   display: flex;
   flex-wrap: nowrap;
@@ -24,19 +42,24 @@
 
 .title {
   max-width: 335px;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   font-size: 38px;
   font-weight: 500;
   line-height: calc(40 / 38);
   letter-spacing: 0.38px;
+  background: transparent;
+  text-align: left;
 }
-.linePosition {
+
+.bodyLine {
+  display: inline;
   position: relative;
-  height: max-content;
 }
-.iconDiv {
+.bodyLine::after {
   position: absolute;
-  z-index: 3;
-  left: 0;
+  top: calc(50% - 35px / 2);
+  left: calc(50% - 98px / 2);
+  content: url(../../assets/images/line.svg);
+  width: 98px;
 }

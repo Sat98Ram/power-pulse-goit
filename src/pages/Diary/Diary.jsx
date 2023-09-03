@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { getDiariesByDateThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../../components/DatePickerCalendar/utils";
 import { selectDiary } from "../../redux/diary/selectors";
-import { selectorBodyData } from "../../redux/auth/selectors";
+import { selectUser } from "../../redux/auth/selectors";
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -22,20 +22,27 @@ const Diary = () => {
   }, [dateFormat, dispatch]);
 
   const diary = useSelector(selectDiary);
-  const bodyData = useSelector(selectorBodyData);
+  const user = useSelector(selectUser);
+
+  const { bodyData, updatedAt } = user;
+
+  const { consumedProducts } = diary;
+  const { doneExercises } = diary;
 
   return (
     <section className={css.diary_page}>
       <Container>
         <div className={css.header}>
           <TitlePage text="Diary" />
-          <DaySwitch date={date} setDate={setDate} />
+          <DaySwitch date={date} setDate={setDate} minDate={updatedAt} />
         </div>
 
         <div className={css.content}>
           <div className={css.tables}>
-            <DayProducts />
-            <DayExercises />
+            {consumedProducts && (
+              <DayProducts consumedProducts={consumedProducts} />
+            )}
+            <DayExercises doneExercises={doneExercises} />
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

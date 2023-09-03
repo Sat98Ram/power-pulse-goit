@@ -1,58 +1,62 @@
+import PropTypes from "prop-types";
 import styles from "./DayExercises.module.css";
 import { nanoid } from "@reduxjs/toolkit";
-const DayExercises = () => {
-  const exArr = [
-    {
-      BodyPart: "BodyPart",
-      Equipment: "Equipment",
-      Name: "Name",
-      Target: "aBs",
-      BurnedCalories: "550",
-      Time: "60",
-    },
-    {
-      BodyPart: "BodyPart",
-      Equipment: "Equipment",
-      Name: "Name",
-      Target: "aBs",
-      BurnedCalories: "550",
-      Time: "60",
-    },
-    {
-      BodyPart: "BodyPart",
-      Equipment: "Equipment",
-      Name: "Name",
-      Target: "aBs",
-      BurnedCalories: "550",
-      Time: "60",
-    },
-    {
-      BodyPart: "BodyPart",
-      Equipment: "Equipment",
-      Name: "Name",
-      Target: "aBs",
-      BurnedCalories: "550",
-      Time: "60",
-    },
-    {
-      BodyPart: "BodyPart",
-      Equipment: "Equipment",
-      Name: "Name",
-      Target: "aBs",
-      BurnedCalories: "550",
-      Time: "60",
-    },
-  ];
-  const listOfExercises = exArr.map((obj) => {
+
+const DayExercises = ({ doneExercises }) => {
+  // const exArr = [
+  //   {
+  //     BodyPart: "BodyPart",
+  //     Equipment: "Equipment",
+  //     Name: "Name",
+  //     Target: "aBs",
+  //     BurnedCalories: "550",
+  //     Time: "60",
+  //   },
+  //   {
+  //     BodyPart: "BodyPart",
+  //     Equipment: "Equipment",
+  //     Name: "Name",
+  //     Target: "aBs",
+  //     BurnedCalories: "550",
+  //     Time: "60",
+  //   },
+  //   {
+  //     BodyPart: "BodyPart",
+  //     Equipment: "Equipment",
+  //     Name: "Name",
+  //     Target: "aBs",
+  //     BurnedCalories: "550",
+  //     Time: "60",
+  //   },
+  //   {
+  //     BodyPart: "BodyPart",
+  //     Equipment: "Equipment",
+  //     Name: "Name",
+  //     Target: "aBs",
+  //     BurnedCalories: "550",
+  //     Time: "60",
+  //   },
+  //   {
+  //     BodyPart: "BodyPart",
+  //     Equipment: "Equipment",
+  //     Name: "Name",
+  //     Target: "aBs",
+  //     BurnedCalories: "550",
+  //     Time: "60",
+  //   },
+  // ];
+  const listOfExercises = doneExercises.map((obj) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdBodyPart}>{obj.BodyPart}</td>
-        <td className={styles.tdEquipment}>{obj.Equipment}</td>
-        <td className={styles.tdName}>{obj.Name}</td>
-        <td className={styles.tdTarget}>{obj.Target}</td>
-        <td className={styles.tdBurnedCalories}>{obj.BurnedCalories}</td>
-        <td className={styles.tdTime}>{obj.Time}</td>
+        <td className={styles.tdBodyPart}>{obj.exercise.bodyPart}</td>
+        <td className={styles.tdEquipment}>{obj.exercise.equipment}</td>
+        <td className={styles.tdName}>{obj.exercise.name}</td>
+        <td className={styles.tdTarget}>{obj.exercise.target}</td>
+        <td className={styles.tdBurnedCalories}>
+          {obj.exercise.burnedCalories}
+        </td>
+        <td className={styles.tdTime}>{obj.exercise.time}</td>
         <td className={styles.tdDellete}>
           <button></button>
         </td>
@@ -85,3 +89,17 @@ const DayExercises = () => {
 };
 
 export default DayExercises;
+
+DayExercises.propTypes = {
+  doneExercises: PropTypes.arrayOf(
+    PropTypes.shape({
+      exercise: PropTypes.shape({
+        bodyPart: PropTypes.string,
+        equipment: PropTypes.string,
+        name: PropTypes.string,
+        target: PropTypes.string,
+        burnedCalories: PropTypes.number,
+      }),
+    })
+  ),
+};

@@ -30,6 +30,7 @@ export const refresh = async () => {
     if (data.token) {
       token.set(data.token);
     }
+
     return data;
   } catch (error) {
     token.unset();

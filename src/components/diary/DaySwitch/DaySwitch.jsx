@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
+import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./DaySwitch.module.css";
 
 const LeftSvg = () => {
@@ -59,12 +60,18 @@ const DaySwitch = ({ date = "", setDate }) => {
 
   return (
     <div className={css.date}>
-      <DatePickerCalendar
-        value={date}
-        onChange={setDate}
-        min={MIN_DATE}
-        max={MAX_DATE}
-      />
+      <div className={css.data_picker}>
+        <DatePickerCalendar
+          value={date}
+          onChange={setDate}
+          min={MIN_DATE}
+          max={MAX_DATE}
+        />
+        <svg className={css.colorSvg} width="20" height="20">
+          <use href={symbolDefs + "#calendar-icon"}></use>
+        </svg>
+      </div>
+
       <div className={css.svg_btn_group}>
         <button className={css.btnSvg} onClick={prevData}>
           <LeftSvg />

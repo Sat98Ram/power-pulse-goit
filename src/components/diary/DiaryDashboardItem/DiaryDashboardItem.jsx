@@ -8,13 +8,21 @@ export const DiaryDashboardItem = ({
   content = 0,
   className = "",
   type = "",
+  measurement = "",
 }) => {
   const returnBorder = () => {
-    if (type === "sport" && content > 0) {
+    if (type === "sport" && content < 0) {
       return css.gren;
     } else if (type === "calories" && content < 0) {
       return css.red;
     }
+  };
+
+  const returnContent = (content) => {
+    if (type === "sport" && content < 0) {
+      return `+ ${-content}`;
+    }
+    return content;
   };
   return (
     <div
@@ -29,7 +37,11 @@ export const DiaryDashboardItem = ({
         <div className={css.title}>{title}</div>
       </div>
 
-      <div className={css.content}>{content}</div>
+      <div className={css.content}>
+        {returnContent(content)}
+
+        <span>{measurement}</span>
+      </div>
     </div>
   );
 };
@@ -40,4 +52,5 @@ DiaryDashboardItem.propTypes = {
   content: PropTypes.any,
   className: PropTypes.string,
   type: PropTypes.string,
+  measurement: PropTypes.string,
 };

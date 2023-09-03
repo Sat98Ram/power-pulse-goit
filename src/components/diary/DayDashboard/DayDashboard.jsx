@@ -22,6 +22,7 @@ const DayDashboard = ({ diary, bodyData }) => {
             title="Daily norm of sports"
             content={`${dailySportMin}`}
             className={css.diary_item_red}
+            measurement="min"
           />
         </div>
         <div className={css.rigth}>
@@ -49,6 +50,7 @@ const DayDashboard = ({ diary, bodyData }) => {
               title="The rest of sports"
               content={`${dailySportMin - timeSport}`}
               type="sport"
+              measurement="min"
             />
           </div>
         </div>

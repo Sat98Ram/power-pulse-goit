@@ -24,6 +24,9 @@ const Diary = () => {
   const diary = useSelector(selectDiary);
   const bodyData = useSelector(selectorBodyData);
 
+  const { consumedProducts } = diary;
+  const { doneExercises } = diary;
+
   return (
     <section className={css.diary_page}>
       <Container>
@@ -34,8 +37,10 @@ const Diary = () => {
 
         <div className={css.content}>
           <div className={css.tables}>
-            <DayProducts />
-            <DayExercises />
+            {consumedProducts && (
+              <DayProducts consumedProducts={consumedProducts} />
+            )}
+            <DayExercises doneExercises={doneExercises} />
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

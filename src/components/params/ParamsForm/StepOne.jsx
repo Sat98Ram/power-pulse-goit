@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
-import sprite from "../../../assets/images/symbol-defs.svg";
-import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
+import sprite from "@/assets/images/symbol-defs.svg";
+import { Calendar } from "./Calendar";
 
 const StepOne = ({ formik, submit }) => {
-  const date = new Date();
+  // const [date, setDate] = useState("");
+  // const handleChange = (date) => {
+  //   setDate(date)
+  // };
+  // console.log("date", date);
 
   return (
     <>
@@ -13,7 +17,7 @@ const StepOne = ({ formik, submit }) => {
         our platform, we ask you to provide the following information about your
         weight, height and other relevant data:
       </p>
-      <form onSubmit={submit} className={css.stepOne}>
+      <div className={css.stepOne}>
         <div className={css.soBlock}>
           <label className={css.label}>
             <input
@@ -58,14 +62,8 @@ const StepOne = ({ formik, submit }) => {
             />
             <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p>
           </label>
-          {/* <DatePickerCalendar value={date} /> */}
-          <input
-            className={css.input}
-            type="date"
-            required
-            placeholder="Birthday"
-            name="birthday"
-            onChange={formik.handleChange}
+          <Calendar
+            onChange={(value) => formik.setFieldValue("birthday", value)}
             value={formik.values.birthday}
           />
         </div>
@@ -75,8 +73,7 @@ const StepOne = ({ formik, submit }) => {
             <use href={sprite + "#icon-next"} />
           </svg>
         </button>
-        {/* <button type="submit">Next</button> */}
-      </form>
+      </div>
     </>
   );
 };

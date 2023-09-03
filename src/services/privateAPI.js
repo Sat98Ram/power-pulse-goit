@@ -1,9 +1,9 @@
 import axios from "axios"
 
 const privateAPI = axios.create({
-  baseURL: "http://localhost:3000/",
-  // baseURL: "https://powerpulse-y0gd.onrender.com/",
-})
+  baseURL: "https://powerpulse-y0gd.onrender.com/",
+  // baseURL: "http://localhost:3000/",
+});
 
 export const token = {
   set(token) {
@@ -30,7 +30,8 @@ export const refresh = async () => {
     if (data.token) {
       token.set(data.token)
     }
-    return data
+
+    return data;
   } catch (error) {
     token.unset()
     throw error
@@ -73,9 +74,9 @@ export const productAddDiary = async (body) => {
   return data
 }
 export const exerciseAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/exercise/add", body)
-  return data
-}
+  const { data } = await privateAPI.post("api/diaries/exercise/add", body);
+  return data;
+};
 
 export const updateBody = async (body) => {
   const { data } = await privateAPI.post("api/users/body", body)

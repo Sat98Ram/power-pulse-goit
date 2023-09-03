@@ -2,9 +2,9 @@ import axios from "axios"
 import { token } from "./privateAPI"
 
 const publicAPI = axios.create({
-  baseURL: "http://localhost:3000/",
-  // baseURL: "https://powerpulse-y0gd.onrender.com/",
-})
+  baseURL: "https://powerpulse-y0gd.onrender.com/",
+  // baseURL: "http://localhost:3000/",
+});
 
 export const login = async (body) => {
   try {

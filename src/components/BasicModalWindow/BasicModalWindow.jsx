@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import css from "./BasicModalWindow.module.css";
 
-import CloseSvg from "../CloseSvg/CloseSvg";
+import symbolDefs from "../../assets/images/symbol-defs.svg";
 
 const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   useEffect(() => {
@@ -21,7 +21,6 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   const handleClickBackground = (e) => {
     if (e.target.localName === "svg") {
       return;
-      // isOpenModalToggle();
     }
     if (e.target.className.includes("basic_modal_window")) {
       isOpenModalToggle();
@@ -31,7 +30,12 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   const modal = (
     <div className={css.basic_modal_window} onClick={handleClickBackground}>
       <div className={css.modal}>
-        <CloseSvg className={css.closeSvg} onClick={isOpenModalToggle} />
+        <button className={css.closeSvg} onClick={isOpenModalToggle}>
+          <svg className={css.colorSvg} width="20" height="20">
+            <use href={symbolDefs + "#close-icon"}></use>
+          </svg>
+        </button>
+
         {children}
       </div>
     </div>

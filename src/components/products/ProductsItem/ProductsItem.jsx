@@ -4,6 +4,8 @@ import css from "./Productsitem.module.css"
 import { useSelector } from "react-redux"
 import { selectBloodType } from "../../../redux/auth/selectors"
 import { useState } from "react"
+import BasicModalWindow from "../../BasicModalWindow/BasicModalWindow"
+import AddProductForm from "../../AddProductModalWindow/AddProductModalWindow";
 
 export const ProductsItem = ({ el }) => {
   const [isOpenModal, setIsOpenModal] = useState(false)

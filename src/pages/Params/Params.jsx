@@ -15,20 +15,28 @@ import VideoCount from "../../components/VideoCount";
 import CaloriesCount from "../../components/CaloriesCount";
 import { updateBodyThunk } from "../../redux/auth/operations";
 
+const date = new Date(new Date() - 18 * 365.25 * 24 * 60 * 60 * 1000);
+
 const validationSchema = Yup.object({
   height: Yup.number()
-    .required("Please enter your height")
-    .min(150, "Height must be at least 150 сm"),
+    .required("Enter your height")
+    .min(150, "Min. height 150 cm."),
   currentWeight: Yup.number()
-    .required("Please enter your current weight")
-    .min(35, "Current weight must be at least 35 kg"),
+    .required("Enter your current weight")
+    .min(35, "Min. current weight 35 kg"),
   desiredWeight: Yup.number()
-    .required("Please enter your desired weight")
-    .min(35, "Desired weight must be at least 35 kg"),
-  birthday: Yup.date().required("Please enter your birthday"),
-  // .min(18, "Height must be at least 150 sm"),
+    .required("Enter your desired weight")
+    .min(35, "Min. desired weight 35 kg"),
+  birthday: Yup.date().required("Enter your birthday"),
+  // .max(
+  //   currentDate
+  //     .setFullYear(currentDate.getFullYear() - 18)
+  //     .toISOString()
+  //     .slice(0, 10),
+  //   "Height must be at least 150 sm"
+  // ),
   blood: Yup.number().required("Please enter your blood"),
-  sex: Yup.number().required("Please enter your sex"),
+  sex: Yup.mixed().oneOf(["male", "female"]).required("Please enter your sex"),
   levelActivity: Yup.number().required("Please enter your level activity"),
 });
 
@@ -36,8 +44,6 @@ const bgImg = [css.stepOneBg, css.stepTwoBg, css.stepThreeBg];
 
 const Params = () => {
   const [step, setStep] = useState(1);
-  // const [date, setDate] = useState(new Date());
-  // console.log("date", date);
 
   const dispatch = useDispatch();
 
@@ -46,16 +52,18 @@ const Params = () => {
       height: "",
       currentWeight: "",
       desiredWeight: "",
-      birthday: new Date(),
-      blood: "",
-      sex: "",
-      levelActivity: "",
+      birthday: date,
+      blood: 1,
+      sex: "male",
+      levelActivity: 1,
     },
 
-    // validationSchema,
+    validationSchema,
     onSubmit: (values) => {
       console.log("values", values);
       dispatch(updateBodyThunk(values));
+      console.log("errors", formik.errors);
+      console.log("touched", formik.touched);
     },
   });
 
@@ -65,6 +73,9 @@ const Params = () => {
 
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
+    console.log("formik.values", formik.values);
+    // console.log("adultDate", adultDate);
+    console.log("date", date);
   };
 
   // const onSubmit = (e) => {

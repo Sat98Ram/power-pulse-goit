@@ -4,12 +4,6 @@ import sprite from "@/assets/images/symbol-defs.svg";
 import { Calendar } from "./Calendar";
 
 const StepOne = ({ formik, nextStep }) => {
-  // const [date, setDate] = useState("");
-  // const handleChange = (date) => {
-  //   setDate(date)
-  // };
-  // console.log("date", date);
-
   return (
     <>
       <p className={css.text}>
@@ -27,10 +21,15 @@ const StepOne = ({ formik, nextStep }) => {
               required
               min="150"
               name="height"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.height}
             />
-            <p className={css.labelText}>Height</p>
+            {formik.touched.height && formik.errors.height ? (
+              <p className={css.error}>{formik.errors.height}</p>
+            ) : (
+              <p className={css.labelText}>Height</p>
+            )}
             {/* {formik.touched.height && formik.errors.height ? (
               <div>{formik.errors.height}</div>
             ) : null} */}
@@ -44,10 +43,16 @@ const StepOne = ({ formik, nextStep }) => {
               required
               min="35"
               name="currentWeight"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.currentWeight}
             />
-            <p className={css.labelText}>Current Weight</p>
+            {formik.touched.currentWeight && formik.errors.currentWeight ? (
+              <p className={css.error}>{formik.errors.currentWeight}</p>
+            ) : (
+              <p className={css.labelText}>Current Weight</p>
+            )}
+            {/* <p className={css.labelText}>Current Weight</p> */}
           </label>
           <label className={css.label}>
             <input
@@ -57,10 +62,20 @@ const StepOne = ({ formik, nextStep }) => {
               required
               min="35"
               name="desiredWeight"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.desiredWeight}
             />
-            <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p>
+            {formik.touched.desiredWeight && formik.errors.desiredWeight ? (
+              <p className={`${css.error} ${css.bastard}`}>
+                {formik.errors.desiredWeight}
+              </p>
+            ) : (
+              <p className={`${css.labelText} ${css.bastard}`}>
+                Desired Weight
+              </p>
+            )}
+            {/* <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p> */}
           </label>
           {/* <DatePickerCalendar
             // value={date}
@@ -74,12 +89,35 @@ const StepOne = ({ formik, nextStep }) => {
             placeholder="Birthday"
             name="birthday"
             onChange={formik.handleChange} /> */}
-          <Calendar
-            onChange={(value) => formik.setFieldValue("birthday", value)}
-            value={formik.values.birthday}
-          />
+          <label>
+            <Calendar
+              // max={}
+              onChange={(value) => formik.setFieldValue("birthday", value)}
+              value={formik.values.birthday}
+            />
+            {formik.touched.birthday && formik.errors.birthday ? (
+              <p className={`${css.error} ${css.bastard}`}>
+                {formik.errors.birthday}
+              </p>
+            ) : (
+              <p className={`${css.labelText} ${css.bastard}`}>
+                Desired Weight
+              </p>
+            )}
+          </label>
         </div>
-        <button type="button" onClick={nextStep} className={css.btnNext}>
+        <button
+          disabled={
+            (formik.touched.height && formik.errors.height) ||
+            (formik.touched.currentWeight && formik.errors.currentWeight) ||
+            (formik.touched.desiredWeight && formik.errors.desiredWeight)
+              ? true
+              : false
+          }
+          type="button"
+          onClick={nextStep}
+          className={css.btnNext}
+        >
           Next
           <svg className={css.icon}>
             <use href={sprite + "#icon-next"} />
@@ -95,5 +133,5 @@ export default StepOne;
 
 StepOne.propTypes = {
   formik: PropTypes.any,
-  submit: PropTypes.func,
+  nextStep: PropTypes.func,
 };

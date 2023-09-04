@@ -3,9 +3,10 @@ import css from "./ParamsForm.module.css";
 import { useEffect, useState } from "react";
 import { DatePickerPopupContent } from "../../DatePickerCalendar/DatePickerPopupContent";
 
+const date = new Date(new Date() - 18 * 365.25 * 24 * 60 * 60 * 1000);
+
 export const Calendar = ({ onChange, value }) => {
   const [showPopup, setShowPopup] = useState(false);
-  console.log(showPopup);
 
   const onKeyDown = (e) => {
     if (e.key === "Enter" || e.key === "Escape") {
@@ -19,7 +20,6 @@ export const Calendar = ({ onChange, value }) => {
     } else {
       onChange(e);
       setShowPopup(false);
-      console.log("object changed");
     }
   };
   useEffect(() => {
@@ -28,7 +28,6 @@ export const Calendar = ({ onChange, value }) => {
       if (!element) return;
 
       const target = e.target;
-      console.log("eventfired", e);
 
       if (!(target instanceof Node)) {
         return;
@@ -60,7 +59,6 @@ export const Calendar = ({ onChange, value }) => {
         onClick={(e) => {
           e.preventDefault();
           setShowPopup(true);
-          console.log("onClick");
         }}
         onKeyDown={onKeyDown}
       />
@@ -69,6 +67,7 @@ export const Calendar = ({ onChange, value }) => {
           selectedValue={value}
           onChange={handleChange}
           inputValueDate={value}
+          max={date}
           YearBool
         />
       )}

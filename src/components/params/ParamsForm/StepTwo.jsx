@@ -33,6 +33,7 @@ const StepTwo = ({ formik, nextStep, prevStep }) => {
                     className={css.radioBtn}
                     checked={formik.values.blood === i + 1}
                     name="blood"
+                    onBlur={formik.handleBlur}
                     onChange={() => formik.setFieldValue("blood", el)}
                     value={i + 1}
                   />
@@ -55,10 +56,14 @@ const StepTwo = ({ formik, nextStep, prevStep }) => {
                     className={css.radioBtn}
                     checked={formik.values.sex === el}
                     name="sex"
+                    onBlur={formik.handleBlur}
                     onChange={() => formik.setFieldValue("sex", el)}
                     value={el}
                   />
-                  <label htmlFor={el} className={css.radioLabel}>
+                  <label
+                    htmlFor={el}
+                    className={`${css.radioLabel} ${css.sex}`}
+                  >
                     {el}
                   </label>
                 </li>
@@ -78,6 +83,7 @@ const StepTwo = ({ formik, nextStep, prevStep }) => {
                   className={css.radioBtn}
                   checked={Number(formik.values.levelActivity) === i + 1}
                   name="levelActivity"
+                  onBlur={formik.handleBlur}
                   onChange={() => formik.setFieldValue("levelActivity", i + 1)}
                   value={i + 1}
                 />
@@ -112,6 +118,6 @@ export default StepTwo;
 
 StepTwo.propTypes = {
   formik: PropTypes.any,
-  submit: PropTypes.func,
+  nextStep: PropTypes.func,
   prevStep: PropTypes.func,
 };

@@ -21,6 +21,8 @@ export const userSlice = createSlice({
     avatar: "",
     isLoading: false,
     isAuth: false,
+    updatedAt: "",
+
     body: {},
     bodyData: {
       height: 0,
@@ -74,6 +76,7 @@ function registerFulfilled(state, { payload }) {
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
+
   state.bodyData = payload.bodyData && null;
 }
 function refreshFulfilled(state, { payload }) {
@@ -83,6 +86,8 @@ function refreshFulfilled(state, { payload }) {
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
+  state.updatedAt = payload.updatedAt;
+
   state.bodyData = payload.bodyData;
 }
 

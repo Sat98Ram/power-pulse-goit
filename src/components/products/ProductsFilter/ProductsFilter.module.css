@@ -1,32 +1,10 @@
-.products_filter {
-  margin-bottom: 28px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
-  justify-content: flex-end;
-}
-
-.products_filter_select {
-  width: 192px;
-}
-
-.products_filter_search {
-  box-sizing: border-box;
-  width: 236px;
-  height: 52px;
-  padding: 14px;
-  background-color: transparent;
-  color: var(--white);
-  font-size: 16px;
-  line-height: 24px;
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-}
-
 .products_filter_search::placeholder {
   color: var(--white);
 }
+
+/* .products_filter_search:placeholder-shown .products_filter_btn_close {
+  display: none;
+} */
 
 .products_filter_search:focus {
   outline: none;
@@ -42,11 +20,94 @@
   /* background: transparent; */
 }
 
+.products_filter_btn {
+  background: transparent;
+  position: absolute;
+}
+
+.products_filter_btn_close {
+  top: calc(50% - 16px / 2);
+  right: 40px;
+}
+
+.products_filter_btn_search {
+  top: calc(50% - 16px / 2);
+  right: 14px;
+}
+
 .products_filter_btn_close_icon {
   fill: #e6533c;
   width: 18px;
   height: 18px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+}
+
+.products_filter_btn_search {
+}
+
+.products_filter_btn_search_icon {
+  width: 18px;
+  height: 18px;
+}
+
+.products_filter_label {
+  position: relative;
+}
+
+@media screen and (min-width: 375px) {
+  .products_filter {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .products_filter_search {
+    box-sizing: border-box;
+    width: 335px;
+    height: 46px;
+    padding: 14px;
+    padding-right: 68px;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(239, 237, 232, 0.3);
+  }
+
+  .products_filter_select_type {
+    width: 173px;
+  }
+
+  .products_filter_select_categories {
+    width: 146px;
+  }
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1440px) {
+  .products_filter {
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-end;
+  }
+
+  .products_filter_search {
+    width: 236px;
+    height: 52px;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .products_filter_select {
+    width: 192px;
+  }
 }

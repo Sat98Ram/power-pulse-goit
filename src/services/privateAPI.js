@@ -60,6 +60,7 @@ export const getProductsCategories = async () => {
 };
 
 export const getProductsList = async () => {
+  // const { data } = await privateAPI.get("api/products/admissible");
   const { data } = await privateAPI.get("api/products/admissible?limit=3000");
   return data;
 };
@@ -81,6 +82,25 @@ export const exerciseAddDiary = async (body) => {
 
 export const updateBody = async (body) => {
   const { data } = await privateAPI.post("api/users/body", body);
+  return data;
+};
+
+export const changeBody = async (body) => {
+  const { data } = await privateAPI.post("api/users/body", body);
+  return data;
+};
+
+export const changeName = async (body) => {
+  const { data } = await privateAPI.post("api/users/current/edit", body);
+  return data;
+};
+
+export const changeAvatar = async (body) => {
+  const { data } = await privateAPI.post("api/users/current/edit", body, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return data;
 };
 

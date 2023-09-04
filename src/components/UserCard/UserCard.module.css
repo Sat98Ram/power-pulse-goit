@@ -1,0 +1,161 @@
+.diary_item_red {
+  background: #e6533c;
+}
+
+.logoutIcon {
+  stroke: var(--primary-accent);
+}
+.logoutContainer {
+  display: flex;
+  justify-content: end;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border: solid 1px var(--primary-accent);
+  border-radius: 50%;
+}
+
+.avatarImage {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+}
+.file {
+  display: none;
+}
+
+.profileSettings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addPhotoBtn {
+  background-color: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-bottom: 31px;
+  margin-top: 40px;
+}
+
+.profileName {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.11;
+  margin-bottom: 4px;
+}
+
+.user {
+  color: rgba(239, 237, 232, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  margin-bottom: 40px;
+}
+
+.profileDiary {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.profileWarning {
+  display: flex;
+  gap: 8px;
+}
+
+.warningMark {
+  width: 24px;
+  height: 24px;
+  background-color: var(--beige-accent);
+  border-radius: 50%;
+}
+
+.warningText {
+  color: rgba(239, 237, 232, 0.3);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  margin-bottom: 44px;
+}
+
+.profileContainer {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .avatarContainer {
+    margin-top: 64px;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+  .addPhotoBtn {
+    width: 32px;
+    height: 32px;
+  }
+  .profileName {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+  .user {
+    margin-bottom: 32px;
+  }
+  .profileDiary {
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  .diary_item_red {
+    width: 214px;
+  }
+  .profileWarning {
+    justify-content: center;
+  }
+  .warningText {
+    width: 407px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+  .logoutContainer {
+    margin-right: 125px;
+  }
+  .profileContainer {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .profileContainer {
+    padding-left: 42px;
+    border-left: solid 1px rgba(239, 237, 232, 0.2);
+  }
+  .avatarContainer {
+    margin-top: 0;
+    margin-bottom: 34px;
+  }
+  .profileName {
+    margin-bottom: 8px;
+  }
+  .profileDiary {
+    gap: 16px;
+  }
+}

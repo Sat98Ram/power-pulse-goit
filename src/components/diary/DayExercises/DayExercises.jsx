@@ -1,16 +1,26 @@
-import PropTypes, { object } from "prop-types";
+import PropTypes from "prop-types";
 import styles from "./DayExercises.module.css";
 import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryExerciseThunk } from "../../../redux/diary/operations";
 
-const DayExercises = ({ doneExercises, date }) => {
+const DayExercises = ({ doneExercises, date, isMobile }) => {
   const dispatch = useDispatch();
 
-  console.log("doneExercise", doneExercises);
-
-  // console.log("id", doneExercises.exercise._id);
+  const returnExercisesString = (string_length = "", number = 16, mobile) => {
+    if (!isMobile || mobile) {
+      if (string_length.length > number) {
+        let newString = "";
+        for (let index = 0; index < number - 3; index++) {
+          newString = newString + string_length[index];
+        }
+        return (newString = newString + "...");
+      }
+      return string_length;
+    }
+    return string_length;
+  };
 
   const handleDelete = (id) => {
     dispatch(
@@ -26,9 +36,15 @@ const DayExercises = ({ doneExercises, date }) => {
     return (
       <tr key={num}>
         <td className={styles.tdBodyPart}>{obj.exercise.bodyPart}</td>
-        <td className={styles.tdEquipment}>{obj.exercise.equipment}</td>
-        <td className={styles.tdName}>{obj.exercise.name}</td>
-        <td className={styles.tdTarget}>{obj.exercise.target}</td>
+        <td className={styles.tdEquipment}>
+          {returnExercisesString(obj.exercise.equipment, 15)}
+        </td>
+        <td className={styles.tdName}>
+          {returnExercisesString(obj.exercise.name, 12)}
+        </td>
+        <td className={styles.tdTarget}>
+          {returnExercisesString(obj.exercise.target, 10, true)}
+        </td>
         <td className={styles.tdBurnedCalories}>
           {obj.exercise.burnedCalories}
         </td>
@@ -97,4 +113,5 @@ DayExercises.propTypes = {
     })
   ),
   date: PropTypes.any,
+  isMobile: PropTypes.bool,
 };

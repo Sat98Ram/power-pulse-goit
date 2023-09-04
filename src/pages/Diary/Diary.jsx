@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import Container from "../../components/Container/Container";
 import { TitlePage } from "../../components/TitlePage/TitlePage";
 import DayDashboard from "../../components/diary/DayDashboard/DayDashboard";
@@ -6,7 +8,7 @@ import DayExercises from "../../components/diary/DayExercises/DayExercises";
 import DayProducts from "../../components/diary/DayProducts/DayProducts";
 import DaySwitch from "../../components/diary/DaySwitch/DaySwitch";
 import css from "./Diary.module.css";
-import { useEffect, useState } from "react";
+
 import { getDiariesByDateThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../../components/DatePickerCalendar/utils";
 import { selectDiary } from "../../redux/diary/selectors";
@@ -24,26 +26,35 @@ const Diary = () => {
   const diary = useSelector(selectDiary);
   const user = useSelector(selectUser);
 
-  const { bodyData, updatedAt } = user;
+  const { bodyData, createdAt } = user;
 
   const { consumedProducts } = diary;
   const { doneExercises } = diary;
 
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
     <section className={css.diary_page}>
       <Container>
         <div className={css.header}>
           <TitlePage text="Diary" />
-          <DaySwitch date={date} setDate={setDate} minDate={updatedAt} />
+          <DaySwitch date={date} setDate={setDate} minDate={createdAt} />
         </div>
 
         <div className={css.content}>
           <div className={css.tables}>
             {consumedProducts && (
-              <DayProducts consumedProducts={consumedProducts} date={diary.date } />
+              <DayProducts
+                isMobile={isMobile}
+                consumedProducts={consumedProducts}
+                date={diary.date}
+              />
             )}
-            <DayExercises doneExercises={doneExercises} date={diary.date }/>
+            <DayExercises
+              isMobile={isMobile}
+              doneExercises={doneExercises}
+              date={diary.date}
+            />
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

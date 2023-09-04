@@ -25,14 +25,12 @@ const DayExercises = ({ doneExercises, date }) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdBodyPart}>{obj.exercise.bodyPart}</td>
-        <td className={styles.tdEquipment}>{obj.exercise.equipment}</td>
-        <td className={styles.tdName}>{obj.exercise.name}</td>
-        <td className={styles.tdTarget}>{obj.exercise.target}</td>
-        <td className={styles.tdBurnedCalories}>
-          {obj.exercise.burnedCalories}
-        </td>
-        <td className={styles.tdTime}>{obj.exercise.time}</td>
+        <td className={styles.tdBodyPart}><div>{obj.exercise.bodyPart}</div></td>
+        <td className={styles.tdEquipment}><div>{obj.exercise.equipment}</div></td>
+        <td className={styles.tdName}><div>{obj.exercise.name}</div></td>
+        <td className={styles.tdTarget}><div>{obj.exercise.target}</div></td>
+        <td className={styles.tdBurnedCalories}><div>{obj.exercise.burnedCalories}</div></td>
+        <td className={styles.tdTime}><div>{obj.exercise.time}</div></td>
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>
             <svg>

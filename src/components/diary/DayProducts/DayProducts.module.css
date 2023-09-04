@@ -122,9 +122,12 @@ span p {
   color: #ef8964;
 }
 .DayProducts td {
+  height: 38px;
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
+  padding-right: 14px;
+
 
   font-family: Roboto;
   font-size: 14px;
@@ -133,8 +136,10 @@ span p {
   letter-spacing: 0em;
   text-align: left;
 }
-td {
-  height: 38px;
+.DayProducts td div{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tdTitle,
@@ -211,11 +216,8 @@ td {
   }
   .DayProducts tbody {
     padding-right: 0px;
-
     margin-top: 22px;
-
     width: 309px;
-    /* height: 986px; */
   }
   .DayProducts thead {
     display: none;
@@ -233,7 +235,6 @@ td {
     display: inline-grid;
     align-items: center;
 
-    /* height: 38px; */
     margin-bottom: 42px;
   }
 

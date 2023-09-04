@@ -8,10 +8,10 @@ const DayProducts = ({ consumedProducts }) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdTitle}>{obj.product.title}</td>
-        <td className={styles.tdCategory}>{obj.product.category}</td>
-        <td className={styles.tdCalories}>{obj.product.calories}</td>
-        <td className={styles.tdWeight}>{obj.product.weight}</td>
+        <td className={styles.tdTitle}><div>{obj.product.title}</div></td>
+        <td className={styles.tdCategory}><div>{obj.product.category}</div></td>
+        <td className={styles.tdCalories}><div>{obj.product.calories}</div></td>
+        <td className={styles.tdWeight}><div>{obj.product.weight}</div></td>
         <td className={styles.tdRecommend}>
           {obj.Recommend ? (
             <>

@@ -69,7 +69,6 @@ span p {
 }
 .DayExercises tbody {
   display: block;
-  /* height: 146px; */
   margin-top: 8px;
   max-height: 740px;
   overflow-y: auto;
@@ -113,13 +112,18 @@ span p {
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
-
+  padding-right: 14px;
   font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
+}
+.DayExercises td div{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tdBodyPart,

@@ -1,2 +1,17 @@
-.backgroundImage {
+.statLine {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .statLine {
+    right: 32px;
+    bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .statLine {
+    bottom: 170px;
+  }
 }

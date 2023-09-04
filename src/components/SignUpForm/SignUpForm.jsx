@@ -86,7 +86,7 @@ export const SignUpForm = () => {
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
 
-      <SignBtn text="Sign Up" type="submit" />
+      <SignBtn text="Sign Up" type="submit" className={css.signUpBtn} />
     </form>
   );
 };

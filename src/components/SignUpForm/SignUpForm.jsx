@@ -30,9 +30,9 @@ export const SignUpForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
-      email: "",
-      password: "",
+      name: "Bill",
+      email: "bill@example.com",
+      password: "qwerty1",
     },
     validationSchema,
     onSubmit,

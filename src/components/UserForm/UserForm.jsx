@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../redux/auth/selectors";
+import { selectorBodyData, selectUser } from "../../redux/auth/selectors";
 
 import css from "./UserForm.module.css";
 import { capitalizeFirstLeter } from "../../helpers/capitalizeFirstLeter";
@@ -20,7 +20,8 @@ const levelActivityList = [
 export const UserForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const { bodyData, email, name } = user;
+  const bodyData = useSelector(selectorBodyData);
+  const { email, name } = user;
   const {
     height,
     currentWeight,
@@ -33,17 +34,19 @@ export const UserForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      name,
-      email,
-      height,
-      currentWeight,
-      desiredWeight,
-      birthday,
-      blood,
-      sex,
-      levelActivity,
+      name: name,
+      email: email,
+      height: height,
+      currentWeight: currentWeight,
+      desiredWeight: desiredWeight,
+      birthday: birthday,
+      blood: blood,
+      sex: sex,
+      levelActivity: levelActivity,
     },
     onSubmit: (values) => {
+      console.log(values);
+      console.log(user);
       const bodyData = {
         height: values.height,
         currentWeight: values.currentWeight,

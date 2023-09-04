@@ -96,7 +96,7 @@ export const changeName = async (body) => {
 };
 
 export const changeAvatar = async (body) => {
-  const { data } = await privateAPI.post("api/users/body", body, {
+  const { data } = await privateAPI.post("api/users/current/edit", body, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

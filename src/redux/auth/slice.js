@@ -149,8 +149,7 @@ function changeNameFulfilled(state, { payload }) {
 function changeAvatarFulfilled(state, { payload }) {
   state.isLoading = false;
   state.isAuth = true;
-  console.log(payload);
-  state.avatar = payload;
+  state.avatar = payload.avatar;
 }
 
 export const usersReducer = userSlice.reducer;

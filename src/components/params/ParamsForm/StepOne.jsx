@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
-import sprite from "../../../assets/images/symbol-defs.svg";
-import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
-// import { useState } from "react";
+import sprite from "@/assets/images/symbol-defs.svg";
+import { Calendar } from "./Calendar";
 
 const StepOne = ({ formik, nextStep }) => {
   // const [date, setDate] = useState("");
@@ -68,13 +67,15 @@ const StepOne = ({ formik, nextStep }) => {
             YearBool={true}
             // onChange={(date) => {handleChange(date)}}
           /> */}
-          <input
+          {/* <input
             className={css.input}
             type="date"
             required
             placeholder="Birthday"
             name="birthday"
-            onChange={formik.handleChange}
+            onChange={formik.handleChange} /> */}
+          <Calendar
+            onChange={(value) => formik.setFieldValue("birthday", value)}
             value={formik.values.birthday}
           />
         </div>

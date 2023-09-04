@@ -38,6 +38,8 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.15;
+  display: flex;
+  gap: 4px;
 }
 .colorSvg {
   fill: #ef8964;

@@ -1,72 +1,94 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
+import css from "./AddProductModalWindow.module.css";
 import { addDiariesProductThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+import { AddProductSuccess } from "../products/AddProductSuccess/AddProductSuccess";
+import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 
-const AddProductForm = ({ eldata, openModalToggle }) => {
+const AddProductForm = ({ eldata }) => {
   const dispatch = useDispatch();
   const { title, calories, _id: id } = eldata;
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState("");
   const calculatedCalories = (quantity * calories) / 100;
   const date = getInputValueFromDate(new Date(), true);
-  console.log(date);
-  console.log(eldata);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const openModalToggle = () => {
+    setIsOpenModal((prev) => !prev);
+  };
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const handleAddToDiary = () => {
-    // Розрахунок калорій на основі формули
-
-    // Відправка даних на бекенд та обробка результату
     dispatch(
       addDiariesProductThunk({ date, product: id, amount: calculatedCalories })
     )
       .then((response) => {
-        // Обробка успішної відправки на бекенд та закриття модального вікна
-        // Відобразити модальне вікно з повідомленням про успіх (AddProductSuccess)
-        console.log("Product added successfully", response);
-
-        // Закриття модального вікна з AddProductForm
-        // Відкриття модального вікна з AddProductSuccess
+        setIsSuccessModalOpen(true);
       })
       .catch((error) => {
-        // Обробка помилок від бекенда та відображення повідомлення для користувача
         console.error("Error adding product", error);
-        // Покажіть повідомлення користувачу про помилку
       });
     openModalToggle();
   };
 
   return (
-    <div>
-      <h2>Add Product to Diary</h2>
-      <form>
-        <label>
-          Product Name:
-          <input type="text" value={title} disabled />
-        </label>
-        <br />
-        <label>
-          Quantity (g):
-          <input
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-        </label>
+    <div className={css.modal}>
+      <form className={css.form}>
+        <div className={css.input}>
+          <label>
+            <input
+              className={css.inputTitle}
+              type="text"
+              value={title}
+              disabled
+            />
+          </label>
+          <label>
+            <input
+              className={css.inputQuantity}
+              placeholder="grams"
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </label>
+        </div>
         <br />
         <p>
-          Calories per 100g:
-          <span>{calculatedCalories}</span>
+          <span className={css.calories}>
+            <span className={css.titleCalories}>Calories:</span>
+            {calculatedCalories}
+          </span>
         </p>
         <br />
-        <button type="button" onClick={handleAddToDiary}>
-          Add to Diary
-        </button>
-        {/* <button type="button" onClick={handleCancel}>
-          Cancel
-        </button> */}
+        <div className={css.btn}>
+          <button
+            className={css.btnAdd}
+            type="button"
+            onClick={handleAddToDiary}
+          >
+            Add to diary
+          </button>
+          <button
+            className={css.btnCancel}
+            type="button"
+            onClick={openModalToggle}
+          >
+            Cancel
+          </button>
+        </div>
+        {isOpenModal && (
+          <BasicModalWindow isOpenModalToggle={openModalToggle}>
+            {isSuccessModalOpen && <AddProductSuccess calories={calories} />}
+          </BasicModalWindow>
+        )}
       </form>
     </div>
   );
 };
-
+AddProductForm.propTypes = {
+  eldata: PropTypes.object,
+  openModalToggle: PropTypes.func,
+};
 export default AddProductForm;

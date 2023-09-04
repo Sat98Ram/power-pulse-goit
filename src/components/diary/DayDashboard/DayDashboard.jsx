@@ -20,8 +20,9 @@ const DayDashboard = ({ diary, bodyData }) => {
           <DiaryDashboardItem
             svg="dumbbell-icon"
             title="Daily norm of sports"
-            content={`${dailySportMin}`}
+            content={dailySportMin}
             className={css.diary_item_red}
+            measurement="min"
           />
         </div>
         <div className={css.rigth}>
@@ -41,14 +42,15 @@ const DayDashboard = ({ diary, bodyData }) => {
             <DiaryDashboardItem
               svg="bubble-icon"
               title="The rest of the calories"
-              content={`${dailyRateCalories - consumedCalories}`}
+              content={dailyRateCalories - consumedCalories}
               type="calories"
             />
             <DiaryDashboardItem
               svg="run-icon"
               title="The rest of sports"
-              content={`${dailySportMin - timeSport}`}
+              content={dailySportMin - timeSport}
               type="sport"
+              measurement="min"
             />
           </div>
         </div>

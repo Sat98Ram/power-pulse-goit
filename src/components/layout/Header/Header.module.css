@@ -50,6 +50,9 @@
   border-radius: 12px;
   display: block;
   padding: 10px 27px;
+  transition: background-color var(--transition-duration)
+      var(--transition-cubic),
+    border-color var(--transition-duration) var(--transition-cubic);
 }
 
 .userNavLink:hover,

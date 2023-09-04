@@ -18,6 +18,8 @@ export const userSlice = createSlice({
     avatar: "",
     isLoading: false,
     isAuth: false,
+    updatedAt: "",
+
     body: {},
     bodyData: {
       height: 0,
@@ -41,15 +43,19 @@ export const userSlice = createSlice({
       .addCase(registerThunk.pending, pending)
       .addCase(registerThunk.fulfilled, registerFulfilled)
       .addCase(registerThunk.rejected, rejected)
+
       .addCase(loginThunk.pending, pending)
       .addCase(loginThunk.fulfilled, registerFulfilled)
       .addCase(loginThunk.rejected, rejected)
+
       .addCase(refreshThunk.pending, pendingRefresh)
       .addCase(refreshThunk.fulfilled, refreshFulfilled)
       .addCase(refreshThunk.rejected, rejected)
+
       .addCase(logoutThunk.pending, pending)
       .addCase(logoutThunk.fulfilled, logout)
       .addCase(logoutThunk.rejected, logout)
+
       .addCase(updateBodyThunk.pending, pending)
       .addCase(updateBodyThunk.fulfilled, updateBodyFulfilled)
       .addCase(updateBodyThunk.rejected, rejected),
@@ -62,6 +68,7 @@ function registerFulfilled(state, { payload }) {
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
+
   state.bodyData = payload.bodyData && null;
 }
 function refreshFulfilled(state, { payload }) {
@@ -71,6 +78,8 @@ function refreshFulfilled(state, { payload }) {
   state.name = payload.name;
   state.token = payload.token;
   state.email = payload.email;
+  state.updatedAt = payload.updatedAt;
+
   state.bodyData = payload.bodyData;
 }
 

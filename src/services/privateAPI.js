@@ -30,6 +30,7 @@ export const refresh = async () => {
     if (data.token) {
       token.set(data.token);
     }
+
     return data;
   } catch (error) {
     token.unset();
@@ -59,7 +60,7 @@ export const getProductsCategories = async () => {
 };
 
 export const getProductsList = async () => {
-  const { data } = await privateAPI.get("api/products/admissible");
+  const { data } = await privateAPI.get("api/products/admissible?limit=3000");
   return data;
 };
 
@@ -72,6 +73,7 @@ export const productAddDiary = async (body) => {
   const { data } = await privateAPI.post("api/diaries/product/add", body);
   return data;
 };
+
 export const exerciseAddDiary = async (body) => {
   const { data } = await privateAPI.post("api/diaries/exercise/add", body);
   return data;
@@ -79,5 +81,18 @@ export const exerciseAddDiary = async (body) => {
 
 export const updateBody = async (body) => {
   const { data } = await privateAPI.post("api/users/body", body);
+  return data;
+};
+
+export const deletedDiaryProduct = async (params) => {
+  const { data } = await privateAPI.delete(`api/diaries/product/${id}`);
+  return data;
+};
+
+export const deletedDiaryExercise = async (params) => {
+  const { data } = await privateAPI.delete(
+    `api/diaries/exercise/${params.exerciseId}`,
+    { params }
+  );
   return data;
 };

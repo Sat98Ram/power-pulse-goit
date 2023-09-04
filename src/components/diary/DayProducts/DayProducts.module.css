@@ -3,14 +3,12 @@
   border-radius: 12px;
   background-color: #efede80d;
 
-  width: 826px;
-  height: 234px;
-  /* padding-bottom: 16px; */
-  /* padding-right: 16px; 
-    padding-left: 16px; */
   padding-top: 16px;
-
   margin-bottom: 32px;
+
+  position: relative;
+  min-height: 234px;
+  width: 826px;
 }
 
 .DayProductsHead {
@@ -69,12 +67,12 @@ span p {
 .DayProducts .tdDellete button {
   display: block;
   padding: 0px;
+  background-color: transparent;
 }
 .DayProducts .tdDellete svg {
   display: block;
   width: 20px;
   height: 20px;
-  color: #e6533c;
 }
 
 .DayProducts table {
@@ -123,14 +121,7 @@ span p {
   padding-left: 14px;
 
   font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-
-  font-family: Roboto;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
@@ -141,6 +132,7 @@ span p {
 .thTitle {
   width: 212px;
 }
+
 .tdCategory,
 .thCategory {
   width: 164px;
@@ -168,7 +160,8 @@ span p {
 @media screen and (max-width: 768px) {
   .DayProducts {
     width: 335px;
-    height: 1064px;
+    min-height: 335px;
+    max-height: 1064px;
 
     padding-left: 16px;
     padding-right: 8px;
@@ -307,4 +300,11 @@ span p {
     text-align: left;
     color: #ef8964;
   }
+}
+.not_found {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* margin-top: -20px; */
 }

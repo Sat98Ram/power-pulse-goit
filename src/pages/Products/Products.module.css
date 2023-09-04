@@ -7,13 +7,29 @@
     padding-top: 68px;
     padding-bottom: 81px;
     position: relative;
+    min-height: 716px;
   }
+}
+
+@media screen and (min-width: 375px) {
+  .products_title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--white);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: static;
+  }
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1440px) {
   .products_title {
     font-size: 32px;
-    font-weight: 700;
     line-height: 44px;
-    color: var(--white);
     position: absolute;
     top: 72px;
+    margin: 0;
   }
 }

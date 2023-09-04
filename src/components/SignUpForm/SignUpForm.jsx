@@ -1,20 +1,22 @@
-import SignUpBtn from "../SignUpForm/SignUpBtn";
 import css from "./SignUpForm.module.css";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-
 import { registerThunk } from "../../redux/auth/operations";
+import { SignBtn } from "../SignBtn/SignBtn";
 
 const validationSchema = Yup.object({
   username: Yup.string().required("Please enter your name"),
   email: Yup.string()
     .email("Invalid email address")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
   password: Yup.string()
     .required("Please enter your password")
-    .min(6, "Password must be at least 6 characters")
-    .max(12, "Password should be no longer than 12 characters"),
+    .matches(
+      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
+      "Should contain 6 symbols and at least 1 number"
+    ),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Please confirm your password"),
@@ -24,13 +26,12 @@ export const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    const { ...payload } = values;
-    dispatch(registerThunk(payload));
+    dispatch(registerThunk(values));
   };
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -42,18 +43,18 @@ export const SignUpForm = () => {
     <form className={css.signup} onSubmit={formik.handleSubmit}>
       <input
         type="text"
-        name="username"
+        name="name"
         placeholder="Name"
-        autoComplete="username"
+        autoComplete="name"
         className={css.signup__input}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.username}
+        value={formik.values.name}
       />
 
-      {formik.touched.username && formik.errors.username ? (
+      {formik.touched.name && formik.errors.name ? (
         <div className={css.error_wrapper}>
-          <div className={css.error_message}>{formik.errors.username}</div>
+          <div className={css.error_message}>{formik.errors.name}</div>
         </div>
       ) : null}
 
@@ -61,7 +62,7 @@ export const SignUpForm = () => {
         type="email"
         name="email"
         placeholder="E-mail"
-        autoComplete="username"
+        autoComplete="name"
         className={css.signup__input}
         onChange={formik.handleChange}
         value={formik.values.email}
@@ -85,7 +86,7 @@ export const SignUpForm = () => {
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
 
-      <SignUpBtn />
+      <SignBtn text="Sign Up" type="submit" />
     </form>
   );
 };

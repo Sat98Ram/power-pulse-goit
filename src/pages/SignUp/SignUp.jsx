@@ -20,11 +20,11 @@ export const SignUp = () => {
             <p className={css.noaccount}>
               Already have account?
               <NavLink to="/signin">
-                <span>Sign In</span>
+                <span> Sign In</span>
               </NavLink>
             </p>
-            <VideoCount />
-            <CaloriesCount />
+            {/* <VideoCount />
+            <CaloriesCount /> */}
           </div>
         </div>
       </div>

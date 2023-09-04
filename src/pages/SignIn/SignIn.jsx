@@ -15,14 +15,15 @@ export const SignIn = () => {
               Please enter your credentials to login to the platform:
             </p>
             <SignInForm />
+
             <p className={css.noaccount}>
               Don't have an account?
               <NavLink to="/signup">
-                <span>Sign Up</span>
+                <span> Sign Up</span>
               </NavLink>
             </p>
-            <VideoCount />
-            <CaloriesCount />
+            {/* <VideoCount />
+            <CaloriesCount /> */}
           </div>
         </div>
       </div>

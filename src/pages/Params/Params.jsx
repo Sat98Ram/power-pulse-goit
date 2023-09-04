@@ -45,7 +45,7 @@ const Params = () => {
       height: "",
       currentWeight: "",
       desiredWeight: "",
-      birthday: "",
+      birthday: new Date(),
       blood: "",
       sex: "",
       levelActivity: "",

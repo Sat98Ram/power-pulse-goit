@@ -1,11 +1,14 @@
 import symbolDefs from "@/assets/images/symbol-defs.svg"
 import css from "./ProductsFilter.module.css"
 import Select from "react-select"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { productCategoriesThunk } from "../../../redux/products/operation"
 import { capitalizeFirstLeter } from "../../../helpers/capitalizeFirstLeter"
 import { selectCategoriesProducts } from "../../../redux/products/selectors"
+import { useFormik } from "formik"
+import { useMediaQuery } from "react-responsive"
+import { filterReducer } from "../../../redux/products/slice"
 
 const optionsRec = [
   { value: "all", label: "All" },
@@ -23,11 +26,19 @@ export const ProductsFilter = () => {
     dispatch(productCategoriesThunk())
   }, [dispatch])
 
+  const isMobile = useMediaQuery({ minWidth: 375 })
+  const isTablet = useMediaQuery({ minWidth: 769 })
+  const isDesktop = useMediaQuery({ minWidth: 1440 })
+  let height = ""
+  isMobile ? (height = "46px") : (height = "52px")
+  isTablet ? (height = "52px") : (height = "46px")
+  isDesktop ? (height = "52px") : (height = "46px")
+
   const customStyles = {
     control: (provided) => ({
       ...provided,
       backgroundColor: "trasparent", // Стилизация фона окна
-      height: "52px",
+      height: height,
       appearance: "none", // Removing default appearance
       WebkitAppearance: "none",
       MozAppearance: "none",
@@ -77,30 +88,80 @@ export const ProductsFilter = () => {
     }),
   }
 
+  const formik = useFormik({
+    initialValues: { productSearch: "", categories: "", type: "" },
+    onSubmit: (values) => console.log("values", values),
+  })
+
+  const [hiddenBtnClose, setHiddenBtnClose] = useState(false)
+  const [search, setSearch] = useState("")
+  const [category, setCategory] = useState("")
+  const [recommended, setRecommended] = useState(optionsRec[0])
+
+  const onChangeSearch = (event) => {
+    const text = event.target.value
+    setHiddenBtnClose(text.length > 0)
+    setSearch(text)
+    dispatch(
+      filterReducer({ search: text, category: category.value, recommended: recommended.value })
+    )
+  }
+
+  const onCategoriesChange = (event) => {
+    setCategory(event)
+    dispatch(filterReducer({ category: event.value, search, recommended: recommended.value }))
+  }
+
+  const onRecomendedChange = (event) => {
+    setRecommended(event)
+    dispatch(filterReducer({ recommended: event.value, search, category: category.value }))
+  }
+
+  const delTextInput = () => {
+    setSearch("")
+    dispatch(
+      filterReducer({ search: "", category: category.value, recommended: recommended.value })
+    )
+    setHiddenBtnClose(false)
+  }
+
   return (
     <ul className={css.products_filter}>
       <li>
-        <input type="text" className={css.products_filter_search} placeholder="Search" />
-        <button
-          className={`${css.products_filter_btn_close} ${css.products_filter_btn}`}
-          type="button"
-        >
-          <svg className={css.products_filter_btn_close_icon}>
-            <use href={symbolDefs + "#close-icon"}></use>
-          </svg>
-          {/* <svg className={css.logoutIcon}>
-            <use href={symbolDefs + "#log-out-icon"}></use>
-          </svg> */}
-        </button>
-        <button
-          className={`${css.products_filter_btn_search} ${css.products_filter_btn}`}
-          type="button"
-        >
-          S
-        </button>
+        <label className={css.products_filter_label}>
+          <input
+            value={search}
+            onChange={onChangeSearch}
+            name="productSearch"
+            type="text"
+            className={css.products_filter_search}
+            placeholder="Search"
+          />
+
+          <button
+            onClick={delTextInput}
+            style={{ display: hiddenBtnClose ? "block" : "none" }}
+            className={`${css.products_filter_btn_close} ${css.products_filter_btn}`}
+            type="button"
+          >
+            <svg className={css.products_filter_btn_close_icon}>
+              <use href={symbolDefs + "#close-icon"}></use>
+            </svg>
+          </button>
+          <button
+            className={`${css.products_filter_btn_search} ${css.products_filter_btn}`}
+            type="button"
+          >
+            <svg className={css.products_filter_btn_search_icon}>
+              <use href={symbolDefs + "#search-icon"}></use>
+            </svg>
+          </button>
+        </label>
       </li>
       <li>
         <Select
+          value={category}
+          onChange={onCategoriesChange}
           theme={(theme) => ({
             ...theme,
 
@@ -116,12 +177,14 @@ export const ProductsFilter = () => {
             },
           })}
           styles={customStyles}
-          className={css.products_filter_select}
+          className={`${css.products_filter_select} ${css.products_filter_select_categories}`}
           options={categoriesList || []}
         />
       </li>
       <li>
         <Select
+          onChange={onRecomendedChange}
+          value={recommended}
           theme={(theme) => ({
             ...theme,
 
@@ -137,7 +200,7 @@ export const ProductsFilter = () => {
             },
           })}
           styles={customStyles}
-          className={css.products_filter_select}
+          className={`${css.products_filter_select} ${css.products_filter_select_type}`}
           options={optionsRec}
         />
       </li>

@@ -40,20 +40,35 @@ function rejected(state) {
   state.isLoading = false;
 }
 function getDiaryRejected(state) {
-  (state.burnedCalories = 0),
-    (state.consumedCalories = 0),
-    (state.consumedProducts = []),
-    (state.createdAt = null),
-    (state.date = null),
-    (state.doneExercises = []),
-    (state.owner = null),
-    (state.timeSport = null),
-    (state.updatedAt = null),
-    (state._id = null),
-    (state.isLoading = false);
+  state.burnedCalories = 0;
+  state.consumedCalories = 0;
+  state.consumedProducts = [];
+  state.createdAt = null;
+  state.date = null;
+  state.doneExercises = [];
+  state.owner = null;
+  state.timeSport = null;
+  state.updatedAt = null;
+  state._id = null;
+  state.isLoading = false;
 }
 
 function getDiaryFulfilled(state, { payload }) {
+  if (payload === null) {
+    state.consumedCalories = 0;
+    state.burnedCalories = 0;
+    state.consumedProducts = [];
+    state.createdAt = null;
+    state.date = null;
+    state.doneExercises = [];
+    state.owner = null;
+    state.timeSport = null;
+    state.updatedAt = null;
+    state._id = null;
+    state.isLoading = false;
+    return;
+  }
+
   state.burnedCalories = payload.burnedCalories;
   state.consumedCalories = payload.consumedCalories;
   state.consumedProducts = payload.consumedProducts;

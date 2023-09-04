@@ -62,7 +62,7 @@ export const SignInForm = () => {
       {formik.touched.password && formik.errors.password ? (
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
-      <SignBtn text="Sign In" type="submit" onClick={onSubmit} />
+      <SignBtn text="Sign In" type="submit" />
     </form>
   );
 };

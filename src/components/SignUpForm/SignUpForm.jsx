@@ -31,7 +31,7 @@ export const SignUpForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -43,18 +43,18 @@ export const SignUpForm = () => {
     <form className={css.signup} onSubmit={formik.handleSubmit}>
       <input
         type="text"
-        name="username"
+        name="name"
         placeholder="Name"
-        autoComplete="username"
+        autoComplete="name"
         className={css.signup__input}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.username}
+        value={formik.values.name}
       />
 
-      {formik.touched.username && formik.errors.username ? (
+      {formik.touched.name && formik.errors.name ? (
         <div className={css.error_wrapper}>
-          <div className={css.error_message}>{formik.errors.username}</div>
+          <div className={css.error_message}>{formik.errors.name}</div>
         </div>
       ) : null}
 
@@ -62,7 +62,7 @@ export const SignUpForm = () => {
         type="email"
         name="email"
         placeholder="E-mail"
-        autoComplete="username"
+        autoComplete="name"
         className={css.signup__input}
         onChange={formik.handleChange}
         value={formik.values.email}
@@ -86,7 +86,7 @@ export const SignUpForm = () => {
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
 
-      <SignBtn text="Sign Up" type="submit" onClick={onSubmit} />
+      <SignBtn text="Sign Up" type="submit" />
     </form>
   );
 };

@@ -17,10 +17,10 @@ const Welcome = () => {
 
         <div className={css.buttonsLine}>
           <NavLink to="/signin">
-            <SignBtn text="Sign Up" type="button" className={css.signUpBtn} />
+            <SignBtn text="Sign In" type="button" className={css.signUpBtn} />
           </NavLink>
           <NavLink to="/signup">
-            <SignBtn text="Sign In" type="button" className={css.signInBtn} />
+            <SignBtn text="Sign Up" type="button" className={css.signInBtn} />
           </NavLink>
         </div>
         {/* <VideoCount />

@@ -6,20 +6,17 @@ import { registerThunk } from "../../redux/auth/operations";
 import { SignBtn } from "../SignBtn/SignBtn";
 
 const validationSchema = Yup.object({
-  username: Yup.string().required("Please enter your name"),
+  name: Yup.string().required("Please enter your name"),
   email: Yup.string()
-    .email("Invalid email address")
+    // .email("Invalid email address")
     .required("Please enter your email")
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Enter valid email"),
   password: Yup.string()
     .required("Please enter your password")
     .matches(
       /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
       "Should contain 6 symbols and at least 1 number"
     ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Please confirm your password"),
 });
 
 export const SignUpForm = () => {
@@ -27,6 +24,7 @@ export const SignUpForm = () => {
 
   const onSubmit = (values) => {
     dispatch(registerThunk(values));
+    console.log(values, "values");
   };
 
   const formik = useFormik({
@@ -62,7 +60,7 @@ export const SignUpForm = () => {
         type="email"
         name="email"
         placeholder="E-mail"
-        autoComplete="name"
+        autoComplete="email"
         className={css.signup__input}
         onChange={formik.handleChange}
         value={formik.values.email}

@@ -1,7 +1,13 @@
-.container {
-  background-image: url(../../assets//images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+.backGround {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  margin: 0 auto;
+  padding-top: 127px;
 }
 .screen {
   width: 335px;
@@ -9,6 +15,9 @@
 @media screen and (min-width: 768px) {
   .screen {
     min-width: 496px;
+  }
+  .backGround {
+    padding-top: 141px;
   }
 }
 .screen__content {
@@ -25,7 +34,7 @@
   text-transform: capitalize;
 }
 @media screen and (min-width: 768px) {
-  h2 {
+  .screen h2 {
     color: var(--white);
     font-family: Roboto;
     font-size: 32px;

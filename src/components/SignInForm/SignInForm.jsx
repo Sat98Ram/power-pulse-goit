@@ -10,9 +10,12 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
     .required("Please enter your email")
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Enter valid email"),
   password: Yup.string()
-    .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/)
+    .matches(
+      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
+      "Should contain 6 symbols and at least 1 number"
+    )
     .required("Please enter your password"),
 });
 
@@ -62,7 +65,7 @@ export const SignInForm = () => {
       {formik.touched.password && formik.errors.password ? (
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
-      <SignBtn text="Sign In" type="submit" />
+      <SignBtn text="Sign In" type="submit" className={css.signInBtn} />
     </form>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import css from "./SuccessModalWindow.module.css";
 import symbolDefs from "../../../../assets/images/symbol-defs.svg";
 import thumb from "../../../../assets/images/desktop/other@2x/thumb.png";
-import { Link } from 'react-router-dom'; // Додайте імпорт
+import { Link } from 'react-router-dom';
 
 export const SuccessExerciseModalWindow = ({time, calories}) => {
 
@@ -25,7 +25,7 @@ export const SuccessExerciseModalWindow = ({time, calories}) => {
                 <span className={css.SuccessModalWindowSub}>{calories}</span>
               </p>
             </div>
-            <Link to="/exercise">
+            <Link to="/exercises">
               <button className={css.SuccessModalWindowBtn}>Next exercise</button>
             </Link>
             <Link to="/diary">

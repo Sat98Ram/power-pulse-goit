@@ -35,32 +35,39 @@ export const UserForm = () => {
     initialValues: {
       name,
       email,
-      bodyData: {
-        height,
-        currentWeight,
-        desiredWeight,
-        birthday,
-        blood,
-        sex,
-        levelActivity,
-      },
+      height,
+      currentWeight,
+      desiredWeight,
+      birthday,
+      blood,
+      sex,
+      levelActivity,
     },
     onSubmit: (values) => {
+      const bodyData = {
+        height: values.height,
+        currentWeight: values.currentWeight,
+        desiredWeight: values.desiredWeight,
+        birthday: values.birthday,
+        blood: values.blood,
+        sex: values.sex,
+        levelActivity: values.levelActivity,
+      };
       if (name !== values.name) {
         const updateName = {
           name: values.name,
         };
         dispatch(changeNameThunk(updateName));
-        dispatch(changeBodyThunk(values.bodyData));
+        dispatch(changeBodyThunk(bodyData));
       } else {
-        dispatch(changeBodyThunk(values.bodyData));
+        dispatch(changeBodyThunk(bodyData));
       }
     },
   });
 
   //   console.log(formik);
   //   console.log(user);
-  const date = new Date(formik.values.bodyData.birthday);
+  const date = new Date(formik.values.birthday);
   const year = date.toLocaleString("default", { year: "numeric" });
   const month = date.toLocaleString("default", { month: "2-digit" });
   const day = date.toLocaleString("default", { day: "2-digit" });
@@ -116,9 +123,9 @@ export const UserForm = () => {
             className={` ${css.input} ${css.height}`}
             type="number"
             min="150"
-            name="bodyData.height"
+            name="height"
             onChange={formik.handleChange}
-            value={formik.values.bodyData.height}
+            value={formik.values.height}
           />
           <p className={css.labelText}>Height</p>
         </label>
@@ -129,9 +136,9 @@ export const UserForm = () => {
             placeholder=" "
             type="number"
             min="35"
-            name="bodyData.currentWeight"
+            name="currentWeight"
             onChange={formik.handleChange}
-            value={formik.values.bodyData.currentWeight}
+            value={formik.values.currentWeight}
           />
           <p className={css.labelText}>Current Weight</p>
         </label>
@@ -142,9 +149,9 @@ export const UserForm = () => {
             placeholder=" "
             type="number"
             min="35"
-            name="bodyData.desiredWeight"
+            name="desiredWeight"
             onChange={formik.handleChange}
-            value={formik.values.bodyData.desiredWeight}
+            value={formik.values.desiredWeight}
           />
           <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p>
         </label>
@@ -153,7 +160,7 @@ export const UserForm = () => {
           className={` ${css.input} ${css.birthday}`}
           type="date"
           placeholder="Birthday"
-          name="bodyData.birthday"
+          name="birthday"
           onChange={formik.handleChange}
           value={formattedDate}
         />
@@ -169,8 +176,8 @@ export const UserForm = () => {
                   required
                   id={el}
                   className={css.radioBtn}
-                  name="bodyData.blood"
-                  checked={Number(formik.values.bodyData.blood) === el}
+                  name="blood"
+                  checked={Number(formik.values.blood) === el}
                   onChange={formik.handleChange}
                   value={el}
                 />
@@ -191,8 +198,8 @@ export const UserForm = () => {
                   required
                   id={el}
                   className={css.radioBtn}
-                  name="bodyData.sex"
-                  checked={formik.values.bodyData.sex === el}
+                  name="sex"
+                  checked={formik.values.sex === el}
                   onChange={formik.handleChange}
                   value={el}
                 />
@@ -214,9 +221,9 @@ export const UserForm = () => {
                 required
                 id={el}
                 className={css.radioBtn}
-                name="bodyData.levelActivity"
+                name="levelActivity"
                 onChange={formik.handleChange}
-                checked={Number(formik.values.bodyData.levelActivity) === i + 1}
+                checked={Number(formik.values.levelActivity) === i + 1}
                 value={i + 1}
               />
               <label htmlFor={el} className={css.radioLabel}>
@@ -228,13 +235,13 @@ export const UserForm = () => {
       </div>
       <button
         disabled={
-          formik.values.bodyData.height === bodyData.height &&
-          formik.values.bodyData.currentWeight === bodyData.currentWeight &&
-          formik.values.bodyData.desiredWeight === bodyData.desiredWeight &&
-          formik.values.bodyData.birthday === bodyData.birthday &&
-          formik.values.bodyData.blood === bodyData.blood &&
-          formik.values.bodyData.sex === bodyData.sex &&
-          formik.values.bodyData.levelActivity === bodyData.levelActivity &&
+          formik.values.height === bodyData.height &&
+          formik.values.currentWeight === bodyData.currentWeight &&
+          formik.values.desiredWeight === bodyData.desiredWeight &&
+          formik.values.birthday === bodyData.birthday &&
+          formik.values.blood === bodyData.blood &&
+          formik.values.sex === bodyData.sex &&
+          formik.values.levelActivity === bodyData.levelActivity &&
           formik.values.name === name
         }
         type="submit"

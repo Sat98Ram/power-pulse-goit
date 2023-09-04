@@ -24,7 +24,6 @@ export const SignUpForm = () => {
 
   const onSubmit = (values) => {
     dispatch(registerThunk(values));
-    console.log(values, "values");
   };
 
   const formik = useFormik({

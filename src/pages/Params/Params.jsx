@@ -10,7 +10,6 @@ import { TitlePage } from "../../components/TitlePage/TitlePage";
 
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-// import { updateBodyParams } from "../../redux/auth/slice";
 import VideoCount from "../../components/VideoCount";
 import CaloriesCount from "../../components/CaloriesCount";
 import { updateBodyThunk } from "../../redux/auth/operations";
@@ -60,10 +59,7 @@ const Params = () => {
 
     validationSchema,
     onSubmit: (values) => {
-      console.log("values", values);
       dispatch(updateBodyThunk(values));
-      console.log("errors", formik.errors);
-      console.log("touched", formik.touched);
     },
   });
 
@@ -73,17 +69,7 @@ const Params = () => {
 
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
-    console.log("formik.values", formik.values);
-    // console.log("adultDate", adultDate);
-    console.log("date", date);
   };
-
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("result", formik.values);
-  //   setStep((prevStep) => prevStep + 1);
-  //   dispatch(updateBodyParams(formik.values));
-  // };
 
   return (
     <section className={`${css.primary} ${bgImg[step - 1]}`}>

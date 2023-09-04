@@ -101,6 +101,9 @@ export const changeAvatar = async (body) => {
       "Content-Type": "multipart/form-data",
     },
   });
+  return data;
+};
+
 export const deletedDiaryProduct = async (params) => {
   const { data } = await privateAPI.delete(`api/diaries/product/${id}`);
   return data;

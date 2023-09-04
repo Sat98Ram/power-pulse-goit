@@ -60,7 +60,8 @@ export const getProductsCategories = async () => {
 };
 
 export const getProductsList = async () => {
-  const { data } = await privateAPI.get("api/products/admissible");
+  // const { data } = await privateAPI.get("api/products/admissible");
+  const { data } = await privateAPI.get("api/products/admissible?limit=3000");
   return data;
 };
 
@@ -73,6 +74,7 @@ export const productAddDiary = async (body) => {
   const { data } = await privateAPI.post("api/diaries/product/add", body);
   return data;
 };
+
 export const exerciseAddDiary = async (body) => {
   const { data } = await privateAPI.post("api/diaries/exercise/add", body);
   return data;
@@ -99,5 +101,15 @@ export const changeAvatar = async (body) => {
       "Content-Type": "multipart/form-data",
     },
   });
+export const deletedDiaryProduct = async (params) => {
+  const { data } = await privateAPI.delete(`api/diaries/product/${id}`);
+  return data;
+};
+
+export const deletedDiaryExercise = async (params) => {
+  const { data } = await privateAPI.delete(
+    `api/diaries/exercise/${params.exerciseId}`,
+    { params }
+  );
   return data;
 };

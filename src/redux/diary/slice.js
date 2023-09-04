@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addDiariesProductThunk,
   addDiaryExerciseThunk,
+  deleteDiaryExerciseThunk,
+  deleteDiaryProductThunk,
   getDiariesByDateThunk,
 } from "./operations";
 
@@ -31,7 +33,13 @@ export const diarySlice = createSlice({
 
       .addCase(addDiaryExerciseThunk.pending, pending)
       .addCase(addDiaryExerciseThunk.fulfilled, getDiaryFulfilled)
-      .addCase(addDiaryExerciseThunk.rejected, rejected),
+      .addCase(addDiaryExerciseThunk.rejected, rejected)
+
+      .addCase(deleteDiaryExerciseThunk.pending, pending)
+      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteProductFulfilled),
+
+  // .addCase(deleteDiaryProductThunk.pending, pending)
+  // .addCase(deleteDiaryProductThunk.fulfilled, deleteExerciseFulfilled),
 });
 function pending(state) {
   state.isLoading = true;
@@ -66,6 +74,7 @@ function getDiaryFulfilled(state, { payload }) {
     state.updatedAt = null;
     state._id = null;
     state.isLoading = false;
+
     return;
   }
 
@@ -76,6 +85,14 @@ function getDiaryFulfilled(state, { payload }) {
   state.doneExercises = payload.doneExercises;
   state.owner = payload.owner;
   state.timeSport = payload.timeSport;
+}
+
+function deleteProductFulfilled(state, { payload }) {
+  console.log(payload);
+}
+
+function deleteExerciseFulfilled(state, { payload }) {
+  console.log(payload);
 }
 
 export const diaryReducer = diarySlice.reducer;

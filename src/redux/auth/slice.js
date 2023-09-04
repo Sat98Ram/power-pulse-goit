@@ -46,15 +46,19 @@ export const userSlice = createSlice({
       .addCase(registerThunk.pending, pending)
       .addCase(registerThunk.fulfilled, registerFulfilled)
       .addCase(registerThunk.rejected, rejected)
+
       .addCase(loginThunk.pending, pending)
       .addCase(loginThunk.fulfilled, registerFulfilled)
       .addCase(loginThunk.rejected, rejected)
+
       .addCase(refreshThunk.pending, pendingRefresh)
       .addCase(refreshThunk.fulfilled, refreshFulfilled)
       .addCase(refreshThunk.rejected, rejected)
+
       .addCase(logoutThunk.pending, pending)
       .addCase(logoutThunk.fulfilled, logout)
       .addCase(logoutThunk.rejected, logout)
+
       .addCase(updateBodyThunk.pending, pending)
       .addCase(updateBodyThunk.fulfilled, updateBodyFulfilled)
       .addCase(updateBodyThunk.rejected, rejected)

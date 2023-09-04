@@ -5,7 +5,7 @@ import Timer from "../Timer/Timer";
 import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
 import { addDiaryExerciseThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
-import  {SuccessExerciseModalWindow}  from "./SuccessModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow";
+import { SuccessExerciseModalWindow } from "./SuccessModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow";
 import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 
 export const ExersiceModalWindow = ({ data }) => {
@@ -26,7 +26,6 @@ export const ExersiceModalWindow = ({ data }) => {
     setIsOpenModal((prev) => !prev);
   };
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  console.log(date);
   const handleAddToDiary = () => {
     dispatch(addDiaryExerciseThunk({ date, exercise: id, time: time }))
       .then((response) => {
@@ -70,7 +69,12 @@ export const ExersiceModalWindow = ({ data }) => {
           </button>
           {isOpenModal && (
             <BasicModalWindow isOpenModalToggle={openModalToggle}>
-              {isSuccessModalOpen && <SuccessExerciseModalWindow time={time} calories={burnedCalories} />}
+              {isSuccessModalOpen && (
+                <SuccessExerciseModalWindow
+                  time={time}
+                  calories={burnedCalories}
+                />
+              )}
             </BasicModalWindow>
           )}
         </div>

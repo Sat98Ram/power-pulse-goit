@@ -104,6 +104,7 @@ function updateBodyFulfilled(state, { payload }) {
   state.isLoading = false;
   state.isAuth = true;
   state.bodyData = payload.bodyData && null;
+  toast.success("update successfull");
 }
 
 export const usersReducer = userSlice.reducer;

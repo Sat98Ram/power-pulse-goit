@@ -4,7 +4,7 @@ import sprite from "../../../assets/images/symbol-defs.svg";
 import { DatePickerCalendar } from "../../DatePickerCalendar/DatePickerCalendar";
 // import { useState } from "react";
 
-const StepOne = ({ formik, submit }) => {
+const StepOne = ({ formik, nextStep }) => {
   // const [date, setDate] = useState("");
   // const handleChange = (date) => {
   //   setDate(date)
@@ -18,7 +18,7 @@ const StepOne = ({ formik, submit }) => {
         our platform, we ask you to provide the following information about your
         weight, height and other relevant data:
       </p>
-      <form onSubmit={submit} className={css.stepOne}>
+      <div className={css.stepOne}>
         <div className={css.soBlock}>
           <label className={css.label}>
             <input
@@ -63,12 +63,12 @@ const StepOne = ({ formik, submit }) => {
             />
             <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p>
           </label>
-          <DatePickerCalendar
+          {/* <DatePickerCalendar
             // value={date}
             YearBool={true}
             // onChange={(date) => {handleChange(date)}}
-          />
-          {/* <input
+          /> */}
+          <input
             className={css.input}
             type="date"
             required
@@ -76,16 +76,16 @@ const StepOne = ({ formik, submit }) => {
             name="birthday"
             onChange={formik.handleChange}
             value={formik.values.birthday}
-          /> */}
+          />
         </div>
-        <button type="submit" className={css.btnNext}>
+        <button type="button" onClick={nextStep} className={css.btnNext}>
           Next
           <svg className={css.icon}>
             <use href={sprite + "#icon-next"} />
           </svg>
         </button>
         {/* <button type="submit">Next</button> */}
-      </form>
+      </div>
     </>
   );
 };

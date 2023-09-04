@@ -8,28 +8,29 @@ import StepTwo from "../../components/params/ParamsForm/StepTwo";
 import StepThree from "../../components/params/ParamsForm/StepThree";
 import { TitlePage } from "../../components/TitlePage/TitlePage";
 
-// import * as Yup from "yup";
+import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { updateBodyParams } from "../../redux/auth/slice";
+// import { updateBodyParams } from "../../redux/auth/slice";
 import VideoCount from "../../components/VideoCount";
 import CaloriesCount from "../../components/CaloriesCount";
+import { updateBodyThunk } from "../../redux/auth/operations";
 
-// const validationSchema = Yup.object({
-//   height: Yup.number()
-//     .required("Please enter your height")
-//     .min(150, "Height must be at least 150 сm"),
-//   currentWeight: Yup.number()
-//     .required("Please enter your current weight")
-//     .min(35, "Current weight must be at least 35 kg"),
-//   desiredWeight: Yup.number()
-//     .required("Please enter your desired weight")
-//     .min(35, "Desired weight must be at least 35 kg"),
-//   birthday: Yup.date().required("Please enter your birthday"),
-//   // .min(18, "Height must be at least 150 sm"),
-//   blood: Yup.number().required("Please enter your blood"),
-//   sex: Yup.number().required("Please enter your sex"),
-//   levelActivity: Yup.number().required("Please enter your level activity"),
-// });
+const validationSchema = Yup.object({
+  height: Yup.number()
+    .required("Please enter your height")
+    .min(150, "Height must be at least 150 сm"),
+  currentWeight: Yup.number()
+    .required("Please enter your current weight")
+    .min(35, "Current weight must be at least 35 kg"),
+  desiredWeight: Yup.number()
+    .required("Please enter your desired weight")
+    .min(35, "Desired weight must be at least 35 kg"),
+  birthday: Yup.date().required("Please enter your birthday"),
+  // .min(18, "Height must be at least 150 sm"),
+  blood: Yup.number().required("Please enter your blood"),
+  sex: Yup.number().required("Please enter your sex"),
+  levelActivity: Yup.number().required("Please enter your level activity"),
+});
 
 const bgImg = [css.stepOneBg, css.stepTwoBg, css.stepThreeBg];
 
@@ -52,38 +53,45 @@ const Params = () => {
     },
 
     // validationSchema,
-    // onSubmit,
+    onSubmit: (values) => {
+      console.log("values", values);
+      dispatch(updateBodyThunk(values));
+    },
   });
 
   const prevStep = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("result", formik.values);
+  const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
-    dispatch(updateBodyParams(formik.values));
   };
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("result", formik.values);
+  //   setStep((prevStep) => prevStep + 1);
+  //   dispatch(updateBodyParams(formik.values));
+  // };
 
   return (
     <section className={`${css.primary} ${bgImg[step - 1]}`}>
       <Container className={css.container}>
-        <div>
+        <form onSubmit={formik.handleSubmit}>
           {step !== 3 && <TitlePage text={"Get closer to your goals!"} />}
           {step === 1 && (
             <StepOne
               formik={formik}
-              submit={onSubmit}
+              nextStep={nextStep}
               // date={date}
               // setDate={setDate}
             />
           )}
           {step === 2 && (
-            <StepTwo formik={formik} submit={onSubmit} prevStep={prevStep} />
+            <StepTwo formik={formik} nextStep={nextStep} prevStep={prevStep} />
           )}
           {step === 3 && <StepThree prevStep={prevStep} />}
-        </div>
+        </form>
 
         <ul className={css.paginationWraper}>
           <li

@@ -1,33 +1,26 @@
-import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import VideoCount from "../../VideoCount";
 import CaloriesCount from "../../CaloriesCount";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import css from "./Layout.module.css";
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../../../redux/auth/selectors";
 export const Layout = () => {
-  const location = useLocation();
-  const currentPath = location.pathname;
+  const isAuth = useSelector(selectIsAuth);
 
   return (
-    <div>
+    <>
       <Header />
-      {(currentPath === "/welcome" ||
-        currentPath === "/signup" ||
-        currentPath === "/signin") && (
-        <div className={css.buttonLine}>
+
+      <Outlet />
+      {!isAuth && (
+        <div className={css.statLine}>
           <VideoCount />
           <CaloriesCount />
         </div>
       )}
-
-      <Outlet />
-    </div>
+    </>
   );
-};
-
-Layout.propTypes = {
-  path: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default Layout;

@@ -1,13 +1,18 @@
-.container {
+.backGround {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
   background-image: url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  margin: 0 auto;
 }
-@media screen and (min-width: 768px) {
-  .container {
+/* @media screen and (min-width: 768px) {
+  .backGround {
     background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
   }
-}
+} */
 .screen {
   width: 335px;
 }
@@ -36,6 +41,7 @@
     font-size: 32px;
     font-weight: 700;
     line-height: calc(44 / 32);
+    margin-top: 141px;
     margin-bottom: 16px;
   }
 }
@@ -64,4 +70,8 @@
 }
 .noaccount span {
   text-decoration: underline;
+}
+.noAccBlock {
+  display: flex;
+  flex-direction: row;
 }

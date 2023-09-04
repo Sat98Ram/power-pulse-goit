@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
-import CaloriesCount from "../../components/CaloriesCount";
+
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-import VideoCount from "../../components/VideoCount";
+
 import css from "./SignUp.module.css";
+import Container from "../../components/Container/Container";
 
 export const SignUp = () => {
   return (
-    <section className={css.wrapper}>
-      <div className={css.container}>
+    <section className={css.backGround}>
+      <Container>
         <div className={css.screen}>
           <div className={css.screen__content}>
             <h2>Sign up</h2>
@@ -17,17 +18,17 @@ export const SignUp = () => {
               information.
             </p>
             <SignUpForm />
-            <p className={css.noaccount}>
-              Already have account?
-              <NavLink to="/signin">
-                <span> Sign In</span>
-              </NavLink>
-            </p>
-            {/* <VideoCount />
-            <CaloriesCount /> */}
+            <div className={css.noAccBlock}>
+              <p className={css.noaccount}>
+                Already have account?
+                <NavLink to="/signin">
+                  <span> Sign In</span>
+                </NavLink>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

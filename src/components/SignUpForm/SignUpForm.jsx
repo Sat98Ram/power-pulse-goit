@@ -2,7 +2,6 @@ import css from "./SignUpForm.module.css";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-
 import { registerThunk } from "../../redux/auth/operations";
 import { SignBtn } from "../SignBtn/SignBtn";
 
@@ -10,11 +9,14 @@ const validationSchema = Yup.object({
   username: Yup.string().required("Please enter your name"),
   email: Yup.string()
     .email("Invalid email address")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
   password: Yup.string()
     .required("Please enter your password")
-    .min(6, "Password must be at least 6 characters")
-    .max(12, "Password should be no longer than 12 characters"),
+    .matches(
+      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
+      "Should contain 6 symbols and at least 1 number"
+    ),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Please confirm your password"),
@@ -24,15 +26,14 @@ export const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    const { ...payload } = values;
-    dispatch(registerThunk(payload));
+    dispatch(registerThunk(values));
   };
 
   const formik = useFormik({
     initialValues: {
-      name: "Bill",
-      email: "bill@example.com",
-      password: "qwerty1",
+      username: "",
+      email: "",
+      password: "",
     },
     validationSchema,
     onSubmit,

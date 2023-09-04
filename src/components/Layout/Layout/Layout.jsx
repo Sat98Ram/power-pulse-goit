@@ -1,25 +1,33 @@
 import PropTypes from "prop-types";
 import Header from "../Header/Header";
-import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
-
-export const Layout = ({ children, location }) => {
-  const isStatisticsInfoVisible = location.pathname === "/welcome";
-  location.pathname === "/signup";
-  location.pathname === "/signin";
-  location.pathname === "/params";
+import VideoCount from "../../VideoCount";
+import CaloriesCount from "../../CaloriesCount";
+import { Outlet, useLocation } from "react-router-dom";
+import css from "./Layout.module.css";
+export const Layout = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <div>
       <Header />
-      {isStatisticsInfoVisible && <StatisticsInfo />}
-      {children}
+      {(currentPath === "/welcome" ||
+        currentPath === "/signup" ||
+        currentPath === "/signin") && (
+        <div className={css.buttonLine}>
+          <VideoCount />
+          <CaloriesCount />
+        </div>
+      )}
+
+      <Outlet />
     </div>
   );
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired,
+  path: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Layout;

@@ -3,17 +3,17 @@ import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
-import { loginThunk } from "../../redux/auth/operations";
+import { loginThunk } from "@/redux/auth/operations";
 import { SignBtn } from "../SignBtn/SignBtn";
 
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/),
   password: Yup.string()
-    .required("Please enter your password")
-    .min(6, "Password must be at least 6 characters")
-    .max(12, "Password should be no longer than 12 characters"),
+    .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/)
+    .required("Please enter your password"),
 });
 
 export const SignInForm = () => {
@@ -21,6 +21,7 @@ export const SignInForm = () => {
 
   const onSubmit = (values) => {
     dispatch(loginThunk(values));
+    console.log(values);
   };
 
   const formik = useFormik({
@@ -61,7 +62,6 @@ export const SignInForm = () => {
       {formik.touched.password && formik.errors.password ? (
         <div className={css.error_message}>{formik.errors.password}</div>
       ) : null}
-
       <SignBtn text="Sign In" type="submit" onClick={onSubmit} />
     </form>
   );

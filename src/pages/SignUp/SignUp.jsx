@@ -23,8 +23,8 @@ export const SignUp = () => {
                 <span> Sign In</span>
               </NavLink>
             </p>
-            <VideoCount />
-            <CaloriesCount />
+            {/* <VideoCount />
+            <CaloriesCount /> */}
           </div>
         </div>
       </div>

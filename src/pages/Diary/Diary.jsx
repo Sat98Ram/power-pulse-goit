@@ -29,6 +29,7 @@ const Diary = () => {
   const { consumedProducts } = diary;
   const { doneExercises } = diary;
 
+
   return (
     <section className={css.diary_page}>
       <Container>
@@ -40,9 +41,9 @@ const Diary = () => {
         <div className={css.content}>
           <div className={css.tables}>
             {consumedProducts && (
-              <DayProducts consumedProducts={consumedProducts} />
+              <DayProducts consumedProducts={consumedProducts} date={diary.date } />
             )}
-            <DayExercises doneExercises={doneExercises} />
+            <DayExercises doneExercises={doneExercises} date={diary.date }/>
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

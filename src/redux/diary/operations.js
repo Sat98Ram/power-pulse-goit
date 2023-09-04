@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
+  deletedDiaryExercise,
+  deletedDiaryProduct,
   exerciseAddDiary,
   getDiariesByDate,
   productAddDiary,
@@ -16,4 +18,12 @@ export const addDiariesProductThunk = createAsyncThunk(
 export const addDiaryExerciseThunk = createAsyncThunk(
   "diary/addExercise",
   exerciseAddDiary
+);
+export const deleteDiaryExerciseThunk = createAsyncThunk(
+  "diary/deleteExercise",
+  deletedDiaryExercise
+);
+export const deleteDiaryProductThunk = createAsyncThunk(
+  "diary/deleteExercise",
+  deletedDiaryProduct
 );

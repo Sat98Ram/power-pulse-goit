@@ -15,6 +15,7 @@ export const SignIn = () => {
               Please enter your credentials to login to the platform:
             </p>
             <SignInForm />
+
             <p className={css.noaccount}>
               Don't have an account?
               <NavLink to="/signup">

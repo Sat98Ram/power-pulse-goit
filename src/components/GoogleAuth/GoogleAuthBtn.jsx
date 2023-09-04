@@ -10,7 +10,6 @@ const GoogleAuthButton = () => {
     try {
       setLoading(true);
       const response = await axios.get("/api/users/google");
-      const { token } = response.data;
 
       history.push(`/your-route?token=${token}`);
     } catch (error) {

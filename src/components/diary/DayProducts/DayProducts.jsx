@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./DayProducts.module.css";
 import { nanoid } from "@reduxjs/toolkit";
+import symbolDefs from "../../../assets/images/symbol-defs.svg"
 
 const DayProducts = ({ consumedProducts }) => {
   const listOfProducts = consumedProducts.map((obj) => {
@@ -33,39 +34,51 @@ const DayProducts = ({ consumedProducts }) => {
           )}
         </td>
         <td className={styles.tdDellete}>
-          <button></button>
+          <button><svg><use href={symbolDefs + "#trash-icon"}></use></svg></button>
         </td>
       </tr>
     );
   });
 
   return (
+  <>
+  {listOfProducts.length > 0 ? (
     <div className={styles.DayProducts}>
-      <div className={styles.DayProductsHead}>
-        <h2>Products</h2>
-        <p>Add product</p>
-      </div>
-      <div className={styles.DayProductsTable}>
-        <table>
-          <thead>
-            <tr>
-              <th className={styles.thTitle}>Title</th>
-              <th className={styles.thCategory}>Category</th>
-              <th className={styles.thCalories}>Calories</th>
-              <th className={styles.thWeight}>Weight</th>
-              <th className={styles.thRecommend}>Recommend</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listOfProducts.length > 0 ? (
-              listOfProducts
-            ) : (
-              <p className={styles.not_found}>Not found products</p>
-            )}
-          </tbody>
-        </table>
-      </div>
+    <div className={styles.DayProductsHead}>
+      <h2>Products</h2>
+      <p>Add product</p>
     </div>
+    <div className={styles.DayProductsTable}>
+      <table>
+        <thead>
+          <tr>
+            <th className={styles.thTitle}>Title</th>
+            <th className={styles.thCategory}>Category</th>
+            <th className={styles.thCalories}>Calories</th>
+            <th className={styles.thWeight}>Weight</th>
+            <th className={styles.thRecommend}>Recommend</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listOfProducts}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  ) : (
+    <div className={styles.DayProducts}>
+    <div className={styles.DayProductsHead}>
+      <h2>Products</h2>
+      <p>Add product</p>
+    </div>
+    <div className={styles.DayProductsTable}>
+      <p className={styles.not_found}>Not found products</p>
+    </div>
+  </div>
+    
+  )}
+  </>
+ 
   );
 };
 

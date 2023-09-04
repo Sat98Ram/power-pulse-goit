@@ -3,14 +3,12 @@
   border-radius: 12px;
   background-color: #efede80d;
 
-  /* width: 826px; */
-  /* height: 234px; */
-  /* padding-bottom: 16px; */
-  /* padding-right: 16px; 
-    padding-left: 16px; */
   padding-top: 16px;
-
   margin-bottom: 32px;
+
+  position: relative;
+  min-height: 234px;
+  width: 826px;
 }
 
 .DayProductsHead {
@@ -69,12 +67,12 @@ span p {
 .DayProducts .tdDellete button {
   display: block;
   padding: 0px;
+  background-color: transparent;
 }
 .DayProducts .tdDellete svg {
   display: block;
   width: 20px;
   height: 20px;
-  color: #e6533c;
 }
 
 .DayProducts table {
@@ -162,7 +160,8 @@ span p {
 @media screen and (max-width: 768px) {
   .DayProducts {
     width: 335px;
-    height: 1064px;
+    min-height: 335px;
+    max-height: 1064px;
 
     padding-left: 16px;
     padding-right: 8px;

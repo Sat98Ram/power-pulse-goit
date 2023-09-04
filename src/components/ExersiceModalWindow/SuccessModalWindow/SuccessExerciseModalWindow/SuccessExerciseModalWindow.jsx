@@ -25,7 +25,7 @@ export const SuccessExerciseModalWindow = ({time, calories}) => {
                 <span className={css.SuccessModalWindowSub}>{calories}</span>
               </p>
             </div>
-            <Link to="/exercise">
+            <Link to="/exercises">
               <button className={css.SuccessModalWindowBtn}>Next exercise</button>
             </Link>
             <Link to="/diary">

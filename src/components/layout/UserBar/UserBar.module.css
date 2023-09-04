@@ -31,11 +31,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .userBarAvatar {
   width: 15px;
   height: 15px;
+}
+
+.userAvatar {
+  width: 100%;
 }
 
 .logoutIcon {
@@ -63,6 +68,7 @@
   border-radius: 12px;
   display: inline-block;
   padding: 10px 27px;
+  transition: border-color var(--transition-duration) var(--transition-cubic);
 }
 
 .mobileNavLink:hover,
@@ -75,6 +81,7 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
+  transition: color var(--transition-duration) var(--transition-cubic);
 }
 
 .burgerLogOut:hover,

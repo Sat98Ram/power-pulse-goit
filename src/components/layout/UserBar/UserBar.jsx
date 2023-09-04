@@ -28,7 +28,7 @@ const UserBar = ({ onClick }) => {
             <use href={symbolDefs + "#user-icon"}></use>
           </svg>
         ) : (
-          <img href={userAvatar} alt="avatar" className={css.userAvatar} />
+          <img src={userAvatar} alt="avatar" className={css.userAvatar} />
         )}
       </div>
 

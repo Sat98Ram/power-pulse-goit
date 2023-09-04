@@ -27,7 +27,7 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                     required
                     id={el}
                     className={css.radioBtn}
-                    // checked
+                    checked={Number(formik.values.blood) === i + 1}
                     name="blood"
                     onChange={formik.handleChange}
                     value={i + 1}
@@ -49,7 +49,7 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                     required
                     id={el}
                     className={css.radioBtn}
-                    // checked
+                    checked={Number(formik.values.sex) === i + 1}
                     name="sex"
                     onChange={formik.handleChange}
                     value={i + 1}
@@ -72,7 +72,7 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                   required
                   id={el}
                   className={css.radioBtn}
-                  // checked
+                  checked={Number(formik.values.levelActivity) === i + 1}
                   name="levelActivity"
                   onChange={formik.handleChange}
                   value={i + 1}

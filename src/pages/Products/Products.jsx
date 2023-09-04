@@ -1,8 +1,8 @@
-import css from "./Products.module.css"
-import Container from "../../components/Container/Container"
-import { ProductsFilter } from "../../components/products/ProductsFilter/ProductsFilter"
+import css from "./Products.module.css";
+import Container from "../../components/Container/Container";
+import { ProductsFilter } from "../../components/products/ProductsFilter/ProductsFilter";
 
-import { ProductsList } from "../../components/products/ProductsList/ProductsList"
+import { ProductsList } from "../../components/products/ProductsList/ProductsList";
 const Products = () => {
   return (
     <section className={css.products_section}>
@@ -14,7 +14,7 @@ const Products = () => {
         </>
       </Container>
     </section>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

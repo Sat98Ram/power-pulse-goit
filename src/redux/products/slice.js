@@ -7,6 +7,16 @@ export const productSlice = createSlice({
     categories: [],
     list: [],
     isLoading: false,
+    filter: {
+      search: "",
+      category: "",
+      recomended: "",
+    },
+  },
+  reducers: {
+    setFilter: (state, { payload }) => {
+      state.filter = payload
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -37,3 +47,4 @@ function categoriesFulfilled(state, { payload }) {
 }
 
 export const productsReducer = productSlice.reducer
+export const filterReducer = productSlice.actions.setFilter

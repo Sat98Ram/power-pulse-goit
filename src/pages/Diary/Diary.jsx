@@ -24,7 +24,7 @@ const Diary = () => {
   const diary = useSelector(selectDiary);
   const user = useSelector(selectUser);
 
-  const { bodyData, updatedAt } = user;
+  const { bodyData, createdAt } = user;
 
   const { consumedProducts } = diary;
   const { doneExercises } = diary;
@@ -35,7 +35,7 @@ const Diary = () => {
       <Container>
         <div className={css.header}>
           <TitlePage text="Diary" />
-          <DaySwitch date={date} setDate={setDate} minDate={updatedAt} />
+          <DaySwitch date={date} setDate={setDate} minDate={createdAt} />
         </div>
 
         <div className={css.content}>

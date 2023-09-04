@@ -22,6 +22,7 @@ export const userSlice = createSlice({
     isLoading: false,
     isAuth: false,
     updatedAt: "",
+    createdAt: "",
 
     body: {},
     bodyData: {
@@ -91,7 +92,7 @@ function refreshFulfilled(state, { payload }) {
   state.token = payload.token;
   state.email = payload.email;
   state.updatedAt = payload.updatedAt;
-
+  state.createdAt = payload.createdAt;
   state.bodyData = payload.bodyData;
 }
 

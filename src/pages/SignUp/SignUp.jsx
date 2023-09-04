@@ -18,14 +18,11 @@ export const SignUp = () => {
               information.
             </p>
             <SignUpForm />
-            <div className={css.noAccBlock}>
-              <p className={css.noaccount}>
-                Already have account?
-                <NavLink to="/signin">
-                  <span> Sign In</span>
-                </NavLink>
-              </p>
-            </div>
+
+            <p className={css.noaccount}>
+              Already have account?
+              <NavLink to="/signin"> Sign In</NavLink>
+            </p>
           </div>
         </div>
       </Container>

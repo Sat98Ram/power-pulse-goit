@@ -9,7 +9,7 @@ input {
   align-items: center;
   text-transform: capitalize;
   font-family: inherit;
-  background-color: transparent;
+  background-color: var(--primary-accent);
   color: var(--white);
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -19,7 +19,11 @@ input {
   line-height: calc(18 / 16);
   margin-bottom: 12px;
 }
-
+@media screen and (min-width: 768px) {
+  .signInBtn {
+    margin-top: 64px;
+  }
+}
 .singin {
   row-gap: 18px;
 }

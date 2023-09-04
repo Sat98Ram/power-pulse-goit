@@ -7,12 +7,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
+  padding-top: 127px;
 }
-/* @media screen and (min-width: 768px) {
-  .backGround {
-    background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
-  }
-} */
+
 .screen {
   width: 335px;
 }
@@ -20,11 +17,14 @@
   .screen {
     min-width: 496px;
   }
+  .backGround {
+    padding-top: 141px;
+  }
 }
 
-.screen__content {
+/* .screen__content {
   padding: 28px 20px;
-}
+} */
 .screen h2 {
   color: var(--white);
   font-family: Roboto;
@@ -35,13 +35,12 @@
   text-transform: capitalize;
 }
 @media screen and (min-width: 768px) {
-  h2 {
+  .screen h2 {
     color: var(--white);
     font-family: Roboto;
     font-size: 32px;
     font-weight: 700;
     line-height: calc(44 / 32);
-    margin-top: 141px;
     margin-bottom: 16px;
   }
 }
@@ -63,14 +62,10 @@
   margin-top: 12px;
   color: rgba(239, 237, 232, 0.6);
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: calc(18 / 12);
   margin-bottom: 121px;
 }
-.noaccount span {
-  text-decoration: underline;
-}
+
 .noAccBlock {
   display: flex;
   flex-direction: row;

@@ -1,4 +1,4 @@
-import PropTypes, { object } from "prop-types";
+import PropTypes from "prop-types";
 import styles from "./DayExercises.module.css";
 import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";

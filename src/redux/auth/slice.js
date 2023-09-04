@@ -5,6 +5,9 @@ import {
   loginThunk,
   logoutThunk,
   updateBodyThunk,
+  changeBodyThunk,
+  changeNameThunk,
+  changeAvatarThunk,
 } from "./operations";
 import { token } from "@/services/privateAPI";
 import { toast } from "react-toastify";
@@ -19,6 +22,7 @@ export const userSlice = createSlice({
     isLoading: false,
     isAuth: false,
     updatedAt: "",
+    createdAt: "",
 
     body: {},
     bodyData: {
@@ -58,7 +62,16 @@ export const userSlice = createSlice({
 
       .addCase(updateBodyThunk.pending, pending)
       .addCase(updateBodyThunk.fulfilled, updateBodyFulfilled)
-      .addCase(updateBodyThunk.rejected, rejected),
+      .addCase(updateBodyThunk.rejected, rejected)
+      .addCase(changeBodyThunk.pending, pending)
+      .addCase(changeBodyThunk.fulfilled, changeBodyFulfilled)
+      .addCase(changeBodyThunk.rejected, rejected)
+      .addCase(changeNameThunk.pending, pending)
+      .addCase(changeNameThunk.fulfilled, changeNameFulfilled)
+      .addCase(changeNameThunk.rejected, rejected)
+      .addCase(changeAvatarThunk.pending, pending)
+      .addCase(changeAvatarThunk.fulfilled, changeAvatarFulfilled)
+      .addCase(changeAvatarThunk.rejected, rejected),
 });
 
 function registerFulfilled(state, { payload }) {
@@ -79,7 +92,7 @@ function refreshFulfilled(state, { payload }) {
   state.token = payload.token;
   state.email = payload.email;
   state.updatedAt = payload.updatedAt;
-
+  state.createdAt = payload.createdAt;
   state.bodyData = payload.bodyData;
 }
 
@@ -113,6 +126,31 @@ function updateBodyFulfilled(state, { payload }) {
   state.isLoading = false;
   state.isAuth = true;
   state.bodyData = payload.bodyData && null;
+}
+
+function changeBodyFulfilled(state, { payload }) {
+  state.isLoading = false;
+  state.isAuth = true;
+  state.bodyData.height = payload.bodyData.height;
+  state.bodyData.currentWeight = payload.bodyData.currentWeight;
+  state.bodyData.desiredWeight = payload.bodyData.desiredWeight;
+  state.bodyData.birthday = payload.bodyData.birthday;
+  state.bodyData.blood = payload.bodyData.blood;
+  state.bodyData.sex = payload.bodyData.sex;
+  state.bodyData.levelActivity = payload.bodyData.levelActivity;
+  state.name = payload.name;
+}
+
+function changeNameFulfilled(state, { payload }) {
+  state.isLoading = false;
+  state.isAuth = true;
+  state.name = payload.name;
+}
+
+function changeAvatarFulfilled(state, { payload }) {
+  state.isLoading = false;
+  state.isAuth = true;
+  state.avatar = payload.avatar;
 }
 
 export const usersReducer = userSlice.reducer;

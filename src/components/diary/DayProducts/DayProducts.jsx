@@ -1,65 +1,16 @@
+import PropTypes from "prop-types";
 import styles from "./DayProducts.module.css";
 import { nanoid } from "@reduxjs/toolkit";
-const DayProducts = () => {
-  const exArr = [
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-    {
-      Title: "Title1",
-      Category: "Category",
-      Calories: "Calories",
-      Weight: "Weight",
-      Recommend: false,
-    },
-  ];
-  const listOfExercises = exArr.map((obj) => {
+
+const DayProducts = ({ consumedProducts }) => {
+  const listOfProducts = consumedProducts.map((obj) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdTitle}>{obj.Title}</td>
-        <td className={styles.tdCategory}>{obj.Category}</td>
-        <td className={styles.tdCalories}>{obj.Calories}</td>
-        <td className={styles.tdWeight}>{obj.Weight}</td>
+        <td className={styles.tdTitle}>{obj.product.title}</td>
+        <td className={styles.tdCategory}>{obj.product.category}</td>
+        <td className={styles.tdCalories}>{obj.product.calories}</td>
+        <td className={styles.tdWeight}>{obj.product.weight}</td>
         <td className={styles.tdRecommend}>
           {obj.Recommend ? (
             <>
@@ -87,6 +38,7 @@ const DayProducts = () => {
       </tr>
     );
   });
+
   return (
     <div className={styles.DayProducts}>
       <div className={styles.DayProductsHead}>
@@ -104,7 +56,13 @@ const DayProducts = () => {
               <th className={styles.thRecommend}>Recommend</th>
             </tr>
           </thead>
-          <tbody>{listOfExercises}</tbody>
+          <tbody>
+            {listOfProducts.length > 0 ? (
+              listOfProducts
+            ) : (
+              <p className={styles.not_found}>Not found products</p>
+            )}
+          </tbody>
         </table>
       </div>
     </div>
@@ -112,3 +70,16 @@ const DayProducts = () => {
 };
 
 export default DayProducts;
+
+DayProducts.propTypes = {
+  consumedProducts: PropTypes.arrayOf(
+    PropTypes.shape({
+      product: PropTypes.shape({
+        weight: PropTypes.number,
+        calories: PropTypes.number,
+        category: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    })
+  ),
+};

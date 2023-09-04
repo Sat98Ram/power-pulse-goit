@@ -5,19 +5,26 @@ import PropTypes from "prop-types";
 import css from "./AddProductModalWindow.module.css";
 import { addDiariesProductThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+import { AddProductSuccess } from "../products/AddProductSuccess/AddProductSuccess";
+import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 
-const AddProductForm = ({ eldata, openModalToggle }) => {
+const AddProductForm = ({ eldata }) => {
   const dispatch = useDispatch();
   const { title, calories, _id: id } = eldata;
   const [quantity, setQuantity] = useState("");
   const calculatedCalories = (quantity * calories) / 100;
   const date = getInputValueFromDate(new Date(), true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const openModalToggle = () => {
+    setIsOpenModal((prev) => !prev);
+  };
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const handleAddToDiary = () => {
     dispatch(
       addDiariesProductThunk({ date, product: id, amount: calculatedCalories })
     )
       .then((response) => {
-        console.log("Product added successfully", response);
+        setIsSuccessModalOpen(true);
       })
       .catch((error) => {
         console.error("Error adding product", error);
@@ -71,6 +78,11 @@ const AddProductForm = ({ eldata, openModalToggle }) => {
             Cancel
           </button>
         </div>
+        {isOpenModal && (
+          <BasicModalWindow isOpenModalToggle={openModalToggle}>
+            {isSuccessModalOpen && <AddProductSuccess calories={calories} />}
+          </BasicModalWindow>
+        )}
       </form>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import css from "./SuccessModalWindow.module.css";
 import symbolDefs from "../../../../assets/images/symbol-defs.svg";
 import thumb from "../../../../assets/images/desktop/other@2x/thumb.png";
-import { Link } from 'react-router-dom'; // Додайте імпорт
+import { Link } from 'react-router-dom';
 
 export const SuccessExerciseModalWindow = ({time, calories}) => {
 

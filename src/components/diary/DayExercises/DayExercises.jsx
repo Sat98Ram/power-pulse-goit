@@ -52,7 +52,7 @@ const DayExercises = ({ doneExercises }) => {
         <p>Add exercise</p>
       </div>
       <div className={styles.DayExercisesTable}>
-        <p className={styles.not_found}>Not found products</p>
+        <p className={styles.not_found}>Not found exercises</p>
       </div>
     </div>
     

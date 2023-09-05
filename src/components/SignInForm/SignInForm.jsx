@@ -44,32 +44,35 @@ export const SignInForm = () => {
         autoComplete="username"
         className={css.signin__input}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         value={formik.values.email}
       />
 
-      {formik.touched.email && formik.errors.email ? (
-        <div className={css.errorMessage}>
-          <svg className={css.errorIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Error email
-        </div>
-      ) : (
-        <div className={css.successMessage}>
-          <svg className={css.successIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Success email
-        </div>
-      )}
+      {formik.touched.email ? (
+        formik.errors.email ? (
+          <div className={css.errorMessage}>
+            <svg className={css.errorIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            {formik.errors.email}
+          </div>
+        ) : (
+          <div className={css.successMessage}>
+            <svg className={css.successIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            Success email
+          </div>
+        )
+      ) : null}
 
       <input
         type="password"
@@ -78,32 +81,35 @@ export const SignInForm = () => {
         autoComplete="new-password"
         className={css.signin__input}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         value={formik.values.password}
       />
 
-      {formik.touched.password && formik.errors.password ? (
-        <div className={css.errorMessage}>
-          <svg className={css.errorIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Error password
-        </div>
-      ) : (
-        <div className={css.successMessage}>
-          <svg className={css.successIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Success password
-        </div>
-      )}
+      {formik.touched.password ? (
+        formik.errors.password ? (
+          <div className={css.errorMessage}>
+            <svg className={css.errorIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            {formik.errors.password}
+          </div>
+        ) : (
+          <div className={css.successMessage}>
+            <svg className={css.successIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            Success password
+          </div>
+        )
+      ) : null}
       <SignBtn text="Sign In" type="submit" className={css.signInBtn} />
     </form>
   );

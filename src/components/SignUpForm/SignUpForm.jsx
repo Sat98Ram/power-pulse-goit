@@ -36,7 +36,8 @@ export const SignUpForm = () => {
     validationSchema,
     onSubmit,
   });
-
+  console.log(formik.touched, "touched");
+  console.log(formik.errors);
   return (
     <form className={css.signup} onSubmit={formik.handleSubmit}>
       <input
@@ -50,12 +51,6 @@ export const SignUpForm = () => {
         value={formik.values.name}
       />
 
-      {/* {formik.touched.name && formik.errors.name ? (
-        <div className={css.error_wrapper}>
-          <div className={css.error_message}>{formik.errors.name}</div>
-        </div>
-      ) : null} */}
-
       <input
         type="email"
         name="email"
@@ -63,33 +58,35 @@ export const SignUpForm = () => {
         autoComplete="email"
         className={css.signup__input}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         value={formik.values.email}
       />
 
-      {formik.touched.email && formik.errors.email ? (
-        <div className={css.errorMessage}>
-          <svg className={css.errorIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Error email
-        </div>
-      ) : (
-        <div className={css.successMessage}>
-          <svg className={css.successIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Success email
-        </div>
-      )}
-
+      {formik.touched.email ? (
+        formik.errors.email ? (
+          <div className={css.errorMessage}>
+            <svg className={css.errorIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            {formik.errors.email}
+          </div>
+        ) : (
+          <div className={css.successMessage}>
+            <svg className={css.successIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            Success email
+          </div>
+        )
+      ) : null}
       <input
         type="password"
         name="password"
@@ -97,33 +94,34 @@ export const SignUpForm = () => {
         autoComplete="new-password"
         className={css.signup__input}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         value={formik.values.password}
       />
-
-      {formik.touched.password && formik.errors.password ? (
-        <div className={css.errorMessage}>
-          <svg className={css.errorIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Error password
-        </div>
-      ) : (
-        <div className={css.successMessage}>
-          <svg className={css.successIcon}>
-            <use
-              href={symbolDefs + "#checkbox-circle-fill-icon"}
-              width="16"
-              height="16"
-            ></use>
-          </svg>
-          Success password
-        </div>
-      )}
-
+      {formik.touched.password ? (
+        formik.errors.password ? (
+          <div className={css.errorMessage}>
+            <svg className={css.errorIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            {formik.errors.password}
+          </div>
+        ) : (
+          <div className={css.successMessage}>
+            <svg className={css.successIcon}>
+              <use
+                href={symbolDefs + "#checkbox-circle-fill-icon"}
+                width="16"
+                height="16"
+              ></use>
+            </svg>
+            Success password
+          </div>
+        )
+      ) : null}
       <SignBtn text="Sign Up" type="submit" className={css.signUpBtn} />
     </form>
   );

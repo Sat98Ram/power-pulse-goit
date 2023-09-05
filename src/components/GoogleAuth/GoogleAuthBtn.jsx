@@ -5,9 +5,13 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const TokenHandler = () => {
-  const location = useLocation();
 
+
+export const GoogleAuthBtn = () => {
+  
+  const TokenHandler = () => {
+    const location = useLocation();
+    
   useEffect(() => {
        const params = new URLSearchParams(location.search);
     const token = params.get('token');
@@ -44,11 +48,12 @@ export default TokenHandler;
 
   // return (
   //   <div>
-  //     <button onClick={handleGoogleAuth} disabled={loading}>
+  //     <button onClick={handsleGoogleAuth} disabled={loading}>
   //       {loading ? "Триває авторизація..." : "Увійти через Google"}
   //     </button>
   //   </div>
   // );
 };
+
 
 export default GoogleAuthButton;

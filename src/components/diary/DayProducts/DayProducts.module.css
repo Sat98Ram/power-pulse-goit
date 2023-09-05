@@ -162,6 +162,9 @@ span p {
   .DayProducts table {
     padding-left: 8px;
   }
+  .DayProducts .tdDellete {
+    padding-left: 2px;
+  }
 
   .tdTitle,
   .thTitle {
@@ -216,10 +219,10 @@ span p {
     margin: 0px 8px 0px 0px;
   }
 
-  .tdDellete {
-    padding-left: 0px;
+  .DayProducts .tdDellete {
+    padding: 0px;
   }
-  .tdDellete svg {
+  .DayProducts .tdDellete svg {
     display: block;
     width: 20px;
     height: 20px;
@@ -310,7 +313,7 @@ span p {
   .DayProducts td:nth-of-type(5) {
     max-width: 78px;
     min-width: 78px;
-    margin-right: 4px;
+    margin-right: 8px;
   }
   .DayProducts td:nth-of-type(5)::before {
     content: "Recomended";

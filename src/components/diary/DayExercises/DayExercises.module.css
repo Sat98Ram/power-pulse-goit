@@ -162,6 +162,13 @@ span p {
 
 @media screen and (max-width: 1439px){
 
+  .DayExercises table {
+    padding-left: 8px;
+  }
+  .DayExercises .tdDellete {
+    padding-left: 2px;
+  }
+
   .tdBodyPart,
   .thBodyPart {
     max-width: 90px;
@@ -231,10 +238,10 @@ span p {
   }
 
 
-  .tdDellete {
-    padding-left: 0px;
+  .DayExercises .tdDellete {
+    padding: 0px;
   }
-  .tdDellete svg {
+  .DayExercises .tdDellete svg {
     display: block;
     width: 20px;
     height: 20px;

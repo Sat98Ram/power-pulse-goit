@@ -28,11 +28,11 @@ export const diarySlice = createSlice({
       .addCase(getDiariesByDateThunk.rejected, getDiaryRejected)
 
       .addCase(addDiariesProductThunk.pending, pending)
-      .addCase(addDiariesProductThunk.fulfilled, getDiaryFulfilled)
+      .addCase(addDiariesProductThunk.fulfilled, addDiaryFulfilled)
       .addCase(addDiariesProductThunk.rejected, rejected)
 
       .addCase(addDiaryExerciseThunk.pending, pending)
-      .addCase(addDiaryExerciseThunk.fulfilled, getDiaryFulfilled)
+      .addCase(addDiaryExerciseThunk.fulfilled, addDiaryFulfilled)
       .addCase(addDiaryExerciseThunk.rejected, rejected)
 
       .addCase(deleteDiaryExerciseThunk.pending, pending)
@@ -62,6 +62,49 @@ function getDiaryRejected(state) {
   state._id = null;
   state.isLoading = false;
 }
+function addDiaryFulfilled(state, { payload }) {
+  const { newProduct, newExercise } = payload;
+  console.log("payload", payload);
+  console.log("consumedProducts_state", [
+    ...state.consumedProducts.map((item) => ({ ...item })),
+  ]);
+
+  if (newProduct) {
+    const newElement = {
+      ...payload.consumedProducts.pop(),
+      product: payload.newProduct,
+    };
+    state.consumedProducts = [...state.consumedProducts, newElement];
+  }
+  if (newExercise) {
+    const newElement = {
+      ...payload.doneExercises.pop(),
+      exercise: payload.newExercise,
+    };
+    state.doneExercises = [...state.doneExercises, newElement];
+  }
+
+  // _id(pin):"5d51694902b2373622ff5ef6"
+  // weight(pin):100
+  // calories(pin):100
+  // category(pin):"soft drinks"
+  // title(pin):"Coffee Maxwell House instant dry"
+  // 1(pin):false
+  // 2(pin):false
+  // 3(pin):false
+  // 4(pin):false
+  // amount(pin):100
+  // calories(pin):100
+  // _id(pin):"64f707fb91d5ff0e8a57dae8"
+
+  // const { newExerciseId, newProductId } = payload;
+  // if (newProductId) {
+  //   state.consumedProducts = [...state.consumedProducts].filter(
+  //     (el) => el._id !== productId
+  //   );
+  // }
+}
+//
 
 function getDiaryFulfilled(state, { payload }) {
   if (payload === null) {

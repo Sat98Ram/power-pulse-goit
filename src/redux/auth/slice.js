@@ -77,9 +77,10 @@ function refreshFulfilled(state, { payload }) {
     state.updatedAt = payload.updatedAt;
     state.createdAt = payload.createdAt;
     state.bodyData = payload.bodyData;
+  } else {
+    state.isLoading = false;
+    state.isAuth = false;
   }
-  state.isLoading = false;
-  state.isAuth = false;
 }
 
 function logout(state) {

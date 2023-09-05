@@ -73,13 +73,23 @@ export const getDiariesByDate = async (currentDate) => {
 };
 
 export const productAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/product/add", body);
-  return data;
+  const { date, product, amount, eldata } = body;
+  const { data } = await privateAPI.post("api/diaries/product/add", {
+    date,
+    product,
+    amount,
+  });
+  return { ...data, newProduct: eldata };
 };
 
 export const exerciseAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/exercise/add", body);
-  return data;
+  const { date, exercise, time } = body;
+  const { data } = await privateAPI.post("api/diaries/exercise/add", {
+    date,
+    exercise,
+    time,
+  });
+  return { ...data, newExercise: body.data };
 };
 
 export const updateBody = async ({

@@ -64,10 +64,6 @@ function getDiaryRejected(state) {
 }
 function addDiaryFulfilled(state, { payload }) {
   const { newProduct, newExercise } = payload;
-  console.log("payload", payload);
-  console.log("consumedProducts_state", [
-    ...state.consumedProducts.map((item) => ({ ...item })),
-  ]);
 
   if (newProduct) {
     const newElement = {
@@ -83,28 +79,12 @@ function addDiaryFulfilled(state, { payload }) {
     };
     state.doneExercises = [...state.doneExercises, newElement];
   }
+  state.burnedCalories = payload.burnedCalories;
+  state.consumedCalories = payload.consumedCalories;
 
-  // _id(pin):"5d51694902b2373622ff5ef6"
-  // weight(pin):100
-  // calories(pin):100
-  // category(pin):"soft drinks"
-  // title(pin):"Coffee Maxwell House instant dry"
-  // 1(pin):false
-  // 2(pin):false
-  // 3(pin):false
-  // 4(pin):false
-  // amount(pin):100
-  // calories(pin):100
-  // _id(pin):"64f707fb91d5ff0e8a57dae8"
-
-  // const { newExerciseId, newProductId } = payload;
-  // if (newProductId) {
-  //   state.consumedProducts = [...state.consumedProducts].filter(
-  //     (el) => el._id !== productId
-  //   );
-  // }
+  state.timeSport = payload.timeSport;
+  state.isLoading = false;
 }
-//
 
 function getDiaryFulfilled(state, { payload }) {
   if (payload === null) {
@@ -134,7 +114,7 @@ function getDiaryFulfilled(state, { payload }) {
 }
 
 function deleteFulfilled(state, { payload }) {
-  const { exerciseId, productId } = payload;
+  const { exerciseId, productId, data } = payload;
 
   if (productId) {
     state.consumedProducts = [...state.consumedProducts].filter(
@@ -146,6 +126,12 @@ function deleteFulfilled(state, { payload }) {
       (el) => el._id !== exerciseId
     );
   }
+
+  state.burnedCalories = data.burnedCalories;
+  state.consumedCalories = data.consumedCalories;
+
+  state.timeSport = data.timeSport;
+  state.isLoading = false;
 }
 
 export const diaryReducer = diarySlice.reducer;

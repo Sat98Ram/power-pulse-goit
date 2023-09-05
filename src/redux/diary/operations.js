@@ -24,6 +24,6 @@ export const deleteDiaryExerciseThunk = createAsyncThunk(
   deletedDiaryExercise
 );
 export const deleteDiaryProductThunk = createAsyncThunk(
-  "diary/deleteExercise",
+  "diary/deleteProduct",
   deletedDiaryProduct
 );

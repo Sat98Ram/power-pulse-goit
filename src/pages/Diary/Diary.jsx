@@ -50,11 +50,13 @@ const Diary = () => {
                 date={diary.date}
               />
             )}
-            <DayExercises
-              isMobile={isMobile}
-              doneExercises={doneExercises}
-              date={diary.date}
-            />
+            {doneExercises && (
+              <DayExercises
+                isMobile={isMobile}
+                doneExercises={doneExercises}
+                date={diary.date}
+              />
+            )}
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

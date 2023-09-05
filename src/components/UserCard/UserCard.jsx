@@ -18,7 +18,6 @@ export const UserCard = () => {
 
   const user = useSelector(selectUser);
   const { avatar, name, bodyData } = user;
-  console.log(avatar);
 
   const showModalLogOut = () => {
     setIsLogout((prev) => !prev);
@@ -33,7 +32,7 @@ export const UserCard = () => {
   const onChange = (e) => {
     const formData = new FormData();
     formData.append("avatar", e.target.files[0]);
-    console.log(formData);
+
     dispatch(changeAvatarThunk(formData));
   };
 

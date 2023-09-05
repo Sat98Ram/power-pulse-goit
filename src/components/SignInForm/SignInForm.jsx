@@ -24,12 +24,11 @@ export const SignInForm = () => {
 
   const onSubmit = (values) => {
     dispatch(loginThunk(values));
-    console.log(values);
   };
 
   const formik = useFormik({
     initialValues: {
-      email: "bill@example.com",
+      email: "billystyle@mail.com",
       password: "qwerty1",
     },
     validationSchema,

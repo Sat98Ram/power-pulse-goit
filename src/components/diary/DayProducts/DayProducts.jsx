@@ -2,8 +2,21 @@ import PropTypes from "prop-types";
 import styles from "./DayProducts.module.css";
 import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
+import { useDispatch } from "react-redux";
+import { deleteDiaryProductThunk } from "../../../redux/diary/operations";
 
-const DayProducts = ({ consumedProducts, isMobile }) => {
+const DayProducts = ({ consumedProducts, isMobile, date }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(
+      deleteDiaryProductThunk({
+        date,
+        productId: id,
+      })
+    );
+  };
+
   const listOfProducts = consumedProducts.map((obj) => {
     const returnProductString = (string_length = "", number = 20) => {
       if (!isMobile) {
@@ -18,6 +31,7 @@ const DayProducts = ({ consumedProducts, isMobile }) => {
       }
       return string_length;
     };
+
     const num = nanoid();
     return (
       <tr key={num}>
@@ -51,7 +65,7 @@ const DayProducts = ({ consumedProducts, isMobile }) => {
           )}
         </td>
         <td className={styles.tdDellete}>
-          <button>
+          <button onClick={() => handleDelete(obj._id)}>
             <svg>
               <use href={symbolDefs + "#trash-icon"}></use>
             </svg>
@@ -113,4 +127,5 @@ DayProducts.propTypes = {
     })
   ),
   isMobile: PropTypes.bool,
+  date: PropTypes.string,
 };

@@ -16,6 +16,7 @@
   transition: background 0.3s ease-out;
 }
 .signBtn:hover {
+  color: var(--white);
   background: #ef8964;
 }
 
@@ -26,5 +27,3 @@
     line-height: 1.2;
   }
 }
-
-

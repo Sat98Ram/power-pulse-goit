@@ -1,7 +1,5 @@
 import Container from "../../components/Container/Container";
 import { SignBtn } from "../../components/SignBtn/SignBtn";
-import SignInBtn from "../../components/SignInForm/SignInBtn";
-import SignUpBtn from "../../components/SignUpForm/SignUpBtn";
 import css from "./Welcome.module.css";
 
 import { NavLink } from "react-router-dom";
@@ -16,11 +14,11 @@ const Welcome = () => {
         </h1>
 
         <div className={css.buttonsLine}>
-          <NavLink to="/signin">
-            <SignBtn text="Sign In" type="button" className={css.signUpBtn} />
-          </NavLink>
           <NavLink to="/signup">
-            <SignBtn text="Sign Up" type="button" className={css.signInBtn} />
+            <SignBtn text="Sign Up" type="button" className={css.signUpBtn} />
+          </NavLink>
+          <NavLink to="/signin">
+            <SignBtn text="Sign In" type="button" className={css.signInBtn} />
           </NavLink>
         </div>
         {/* <VideoCount />

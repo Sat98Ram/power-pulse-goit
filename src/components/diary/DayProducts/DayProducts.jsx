@@ -17,6 +17,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
     );
   };
   const recomendProduct = (groupBloodNotAllowed) => {
+   
     return groupBloodNotAllowed[blood];
   };
 

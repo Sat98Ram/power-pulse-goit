@@ -19,10 +19,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   }, [isOpenModalToggle]);
 
   const handleClickBackground = (e) => {
-    if (e.target.localName === "svg") {
-      return;
-    }
-    if (e.target.className.includes("basic_modal_window")) {
+    if (e.currentTarget === e.target) {
       isOpenModalToggle();
     }
   };
@@ -30,7 +27,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   const modal = (
     <div className={css.basic_modal_window} onClick={handleClickBackground}>
       <div className={css.modal}>
-        <button className={css.closeSvg} onClick={isOpenModalToggle}>
+        <button className={css.closeSvg} onClick={() => isOpenModalToggle()}>
           <svg className={css.colorSvg} width="20" height="20">
             <use href={symbolDefs + "#close-icon"}></use>
           </svg>

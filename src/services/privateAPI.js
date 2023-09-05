@@ -84,8 +84,13 @@ export const updateBody = async (body) => {
   return data;
 };
 
-export const deletedDiaryProduct = async (params) => {
-  const { data } = await privateAPI.delete(`api/diaries/product/${id}`);
+export const deletedDiaryProduct = async (body) => {
+  console.log("body ", body);
+  const { data } = await privateAPI.delete(
+    `api/diaries/product/${body.productId}`,
+    body
+  );
+
   return data;
 };
 

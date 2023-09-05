@@ -27,9 +27,9 @@ const Diary = () => {
   const user = useSelector(selectUser);
 
   const { bodyData, createdAt } = user;
+  const { blood } = bodyData;
 
-  const { consumedProducts } = diary;
-  const { doneExercises } = diary;
+  const { consumedProducts, doneExercises } = diary;
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -48,6 +48,7 @@ const Diary = () => {
                 isMobile={isMobile}
                 consumedProducts={consumedProducts}
                 date={diary.date}
+                blood={blood}
               />
             )}
             <DayExercises

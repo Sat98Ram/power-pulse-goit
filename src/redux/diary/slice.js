@@ -36,10 +36,11 @@ export const diarySlice = createSlice({
       .addCase(addDiaryExerciseThunk.rejected, rejected)
 
       .addCase(deleteDiaryExerciseThunk.pending, pending)
-      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteProductFulfilled),
+      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteProductFulfilled)
 
-  // .addCase(deleteDiaryProductThunk.pending, pending)
-  // .addCase(deleteDiaryProductThunk.fulfilled, deleteExerciseFulfilled),
+      .addCase(deleteDiaryProductThunk.pending, pending)
+      .addCase(deleteDiaryProductThunk.fulfilled, deleteExerciseFulfilled)
+      .addCase(deleteDiaryProductThunk.rejected, rejected),
 });
 function pending(state) {
   state.isLoading = true;
@@ -92,6 +93,7 @@ function deleteProductFulfilled(state, { payload }) {
 }
 
 function deleteExerciseFulfilled(state, { payload }) {
+  console.log("deleteExerciseFulfilled", payload);
   console.log(payload);
 }
 

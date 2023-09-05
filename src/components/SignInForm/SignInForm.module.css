@@ -19,6 +19,10 @@ input {
   line-height: calc(18 / 16);
   margin-bottom: 12px;
 }
+.signInBtn:hover {
+  color: var(--white);
+  background: var(--secondary-accent);
+}
 @media screen and (min-width: 768px) {
   .signInBtn {
     margin-top: 64px;
@@ -28,6 +32,7 @@ input {
   row-gap: 18px;
 }
 .signin__input {
+  outline: none;
   height: 46px;
   min-width: 283px;
   background-color: transparent;
@@ -39,11 +44,48 @@ input {
   margin-bottom: 18px;
   padding: 14px;
 }
+.signin__input:hover,
+.signin__input:focus,
+.signin__input:active {
+  border: 1px solid var(--primary-accent);
+}
+
 @media screen and (min-width: 768px) {
-  .signup__input {
+  .signin__input {
     height: 52px;
     max-width: 364px;
     font-size: 16px;
     line-height: calc(24 / 16);
   }
+}
+
+.errorMessage {
+  color: #d80027;
+  font-size: 12px;
+  line-height: calc(18 / 12);
+  letter-spacing: 0.12px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 18px;
+}
+.errorIcon {
+  width: 16px;
+  display: inline-block;
+  fill: rgba(216, 0, 39, 1);
+}
+.successMessage {
+  color: #3cbf61;
+  font-size: 12px;
+  line-height: calc(18 / 12);
+  letter-spacing: 0.12px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 18px;
+}
+.successIcon {
+  width: 16px;
+  display: inline-block;
+  fill: rgba(60, 191, 97, 1);
 }

@@ -4,17 +4,18 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { registerThunk } from "../../redux/auth/operations";
 import { SignBtn } from "../SignBtn/SignBtn";
+import symbolDefs from "../../assets/images/symbol-defs.svg";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Please enter your name"),
   email: Yup.string()
     // .email("Invalid email address")
     .required("Please enter your email")
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Enter valid email"),
+    .matches(/^[\w.-]+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, "Enter valid email"),
   password: Yup.string()
     .required("Please enter your password")
     .matches(
-      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
+      /^(?=(?:.[a-zA-Z]){6})(?=.\d).*$/,
       "Should contain 6 symbols and at least 1 number"
     ),
 });
@@ -49,11 +50,11 @@ export const SignUpForm = () => {
         value={formik.values.name}
       />
 
-      {formik.touched.name && formik.errors.name ? (
+      {/* {formik.touched.name && formik.errors.name ? (
         <div className={css.error_wrapper}>
           <div className={css.error_message}>{formik.errors.name}</div>
         </div>
-      ) : null}
+      ) : null} */}
 
       <input
         type="email"
@@ -66,8 +67,28 @@ export const SignUpForm = () => {
       />
 
       {formik.touched.email && formik.errors.email ? (
-        <div className={css.error_message}>{formik.errors.email}</div>
-      ) : null}
+        <div className={css.errorMessage}>
+          <svg className={css.errorIcon}>
+            <use
+              href={symbolDefs + "#checkbox-circle-fill-icon"}
+              width="16"
+              height="16"
+            ></use>
+          </svg>
+          Error email
+        </div>
+      ) : (
+        <div className={css.successMessage}>
+          <svg className={css.successIcon}>
+            <use
+              href={symbolDefs + "#checkbox-circle-fill-icon"}
+              width="16"
+              height="16"
+            ></use>
+          </svg>
+          Success email
+        </div>
+      )}
 
       <input
         type="password"
@@ -80,8 +101,28 @@ export const SignUpForm = () => {
       />
 
       {formik.touched.password && formik.errors.password ? (
-        <div className={css.error_message}>{formik.errors.password}</div>
-      ) : null}
+        <div className={css.errorMessage}>
+          <svg className={css.errorIcon}>
+            <use
+              href={symbolDefs + "#checkbox-circle-fill-icon"}
+              width="16"
+              height="16"
+            ></use>
+          </svg>
+          Error password
+        </div>
+      ) : (
+        <div className={css.successMessage}>
+          <svg className={css.successIcon}>
+            <use
+              href={symbolDefs + "#checkbox-circle-fill-icon"}
+              width="16"
+              height="16"
+            ></use>
+          </svg>
+          Success password
+        </div>
+      )}
 
       <SignBtn text="Sign Up" type="submit" className={css.signUpBtn} />
     </form>

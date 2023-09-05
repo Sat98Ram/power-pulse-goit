@@ -29,9 +29,11 @@ const Header = () => {
     showModalLogOut();
   };
 
+  const headerClass = !isAuth ? css.headerNotAuth : css.headerAuth;
+
   return (
     <>
-      <header className={isAuth ? css.headerAuth : css.headerNotAuth}>
+      <header className={headerClass}>
         <Container>
           <div className={css.headerContent}>
             <Logo className={css.headerLogoIcon} />

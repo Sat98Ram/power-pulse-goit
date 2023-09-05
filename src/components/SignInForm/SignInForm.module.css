@@ -47,6 +47,7 @@ input {
 .signin__input:hover,
 .signin__input:focus,
 .signin__input:active {
+  outline-offset: 0;
   border: 1px solid var(--primary-accent);
 }
 

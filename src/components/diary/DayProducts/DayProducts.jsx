@@ -35,14 +35,10 @@ const DayProducts = ({ consumedProducts, isMobile, date }) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdTitle}>
-          {returnProductString(obj.product.title, 20)}
-        </td>
-        <td className={styles.tdCategory}>
-          {returnProductString(obj.product.category, 15)}
-        </td>
-        <td className={styles.tdCalories}>{obj.product.calories}</td>
-        <td className={styles.tdWeight}>{obj.product.weight}</td>
+        <td className={styles.tdTitle}><div>{obj.product.title}</div></td>
+        <td className={styles.tdCategory}><div>{obj.product.category}</div></td>
+        <td className={styles.tdCalories}><div>{obj.product.calories}</div></td>
+        <td className={styles.tdWeight}><div>{obj.product.weight}</div></td>
         <td className={styles.tdRecommend}>
           {obj.product.recommend ? (
             <>

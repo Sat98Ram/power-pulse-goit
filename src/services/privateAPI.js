@@ -25,13 +25,15 @@ export const logout = async () => {
 
 export const refresh = async () => {
   try {
-    const { data } = await privateAPI.get("api/users/current");
-    token.unset();
-    if (data.token) {
-      token.set(data.token);
+    if (privateAPI.defaults.headers.common.Authorization) {
+      const { data } = await privateAPI.get("api/users/current");
+      token.unset();
+      if (data.token) {
+        token.set(data.token);
+      }
+      return data;
     }
-
-    return data;
+    return null;
   } catch (error) {
     token.unset();
     throw error;
@@ -113,17 +115,23 @@ export const changeAvatar = async (body) => {
 };
 
 export const deletedDiaryProduct = async (params) => {
-  const { data } = await privateAPI.delete(
+  const { status } = await privateAPI.delete(
     `api/diaries/product/${params.productId}`,
     { data: params }
   );
-  return data;
+  if (status === 200) {
+    return { productId: params.productId };
+  }
+  return {};
 };
 
 export const deletedDiaryExercise = async (params) => {
-  const { data } = await privateAPI.delete(
+  const { status } = await privateAPI.delete(
     `api/diaries/exercise/${params.exerciseId}`,
     { data: params }
   );
-  return data;
+  if (status === 200) {
+    return { exerciseId: params.exerciseId };
+  }
+  return {};
 };

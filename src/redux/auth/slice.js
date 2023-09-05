@@ -67,15 +67,19 @@ function registerFulfilled(state, { payload }) {
   state.bodyData = payload.bodyData || null;
 }
 function refreshFulfilled(state, { payload }) {
+  if (payload) {
+    state.isLoading = false;
+    state.isAuth = true;
+    state.avatar = payload.avatar;
+    state.name = payload.name;
+    state.token = payload.token;
+    state.email = payload.email;
+    state.updatedAt = payload.updatedAt;
+    state.createdAt = payload.createdAt;
+    state.bodyData = payload.bodyData;
+  }
   state.isLoading = false;
-  state.isAuth = true;
-  state.avatar = payload.avatar;
-  state.name = payload.name;
-  state.token = payload.token;
-  state.email = payload.email;
-  state.updatedAt = payload.updatedAt;
-  state.createdAt = payload.createdAt;
-  state.bodyData = payload.bodyData;
+  state.isAuth = false;
 }
 
 function logout(state) {
@@ -99,7 +103,7 @@ function pending(state) {
 }
 function pendingRefresh(state) {
   state.isLoading = true;
-  token.set(state.token);
+  state.token && token.set(state.token);
 }
 
 function updateBodyFulfilled(state, { payload }) {

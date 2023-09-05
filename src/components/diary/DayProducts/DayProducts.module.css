@@ -61,7 +61,7 @@ span p {
 
 .DayProducts .tdDellete {
   border: none;
-  padding: 4px;
+  padding-left: 4px;
 }
 .DayProducts .tdDellete button {
   display: block;
@@ -78,7 +78,7 @@ span p {
   display: block;
   margin: 0px;
   position: relative;
-  padding-left: 32px;
+  padding-left: 24px;
   padding-right: 8px;
   border-spacing: 8px;
   border: none;
@@ -103,15 +103,8 @@ span p {
 }
 
 .DayProducts th {
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0px;
-
-  text-align: left;
-  color: #ef8964;
-
   text-align: left;
   color: #ef8964;
 }
@@ -119,6 +112,7 @@ span p {
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
+  padding-right: 14px;
   height: 38px;
   table-layout: fixed;
 }
@@ -271,13 +265,7 @@ span p {
     content: "Title";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -289,13 +277,7 @@ span p {
     content: "Category";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -308,13 +290,7 @@ span p {
     content: "Calories";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -327,13 +303,7 @@ span p {
     content: "Weight";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -346,13 +316,7 @@ span p {
     content: "Recomended";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 }

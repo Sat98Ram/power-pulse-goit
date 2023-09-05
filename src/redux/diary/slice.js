@@ -91,15 +91,18 @@ function getDiaryFulfilled(state, { payload }) {
 }
 
 function deleteFulfilled(state, { payload }) {
-  state.burnedCalories = payload.burnedCalories;
-  state.consumedCalories = payload.consumedCalories;
-  state.consumedProducts = payload.consumedProducts;
-  state.date = payload.date;
-  state.doneExercises = payload.doneExercises;
-  state.owner = payload.owner;
-  state.timeSport = payload.timeSport;
-  state._id = payload._id;
-  state.isLoading = false;
+  const { exerciseId, productId } = payload;
+
+  if (productId) {
+    state.consumedProducts = [...state.consumedProducts].filter(
+      (el) => el._id !== productId
+    );
+  }
+  if (exerciseId) {
+    state.doneExercises = [...state.doneExercises].filter(
+      (el) => el._id !== exerciseId
+    );
+  }
 }
 
 export const diaryReducer = diarySlice.reducer;

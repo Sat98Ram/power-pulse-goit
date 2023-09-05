@@ -1,24 +1,80 @@
 .welcomeBackground {
   position: absolute;
-  height: 100%;
-  min-width: 446px;
-  min-height: 669px;
-  background: linear-gradient(159deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
-    linear-gradient(82deg, #040404 1.35%, rgba(4, 4, 4, 0) 100%),
-    url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  width: 100vw;
+  /* padding-top: 65px;
+  padding-bottom: 20px; */
+  height: 100vh;
+  background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(../../assets//images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: right bottom;
+  margin: 0 auto;
 }
+
 .buttonsLine {
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
+  margin-top: 52px;
+}
+@media screen and (min-width: 768px) {
+  .buttonsLine {
+    margin-top: 64px;
+  }
 }
 .title {
   max-width: 335px;
-  display: flex;
-  flex-wrap: wrap;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: calc(40 / 38);
+  letter-spacing: 0.38px;
+  background: transparent;
+  text-align: left;
+  margin-top: 127px;
 }
-.lineIcon {
+
+.bodyLine {
+  display: inline;
+  position: relative;
+}
+.bodyLine::after {
+  position: absolute;
+  top: calc(50% - 35px / 2);
+  left: calc(50% - 98px / 2);
+  content: url(../../assets/images/line.svg);
+  width: 98px;
+}
+.signUpBtn {
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: inherit;
+  background-color: var(--primary-accent);
+  color: var(--white);
+  border-radius: 12px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(18 / 16);
+  margin-bottom: 12px;
+}
+.signInBtn {
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--white);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(18 / 16);
+  margin-bottom: 12px;
 }

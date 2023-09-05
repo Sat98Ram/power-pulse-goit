@@ -36,10 +36,11 @@ export const diarySlice = createSlice({
       .addCase(addDiaryExerciseThunk.rejected, rejected)
 
       .addCase(deleteDiaryExerciseThunk.pending, pending)
-      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteProductFulfilled)
+      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteFulfilled)
+      .addCase(deleteDiaryExerciseThunk.rejected, rejected)
 
       .addCase(deleteDiaryProductThunk.pending, pending)
-      .addCase(deleteDiaryProductThunk.fulfilled, deleteExerciseFulfilled)
+      .addCase(deleteDiaryProductThunk.fulfilled, deleteFulfilled)
       .addCase(deleteDiaryProductThunk.rejected, rejected),
 });
 function pending(state) {
@@ -86,15 +87,19 @@ function getDiaryFulfilled(state, { payload }) {
   state.doneExercises = payload.doneExercises;
   state.owner = payload.owner;
   state.timeSport = payload.timeSport;
+  state.isLoading = false;
 }
 
-function deleteProductFulfilled(state, { payload }) {
-  console.log(payload);
-}
-
-function deleteExerciseFulfilled(state, { payload }) {
-  console.log("deleteExerciseFulfilled", payload);
-  console.log(payload);
+function deleteFulfilled(state, { payload }) {
+  state.burnedCalories = payload.burnedCalories;
+  state.consumedCalories = payload.consumedCalories;
+  state.consumedProducts = payload.consumedProducts;
+  state.date = payload.date;
+  state.doneExercises = payload.doneExercises;
+  state.owner = payload.owner;
+  state.timeSport = payload.timeSport;
+  state._id = payload._id;
+  state.isLoading = false;
 }
 
 export const diaryReducer = diarySlice.reducer;

@@ -12,8 +12,7 @@ export const login = async (body) => {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error(error.response.data.message);
   }
 };
 
@@ -23,7 +22,6 @@ export const register = async (body) => {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error(error.response.data.message);
   }
 };

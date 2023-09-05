@@ -12,25 +12,38 @@ input {
   background-color: var(--primary-accent);
   color: var(--white);
   border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
   font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
   line-height: calc(18 / 16);
   margin-bottom: 12px;
 }
-
+@media screen and (min-width: 768px) {
+  .signInBtn {
+    margin-top: 64px;
+  }
+}
 .singin {
   row-gap: 18px;
 }
 .signin__input {
-  min-height: 46px;
+  height: 46px;
   min-width: 283px;
-  background-color: black;
-  color: rgba(239, 237, 232, 0.6);
+  background-color: transparent;
+  color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: calc(18 / 14);
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: 1px solid rgba(239, 237, 232, 0.6);
   margin-bottom: 18px;
   padding: 14px;
+}
+@media screen and (min-width: 768px) {
+  .signup__input {
+    height: 52px;
+    max-width: 364px;
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
 }

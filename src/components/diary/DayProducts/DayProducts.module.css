@@ -4,15 +4,12 @@
   background-color: #efede80d;
 
   padding: 16px 0;
-
   margin-bottom: 32px;
 
   position: relative;
-  /* height: 235px; */
-  min-height: 335px;
-  max-height: 824px;
-  /* overflow-y: auto; */
   width: 100%;
+  min-height: 335px;
+  max-width: 824px;
   box-sizing: border-box;
 }
 
@@ -24,11 +21,7 @@
 .DayProductsHead h2 {
   font-family: Roboto;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0px;
 
-  text-align: left;
   color: #efede880;
 }
 .DayProductsHead p {
@@ -47,7 +40,7 @@
 .DayProducts ::-webkit-scrollbar-thumb {
   background: #efede81a;
   border-radius: 12px;
-  /* height: 25px; */
+
 }
 span {
   display: flex;
@@ -63,12 +56,12 @@ span p {
   display: inline-block;
 }
 
-/* ------------------------------------- */
-/* TABLE */
+
+
 
 .DayProducts .tdDellete {
   border: none;
-  padding: 0px;
+  padding: 4px;
 }
 .DayProducts .tdDellete button {
   display: block;
@@ -82,8 +75,11 @@ span p {
 }
 
 .DayProducts table {
+  display: block;
+  margin: 0px;
   position: relative;
-  gap: 8px;
+  padding-left: 32px;
+  padding-right: 8px;
   border-spacing: 8px;
   border: none;
 }
@@ -94,18 +90,16 @@ span p {
 }
 .DayProducts tbody {
   display: block;
-  /* height: 146px; */
+
   margin-top: 8px;
   max-height: 740px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0px;
 }
 .DayProducts thead,
 .DayProducts tbody {
-  padding-right: 12px;
-}
-.DayProducts tbody tr {
-  height: 38px;
+  padding-right: 4px;
 }
 
 .DayProducts th {
@@ -125,45 +119,82 @@ span p {
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
-
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-td {
   height: 38px;
+  table-layout: fixed;
 }
+.DayProducts td div{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 
 .tdTitle,
 .thTitle {
-  width: 212px;
+  max-width: 212px;
+  min-width: 212px;
 }
 
 .tdCategory,
 .thCategory {
-  width: 164px;
+  max-width: 166px;
+  min-width: 166px;
 }
 .tdCalories,
 .thCalories {
-  width: 105px;
+  max-width: 105px;
+  min-width: 105px;
 }
 .tdWeight,
 .thWeight {
-  width: 105px;
+  max-width: 105px;
+  min-width: 105px;
 }
 .tdRecommend,
 .thRecommend {
-  width: 110px;
+  max-width: 110px;
+  min-width: 110px;
 }
-/* ---------------------------------- */
+
 
 .recommendCircle {
   display: block;
   width: 14px;
   height: 14px;
+}
+
+@media screen and (max-width: 1439px){
+
+  .DayProducts table {
+    padding-left: 8px;
+  }
+
+  .tdTitle,
+  .thTitle {
+    max-width: 204px;
+    min-width: 204px;
+  }
+
+  .tdCategory,
+  .thCategory {
+    max-width: 128px;
+    min-width: 128px;
+  }
+  .tdCalories,
+  .thCalories {
+    max-width: 90px;
+    min-width: 90px;
+  }
+  .tdWeight,
+  .thWeight {
+    max-width: 90px;
+    min-width: 90px;
+  }
+  .tdRecommend,
+  .thRecommend {
+    max-width: 80px;
+    min-width: 80px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -184,20 +215,11 @@ td {
 
 @media screen and (max-width: 768px) {
   .DayProducts {
-    /* min-height: 0;
-    height: 234px; */
-
-    /* min-height: 335px; */
-    /* max-height: 1064px; */
-
     padding-left: 16px;
     padding-right: 8px;
   }
   .DayProductsHead {
     margin: 0px 8px 0px 0px;
-  }
-  .DayProductsTable {
-    /* padding-bottom: 16px; */
   }
 
   .tdDellete {
@@ -211,15 +233,16 @@ td {
 
   .DayProductsTable table {
     border-spacing: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
+
   .DayProducts tbody {
     padding-right: 0px;
-
     margin-top: 22px;
-
     width: 309px;
-    /* height: 986px; */
   }
+
   .DayProducts thead {
     display: none;
   }
@@ -236,12 +259,13 @@ td {
     display: inline-grid;
     align-items: center;
 
-    /* height: 38px; */
+
     margin-bottom: 42px;
   }
 
   .DayProducts td:nth-of-type(1) {
-    width: 297px;
+    max-width: 297px;
+    min-width: 297px;
   }
   .DayProducts td:nth-of-type(1)::before {
     content: "Title";
@@ -258,7 +282,8 @@ td {
   }
 
   .DayProducts td:nth-of-type(2) {
-    width: 297px;
+    max-width: 297px;
+    min-width: 297px;
   }
   .DayProducts td:nth-of-type(2)::before {
     content: "Category";
@@ -275,7 +300,8 @@ td {
   }
 
   .DayProducts td:nth-of-type(3) {
-    width: 81px;
+    max-width: 81px;
+    min-width: 81px;
     margin-right: 16px;
   }
   .DayProducts td:nth-of-type(3)::before {
@@ -293,7 +319,8 @@ td {
   }
 
   .DayProducts td:nth-of-type(4) {
-    width: 80px;
+    max-width: 80px;
+    min-width: 80px;
     margin-right: 16px;
   }
   .DayProducts td:nth-of-type(4)::before {
@@ -311,8 +338,9 @@ td {
   }
 
   .DayProducts td:nth-of-type(5) {
-    width: 78px;
-    margin-right: 8px;
+    max-width: 78px;
+    min-width: 78px;
+    margin-right: 4px;
   }
   .DayProducts td:nth-of-type(5)::before {
     content: "Recomended";
@@ -333,5 +361,5 @@ td {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* margin-top: -20px; */
+
 }

@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import css from "./ParamsForm.module.css";
 import sprite from "../../../assets/images/symbol-defs.svg";
 
-const blood = ["1", "2", "3", "4"];
-const sex = ["Male", "Female"];
+const blood = [1, 2, 3, 4];
+const sex = ["male", "female"];
 const levelActivity = [
   "Sedentary lifestyle (little or no physical activity)",
   "Light activity (light exercises/sports 1-3 days per week)",
@@ -12,10 +12,14 @@ const levelActivity = [
   "Extremely active (very strenuous exercises/sports and physical work)",
 ];
 
-const StepTwo = ({ formik, submit, prevStep }) => {
+const StepTwo = ({ formik, nextStep, prevStep }) => {
+  // const returnSex = (number) => {
+  //   formik.handleChange(sex[number - 1];
+  // };
+
   return (
     <>
-      <form onSubmit={submit} className={css.form}>
+      <div className={css.form}>
         <div className={css.firstBlock}>
           <div className={css.firstBlockItem}>
             <h3>Blood:</h3>
@@ -27,9 +31,10 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                     required
                     id={el}
                     className={css.radioBtn}
-                    checked={Number(formik.values.blood) === i + 1}
+                    checked={formik.values.blood === i + 1}
                     name="blood"
-                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    onChange={() => formik.setFieldValue("blood", el)}
                     value={i + 1}
                   />
                   <label htmlFor={el} className={css.radioLabel}>
@@ -49,12 +54,16 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                     required
                     id={el}
                     className={css.radioBtn}
-                    checked={Number(formik.values.sex) === i + 1}
+                    checked={formik.values.sex === el}
                     name="sex"
-                    onChange={formik.handleChange}
-                    value={i + 1}
+                    onBlur={formik.handleBlur}
+                    onChange={() => formik.setFieldValue("sex", el)}
+                    value={el}
                   />
-                  <label htmlFor={el} className={css.radioLabel}>
+                  <label
+                    htmlFor={el}
+                    className={`${css.radioLabel} ${css.sex}`}
+                  >
                     {el}
                   </label>
                 </li>
@@ -74,7 +83,8 @@ const StepTwo = ({ formik, submit, prevStep }) => {
                   className={css.radioBtn}
                   checked={Number(formik.values.levelActivity) === i + 1}
                   name="levelActivity"
-                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  onChange={() => formik.setFieldValue("levelActivity", i + 1)}
                   value={i + 1}
                 />
                 <label htmlFor={el} className={css.radioLabel}>
@@ -91,7 +101,7 @@ const StepTwo = ({ formik, submit, prevStep }) => {
               </svg>
               Back
             </button>
-            <button type="submit" className={css.btnNext}>
+            <button type="button" onClick={nextStep} className={css.btnNext}>
               Next
               <svg className={css.icon}>
                 <use href={sprite + "#icon-next"} />
@@ -99,7 +109,7 @@ const StepTwo = ({ formik, submit, prevStep }) => {
             </button>
           </div>
         </div>
-      </form>
+      </div>
     </>
   );
 };
@@ -108,6 +118,6 @@ export default StepTwo;
 
 StepTwo.propTypes = {
   formik: PropTypes.any,
-  submit: PropTypes.func,
+  nextStep: PropTypes.func,
   prevStep: PropTypes.func,
 };

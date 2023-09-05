@@ -4,31 +4,20 @@ import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryProductThunk } from "../../../redux/diary/operations";
-import { getInputValueFromDate } from "../../DatePickerCalendar/utils";
 
-const DayProducts = ({ consumedProducts, isMobile, blood }) => {
+const DayProducts = ({ consumedProducts, blood, date }) => {
   const dispatch = useDispatch();
-  const returnProductString = (string_length = "", number = 20) => {
-    if (string_length.length > number) {
-      let newString = "";
-      for (let index = 0; index < number - 3; index++) {
-        newString = newString + string_length[index];
-      }
-      return (newString = newString + "...");
-    }
-    return string_length;
-  };
 
-  const recomendProduct = (groupBloodNotAllowed) => {
-    return groupBloodNotAllowed[blood];
-  };
-  const deleteProduct = (id) => {
+  const handleDelete = (id) => {
     dispatch(
       deleteDiaryProductThunk({
+        date,
         productId: id,
-        date: getInputValueFromDate(new Date(), true),
       })
     );
+  };
+  const recomendProduct = (groupBloodNotAllowed) => {
+    return groupBloodNotAllowed[blood];
   };
 
   const listOfProducts = consumedProducts.map((obj) => {
@@ -36,13 +25,17 @@ const DayProducts = ({ consumedProducts, isMobile, blood }) => {
     return (
       <tr key={num}>
         <td className={styles.tdTitle}>
-          {returnProductString(obj.product.title, isMobile ? 34 : 20)}
+          <div>{obj.product.title}</div>
         </td>
         <td className={styles.tdCategory}>
-          {returnProductString(obj.product.category, isMobile ? 34 : 15)}
+          <div>{obj.product.category}</div>
         </td>
-        <td className={styles.tdCalories}>{obj.product.calories}</td>
-        <td className={styles.tdWeight}>{obj.product.weight}</td>
+        <td className={styles.tdCalories}>
+          <div>{obj.product.calories}</div>
+        </td>
+        <td className={styles.tdWeight}>
+          <div>{obj.product.weight}</div>
+        </td>
         <td className={styles.tdRecommend}>
           {recomendProduct(obj.product.groupBloodNotAllowed) ? (
             <>
@@ -65,7 +58,7 @@ const DayProducts = ({ consumedProducts, isMobile, blood }) => {
           )}
         </td>
         <td className={styles.tdDellete}>
-          <button type="button" onClick={() => deleteProduct(obj.product._id)}>
+          <button onClick={() => handleDelete(obj._id)}>
             <svg>
               <use href={symbolDefs + "#trash-icon"}></use>
             </svg>
@@ -126,6 +119,6 @@ DayProducts.propTypes = {
       }),
     })
   ),
-  isMobile: PropTypes.bool,
   blood: PropTypes.number,
+  date: PropTypes.string,
 };

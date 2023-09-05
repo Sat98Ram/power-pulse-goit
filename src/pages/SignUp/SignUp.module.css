@@ -1,24 +1,48 @@
-.wrapper {
-}
-.container {
-  background-image: url(../../assets//images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+.backGround {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+  background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  margin: 0 auto;
+  padding-top: 127px;
 }
+
 .screen {
   width: 335px;
 }
-.screen__content {
-  padding: 28px 20px;
+@media screen and (min-width: 768px) {
+  .screen {
+    min-width: 496px;
+  }
+  .backGround {
+    padding-top: 141px;
+  }
 }
+
+/* .screen__content {
+  padding: 28px 20px;
+} */
 .screen h2 {
   color: var(--white);
   font-family: Roboto;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
   line-height: calc(28 / 24);
   margin-bottom: 14px;
+  text-transform: capitalize;
+}
+@media screen and (min-width: 768px) {
+  .screen h2 {
+    color: var(--white);
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: calc(44 / 32);
+    margin-bottom: 16px;
+  }
 }
 .enterText {
   color: rgba(239, 237, 232, 0.3);
@@ -27,14 +51,22 @@
   line-height: calc(18 / 14);
   margin-bottom: 28px;
 }
+@media screen and (min-width: 768px) {
+  .enterText {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+    margin-bottom: 32px;
+  }
+}
 .noaccount {
-  color: var(--white);
+  margin-top: 12px;
+  color: rgba(239, 237, 232, 0.6);
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: calc(18 / 12);
   margin-bottom: 121px;
 }
-.noaccount span {
-  text-decoration: underline;
+
+.noAccBlock {
+  display: flex;
+  flex-direction: row;
 }

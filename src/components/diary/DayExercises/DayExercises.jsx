@@ -40,7 +40,9 @@ const DayExercises = ({ doneExercises, date }) => {
         <td className={styles.tdEquipment}>
           <div>{obj.exercise.equipment}</div>
         </td>
-        <td className={styles.tdName}>{obj.exercise.name}</td>
+        <td className={styles.tdName}>
+          <div>{obj.exercise.name}</div>
+        </td>
         <td className={styles.tdTarget}>
           <div>{obj.exercise.target}</div>
         </td>

@@ -59,10 +59,7 @@ const Params = () => {
 
     validationSchema,
     onSubmit: (values) => {
-      console.log("values", values);
       dispatch(updateBodyThunk(values));
-      console.log("errors", formik.errors);
-      console.log("touched", formik.touched);
     },
   });
 

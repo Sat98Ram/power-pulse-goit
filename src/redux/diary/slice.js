@@ -28,18 +28,20 @@ export const diarySlice = createSlice({
       .addCase(getDiariesByDateThunk.rejected, getDiaryRejected)
 
       .addCase(addDiariesProductThunk.pending, pending)
-      .addCase(addDiariesProductThunk.fulfilled, getDiaryFulfilled)
+      .addCase(addDiariesProductThunk.fulfilled, addDiaryFulfilled)
       .addCase(addDiariesProductThunk.rejected, rejected)
 
       .addCase(addDiaryExerciseThunk.pending, pending)
-      .addCase(addDiaryExerciseThunk.fulfilled, getDiaryFulfilled)
+      .addCase(addDiaryExerciseThunk.fulfilled, addDiaryFulfilled)
       .addCase(addDiaryExerciseThunk.rejected, rejected)
 
       .addCase(deleteDiaryExerciseThunk.pending, pending)
-      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteProductFulfilled),
+      .addCase(deleteDiaryExerciseThunk.fulfilled, deleteFulfilled)
+      .addCase(deleteDiaryExerciseThunk.rejected, rejected)
 
-  // .addCase(deleteDiaryProductThunk.pending, pending)
-  // .addCase(deleteDiaryProductThunk.fulfilled, deleteExerciseFulfilled),
+      .addCase(deleteDiaryProductThunk.pending, pending)
+      .addCase(deleteDiaryProductThunk.fulfilled, deleteFulfilled)
+      .addCase(deleteDiaryProductThunk.rejected, rejected),
 });
 function pending(state) {
   state.isLoading = true;
@@ -58,6 +60,29 @@ function getDiaryRejected(state) {
   state.timeSport = null;
   state.updatedAt = null;
   state._id = null;
+  state.isLoading = false;
+}
+function addDiaryFulfilled(state, { payload }) {
+  const { newProduct, newExercise } = payload;
+
+  if (newProduct) {
+    const newElement = {
+      ...payload.consumedProducts.pop(),
+      product: payload.newProduct,
+    };
+    state.consumedProducts = [...state.consumedProducts, newElement];
+  }
+  if (newExercise) {
+    const newElement = {
+      ...payload.doneExercises.pop(),
+      exercise: payload.newExercise,
+    };
+    state.doneExercises = [...state.doneExercises, newElement];
+  }
+  state.burnedCalories = payload.burnedCalories;
+  state.consumedCalories = payload.consumedCalories;
+
+  state.timeSport = payload.timeSport;
   state.isLoading = false;
 }
 
@@ -85,14 +110,28 @@ function getDiaryFulfilled(state, { payload }) {
   state.doneExercises = payload.doneExercises;
   state.owner = payload.owner;
   state.timeSport = payload.timeSport;
+  state.isLoading = false;
 }
 
-function deleteProductFulfilled(state, { payload }) {
-  console.log(payload);
-}
+function deleteFulfilled(state, { payload }) {
+  const { exerciseId, productId, data } = payload;
 
-function deleteExerciseFulfilled(state, { payload }) {
-  console.log(payload);
+  if (productId) {
+    state.consumedProducts = [...state.consumedProducts].filter(
+      (el) => el._id !== productId
+    );
+  }
+  if (exerciseId) {
+    state.doneExercises = [...state.doneExercises].filter(
+      (el) => el._id !== exerciseId
+    );
+  }
+
+  state.burnedCalories = data.burnedCalories;
+  state.consumedCalories = data.consumedCalories;
+
+  state.timeSport = data.timeSport;
+  state.isLoading = false;
 }
 
 export const diaryReducer = diarySlice.reducer;

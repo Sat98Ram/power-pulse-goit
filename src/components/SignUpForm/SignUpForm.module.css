@@ -14,6 +14,10 @@
   line-height: calc(18 / 16);
   margin-bottom: 12px;
 }
+.signUpBtn:hover {
+  color: var(--white);
+  background: var(--secondary-accent);
+}
 @media screen and (min-width: 768px) {
   .signUpBtn {
     margin-top: 64px;
@@ -28,6 +32,7 @@ input {
   row-gap: 18px;
 }
 .signup__input {
+  outline: none;
   height: 35px;
   min-width: 283px;
   background-color: transparent;
@@ -39,22 +44,48 @@ input {
   margin-bottom: 18px;
   padding: 14px;
 }
+.signup__input:hover,
+.signup__input:focus,
+.signup__input:active {
+  outline-offset: 0;
+  border: 1px solid var(--primary-accent);
+}
 @media screen and (min-width: 768px) {
   .signup__input {
-    min-height: 40px;
+    height: 52px;
     max-width: 364px;
     font-size: 16px;
     line-height: calc(24 / 16);
   }
 }
-@media screen and (min-width: 768px) {
-  .signup__input {
-    min-height: 52px;
-    max-width: 364px;
-    font-size: 16px;
-    line-height: calc(24 / 16);
-  }
+
+.errorMessage {
+  color: #d80027;
+  font-size: 12px;
+  line-height: calc(18 / 12);
+  letter-spacing: 0.12px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 18px;
 }
-.error_message {
-  color: var(--primary-accent);
+.errorIcon {
+  width: 16px;
+  display: inline-block;
+  fill: rgba(216, 0, 39, 1);
+}
+.successMessage {
+  color: #3cbf61;
+  font-size: 12px;
+  line-height: calc(18 / 12);
+  letter-spacing: 0.12px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 18px;
+}
+.successIcon {
+  width: 16px;
+  display: inline-block;
+  fill: rgba(60, 191, 97, 1);
 }

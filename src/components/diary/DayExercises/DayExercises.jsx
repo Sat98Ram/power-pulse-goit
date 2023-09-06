@@ -4,20 +4,18 @@ import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryExerciseThunk } from "../../../redux/diary/operations";
+import { Link } from "react-router-dom";
 
 const DayExercises = ({ doneExercises, date, isMobile }) => {
   const dispatch = useDispatch();
 
-  const returnExercisesString = (string_length = "", number = 16, mobile) => {
-    if (!isMobile || mobile) {
-      if (string_length.length > number) {
-        let newString = "";
-        for (let index = 0; index < number - 3; index++) {
-          newString = newString + string_length[index];
-        }
-        return (newString = newString + "...");
+  const returnExercisesString = (string_length = "", number = 16) => {
+    if (string_length.length > number) {
+      let newString = "";
+      for (let index = 0; index < number - 3; index++) {
+        newString = newString + string_length[index];
       }
-      return string_length;
+      return (newString = newString + "...");
     }
     return string_length;
   };
@@ -35,15 +33,17 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdBodyPart}>{obj.exercise.bodyPart}</td>
+        <td className={styles.tdBodyPart}>
+          {returnExercisesString(obj.exercise.bodyPart, isMobile ? 34 : 10)}
+        </td>
         <td className={styles.tdEquipment}>
-          {returnExercisesString(obj.exercise.equipment, 15)}
+          {returnExercisesString(obj.exercise.equipment, isMobile ? 34 : 15)}
         </td>
         <td className={styles.tdName}>
-          {returnExercisesString(obj.exercise.name, 12)}
+          {returnExercisesString(obj.exercise.name, isMobile ? 40 : 12)}
         </td>
         <td className={styles.tdTarget}>
-          {returnExercisesString(obj.exercise.target, 10, true)}
+          {returnExercisesString(obj.exercise.target, isMobile ? 10 : 14)}
         </td>
         <td className={styles.tdBurnedCalories}>
           {obj.exercise.burnedCalories}
@@ -65,7 +65,9 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <p>Add exercise</p>
+            <Link to="/exercises/bodyparts">
+              <p>Add exercise</p>
+            </Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <table>

@@ -5,8 +5,6 @@ import {
   loginThunk,
   logoutThunk,
   updateBodyThunk,
-  changeBodyThunk,
-  changeNameThunk,
   changeAvatarThunk,
 } from "./operations";
 import { token } from "@/services/privateAPI";
@@ -25,17 +23,7 @@ export const userSlice = createSlice({
     createdAt: "",
 
     body: {},
-    bodyData: {
-      height: 0,
-      currentWeight: 0,
-      desiredWeight: 0,
-      birthday: 0,
-      blood: 0,
-      sex: 0,
-      levelActivity: 0,
-      dailyRateCalories: 0,
-      dailySportMin: 0,
-    },
+    bodyData: null,
   },
   reducers: {
     updateBodyParams: (state, { payload }) => {
@@ -63,12 +51,6 @@ export const userSlice = createSlice({
       .addCase(updateBodyThunk.pending, pending)
       .addCase(updateBodyThunk.fulfilled, updateBodyFulfilled)
       .addCase(updateBodyThunk.rejected, rejected)
-      .addCase(changeBodyThunk.pending, pending)
-      .addCase(changeBodyThunk.fulfilled, changeBodyFulfilled)
-      .addCase(changeBodyThunk.rejected, rejected)
-      .addCase(changeNameThunk.pending, pending)
-      .addCase(changeNameThunk.fulfilled, changeNameFulfilled)
-      .addCase(changeNameThunk.rejected, rejected)
       .addCase(changeAvatarThunk.pending, pending)
       .addCase(changeAvatarThunk.fulfilled, changeAvatarFulfilled)
       .addCase(changeAvatarThunk.rejected, rejected),
@@ -82,18 +64,23 @@ function registerFulfilled(state, { payload }) {
   state.token = payload.token;
   state.email = payload.email;
 
-  state.bodyData = payload.bodyData && null;
+  state.bodyData = payload.bodyData || null;
 }
 function refreshFulfilled(state, { payload }) {
-  state.isLoading = false;
-  state.isAuth = true;
-  state.avatar = payload.avatar;
-  state.name = payload.name;
-  state.token = payload.token;
-  state.email = payload.email;
-  state.updatedAt = payload.updatedAt;
-  state.createdAt = payload.createdAt;
-  state.bodyData = payload.bodyData;
+  if (payload) {
+    state.isLoading = false;
+    state.isAuth = true;
+    state.avatar = payload.avatar;
+    state.name = payload.name;
+    state.token = payload.token;
+    state.email = payload.email;
+    state.updatedAt = payload.updatedAt;
+    state.createdAt = payload.createdAt;
+    state.bodyData = payload.bodyData;
+  } else {
+    state.isLoading = false;
+    state.isAuth = false;
+  }
 }
 
 function logout(state) {
@@ -109,9 +96,7 @@ function logout(state) {
 function rejected(state, { error }) {
   state.isLoading = false;
   state.isAuth = false;
-  toast.error(error.message, {
-    position: toast.POSITION.TOP_RIGHT,
-  });
+  toast.error(error.message);
 }
 
 function pending(state) {
@@ -119,33 +104,15 @@ function pending(state) {
 }
 function pendingRefresh(state) {
   state.isLoading = true;
-  token.set(state.token);
+  state.token && token.set(state.token);
 }
 
 function updateBodyFulfilled(state, { payload }) {
   state.isLoading = false;
   state.isAuth = true;
-  state.bodyData = payload.bodyData && null;
+  state.bodyData = payload.bodyData || null;
+  state.name = payload.name;
   toast.success("update successfull");
-}
-
-function changeBodyFulfilled(state, { payload }) {
-  state.isLoading = false;
-  state.isAuth = true;
-  state.bodyData.height = payload.bodyData.height;
-  state.bodyData.currentWeight = payload.bodyData.currentWeight;
-  state.bodyData.desiredWeight = payload.bodyData.desiredWeight;
-  state.bodyData.birthday = payload.bodyData.birthday;
-  state.bodyData.blood = payload.bodyData.blood;
-  state.bodyData.sex = payload.bodyData.sex;
-  state.bodyData.levelActivity = payload.bodyData.levelActivity;
-  state.name = payload.name;
-}
-
-function changeNameFulfilled(state, { payload }) {
-  state.isLoading = false;
-  state.isAuth = true;
-  state.name = payload.name;
 }
 
 function changeAvatarFulfilled(state, { payload }) {

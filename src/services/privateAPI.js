@@ -25,13 +25,15 @@ export const logout = async () => {
 
 export const refresh = async () => {
   try {
-    const { data } = await privateAPI.get("api/users/current");
-    token.unset();
-    if (data.token) {
-      token.set(data.token);
+    if (privateAPI.defaults.headers.common.Authorization) {
+      const { data } = await privateAPI.get("api/users/current");
+      token.unset();
+      if (data.token) {
+        token.set(data.token);
+      }
+      return data;
     }
-
-    return data;
+    return null;
   } catch (error) {
     token.unset();
     throw error;
@@ -71,27 +73,45 @@ export const getDiariesByDate = async (currentDate) => {
 };
 
 export const productAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/product/add", body);
-  return data;
+  const { date, product, amount, eldata } = body;
+  const { data } = await privateAPI.post("api/diaries/product/add", {
+    date,
+    product,
+    amount,
+  });
+  return { ...data, newProduct: eldata };
 };
 
 export const exerciseAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/exercise/add", body);
-  return data;
+  const { date, exercise, time } = body;
+  const { data } = await privateAPI.post("api/diaries/exercise/add", {
+    date,
+    exercise,
+    time,
+  });
+  return { ...data, newExercise: body.data };
 };
 
-export const updateBody = async (body) => {
-  const { data } = await privateAPI.post("api/users/body", body);
-  return data;
-};
-
-export const changeBody = async (body) => {
-  const { data } = await privateAPI.post("api/users/body", body);
-  return data;
-};
-
-export const changeName = async (body) => {
-  const { data } = await privateAPI.post("api/users/current/edit", body);
+export const updateBody = async ({
+  height,
+  currentWeight,
+  desiredWeight,
+  birthday,
+  blood,
+  sex,
+  levelActivity,
+  name,
+}) => {
+  if (name) await privateAPI.post("api/users/current/edit", { name });
+  const { data } = await privateAPI.post("api/users/body", {
+    height,
+    currentWeight,
+    desiredWeight,
+    birthday,
+    blood,
+    sex,
+    levelActivity,
+  });
   return data;
 };
 
@@ -105,14 +125,23 @@ export const changeAvatar = async (body) => {
 };
 
 export const deletedDiaryProduct = async (params) => {
-  const { data } = await privateAPI.delete(`api/diaries/product/${id}`);
-  return data;
+  const { status, data } = await privateAPI.delete(
+    `api/diaries/product/${params.productId}`,
+    { data: params }
+  );
+  if (status === 200) {
+    return { productId: params.productId, data };
+  }
+  return {};
 };
 
 export const deletedDiaryExercise = async (params) => {
-  const { data } = await privateAPI.delete(
+  const { status, data } = await privateAPI.delete(
     `api/diaries/exercise/${params.exerciseId}`,
-    { params }
+    { data: params }
   );
-  return data;
+  if (status === 200) {
+    return { exerciseId: params.exerciseId, data };
+  }
+  return {};
 };

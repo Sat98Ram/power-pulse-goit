@@ -9,10 +9,11 @@ import LogOutBtn from "../LogOutBtn/LogOutBtn";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import UserNav from "../UserNav/UserNav";
 import { selectAvatar } from "../../../redux/auth/selectors";
+import { useState } from "react";
 
 const UserBar = ({ onClick }) => {
   const userAvatar = useSelector(selectAvatar);
-
+  const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div className={css.userBar}>
@@ -33,13 +34,18 @@ const UserBar = ({ onClick }) => {
       </div>
 
       {!isDesktop && (
-        <BurgerMenu className={css.burgerMenu}>
+        <BurgerMenu
+          className={css.burgerMenu}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        >
           <UserNav
             className={css.mobileNav}
             classNameItem={css.mobileNavItem}
             classNameLink={({ isActive }) =>
               isActive ? css.mobileNavLinkActive : css.mobileNavLink
             }
+            setIsOpen={setIsOpen}
           />
           <LogOutBtn
             classNameBtn={css.burgerLogOut}

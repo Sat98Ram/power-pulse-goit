@@ -23,7 +23,7 @@ const AddProductForm = ({ eldata }) => {
     dispatch(
       addDiariesProductThunk({ date, product: id, amount: calculatedCalories })
     )
-      .then((response) => {
+      .then(() => {
         setIsSuccessModalOpen(true);
       })
       .catch((error) => {

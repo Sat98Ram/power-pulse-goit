@@ -6,7 +6,7 @@ import { selectIsAuth } from "@/redux/auth/selectors";
 import { selectisLoading } from "../redux/auth/selectors";
 import Loader from "../components/Loader/Loader";
 
-export const PublicRoute = ({ redirectTo = "/diary" }) => {
+export const PublicRoute = ({ redirectTo = "/params" }) => {
   const isLoggedIn = useSelector(selectIsAuth);
   const isLoading = useSelector(selectisLoading);
   const { state } = useLocation();

@@ -24,7 +24,7 @@
 
   color: #efede880;
 }
-.DayProductsHead p {
+.DayProductsHead a {
   font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
@@ -40,7 +40,6 @@
 .DayProducts ::-webkit-scrollbar-thumb {
   background: #efede81a;
   border-radius: 12px;
-
 }
 span {
   display: flex;
@@ -55,9 +54,6 @@ span {
 span p {
   display: inline-block;
 }
-
-
-
 
 .DayProducts .tdDellete {
   border: none;
@@ -116,12 +112,11 @@ span p {
   height: 38px;
   table-layout: fixed;
 }
-.DayProducts td div{
+.DayProducts td div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 .tdTitle,
 .thTitle {
@@ -150,15 +145,13 @@ span p {
   min-width: 110px;
 }
 
-
 .recommendCircle {
   display: block;
   width: 14px;
   height: 14px;
 }
 
-@media screen and (max-width: 1439px){
-
+@media screen and (max-width: 1439px) {
   .DayProducts table {
     padding-left: 8px;
   }
@@ -256,7 +249,6 @@ span p {
     display: inline-grid;
     align-items: center;
 
-
     margin-bottom: 42px;
   }
 
@@ -328,5 +320,4 @@ span p {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }

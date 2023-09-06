@@ -4,20 +4,19 @@ import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryExerciseThunk } from "../../../redux/diary/operations";
+import { Link } from "react-router-dom";
 
 const DayExercises = ({ doneExercises, date, isMobile }) => {
   const dispatch = useDispatch();
+  dispatch;
 
-  const returnExercisesString = (string_length = "", number = 16, mobile) => {
-    if (!isMobile || mobile) {
-      if (string_length.length > number) {
-        let newString = "";
-        for (let index = 0; index < number - 3; index++) {
-          newString = newString + string_length[index];
-        }
-        return (newString = newString + "...");
+  const returnExercisesString = (string_length = "", number = 16) => {
+    if (string_length.length > number) {
+      let newString = "";
+      for (let index = 0; index < number - 3; index++) {
+        newString = newString + string_length[index];
       }
-      return string_length;
+      return (newString = newString + "...");
     }
     return string_length;
   };
@@ -35,12 +34,14 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
     const num = nanoid();
     return (
       <tr key={num}>
+
         <td className={styles.tdBodyPart}><div>{obj.exercise.bodyPart}</div></td>
         <td className={styles.tdEquipment}><div>{obj.exercise.equipment}</div></td>
         <td className={styles.tdName}>{obj.exercise.name}</td>
         <td className={styles.tdTarget}><div>{obj.exercise.target}</div></td>
         <td className={styles.tdBurnedCalories}><div>{obj.exercise.burnedCalories}</div></td>
         <td className={styles.tdTime}><div>{obj.exercise.time}</div></td>
+
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>
             <svg>
@@ -57,7 +58,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <p>Add exercise</p>
+            <Link to="/exercises/bodyparts">Add exercise</Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <table>
@@ -79,7 +80,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <p>Add exercise</p>
+            <Link to="/exercises/bodyparts">Add exercise</Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <p className={styles.not_found}>Not found exercises</p>

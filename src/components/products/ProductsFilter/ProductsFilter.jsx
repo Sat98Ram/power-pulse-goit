@@ -1,38 +1,37 @@
-import symbolDefs from "@/assets/images/symbol-defs.svg"
-import css from "./ProductsFilter.module.css"
-import Select from "react-select"
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { productCategoriesThunk } from "../../../redux/products/operation"
-import { capitalizeFirstLeter } from "../../../helpers/capitalizeFirstLeter"
-import { selectCategoriesProducts } from "../../../redux/products/selectors"
-import { useFormik } from "formik"
-import { useMediaQuery } from "react-responsive"
-import { filterReducer } from "../../../redux/products/slice"
+import symbolDefs from "@/assets/images/symbol-defs.svg";
+import css from "./ProductsFilter.module.css";
+import Select from "react-select";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { productCategoriesThunk } from "../../../redux/products/operation";
+import { capitalizeFirstLeter } from "../../../helpers/capitalizeFirstLeter";
+import { selectCategoriesProducts } from "../../../redux/products/selectors";
+import { useMediaQuery } from "react-responsive";
+import { filterReducer } from "../../../redux/products/slice";
 
 const optionsRec = [
   { value: "all", label: "All" },
   { value: "recommended", label: "Recommended " },
   { value: "notRecommended", label: "Not recommended" },
-]
+];
 
 export const ProductsFilter = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const categoriesList = useSelector(selectCategoriesProducts)?.map((el) => ({
     value: el,
     label: capitalizeFirstLeter(el),
-  }))
+  }));
   useEffect(() => {
-    dispatch(productCategoriesThunk())
-  }, [dispatch])
+    dispatch(productCategoriesThunk());
+  }, [dispatch]);
 
-  const isMobile = useMediaQuery({ minWidth: 375 })
-  const isTablet = useMediaQuery({ minWidth: 769 })
-  const isDesktop = useMediaQuery({ minWidth: 1440 })
-  let height = ""
-  isMobile ? (height = "46px") : (height = "52px")
-  isTablet ? (height = "52px") : (height = "46px")
-  isDesktop ? (height = "52px") : (height = "46px")
+  const isMobile = useMediaQuery({ minWidth: 375 });
+  const isTablet = useMediaQuery({ minWidth: 769 });
+  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  let height = "";
+  isMobile ? (height = "46px") : (height = "52px");
+  isTablet ? (height = "52px") : (height = "46px");
+  isDesktop ? (height = "52px") : (height = "46px");
 
   const customStyles = {
     control: (provided) => ({
@@ -86,44 +85,59 @@ export const ProductsFilter = () => {
       },
       overflowY: "scroll",
     }),
-  }
+  };
 
-  const formik = useFormik({
-    initialValues: { productSearch: "", categories: "", type: "" },
-    onSubmit: (values) => console.log("values", values),
-  })
-
-  const [hiddenBtnClose, setHiddenBtnClose] = useState(false)
-  const [search, setSearch] = useState("")
-  const [category, setCategory] = useState("")
-  const [recommended, setRecommended] = useState(optionsRec[0])
+  const [hiddenBtnClose, setHiddenBtnClose] = useState(false);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+  const [recommended, setRecommended] = useState(optionsRec[0]);
 
   const onChangeSearch = (event) => {
-    const text = event.target.value
-    setHiddenBtnClose(text.length > 0)
-    setSearch(text)
+    const text = event.target.value;
+    setHiddenBtnClose(text.length > 0);
+    setSearch(text);
     dispatch(
-      filterReducer({ search: text, category: category.value, recommended: recommended.value })
-    )
-  }
+      filterReducer({
+        search: text,
+        category: category.value,
+        recommended: recommended.value,
+      })
+    );
+  };
 
   const onCategoriesChange = (event) => {
-    setCategory(event)
-    dispatch(filterReducer({ category: event.value, search, recommended: recommended.value }))
-  }
+    setCategory(event);
+    dispatch(
+      filterReducer({
+        category: event.value,
+        search,
+        recommended: recommended.value,
+      })
+    );
+  };
 
   const onRecomendedChange = (event) => {
-    setRecommended(event)
-    dispatch(filterReducer({ recommended: event.value, search, category: category.value }))
-  }
+    setRecommended(event);
+    dispatch(
+      filterReducer({
+        recommended: event.value,
+        search,
+        category: category.value,
+      })
+    );
+  };
 
   const delTextInput = () => {
-    setSearch("")
+    setSearch("");
     dispatch(
-      filterReducer({ search: "", category: category.value, recommended: recommended.value })
-    )
-    setHiddenBtnClose(false)
-  }
+      filterReducer({
+        search: "",
+        category: category.value,
+        recommended: recommended.value,
+      })
+    );
+    setHiddenBtnClose(false);
+  };
 
   return (
     <ul className={css.products_filter}>
@@ -205,5 +219,5 @@ export const ProductsFilter = () => {
         />
       </li>
     </ul>
-  )
-}
+  );
+};

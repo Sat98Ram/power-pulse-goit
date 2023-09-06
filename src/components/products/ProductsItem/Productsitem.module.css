@@ -32,6 +32,7 @@
 }
 
 .products_card_info_item {
+  width: 40%;
   display: flex;
   flex-direction: row;
   gap: 4px;
@@ -41,6 +42,9 @@
 }
 
 .products_card_info_value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: var(--white);
   font-size: 12px;
   line-height: 18px; /* 150% */

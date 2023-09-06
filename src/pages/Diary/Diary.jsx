@@ -16,20 +16,19 @@ import { selectUser } from "../../redux/auth/selectors";
 
 const Diary = () => {
   const dispatch = useDispatch();
-  const [date, setDate] = useState(() => new Date());
-  const dateFormat = getInputValueFromDate(date, 1);
-
-  useEffect(() => {
-    dispatch(getDiariesByDateThunk(dateFormat));
-  }, [dateFormat, dispatch]);
 
   const diary = useSelector(selectDiary);
   const user = useSelector(selectUser);
+  const [date, setDate] = useState(() => new Date());
+
+  useEffect(() => {
+    dispatch(getDiariesByDateThunk(getInputValueFromDate(date, 1)));
+  }, [date, dispatch]);
 
   const { bodyData, createdAt } = user;
+  const { blood } = bodyData;
 
-  const { consumedProducts } = diary;
-  const { doneExercises } = diary;
+  const { consumedProducts, doneExercises } = diary;
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -48,13 +47,16 @@ const Diary = () => {
                 isMobile={isMobile}
                 consumedProducts={consumedProducts}
                 date={diary.date}
+                blood={blood}
               />
             )}
-            <DayExercises
-              isMobile={isMobile}
-              doneExercises={doneExercises}
-              date={diary.date}
-            />
+            {doneExercises && (
+              <DayExercises
+                isMobile={isMobile}
+                doneExercises={doneExercises}
+                date={diary.date}
+              />
+            )}
           </div>
           <DayDashboard diary={diary} bodyData={bodyData} />
         </div>

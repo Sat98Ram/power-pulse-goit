@@ -61,6 +61,11 @@
   line-height: calc(18 / 16);
   margin-bottom: 12px;
 }
+.signUpBtn:hover {
+  color: var(--white);
+  background: var(--secondary-accent);
+}
+
 .signInBtn {
   display: flex;
   padding: 12px 40px;
@@ -77,4 +82,9 @@
   font-weight: 500;
   line-height: calc(18 / 16);
   margin-bottom: 12px;
+}
+.signInBtn:hover {
+  color: var(--white);
+  background: transparent;
+  border-color: var(--primary-accent);
 }

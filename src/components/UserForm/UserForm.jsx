@@ -5,7 +5,7 @@ import { selectorBodyData, selectUser } from "../../redux/auth/selectors";
 import css from "./UserForm.module.css";
 import { capitalizeFirstLeter } from "../../helpers/capitalizeFirstLeter";
 
-import { changeBodyThunk, changeNameThunk } from "../../redux/auth/operations";
+import { updateBodyThunk } from "../../redux/auth/operations";
 
 const bloodList = [1, 2, 3, 4];
 const sexList = ["male", "female"];
@@ -45,50 +45,15 @@ export const UserForm = () => {
       levelActivity: levelActivity,
     },
     onSubmit: (values) => {
-      console.log(values);
-      console.log(user);
-      const bodyData = {
-        height: values.height,
-        currentWeight: values.currentWeight,
-        desiredWeight: values.desiredWeight,
-        birthday: values.birthday,
-        blood: values.blood,
-        sex: values.sex,
-        levelActivity: values.levelActivity,
-      };
-      if (name !== values.name) {
-        const updateName = {
-          name: values.name,
-        };
-        dispatch(changeNameThunk(updateName));
-        dispatch(changeBodyThunk(bodyData));
-      } else {
-        dispatch(changeBodyThunk(bodyData));
-      }
+      dispatch(updateBodyThunk(values));
     },
   });
 
-  //   console.log(formik);
-  //   console.log(user);
   const date = new Date(formik.values.birthday);
   const year = date.toLocaleString("default", { year: "numeric" });
   const month = date.toLocaleString("default", { month: "2-digit" });
   const day = date.toLocaleString("default", { day: "2-digit" });
   const formattedDate = year + "-" + month + "-" + day;
-
-  //   const onSubmit = (e) => {
-  //     e.preventDefault();
-  //     if (name !== formik.values.name) {
-  //       const updateName = {
-  //         name: formik.values.name,
-  //       };
-  //       dispatch(changeNameThunk(updateName));
-  //       dispatch(changeBodyThunk(formik.values.bodyData));
-  //     } else {
-  //       dispatch(changeBodyThunk(formik.values.bodyData));
-  //     }
-  //     console.log("result", formik);
-  //   };
 
   return (
     <form

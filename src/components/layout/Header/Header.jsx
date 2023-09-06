@@ -11,6 +11,7 @@ import UserNav from "../UserNav/UserNav";
 import UserBar from "../UserBar/UserBar";
 import Logo from "../Logo/Logo";
 import css from "./Header.module.css";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
@@ -29,7 +30,11 @@ const Header = () => {
     showModalLogOut();
   };
 
-  const headerClass = !isAuth ? css.headerNotAuth : css.headerAuth;
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const headerClass =
+    !isAuth || currentPath === "/params" ? css.headerNotAuth : css.headerAuth;
 
   return (
     <>
@@ -38,7 +43,7 @@ const Header = () => {
           <div className={css.headerContent}>
             <Logo className={css.headerLogoIcon} />
 
-            {isAuth && (
+            {isAuth && currentPath !== "/params" && (
               <div className={css.authUser}>
                 {isDesktop && (
                   <UserNav

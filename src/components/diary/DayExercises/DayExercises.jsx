@@ -6,20 +6,20 @@ import { useDispatch } from "react-redux";
 import { deleteDiaryExerciseThunk } from "../../../redux/diary/operations";
 import { Link } from "react-router-dom";
 
-const DayExercises = ({ doneExercises, date, isMobile }) => {
+const DayExercises = ({ doneExercises, date }) => {
   const dispatch = useDispatch();
   dispatch;
 
-  const returnExercisesString = (string_length = "", number = 16) => {
-    if (string_length.length > number) {
-      let newString = "";
-      for (let index = 0; index < number - 3; index++) {
-        newString = newString + string_length[index];
-      }
-      return (newString = newString + "...");
-    }
-    return string_length;
-  };
+  // const returnExercisesString = (string_length = "", number = 16) => {
+  //   if (string_length.length > number) {
+  //     let newString = "";
+  //     for (let index = 0; index < number - 3; index++) {
+  //       newString = newString + string_length[index];
+  //     }
+  //     return (newString = newString + "...");
+  //   }
+  //   return string_length;
+  // };
 
   const handleDelete = (id) => {
     dispatch(
@@ -35,19 +35,22 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
     return (
       <tr key={num}>
         <td className={styles.tdBodyPart}>
-          {returnExercisesString(obj.exercise.bodyPart, isMobile ? 34 : 10)}
+          <div>{obj.exercise.bodyPart}</div>
         </td>
         <td className={styles.tdEquipment}>
-          {returnExercisesString(obj.exercise.equipment, isMobile ? 34 : 15)}
+          <div>{obj.exercise.equipment}</div>
         </td>
-        <td className={styles.tdName}>
-          {returnExercisesString(obj.exercise.name, isMobile ? 40 : 12)}
-        </td>
+        <td className={styles.tdName}>{obj.exercise.name}</td>
         <td className={styles.tdTarget}>
-          {returnExercisesString(obj.exercise.target, isMobile ? 10 : 14)}
+          <div>{obj.exercise.target}</div>
         </td>
-        <td className={styles.tdBurnedCalories}>{obj.burnedCalories}</td>
-        <td className={styles.tdTime}>{obj.time}</td>
+        <td className={styles.tdBurnedCalories}>
+          <div>{obj.exercise.burnedCalories}</div>
+        </td>
+        <td className={styles.tdTime}>
+          <div>{obj.exercise.time}</div>
+        </td>
+
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>
             <svg>

@@ -57,7 +57,7 @@ span p {
 
 .DayProducts .tdDellete {
   border: none;
-  padding: 4px;
+  padding-left: 4px;
 }
 .DayProducts .tdDellete button {
   display: block;
@@ -74,7 +74,7 @@ span p {
   display: block;
   margin: 0px;
   position: relative;
-  padding-left: 32px;
+  padding-left: 24px;
   padding-right: 8px;
   border-spacing: 8px;
   border: none;
@@ -99,15 +99,8 @@ span p {
 }
 
 .DayProducts th {
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0px;
-
-  text-align: left;
-  color: #ef8964;
-
   text-align: left;
   color: #ef8964;
 }
@@ -115,6 +108,7 @@ span p {
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
+  padding-right: 14px;
   height: 38px;
   table-layout: fixed;
 }
@@ -160,6 +154,9 @@ span p {
 @media screen and (max-width: 1439px) {
   .DayProducts table {
     padding-left: 8px;
+  }
+  .DayProducts .tdDellete {
+    padding-left: 2px;
   }
 
   .tdTitle,
@@ -215,10 +212,10 @@ span p {
     margin: 0px 8px 0px 0px;
   }
 
-  .tdDellete {
-    padding-left: 0px;
+  .DayProducts .tdDellete {
+    padding: 0px;
   }
-  .tdDellete svg {
+  .DayProducts .tdDellete svg {
     display: block;
     width: 20px;
     height: 20px;
@@ -263,13 +260,7 @@ span p {
     content: "Title";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -281,13 +272,7 @@ span p {
     content: "Category";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -300,13 +285,7 @@ span p {
     content: "Calories";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
@@ -319,32 +298,20 @@ span p {
     content: "Weight";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayProducts td:nth-of-type(5) {
     max-width: 78px;
     min-width: 78px;
-    margin-right: 4px;
+    margin-right: 8px;
   }
   .DayProducts td:nth-of-type(5)::before {
     content: "Recomended";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 }

@@ -34,6 +34,7 @@ export const ProductsList = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const bloodType = useSelector(selectBloodType);
+  // const isLoading = useSelector(selectIsLoadingProduct);
 
   const productsList = useSelector(selectProductsList).map((el) => ({
     ...el,

@@ -4,6 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryProductThunk } from "../../../redux/diary/operations";
+import { Link } from "react-router-dom";
 
 const DayProducts = ({ consumedProducts, blood, date }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
     );
   };
   const recomendProduct = (groupBloodNotAllowed) => {
-   
     return groupBloodNotAllowed[blood];
   };
 
@@ -75,7 +75,9 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
         <div className={styles.DayProducts}>
           <div className={styles.DayProductsHead}>
             <h2>Products</h2>
-            <p>Add product</p>
+            <Link to="/products">
+              <p> Add product</p>
+            </Link>
           </div>
           <div className={styles.DayProductsTable}>
             <table>

@@ -125,23 +125,23 @@ export const changeAvatar = async (body) => {
 };
 
 export const deletedDiaryProduct = async (params) => {
-  const { status } = await privateAPI.delete(
+  const { status, data } = await privateAPI.delete(
     `api/diaries/product/${params.productId}`,
     { data: params }
   );
   if (status === 200) {
-    return { productId: params.productId };
+    return { productId: params.productId, data };
   }
   return {};
 };
 
 export const deletedDiaryExercise = async (params) => {
-  const { status } = await privateAPI.delete(
+  const { status, data } = await privateAPI.delete(
     `api/diaries/exercise/${params.exerciseId}`,
     { data: params }
   );
   if (status === 200) {
-    return { exerciseId: params.exerciseId };
+    return { exerciseId: params.exerciseId, data };
   }
   return {};
 };

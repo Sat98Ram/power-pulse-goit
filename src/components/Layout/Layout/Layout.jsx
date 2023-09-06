@@ -14,8 +14,9 @@ export const Layout = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
           <Header />
 

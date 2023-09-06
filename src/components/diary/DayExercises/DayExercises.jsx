@@ -52,7 +52,7 @@ const DayExercises = ({ doneExercises, date }) => {
           <div>{obj.burnedCalories}</div>
         </td>
         <td className={styles.tdTime}>
-          <div>{obj.exercise.time}</div>
+          <div>{obj.time}</div>
         </td>
 
         <td className={styles.tdDellete}>

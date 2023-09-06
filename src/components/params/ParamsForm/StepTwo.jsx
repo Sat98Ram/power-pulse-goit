@@ -13,10 +13,6 @@ const levelActivity = [
 ];
 
 const StepTwo = ({ formik, nextStep, prevStep }) => {
-  // const returnSex = (number) => {
-  //   formik.handleChange(sex[number - 1];
-  // };
-
   return (
     <>
       <div className={css.form}>

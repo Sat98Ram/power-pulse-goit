@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
-import css from "./ParamsForm.module.css";
 import { useEffect, useState } from "react";
+
+import css from "./ParamsForm.module.css";
 import { DatePickerPopupContent } from "../../DatePickerCalendar/DatePickerPopupContent";
 
 const date = new Date(new Date() - 18 * 365.25 * 24 * 60 * 60 * 1000);
@@ -63,13 +64,15 @@ export const Calendar = ({ onChange, value }) => {
         onKeyDown={onKeyDown}
       />
       {showPopup && (
-        <DatePickerPopupContent
-          selectedValue={value}
-          onChange={handleChange}
-          inputValueDate={value}
-          max={date}
-          YearBool
-        />
+        <div className={css.calendar}>
+          <DatePickerPopupContent
+            selectedValue={value}
+            onChange={handleChange}
+            inputValueDate={value}
+            max={date}
+            YearBool
+          />
+        </div>
       )}
     </div>
   );

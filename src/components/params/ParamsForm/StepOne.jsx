@@ -30,10 +30,6 @@ const StepOne = ({ formik, nextStep }) => {
             ) : (
               <p className={css.labelText}>Height</p>
             )}
-            {/* {formik.touched.height && formik.errors.height ? (
-              <div>{formik.errors.height}</div>
-            ) : null} */}
-            {/* {errors.name && touched.name ? <p>error</p>} */}
           </label>
           <label className={css.label}>
             <input
@@ -52,7 +48,6 @@ const StepOne = ({ formik, nextStep }) => {
             ) : (
               <p className={css.labelText}>Current Weight</p>
             )}
-            {/* <p className={css.labelText}>Current Weight</p> */}
           </label>
           <label className={css.label}>
             <input
@@ -75,20 +70,7 @@ const StepOne = ({ formik, nextStep }) => {
                 Desired Weight
               </p>
             )}
-            {/* <p className={`${css.labelText} ${css.bastard}`}>Desired Weight</p> */}
           </label>
-          {/* <DatePickerCalendar
-            // value={date}
-            YearBool={true}
-            // onChange={(date) => {handleChange(date)}}
-          /> */}
-          {/* <input
-            className={css.input}
-            type="date"
-            required
-            placeholder="Birthday"
-            name="birthday"
-            onChange={formik.handleChange} /> */}
           <label>
             <Calendar
               // max={}
@@ -110,7 +92,8 @@ const StepOne = ({ formik, nextStep }) => {
           disabled={
             (formik.touched.height && formik.errors.height) ||
             (formik.touched.currentWeight && formik.errors.currentWeight) ||
-            (formik.touched.desiredWeight && formik.errors.desiredWeight)
+            (formik.touched.desiredWeight && formik.errors.desiredWeight) ||
+            (formik.touched.birthday && formik.errors.birthday)
               ? true
               : false
           }
@@ -123,7 +106,6 @@ const StepOne = ({ formik, nextStep }) => {
             <use href={sprite + "#icon-next"} />
           </svg>
         </button>
-        {/* <button type="submit">Next</button> */}
       </div>
     </>
   );

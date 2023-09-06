@@ -3,7 +3,9 @@ import { SignBtn } from "../../components/SignBtn/SignBtn";
 import css from "./Welcome.module.css";
 
 import { NavLink } from "react-router-dom";
-// import symbolDefs from "../../assets/images/symbol-defs.svg";
+
+const googleAuth = "https://powerpulse-y0gd.onrender.com/api/users/google";
+
 const Welcome = () => {
   return (
     <section className={css.welcomeBackground}>
@@ -20,6 +22,13 @@ const Welcome = () => {
           <NavLink to="/signin">
             <SignBtn text="Sign In" type="button" className={css.signInBtn} />
           </NavLink>
+          <a
+            href={googleAuth}
+            aria-label="authenticante with google"
+            className={css.signInBtn}
+          >
+            Signin with Google
+          </a>
         </div>
         {/* <VideoCount />
       <CaloriesCount /> */}

@@ -71,7 +71,6 @@ span p {
   height: 20px;
 }
 
-
 .DayExercises table {
   display: block;
   margin: 0px;
@@ -114,7 +113,6 @@ span p {
   white-space: nowrap;
 }
 
-
 .DayExercises td {
   border-radius: 12px;
   border: 1px solid #efede84d;
@@ -123,7 +121,7 @@ span p {
   font-size: 14px;
   text-align: left;
 }
-.DayExercises td div{
+.DayExercises td div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -159,9 +157,18 @@ span p {
   max-width: 82px;
   min-width: 82px;
 }
+.btnAddExersisec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+}
 
-@media screen and (max-width: 1439px){
-
+@media screen and (max-width: 1439px) {
   .DayExercises table {
     padding-left: 8px;
   }
@@ -199,9 +206,7 @@ span p {
     max-width: 72px;
     min-width: 72px;
   }
-
 }
-
 
 /* ---------------------------------- */
 
@@ -236,7 +241,6 @@ span p {
   .DayExercisesHead {
     margin-bottom: 8px;
   }
-
 
   .DayExercises .tdDellete {
     padding: 0px;

@@ -19,6 +19,19 @@ const DayExercises = ({ doneExercises, date }) => {
     );
   };
 
+  const addExersicesBtn = () => {
+    return (
+      <Link to="/products">
+        <p className={styles.btnAddExersisec}>
+          Add product
+          <svg className={styles.arrowIcon}>
+            <use href={symbolDefs + "#arrow-icon"}></use>
+          </svg>
+        </p>
+      </Link>
+    );
+  };
+
   const listOfExercises = doneExercises.map((obj) => {
     const num = nanoid();
     return (
@@ -56,7 +69,7 @@ const DayExercises = ({ doneExercises, date }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <Link to="/exercises/bodyparts">Add exercise</Link>
+            {addExersicesBtn()}
           </div>
           <div className={styles.DayExercisesTable}>
             <table>
@@ -78,7 +91,7 @@ const DayExercises = ({ doneExercises, date }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <Link to="/exercises/bodyparts">Add exercise</Link>
+            {addExersicesBtn()}
           </div>
           <div className={styles.DayExercisesTable}>
             <p className={styles.not_found}>Not found exercises</p>

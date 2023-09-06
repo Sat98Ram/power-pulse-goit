@@ -21,6 +21,19 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
     return groupBloodNotAllowed[blood];
   };
 
+  const addProductBtn = () => {
+    return (
+      <Link to="/products">
+        <p className={styles.btnAddProduct}>
+          Add product
+          <svg className={styles.arrowIcon}>
+            <use href={symbolDefs + "#arrow-icon"}></use>
+          </svg>
+        </p>
+      </Link>
+    );
+  };
+
   const listOfProducts = consumedProducts.map((obj) => {
     const num = nanoid();
     return (
@@ -75,7 +88,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
         <div className={styles.DayProducts}>
           <div className={styles.DayProductsHead}>
             <h2>Products</h2>
-            <Link to="/products">Add product</Link>
+            {addProductBtn()}
           </div>
           <div className={styles.DayProductsTable}>
             <table>
@@ -96,7 +109,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
         <div className={styles.DayProducts}>
           <div className={styles.DayProductsHead}>
             <h2>Products</h2>
-            <Link to="/products">Add product</Link>
+            {addProductBtn()}
           </div>
           <div className={styles.DayProductsTable}>
             <p className={styles.not_found}>Not found products</p>

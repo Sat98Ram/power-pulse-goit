@@ -77,6 +77,7 @@ function addDiaryFulfilled(state, { payload }) {
       ...payload.doneExercises.pop(),
       exercise: payload.newExercise,
     };
+    console.log(newElement);
     state.doneExercises = [...state.doneExercises, newElement];
   }
   state.burnedCalories = payload.burnedCalories;

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+
 import css from "./ExersiceModalWindow.module.css";
 import Timer from "../Timer/Timer";
 import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
 import { addDiaryExerciseThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
-import { SuccessExerciseModalWindow } from "./SuccessModalWindow/SuccessExerciseModalWindow/SuccessExerciseModalWindow";
-import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
+// import { selectDiaryDate } from "../../redux/diary/selectors";
 
-export const ExersiceModalWindow = ({ data }) => {
+export const ExersiceModalWindow = ({ data, onClick }) => {
   const {
     bodyPart,
     burnedCalories,
@@ -17,24 +19,29 @@ export const ExersiceModalWindow = ({ data }) => {
     name,
     target,
     time,
-    _id: id,
+    _id: exercise,
   } = data;
   const dispatch = useDispatch();
-  const date = getInputValueFromDate(new Date(), true);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const openModalToggle = () => {
-    setIsOpenModal((prev) => !prev);
-  };
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  // const date = useSelector(selectDiaryDate);
+
+  const [currentTime, setCurrentTime] = useState(180);
+
+  const calories = Math.floor((currentTime / 60) * (burnedCalories / time));
+
   const handleAddToDiary = () => {
-    dispatch(addDiaryExerciseThunk({ date, exercise: id, time: time }))
-      .then((response) => {
-        setIsSuccessModalOpen(true);
+    const date = getInputValueFromDate(new Date(), true);
+    if (currentTime === 180) {
+      toast.error("Nothing to add");
+      return;
+    }
+    const time = Math.round((180 - currentTime) / 6) / 10;
+    dispatch(addDiaryExerciseThunk({ date, exercise, time, data }))
+      .then(() => {
+        onClick({ time, calories });
       })
       .catch((error) => {
         console.error("Error adding exercise", error);
       });
-    openModalToggle();
   };
 
   return (
@@ -48,7 +55,12 @@ export const ExersiceModalWindow = ({ data }) => {
           />
         </div>
         <div className={`${css.ExersiceModalWindowTimer} ${css.boxTimer}`}>
-          <Timer burnedCalories={burnedCalories} />
+          <Timer
+            burnedCalories={burnedCalories}
+            currentTime={currentTime}
+            setCurrentTime={setCurrentTime}
+            time={time}
+          />
         </div>
         <div className={`${css.SubcategoriesList} ${css.boxList}`}>
           <ExersiceModalWindowList
@@ -67,18 +79,22 @@ export const ExersiceModalWindow = ({ data }) => {
           >
             Add to diary
           </button>
-          {isOpenModal && (
-            <BasicModalWindow isOpenModalToggle={openModalToggle}>
-              {isSuccessModalOpen && (
-                <SuccessExerciseModalWindow
-                  time={time}
-                  calories={burnedCalories}
-                />
-              )}
-            </BasicModalWindow>
-          )}
         </div>
       </div>
     </div>
   );
+};
+
+ExersiceModalWindow.propTypes = {
+  data: PropTypes.shape({
+    bodyPart: PropTypes.string.isRequired,
+    burnedCalories: PropTypes.number.isRequired,
+    equipment: PropTypes.string.isRequired,
+    gifUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
+    time: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };

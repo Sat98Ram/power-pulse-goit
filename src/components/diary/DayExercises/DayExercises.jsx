@@ -4,6 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import { useDispatch } from "react-redux";
 import { deleteDiaryExerciseThunk } from "../../../redux/diary/operations";
+import { Link } from "react-router-dom";
 
 const DayExercises = ({ doneExercises, date, isMobile }) => {
   const dispatch = useDispatch();
@@ -64,7 +65,9 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <p>Add exercise</p>
+            <Link to="/exercises/bodyparts">
+              <p>Add exercise</p>
+            </Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <table>

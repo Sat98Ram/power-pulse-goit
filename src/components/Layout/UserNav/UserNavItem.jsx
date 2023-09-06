@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
-const UserNavItem = ({ link, label, className, classNameItem }) => {
+const UserNavItem = ({ link, label, className, classNameItem, setIsOpen }) => {
   return (
     <li className={classNameItem}>
-      <NavLink to={link} className={className}>
+      <NavLink to={link} className={className} onClick={() => setIsOpen()}>
         {label}
       </NavLink>
     </li>
@@ -18,4 +18,5 @@ UserNavItem.propTypes = {
   label: PropTypes.string,
   className: PropTypes.func,
   classNameItem: PropTypes.string,
+  setIsOpen: PropTypes.func,
 };

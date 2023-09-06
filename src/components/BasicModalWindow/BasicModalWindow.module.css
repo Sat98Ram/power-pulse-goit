@@ -30,10 +30,13 @@
   fill: white;
   /* stroke: white; */
 }
+.overflow_hidden {
+  overflow: hidden;
+}
 @media screen and (min-width: 768px) {
   .modal {
-    top: 16px;
-    right: 16px;
+    /* top: 16px;
+    right: 16px; */
   }
   .closeSvg {
     width: 26px;

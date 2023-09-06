@@ -46,9 +46,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <td className={styles.tdTarget}>
           {returnExercisesString(obj.exercise.target, isMobile ? 10 : 14)}
         </td>
-        <td className={styles.tdBurnedCalories}>
-          {obj.exercise.burnedCalories}
-        </td>
+        <td className={styles.tdBurnedCalories}>{obj.burnedCalories}</td>
         <td className={styles.tdTime}>{obj.time}</td>
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>

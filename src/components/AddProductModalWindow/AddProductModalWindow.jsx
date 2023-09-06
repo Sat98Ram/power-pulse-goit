@@ -4,20 +4,20 @@ import PropTypes from "prop-types";
 
 import css from "./AddProductModalWindow.module.css";
 import { addDiariesProductThunk } from "../../redux/diary/operations";
-// import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+import { getInputValueFromDate } from "../DatePickerCalendar/utils";
 import { toast } from "react-toastify";
-import { selectDiaryDate } from "../../redux/diary/selectors";
+// import { selectDiaryDate } from "../../redux/diary/selectors";
 
 const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const dispatch = useDispatch();
   const { title, calories, _id: product } = eldata;
   const [quantity, setQuantity] = useState(0);
-  const date = useSelector(selectDiaryDate);
+  // const date = useSelector(selectDiaryDate);
 
   const amount = Math.round((quantity * calories) / 100);
 
   const handleAddToDiary = () => {
-    // const date = getInputValueFromDate(new Date(), true);
+    const date = getInputValueFromDate(new Date(), true);
     if (!amount) {
       toast.error("Must be greater than 0");
       return;

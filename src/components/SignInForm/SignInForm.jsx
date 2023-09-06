@@ -13,7 +13,7 @@ const validationSchema = Yup.object({
     .matches(/^[\w.-]+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, "Enter valid email"),
   password: Yup.string()
     .matches(
-      /^(?=(?:.[a-zA-Z]){6})(?=.\d).*$/,
+      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
       "Should contain 6 symbols and at least 1 number"
     )
     .required("Please enter your password"),

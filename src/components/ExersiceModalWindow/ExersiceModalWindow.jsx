@@ -7,8 +7,8 @@ import css from "./ExersiceModalWindow.module.css";
 import Timer from "../Timer/Timer";
 import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
 import { addDiaryExerciseThunk } from "../../redux/diary/operations";
-// import { getInputValueFromDate } from "../DatePickerCalendar/utils";
-import { selectDiaryDate } from "../../redux/diary/selectors";
+import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+// import { selectDiaryDate } from "../../redux/diary/selectors";
 
 export const ExersiceModalWindow = ({ data, onClick }) => {
   const {
@@ -22,14 +22,14 @@ export const ExersiceModalWindow = ({ data, onClick }) => {
     _id: exercise,
   } = data;
   const dispatch = useDispatch();
-  const date = useSelector(selectDiaryDate);
+  // const date = useSelector(selectDiaryDate);
 
   const [currentTime, setCurrentTime] = useState(180);
 
   const calories = Math.floor((currentTime / 60) * (burnedCalories / time));
 
   const handleAddToDiary = () => {
-    // const date = getInputValueFromDate(new Date(), true);
+    const date = getInputValueFromDate(new Date(), true);
     if (currentTime === 180) {
       toast.error("Nothing to add");
       return;

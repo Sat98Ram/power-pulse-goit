@@ -77,12 +77,6 @@ h3 {
   outline: transparent;
 }
 
-/* .input:hover,
-.input:focus {
-    border: 1px solid #E6533C;
-    transition: 300ms;
-} */
-
 .label:hover .input,
 .label:focus .input {
   border: 1px solid #e6533c;
@@ -291,12 +285,6 @@ h3 {
   .text {
     max-width: 496px;
   }
-
-  /* .label:hover .bastard,
-    .label:focus .bastard {
-        top: -26px;
-        
-    } */
 
     .input:focus+.bastard,
     .input:not(:placeholder-shown)+.bastard {

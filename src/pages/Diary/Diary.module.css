@@ -23,6 +23,7 @@
   .content {
     gap: 64px;
     flex-direction: column;
+    padding-bottom: 64px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -30,5 +31,6 @@
     gap: 32px;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 0;
   }
 }

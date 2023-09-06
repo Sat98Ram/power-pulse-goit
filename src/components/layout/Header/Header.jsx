@@ -1,5 +1,6 @@
-import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import { logoutThunk } from "../../../redux/auth/operations";
@@ -11,7 +12,6 @@ import UserNav from "../UserNav/UserNav";
 import UserBar from "../UserBar/UserBar";
 import Logo from "../Logo/Logo";
 import css from "./Header.module.css";
-import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });

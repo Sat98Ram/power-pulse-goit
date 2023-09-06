@@ -27,7 +27,6 @@ const BurgerMenu = ({ children, isOpen, setIsOpen }) => {
         </button>
       )}
 
-      {/* {isOpen && ( */}
       <div className={`${css.burgerMenu}  ${isOpen && css.transitionOpen}`}>
         <button
           type="button"
@@ -42,7 +41,6 @@ const BurgerMenu = ({ children, isOpen, setIsOpen }) => {
 
         {children}
       </div>
-      {/* )} */}
     </>
   );
 };

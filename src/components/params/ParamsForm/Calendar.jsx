@@ -56,7 +56,7 @@ export const Calendar = ({ onChange, value }) => {
         placeholder="Birthday"
         name="birthday"
         onChange={handleChange}
-        value={value.toISOString().slice(0, 10)}
+        value={value.toLocaleDateString("fr-CA")}
         onClick={(e) => {
           e.preventDefault();
           setShowPopup(true);

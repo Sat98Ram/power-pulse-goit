@@ -6,7 +6,6 @@
     padding-bottom: 20px;
     height: 100vh;
     position: relative;
-    /* background-size: cover; */
     background-repeat: no-repeat;
     background-position: right bottom;
 }
@@ -16,7 +15,6 @@
     flex-direction: column;
     height: 100%;
     position: relative;
-    /* justify-content: space-between; */
 }
 
 .paginationWraper {
@@ -24,7 +22,6 @@
     gap: 14px;
 
     margin-top: auto;
-    /* margin-left: auto; */
 }
 
 .pagination {
@@ -78,29 +75,29 @@
         height: 4px;
     }
 
-        .stepOneBg {
-            background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-2@1x.jpg)
-        }
+    .stepOneBg {
+        background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-2@1x.jpg)
+    }
     
-        .stepTwoBg {
-            background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-3@1x.jpg)
-        }
+    .stepTwoBg {
+        background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-3@1x.jpg)
+    }
     
-        .stepThreeBg {
-            background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-4@1x.jpg)
-        }
+    .stepThreeBg {
+        background-image: url(../../assets/images/tablet/other@1x/side-view-people-training-gym-4@1x.jpg)
+    }
 
-        .videoCount {
-            position: absolute;
-            left: auto;
-            right: 129px;
-            bottom: 182px;
-        }
-        .caloriesCount {
-            position: absolute;
-            right: 0;
-            bottom: 16px;
-        }
+    .videoCount {
+        position: absolute;
+        left: auto;
+        right: 129px;
+        bottom: 182px;
+    }
+    .caloriesCount {
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -116,16 +113,16 @@
         background-image: url(../../assets/images/desktop/other@1x/side-view-people-training-gym-4@1x.jpg)
     }
 
-        .videoCount {
-            position: absolute;
-            left: 674px;
-            right: auto;
-            bottom: 288px;
-        }
+    .videoCount {
+        position: absolute;
+        left: 674px;
+        right: auto;
+        bottom: 288px;
+    }
     
-        .caloriesCount {
-            position: absolute;
-            right: 0;
-            bottom: 139px;
-        }
+    .caloriesCount {
+        position: absolute;
+        right: 0;
+        bottom: 139px;
+    }
 }

@@ -6,12 +6,44 @@
   height: 100vh;
   background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-    url(../../assets//images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
+    url(../../assets/images/mobile/other@1x/side-view-people-training-gym@1x.jpg);
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-size: contain;
+  background-position: right;
   margin: 0 auto;
 }
-
+@media screen and (min-width: 768px) {
+  .welcomeBackground {
+    position: absolute;
+    width: 100vw;
+    /* padding-top: 65px;
+  padding-bottom: 20px; */
+    height: 100vh;
+    background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-position: right bottom;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .welcomeBackground {
+    position: absolute;
+    width: 100vw;
+    /* padding-top: 65px;
+  padding-bottom: 20px; */
+    height: 100vh;
+    background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
+      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+      url(../../assets/images/desktop/other@1x/side-view-people-training-gym@1x.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    margin: 0 auto;
+  }
+}
 .buttonsLine {
   display: flex;
   flex-wrap: nowrap;
@@ -23,6 +55,7 @@
     margin-top: 64px;
   }
 }
+
 .title {
   max-width: 335px;
   font-size: 38px;
@@ -33,7 +66,25 @@
   text-align: left;
   margin-top: 127px;
 }
-
+@media screen and (min-width: 768px) {
+  .title {
+    max-width: 598px;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: calc(78 / 70);
+    letter-spacing: 0.38px;
+    background: transparent;
+    text-align: left;
+    margin-top: 127px;
+  }
+  .bodyLine::after {
+    position: absolute;
+    top: calc(50% - 65px / 2);
+    left: calc(50% - 185px / 2);
+    content: url(../../assets/images/line.svg);
+    width: 185px;
+  }
+}
 .bodyLine {
   display: inline;
   position: relative;
@@ -44,6 +95,15 @@
   left: calc(50% - 98px / 2);
   content: url(../../assets/images/line.svg);
   width: 98px;
+}
+@media screen and (min-width: 768px) {
+  .bodyLine::after {
+    position: absolute;
+    top: calc(50% - 65px / 2);
+    left: calc(50% - 185px / 2);
+    content: url(../../assets/images/line.svg);
+    width: 185px;
+  }
 }
 .signUpBtn {
   display: flex;

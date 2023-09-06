@@ -20,11 +20,10 @@ const Diary = () => {
   const diary = useSelector(selectDiary);
   const user = useSelector(selectUser);
   const [date, setDate] = useState(() => new Date());
-  const dateFormat = getInputValueFromDate(date, 1);
 
   useEffect(() => {
-    dispatch(getDiariesByDateThunk(dateFormat));
-  }, [dateFormat]);
+    dispatch(getDiariesByDateThunk(getInputValueFromDate(date, 1)));
+  }, [date, dispatch]);
 
   const { bodyData, createdAt } = user;
   const { blood } = bodyData;

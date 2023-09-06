@@ -3,8 +3,6 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
-    overflow-y: scroll;
-    max-height: 700px;
     max-width: 100%;
   }
 }
@@ -21,19 +19,18 @@
     max-width: 860px;
     max-height: 470px;
   }
+}
+.products_list::-webkit-scrollbar {
+  width: 8px; /* ширина всей полосы прокрутки */
+}
 
-  .products_list::-webkit-scrollbar {
-    width: 8px; /* ширина всей полосы прокрутки */
-  }
+.products_list::-webkit-scrollbar-track {
+  background: rgba(239, 237, 232, 0.1); /* цвет зоны отслеживания */
+  border-radius: 12px;
+}
 
-  .products_list::-webkit-scrollbar-track {
-    background: rgba(239, 237, 232, 0.1); /* цвет зоны отслеживания */
-    border-radius: 12px;
-  }
-
-  .products_list::-webkit-scrollbar-thumb {
-    background-color: #ef8964; /* цвет бегунка */
-    border-radius: 12px; /* округлось бегунка */
-    /* border: 3px solid orange; отступ вокруг бегунка */
-  }
+.products_list::-webkit-scrollbar-thumb {
+  background-color: #ef8964; /* цвет бегунка */
+  border-radius: 12px; /* округлось бегунка */
+  /* border: 3px solid orange; отступ вокруг бегунка */
 }

@@ -75,9 +75,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
         <div className={styles.DayProducts}>
           <div className={styles.DayProductsHead}>
             <h2>Products</h2>
-            <Link to="/products">
-              <p> Add product</p>
-            </Link>
+            <Link to="/products">Add product</Link>
           </div>
           <div className={styles.DayProductsTable}>
             <table>
@@ -98,7 +96,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
         <div className={styles.DayProducts}>
           <div className={styles.DayProductsHead}>
             <h2>Products</h2>
-            <p>Add product</p>
+            <Link to="/products">Add product</Link>
           </div>
           <div className={styles.DayProductsTable}>
             <p className={styles.not_found}>Not found products</p>

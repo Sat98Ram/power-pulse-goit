@@ -1,12 +1,9 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 import symbolDefs from "../../../assets/images/symbol-defs.svg";
 import css from "./BurgerMenu.module.css";
 
-const BurgerMenu = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const BurgerMenu = ({ children, isOpen, setIsOpen }) => {
   const handleIsOpen = () => {
     setIsOpen(true);
   };
@@ -30,22 +27,22 @@ const BurgerMenu = ({ children }) => {
         </button>
       )}
 
-      {isOpen && (
-        <div className={css.burgerMenu}>
-          <button
-            type="button"
-            className={css.menuCloseBtn}
-            onClick={() => handleClosed()}
-            aria-label="close menu"
-          >
-            <svg className={css.closeMenuIcon}>
-              <use href={symbolDefs + "#close-icon"}></use>
-            </svg>
-          </button>
+      {/* {isOpen && ( */}
+      <div className={`${css.burgerMenu}  ${isOpen && css.transitionOpen}`}>
+        <button
+          type="button"
+          className={css.menuCloseBtn}
+          onClick={() => handleClosed()}
+          aria-label="close menu"
+        >
+          <svg className={css.closeMenuIcon}>
+            <use href={symbolDefs + "#close-icon"}></use>
+          </svg>
+        </button>
 
-          {children}
-        </div>
-      )}
+        {children}
+      </div>
+      {/* )} */}
     </>
   );
 };
@@ -54,4 +51,6 @@ export default BurgerMenu;
 
 BurgerMenu.propTypes = {
   children: PropTypes.node,
+  isOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func,
 };

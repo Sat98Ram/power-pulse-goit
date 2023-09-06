@@ -73,13 +73,23 @@ export const getDiariesByDate = async (currentDate) => {
 };
 
 export const productAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/product/add", body);
-  return data;
+  const { date, product, amount, eldata } = body;
+  const { data } = await privateAPI.post("api/diaries/product/add", {
+    date,
+    product,
+    amount,
+  });
+  return { ...data, newProduct: eldata };
 };
 
 export const exerciseAddDiary = async (body) => {
-  const { data } = await privateAPI.post("api/diaries/exercise/add", body);
-  return data;
+  const { date, exercise, time } = body;
+  const { data } = await privateAPI.post("api/diaries/exercise/add", {
+    date,
+    exercise,
+    time,
+  });
+  return { ...data, newExercise: body.data };
 };
 
 export const updateBody = async ({
@@ -115,23 +125,23 @@ export const changeAvatar = async (body) => {
 };
 
 export const deletedDiaryProduct = async (params) => {
-  const { status } = await privateAPI.delete(
+  const { status, data } = await privateAPI.delete(
     `api/diaries/product/${params.productId}`,
     { data: params }
   );
   if (status === 200) {
-    return { productId: params.productId };
+    return { productId: params.productId, data };
   }
   return {};
 };
 
 export const deletedDiaryExercise = async (params) => {
-  const { status } = await privateAPI.delete(
+  const { status, data } = await privateAPI.delete(
     `api/diaries/exercise/${params.exerciseId}`,
     { data: params }
   );
   if (status === 200) {
-    return { exerciseId: params.exerciseId };
+    return { exerciseId: params.exerciseId, data };
   }
   return {};
 };

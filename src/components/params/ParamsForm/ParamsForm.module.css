@@ -30,6 +30,10 @@ h3 {
   color: #efede8;
 }
 
+.calendar {
+  position: absolute;
+}
+
 
 
 /* ===================StepOne====================== */

@@ -8,7 +8,7 @@ const navMenu = [
   { link: "/exercises", label: "Exercises", id: 3 },
 ];
 
-const UserNav = ({ className, classNameLink, classNameItem }) => {
+const UserNav = ({ className, classNameLink, classNameItem, setIsOpen }) => {
   return (
     <>
       <nav>
@@ -20,6 +20,7 @@ const UserNav = ({ className, classNameLink, classNameItem }) => {
               key={item.id}
               className={classNameLink}
               classNameItem={classNameItem}
+              setIsOpen={setIsOpen}
             />
           ))}
         </ul>
@@ -35,4 +36,5 @@ UserNav.propTypes = {
   className: PropTypes.string,
   classNameLink: PropTypes.func,
   classNameItem: PropTypes.string,
+  setIsOpen: PropTypes.func,
 };

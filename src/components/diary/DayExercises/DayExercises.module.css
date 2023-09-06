@@ -7,7 +7,6 @@
   margin-bottom: 32px;
 
   position: relative;
-  /* height: 235px; */
   min-height: 335px;
   max-width: 824px;
   overflow: hidden;
@@ -56,47 +55,10 @@ span p {
 
 /* ------------------------------------- */
 /* TABLE */
-.DayExercises table {
-  position: relative;
-  gap: 8px;
-  border-spacing: 8px;
-  border: none;
-}
-
-.DayExercises thead {
-  display: block;
-  height: 18px;
-}
-.DayExercises tbody {
-  display: block;
-  /* height: 146px; */
-  margin-top: 8px;
-  max-height: 740px;
-  overflow-y: auto;
-  padding: 0px;
-}
-.DayExercises thead,
-.DayExercises tbody {
-  padding-right: 18px;
-}
-.DayExercises tbody tr {
-  height: 38px;
-}
-
-.DayExercises th {
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0px;
-
-  text-align: left;
-  color: #ef8964;
-}
 
 .DayExercises .tdDellete {
   border: none;
-  padding: 0px;
+  padding-left: 10px;
 }
 .DayExercises .tdDellete button {
   display: block;
@@ -109,43 +71,137 @@ span p {
   height: 20px;
 }
 
+
+.DayExercises table {
+  display: block;
+  margin: 0px;
+  position: relative;
+  padding-left: 24px;
+  padding-right: 8px;
+  border-spacing: 8px;
+  border: none;
+}
+
+.DayExercises thead {
+  display: block;
+  height: 18px;
+}
+.DayExercises tbody {
+  display: block;
+
+  margin-top: 8px;
+  max-height: 740px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px;
+}
+.DayExercises thead,
+.DayExercises tbody {
+  padding-right: 18px;
+}
+.DayExercises tbody tr {
+  height: 38px;
+}
+
+.DayExercises th {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  color: #ef8964;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
 .DayExercises td {
   border-radius: 12px;
   border: 1px solid #efede84d;
   padding-left: 14px;
-
-  font-family: Roboto;
+  padding-right: 14px;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
   text-align: left;
+}
+.DayExercises td div{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tdBodyPart,
 .thBodyPart {
-  width: 115px;
+  max-width: 115px;
+  min-width: 115px;
 }
 .tdEquipment,
 .thEquipment {
-  width: 157px;
+  max-width: 157px;
+  min-width: 157px;
 }
 .tdName,
 .thName {
-  width: 131px;
+  max-width: 131px;
+  min-width: 131px;
 }
 .tdTarget,
 .thTarget {
-  width: 100px;
+  max-width: 106px;
+  min-width: 106px;
 }
 .tdBurnedCalories,
 .thBurnedCalories {
-  width: 98px;
+  max-width: 91px;
+  min-width: 91px;
 }
 .tdTime,
 .thTime {
-  width: 82px;
+  max-width: 82px;
+  min-width: 82px;
 }
+
+@media screen and (max-width: 1439px){
+
+  .DayExercises table {
+    padding-left: 8px;
+  }
+  .DayExercises .tdDellete {
+    padding-left: 2px;
+  }
+
+  .tdBodyPart,
+  .thBodyPart {
+    max-width: 90px;
+    min-width: 90px;
+  }
+  .tdEquipment,
+  .thEquipment {
+    max-width: 132px;
+    min-width: 132px;
+  }
+  .tdName,
+  .thName {
+    max-width: 128px;
+    min-width: 128px;
+  }
+  .tdTarget,
+  .thTarget {
+    max-width: 84px;
+    min-width: 84px;
+  }
+  .tdBurnedCalories,
+  .thBurnedCalories {
+    max-width: 78px;
+    min-width: 78px;
+  }
+  .tdTime,
+  .thTime {
+    max-width: 72px;
+    min-width: 72px;
+  }
+
+}
+
 
 /* ---------------------------------- */
 
@@ -174,26 +230,18 @@ span p {
 
 @media screen and (max-width: 768px) {
   .DayExercises {
-    /* min-height: 0;
-    height: 234px; */
-
-    /* min-height: 335px; */
-    /* max-height: 1064px; */
-
     padding-left: 16px;
     padding-right: 8px;
   }
   .DayExercisesHead {
-    margin: 0px 8px 0px 0px;
-  }
-  .DayExercisesTable {
-    /* padding-bottom: 16px; */
+    margin-bottom: 8px;
   }
 
-  .tdDellete {
-    padding-left: 0px;
+
+  .DayExercises .tdDellete {
+    padding: 0px;
   }
-  .tdDellete svg {
+  .DayExercises .tdDellete svg {
     display: block;
     width: 20px;
     height: 20px;
@@ -204,11 +252,8 @@ span p {
   }
   .DayExercises tbody {
     padding-right: 0px;
-
     margin-top: 22px;
-
     width: 309px;
-    /* height: 986px; */
   }
   .DayExercises thead {
     display: none;
@@ -231,107 +276,77 @@ span p {
   }
 
   .DayExercises td:nth-of-type(1) {
-    width: 297px;
+    max-width: 297px;
+    min-width: 297px;
   }
   .DayExercises td:nth-of-type(1)::before {
     content: "Body Part";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayExercises td:nth-of-type(2) {
-    width: 297px;
+    max-width: 297px;
+    min-width: 297px;
   }
   .DayExercises td:nth-of-type(2)::before {
     content: "Equipment";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayExercises td:nth-of-type(3) {
-    width: 297px;
+    max-width: 297px;
+    min-width: 297px;
   }
   .DayExercises td:nth-of-type(3)::before {
     content: "Name";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayExercises td:nth-of-type(4) {
-    width: 81px;
+    max-width: 81px;
+    min-width: 81px;
     margin-right: 16px;
   }
   .DayExercises td:nth-of-type(4)::before {
     content: "Target";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayExercises td:nth-of-type(5) {
-    width: 80px;
+    max-width: 80px;
+    min-width: 80px;
     margin-right: 16px;
   }
   .DayExercises td:nth-of-type(5)::before {
     content: "Burned Cal...";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 
   .DayExercises td:nth-of-type(6) {
-    width: 76px;
+    max-width: 76px;
+    min-width: 76px;
     margin-right: 8px;
   }
   .DayExercises td:nth-of-type(6)::before {
     content: "Time";
     position: absolute;
     top: -24px;
-
-    font-family: Roboto;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
     color: #ef8964;
   }
 }

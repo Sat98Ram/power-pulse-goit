@@ -34,22 +34,14 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
     const num = nanoid();
     return (
       <tr key={num}>
-        <td className={styles.tdBodyPart}>
-          {returnExercisesString(obj.exercise.bodyPart, isMobile ? 34 : 10)}
-        </td>
-        <td className={styles.tdEquipment}>
-          {returnExercisesString(obj.exercise.equipment, isMobile ? 34 : 15)}
-        </td>
-        <td className={styles.tdName}>
-          {returnExercisesString(obj.exercise.name, isMobile ? 40 : 12)}
-        </td>
-        <td className={styles.tdTarget}>
-          {returnExercisesString(obj.exercise.target, isMobile ? 10 : 14)}
-        </td>
-        <td className={styles.tdBurnedCalories}>
-          {obj.exercise.burnedCalories}
-        </td>
-        <td className={styles.tdTime}>{obj.time}</td>
+
+        <td className={styles.tdBodyPart}><div>{obj.exercise.bodyPart}</div></td>
+        <td className={styles.tdEquipment}><div>{obj.exercise.equipment}</div></td>
+        <td className={styles.tdName}>{obj.exercise.name}</td>
+        <td className={styles.tdTarget}><div>{obj.exercise.target}</div></td>
+        <td className={styles.tdBurnedCalories}><div>{obj.exercise.burnedCalories}</div></td>
+        <td className={styles.tdTime}><div>{obj.exercise.time}</div></td>
+
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>
             <svg>

@@ -23,7 +23,7 @@ const DayExercises = ({ doneExercises, date }) => {
     return (
       <Link to="/products">
         <p className={styles.btnAddExersisec}>
-          Add product
+          Add exercise
           <svg className={styles.arrowIcon}>
             <use href={symbolDefs + "#arrow-icon"}></use>
           </svg>

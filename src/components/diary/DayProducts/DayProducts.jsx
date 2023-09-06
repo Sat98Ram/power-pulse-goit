@@ -45,10 +45,10 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
           <div>{obj.product.category}</div>
         </td>
         <td className={styles.tdCalories}>
-          <div>{obj.product.calories}</div>
+          <div>{obj.calories}</div>
         </td>
         <td className={styles.tdWeight}>
-          <div>{obj.product.weight}</div>
+          <div>{obj.amount}</div>
         </td>
         <td className={styles.tdRecommend}>
           {recomendProduct(obj.product.groupBloodNotAllowed) ? (

@@ -34,7 +34,7 @@ const DayExercises = ({ doneExercises, date }) => {
           <div>{obj.exercise.target}</div>
         </td>
         <td className={styles.tdBurnedCalories}>
-          <div>{obj.exercise.burnedCalories}</div>
+          <div>{obj.burnedCalories}</div>
         </td>
         <td className={styles.tdTime}>
           <div>{obj.exercise.time}</div>

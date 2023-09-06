@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const UserNavItem = ({ link, label, className, classNameItem, setIsOpen }) => {
   return (
     <li className={classNameItem}>
-      <NavLink to={link} className={className} onClick={() => setIsOpen()}>
+      <NavLink to={link} className={className} onClick={() => setIsOpen(false)}>
         {label}
       </NavLink>
     </li>

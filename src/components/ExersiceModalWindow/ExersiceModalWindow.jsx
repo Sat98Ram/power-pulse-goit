@@ -8,6 +8,7 @@ import Timer from "../Timer/Timer";
 import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWindowList";
 import { addDiaryExerciseThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+
 // import { selectDiaryDate } from "../../redux/diary/selectors";
 
 export const ExersiceModalWindow = ({ data, onClick }) => {

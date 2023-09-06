@@ -12,12 +12,13 @@
     gap: 16px;
     flex-wrap: wrap;
     flex-direction: row;
+    max-height: 660px;
   }
 }
 @media screen and (min-width: 1440px) {
   .products_list {
     max-width: 860px;
-    max-height: 470px;
+    max-height: 487px;
   }
 }
 .products_list::-webkit-scrollbar {

@@ -7,6 +7,13 @@ import symbolDefs from "../../assets/images/symbol-defs.svg";
 
 const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   useEffect(() => {
+    document.body.classList.add(`${css.overflow_hidden}`);
+    return () => {
+      document.body.classList.remove(`${css.overflow_hidden}`);
+    };
+  }, []);
+
+  useEffect(() => {
     const closeESC = (e) => {
       if (e.code === "Escape") {
         isOpenModalToggle();

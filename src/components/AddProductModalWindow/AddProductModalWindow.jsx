@@ -22,7 +22,9 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
       toast.error("Must be greater than 0");
       return;
     }
-    dispatch(addDiariesProductThunk({ date, product, amount, eldata }))
+    dispatch(
+      addDiariesProductThunk({ date, product, amount: quantity, eldata })
+    )
       .then(() => {
         onClick(amount);
       })

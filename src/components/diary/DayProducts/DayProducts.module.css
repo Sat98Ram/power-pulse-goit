@@ -150,6 +150,16 @@ span p {
   width: 14px;
   height: 14px;
 }
+.btnAddProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+}
 
 @media screen and (max-width: 1439px) {
   .DayProducts table {

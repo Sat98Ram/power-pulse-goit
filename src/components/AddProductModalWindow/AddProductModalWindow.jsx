@@ -1,35 +1,34 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 import css from "./AddProductModalWindow.module.css";
 import { addDiariesProductThunk } from "../../redux/diary/operations";
-import { getInputValueFromDate } from "../DatePickerCalendar/utils";
-import { AddProductSuccess } from "../products/AddProductSuccess/AddProductSuccess";
-import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
+// import { getInputValueFromDate } from "../DatePickerCalendar/utils";
+import { toast } from "react-toastify";
+import { selectDiaryDate } from "../../redux/diary/selectors";
 
-const AddProductForm = ({ eldata }) => {
+const AddProductForm = ({ eldata, onClick, closeModal }) => {
   const dispatch = useDispatch();
-  const { title, calories, _id: id } = eldata;
-  const [quantity, setQuantity] = useState("");
-  const calculatedCalories = (quantity * calories) / 100;
-  const date = getInputValueFromDate(new Date(), true);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const openModalToggle = () => {
-    setIsOpenModal((prev) => !prev);
-  };
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const { title, calories, _id: product } = eldata;
+  const [quantity, setQuantity] = useState(0);
+  const date = useSelector(selectDiaryDate);
+
+  const amount = Math.round((quantity * calories) / 100);
+
   const handleAddToDiary = () => {
-    dispatch(
-      addDiariesProductThunk({ date, product: id, amount: calculatedCalories })
-    )
+    // const date = getInputValueFromDate(new Date(), true);
+    if (!amount) {
+      toast.error("Must be greater than 0");
+      return;
+    }
+    dispatch(addDiariesProductThunk({ date, product, amount, eldata }))
       .then(() => {
-        setIsSuccessModalOpen(true);
+        onClick(amount);
       })
       .catch((error) => {
-        console.error("Error adding product", error);
+        toast(error.message);
       });
-    openModalToggle();
   };
 
   return (
@@ -58,7 +57,7 @@ const AddProductForm = ({ eldata }) => {
         <p>
           <span className={css.calories}>
             <span className={css.titleCalories}>Calories:</span>
-            {calculatedCalories}
+            {amount}
           </span>
         </p>
         <br />
@@ -70,25 +69,17 @@ const AddProductForm = ({ eldata }) => {
           >
             Add to diary
           </button>
-          <button
-            className={css.btnCancel}
-            type="button"
-            onClick={openModalToggle}
-          >
+          <button className={css.btnCancel} type="button" onClick={closeModal}>
             Cancel
           </button>
         </div>
-        {isOpenModal && (
-          <BasicModalWindow isOpenModalToggle={openModalToggle}>
-            {isSuccessModalOpen && <AddProductSuccess calories={calories} />}
-          </BasicModalWindow>
-        )}
       </form>
     </div>
   );
 };
 AddProductForm.propTypes = {
-  eldata: PropTypes.object,
-  openModalToggle: PropTypes.func,
+  eldata: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 export default AddProductForm;

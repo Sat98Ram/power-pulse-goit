@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const DayExercises = ({ doneExercises, date, isMobile }) => {
   const dispatch = useDispatch();
+  dispatch;
 
   const returnExercisesString = (string_length = "", number = 16) => {
     if (string_length.length > number) {
@@ -48,7 +49,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <td className={styles.tdBurnedCalories}>
           {obj.exercise.burnedCalories}
         </td>
-        <td className={styles.tdTime}>{obj.exercise.time}</td>
+        <td className={styles.tdTime}>{obj.time}</td>
         <td className={styles.tdDellete}>
           <button onClick={() => handleDelete(obj._id)}>
             <svg>
@@ -65,9 +66,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <Link to="/exercises/bodyparts">
-              <p>Add exercise</p>
-            </Link>
+            <Link to="/exercises/bodyparts">Add exercise</Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <table>
@@ -89,7 +88,7 @@ const DayExercises = ({ doneExercises, date, isMobile }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <p>Add exercise</p>
+            <Link to="/exercises/bodyparts">Add exercise</Link>
           </div>
           <div className={styles.DayExercisesTable}>
             <p className={styles.not_found}>Not found exercises</p>

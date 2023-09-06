@@ -10,17 +10,6 @@ const DayExercises = ({ doneExercises, date }) => {
   const dispatch = useDispatch();
   dispatch;
 
-  // const returnExercisesString = (string_length = "", number = 16) => {
-  //   if (string_length.length > number) {
-  //     let newString = "";
-  //     for (let index = 0; index < number - 3; index++) {
-  //       newString = newString + string_length[index];
-  //     }
-  //     return (newString = newString + "...");
-  //   }
-  //   return string_length;
-  // };
-
   const handleDelete = (id) => {
     dispatch(
       deleteDiaryExerciseThunk({

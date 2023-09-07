@@ -18,7 +18,7 @@
   .products_SearchNotResult_orangeText {
     color: var(--orange, #e6533c);
     font-size: 14px;
-    line-height: 18px; /* 150% */
+    line-height: 18px;
     display: inline-block;
   }
 }

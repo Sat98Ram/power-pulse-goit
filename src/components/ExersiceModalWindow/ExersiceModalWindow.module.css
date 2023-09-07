@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 14px; */
 }
 
 .ExersiceModalWindowImg {
@@ -73,11 +72,9 @@
 
 @media screen and (min-width: 768px) {
   .ExersiceModalWindow {
-    /* width: 768px; */
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    /* margin-bottom: 14px; */
   }
 
   .ExersiceModalWindowWrap {

@@ -18,7 +18,6 @@ const LeftSvg = ({ opacity = "1" }) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M10.5428 0.542847L11.957 1.95706L6.16414 7.74995L11.957 13.5428L10.5428 14.9571L3.33571 7.74995L10.5428 0.542847Z"
-        // fill="#EFEDE8"
         fillOpacity={opacity}
       />
     </svg>

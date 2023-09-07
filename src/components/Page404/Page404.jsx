@@ -18,11 +18,6 @@ const Page404 = () => {
   return (
     <section className={css.section}>
       <div className={css.left}>
-        {/* <button className={css.btnLogo}>
-          <Link to="/">
-            <p>PowerPulse</p>
-          </Link>
-        </button> */}
         <div className={css.content}>
           <h3 className={css.title404}>404</h3>
           <p className={css.text404}>

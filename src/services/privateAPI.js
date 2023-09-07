@@ -2,7 +2,6 @@ import axios from "axios";
 
 const privateAPI = axios.create({
   baseURL: "https://powerpulse-y0gd.onrender.com/",
-  // baseURL: "http://localhost:3000/",
 });
 
 export const token = {
@@ -62,7 +61,6 @@ export const getProductsCategories = async () => {
 };
 
 export const getProductsList = async () => {
-  // const { data } = await privateAPI.get("api/products/admissible");
   const { data } = await privateAPI.get("api/products/admissible?limit=3000");
   return data;
 };

@@ -1,8 +1,6 @@
 .welcomeBackground {
   position: absolute;
   width: 100vw;
-  /* padding-top: 65px;
-  padding-bottom: 20px; */
   height: 100vh;
   background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
@@ -16,14 +14,11 @@
   .welcomeBackground {
     position: absolute;
     width: 100vw;
-    /* padding-top: 65px;
-  padding-bottom: 20px; */
     height: 100vh;
     background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
       url(../../assets/images/tablet/other@1x/side-view-people-training-gym@1x.jpg);
     background-repeat: no-repeat;
-    /* background-size: contain; */
     background-position: right bottom;
     margin: 0 auto;
   }
@@ -32,8 +27,6 @@
   .welcomeBackground {
     position: absolute;
     width: 100vw;
-    /* padding-top: 65px;
-  padding-bottom: 20px; */
     height: 100vh;
     background: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0) 19.15%),
       linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),

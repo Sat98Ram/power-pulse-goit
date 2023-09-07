@@ -36,7 +36,6 @@ export const ProductsList = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const bloodType = useSelector(selectBloodType);
-  // const isLoading = useSelector(selectIsLoadingProduct);
   const [modalData, setModalData] = useState(null);
 
   const productsList = useSelector(selectProductsList).map((el) => ({

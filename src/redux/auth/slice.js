@@ -104,7 +104,7 @@ function pending(state) {
 }
 function pendingRefresh(state) {
   state.isLoading = true;
-  state.token && token.set(state.token);
+  state.token && token.check(state.token);
 }
 
 function updateBodyFulfilled(state, { payload }) {

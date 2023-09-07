@@ -14,12 +14,11 @@ export const Layout = () => {
 
   return (
     <>
+      <Header />
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <Header />
-
           <Outlet />
           {!isAuth && (
             <div className={css.statLine}>

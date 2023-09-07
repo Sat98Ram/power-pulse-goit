@@ -1,0 +1,1 @@
+import{P as s,j as e}from"./index-892ada1e.js";const o="_signBtn_14u6k_1",c={signBtn:o},p=({className:n="",text:t,type:i,onClick:r})=>e.jsx("button",{className:`${c.signBtn} ${n}`,type:i,onClick:r,children:t});p.propTypes={text:s.string.isRequired,type:s.string,className:s.string,onClick:s.func};export{p as S};

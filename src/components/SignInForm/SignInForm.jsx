@@ -28,8 +28,8 @@ export const SignInForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "billystyle@mail.com",
-      password: "qwerty1",
+      email: "",
+      password: "",
     },
     validationSchema,
     onSubmit,

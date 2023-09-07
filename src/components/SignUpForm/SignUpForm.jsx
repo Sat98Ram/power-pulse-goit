@@ -9,6 +9,7 @@ import symbolDefs from "../../assets/images/symbol-defs.svg";
 const validationSchema = Yup.object({
   name: Yup.string().required("Please enter your name"),
   email: Yup.string()
+
     .required("Please enter your email")
     .matches(/^[\w.-]+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, "Enter valid email"),
   password: Yup.string()

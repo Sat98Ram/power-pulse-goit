@@ -1,4 +1,5 @@
 .signUpBtn {
+  border: none;
   display: flex;
   padding: 12px 40px;
   justify-content: center;

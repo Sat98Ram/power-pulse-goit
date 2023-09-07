@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate, useSearchParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 import { token as tokenAPI } from "../../services/privateAPI";
 import { refreshThunk } from "../../redux/auth/operations";
 
 export const GoogleAuth = () => {
-  const [params] = useSearchParams();
-  const token = params.get("token");
+  // const [params] = useSearchParams();
+  // const token = params.get("token");
+  const { token } = useParams();
+
   const dispatch = useDispatch();
+  console.log("token", token);
 
   if (token) {
     tokenAPI.set(token);

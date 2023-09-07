@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import SignInForm from "../../components/SignInForm/SignInForm";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 import css from "./SignIn.module.css";
 import Container from "../../components/Container/Container";
 
@@ -16,7 +16,7 @@ export const SignIn = () => {
             </p>
             <SignInForm />
 
-            <GoogleLogin
+            {/* <GoogleLogin
               auto_select="true"
               onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);
@@ -24,7 +24,7 @@ export const SignIn = () => {
               onError={() => {
                 console.log("Login Failed");
               }}
-            />
+            /> */}
             <p className={css.noaccount}>
               Don't have an account?
               <NavLink to="/signup"> Sign Up</NavLink>

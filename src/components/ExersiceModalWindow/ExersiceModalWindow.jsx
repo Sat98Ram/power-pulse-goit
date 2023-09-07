@@ -9,8 +9,6 @@ import ExersiceModalWindowList from "./ExersiceModalWindowList/ExersiceModalWind
 import { addDiaryExerciseThunk } from "../../redux/diary/operations";
 import { getInputValueFromDate } from "../DatePickerCalendar/utils";
 
-// import { selectDiaryDate } from "../../redux/diary/selectors";
-
 export const ExersiceModalWindow = ({ data, onClick }) => {
   const {
     bodyPart,
@@ -23,7 +21,6 @@ export const ExersiceModalWindow = ({ data, onClick }) => {
     _id: exercise,
   } = data;
   const dispatch = useDispatch();
-  // const date = useSelector(selectDiaryDate);
 
   const [currentTime, setCurrentTime] = useState(180);
 
@@ -41,7 +38,7 @@ export const ExersiceModalWindow = ({ data, onClick }) => {
         onClick({ time, calories });
       })
       .catch((error) => {
-        console.error("Error adding exercise", error);
+        toast.error("Error adding exercise", error);
       });
   };
 

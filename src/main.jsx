@@ -1,4 +1,3 @@
-// import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -11,7 +10,7 @@ import { store, persistor } from "@/redux/store";
 import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
+
 
   <Provider store={store}>
     <PersistGate persistor={persistor}>
@@ -22,5 +21,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </PersistGate>
   </Provider>
 
-  // </React.StrictMode>
 );

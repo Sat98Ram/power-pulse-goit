@@ -78,7 +78,6 @@ export const ProductsFilter = () => {
     menuList: (base) => ({
       ...base,
       borderRadius: "12px", // Бордер при скроле
-      // height: "276px",
 
       "::-webkit-scrollbar": {
         display: "none",

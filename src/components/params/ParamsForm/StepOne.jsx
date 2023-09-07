@@ -73,20 +73,10 @@ const StepOne = ({ formik, nextStep }) => {
           </label>
           <label className={css.label}>
             <Calendar
-              // max={}
               onBlur={formik.handleBlur}
               onChange={(value) => formik.setFieldValue("birthday", value)}
               value={formik.values.birthday}
             />
-            {/* {formik.touched.birthday && formik.errors.birthday ? (
-              <p className={`${css.error} ${css.bastard}`}>
-                {formik.errors.birthday}
-              </p>
-            ) : (
-              <p className={`${css.labelText} ${css.bastard}`}>
-                Desired Weight
-              </p>
-            )} */}
           </label>
         </div>
         <button

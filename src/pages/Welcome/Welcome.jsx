@@ -30,8 +30,6 @@ const Welcome = () => {
             Signin with Google
           </a>
         </div>
-        {/* <VideoCount />
-      <CaloriesCount /> */}
       </Container>
     </section>
   );

@@ -23,7 +23,7 @@ const DayProducts = ({ consumedProducts, blood, date }) => {
 
   const addProductBtn = () => {
     return (
-      <Link to="/products">
+      <Link to="/products" className={styles.linkProducts}>
         <p className={styles.btnAddProduct}>
           Add product
           <svg className={styles.arrowIcon}>

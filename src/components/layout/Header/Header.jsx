@@ -1,5 +1,6 @@
-import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import { logoutThunk } from "../../../redux/auth/operations";
@@ -29,7 +30,11 @@ const Header = () => {
     showModalLogOut();
   };
 
-  const headerClass = !isAuth ? css.headerNotAuth : css.headerAuth;
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const headerClass =
+    !isAuth || currentPath === "/params" ? css.headerNotAuth : css.headerAuth;
 
   return (
     <>
@@ -38,7 +43,7 @@ const Header = () => {
           <div className={css.headerContent}>
             <Logo className={css.headerLogoIcon} />
 
-            {isAuth && (
+            {isAuth && currentPath !== "/params" && (
               <div className={css.authUser}>
                 {isDesktop && (
                   <UserNav

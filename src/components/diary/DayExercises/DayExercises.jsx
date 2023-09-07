@@ -21,7 +21,9 @@ const DayExercises = ({ doneExercises, date }) => {
 
   const addExersicesBtn = () => {
     return (
-      <Link to="/exercises">
+
+      <Link to="/exercises" className={styles.linkExercises}>
+
         <p className={styles.btnAddExersisec}>
           Add exercise
           <svg className={styles.arrowIcon}>
@@ -42,7 +44,9 @@ const DayExercises = ({ doneExercises, date }) => {
         <td className={styles.tdEquipment}>
           <div>{obj.exercise.equipment}</div>
         </td>
-        <td className={styles.tdName}>{obj.exercise.name}</td>
+        <td className={styles.tdName}>
+          <div>{obj.exercise.name}</div>
+        </td>
         <td className={styles.tdTarget}>
           <div>{obj.exercise.target}</div>
         </td>
@@ -50,7 +54,7 @@ const DayExercises = ({ doneExercises, date }) => {
           <div>{obj.burnedCalories}</div>
         </td>
         <td className={styles.tdTime}>
-          <div>{obj.exercise.time}</div>
+          <div>{obj.time}</div>
         </td>
 
         <td className={styles.tdDellete}>

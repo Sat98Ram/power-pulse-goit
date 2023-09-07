@@ -69,7 +69,6 @@ const Params = () => {
 
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
-    console.log("formik.values", formik.values);
   };
 
   return (

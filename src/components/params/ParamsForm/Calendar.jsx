@@ -17,7 +17,13 @@ export const Calendar = ({ onChange, value }) => {
 
   const handleChange = (e) => {
     if (e.target) {
-      onChange(new Date(e.target.value));
+      const eventDate = new Date(e.target.value.slice(-10));
+
+      if (eventDate.toString() !== "Invalid Date") {
+        onChange(eventDate);
+      } else {
+        onChange(date);
+      }
     } else {
       onChange(e);
       setShowPopup(false);
@@ -56,7 +62,7 @@ export const Calendar = ({ onChange, value }) => {
         placeholder="Birthday"
         name="birthday"
         onChange={handleChange}
-        value={value.toISOString().slice(0, 10)}
+        value={value.toLocaleDateString("fr-CA").padStart(10, "0").slice(-10)}
         onClick={(e) => {
           e.preventDefault();
           setShowPopup(true);

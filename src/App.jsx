@@ -17,7 +17,7 @@ import { refreshThunk } from "./redux/auth/operations";
 import { ExercisesList } from "./components/exercises/ExercisesList/ExercisesList";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-// import { GoogleAuthBtn } from "./components/GoogleAuth/GoogleAuthBtn";
+import GoogleAuth from "./components/GoogleAuth/GoogleAuth";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
             <Route path="welcome" element={<Welcome />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<SignIn />} />
-            {/* <Route path="signgoogle" element={<GoogleAuthBtn />} /> */}
+            <Route path="signgoogle" element={<GoogleAuth />} />
           </Route>
 
           <Route path="/" element={<PrivateRoute />}>

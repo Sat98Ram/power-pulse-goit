@@ -5,9 +5,9 @@
     background-repeat: no-repeat;
     background-position: right;
     padding-top: 68px;
-    padding-bottom: 81px;
+    /* padding-bottom: 81px; */
     position: relative;
-    min-height: 716px;
+    min-height: 681px;
   }
 }
 

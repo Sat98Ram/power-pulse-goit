@@ -331,3 +331,13 @@ span p {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+.linkProducts {
+  transition: color var(--transition-duration) var(--transition-cubic);
+}
+
+.linkProducts:hover,
+.linkProducts:focus {
+  color: var(--white);
+}

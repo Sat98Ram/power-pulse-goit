@@ -27,13 +27,6 @@ const validationSchema = Yup.object({
     .required("Enter your desired weight")
     .min(35, "Min. desired weight 35 kg"),
   birthday: Yup.date().required("Enter your birthday"),
-  // .max(
-  //   currentDate
-  //     .setFullYear(currentDate.getFullYear() - 18)
-  //     .toISOString()
-  //     .slice(0, 10),
-  //   "Height must be at least 150 sm"
-  // ),
   blood: Yup.number().required("Please enter your blood"),
   sex: Yup.mixed().oneOf(["male", "female"]).required("Please enter your sex"),
   levelActivity: Yup.number().required("Please enter your level activity"),

@@ -6,8 +6,7 @@
 .DatePicker__input {
   border: none;
   background: inherit;
-  /* border: 1px solid lightgrey; */
-  /* padding: 6px 12px; */
+
   border-radius: 6px;
   color: #efede8;
 
@@ -34,19 +33,15 @@
   left: 0;
 }
 .CalendarPanel {
-  /* border: 1px solid lightgrey; */
   border-radius: 8px;
   background: var(--secondary-accent);
 }
 .CalendarPanel__header {
   height: 47px;
-  /* border: 1px solid lightgrey; */
   border-bottom: none;
-  /* border-radius: 8px 8px 0 0; */
 }
 
 .CalendarPanel__date {
-  /* margin-top: 8px; */
   text-align: center;
 }
 
@@ -57,8 +52,6 @@
   grid-template-columns: repeat(7, 1fr);
   width: 215px;
   height: 215px;
-  /* border: 1px solid lightgrey; */
-  /* border-radius: 0 0 8px 8px; */
 }
 .btn {
   background-color: inherit;
@@ -82,8 +75,6 @@
   height: 26.7px;
   font-size: 14px;
 
-  /* border-right: 1px solid lightgray;
-  border-bottom: 1px solid lightgray; */
   padding: 1px;
   display: flex;
   justify-content: center;

@@ -32,12 +32,10 @@
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* temporary nav in App.jsx */
 .tempNav {
   display: flex;
   gap: 8px;
 }
-/* delete later */
 
 body {
   margin: 0;
@@ -89,16 +87,15 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* ширина всей полосы прокрутки */
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(239, 237, 232, 0.1); /* цвет зоны отслеживания */
+  background: rgba(239, 237, 232, 0.1);
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ef8964; /* цвет бегунка */
-  border-radius: 12px; /* округлось бегунка */
-  /* border: 3px solid orange; отступ вокруг бегунка */
+  background-color: #ef8964;
+  border-radius: 12px;
 }

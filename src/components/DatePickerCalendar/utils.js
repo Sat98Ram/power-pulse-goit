@@ -27,16 +27,9 @@ const sundayWeekToMondayWeekDayMap = {
   6: 5,
 };
 
-// export interface DateCellItem {
-//   date: number;
-//   month: number;
-//   year: number;
-//   type: "next" | "prev" | "current";
-// }
 
 export const getDaysAmountInAMonth = (year, month) => {
   const nextMonthDate = new Date(year, month + 1, 1);
-  // mutates the date object
   nextMonthDate.setMinutes(-1);
   return nextMonthDate.getDate();
 };
@@ -143,7 +136,6 @@ export const getDateFromInputValue = (inputValue) => {
 };
 
 const validValueRegex = /^\d{2}-\d{2}-\d{4}$/;
-// |||| /^\d{2}[/]\d{2}[/]\d{4}$/;
 export const isValidDateString = (value) => {
   if (!validValueRegex.test(value)) {
     return false;
@@ -226,11 +218,6 @@ function isSmallerThanDate(value, date) {
 
   return value.getDate() <= date.getDate();
 }
-// function getLastDayOfMonth(year, month) {
-//   let date = new Date(year, month, 0);
-
-//   return date.getDate();
-// }
 
 getDaysAmountInAMonth.propTypes = {
   date: PropTypes.number,

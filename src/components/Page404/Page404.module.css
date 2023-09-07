@@ -12,11 +12,9 @@
   margin: 0 auto;
   position: relative;
   height: 100vh;
-  /* background-size: cover; */
 }
 
 .left {
-  /* flex: 2; */
   background: #e6533c;
   max-width: calc(64%);
   height: 100%;

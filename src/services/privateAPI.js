@@ -12,6 +12,11 @@ export const token = {
   unset() {
     privateAPI.defaults.headers.common.Authorization = "";
   },
+  check(token) {
+    if (!privateAPI.defaults.headers.common.Authorization) {
+      privateAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
+  },
 };
 
 export const logout = async () => {

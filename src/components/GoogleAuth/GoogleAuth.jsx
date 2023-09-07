@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Navigate, useSearchParams } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
 import { token as tokenAPI } from "../../services/privateAPI";
 import { refreshThunk } from "../../redux/auth/operations";
 
@@ -19,10 +19,9 @@ export const GoogleAuth = () => {
 
   if (!token) {
     return <Navigate to={"/welcome"} />;
+  } else {
+    return <Navigate to={"/dairy"} />;
   }
-  tokenAPI.set(token);
-
-  return <Navigate to={"/dairy"} />;
 };
 
 export default GoogleAuth;

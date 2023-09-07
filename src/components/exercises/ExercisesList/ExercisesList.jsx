@@ -43,3 +43,5 @@ export const ExercisesList = () => {
     </>
   );
 };
+
+export default ExercisesList;

@@ -1,23 +1,31 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import Welcome from "./pages/Welcome/Welcome";
-import Diary from "./pages/Diary/Diary";
-import Layout from "./components/Layout/Layout/Layout";
-import SignUp from "./pages/SignUp/SignUp";
-import SignIn from "./pages/SignIn/SignIn";
-import Products from "./pages/Products/Products";
-import Exercises from "./pages/Exercices/Exercices";
-import Params from "./pages/Params/Params";
-import Profile from "./pages/Profile/Profile";
-import Page404 from "./components/Page404/Page404";
-import ExercisesSubcategoriesList from "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "./redux/auth/operations";
+import { Navigate, Route, Routes } from "react-router-dom";
 
-import { ExercisesList } from "./components/exercises/ExercisesList/ExercisesList";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import GoogleAuth from "./components/GoogleAuth/GoogleAuth";
+import Loader from "./components/Loader/Loader";
+
+const Welcome = lazy(() => import("./pages/Welcome/Welcome"));
+const Diary = lazy(() => import("./pages/Diary/Diary"));
+const Layout = lazy(() => import("./components/Layout/Layout/Layout"));
+const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
+const SignIn = lazy(() => import("./pages/SignIn/SignIn"));
+const Products = lazy(() => import("./pages/Products/Products"));
+const Exercises = lazy(() => import("./pages/Exercices/Exercices"));
+const Params = lazy(() => import("./pages/Params/Params"));
+const Profile = lazy(() => import("./pages/Profile/Profile"));
+const Page404 = lazy(() => import("./components/Page404/Page404"));
+const ExercisesSubcategoriesList = lazy(() =>
+  import(
+    "./components/exercises/ExercisesSubcategoriesList/ExercisesSubcategoriesList"
+  )
+);
+const ExercisesList = lazy(() =>
+  import("./components/exercises/ExercisesList/ExercisesList")
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +35,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<PublicRoute />}>
@@ -55,7 +63,7 @@ function App() {
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
-    </>
+    </Suspense>
   );
 }
 

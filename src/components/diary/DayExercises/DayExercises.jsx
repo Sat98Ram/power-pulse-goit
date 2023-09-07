@@ -21,7 +21,7 @@ const DayExercises = ({ doneExercises, date }) => {
 
   const addExersicesBtn = () => {
     return (
-      <Link to="/exercises">
+      <Link to="/exercises" className={styles.linkExercises}>
         <p className={styles.btnAddExersisec}>
           Add exercise
           <svg className={styles.arrowIcon}>

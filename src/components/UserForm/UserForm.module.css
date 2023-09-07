@@ -149,8 +149,8 @@
 .radioLabel::after {
   content: "";
   position: absolute;
-  top: 4px;
-  left: -24px;
+  top: 9px;
+  left: -19px;
 
   border-radius: 50%;
   display: block;
@@ -167,6 +167,9 @@
 .radioBtn:checked + .radioLabel:after {
   height: 10px;
   width: 10px;
+  top: 4px;
+  left: -24px;
+
 }
 
 .btnSubmit {
@@ -237,8 +240,13 @@
     top: 2px;
   }
   .radioLabel:after {
+    top: 12px;
+    left: -18px
+  }
+  .radioBtn:checked+.radioLabel:after {
     top: 7px;
-    left: -23px;
+    left: -23px
+  
   }
   .btnSubmit {
     padding: 16px 50px;

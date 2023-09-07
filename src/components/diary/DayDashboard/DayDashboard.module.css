@@ -65,6 +65,9 @@
   .btns2 {
     flex-direction: column;
   }
+  /* .exclamation {
+    padding-bottom: 30px;
+  } */
 }
 @media screen and (min-width: 1440px) {
   .day_dashboard_container {

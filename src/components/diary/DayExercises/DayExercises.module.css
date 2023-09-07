@@ -361,3 +361,12 @@ span p {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.linkExercises {
+  transition: color var(--transition-duration) var(--transition-cubic);
+}
+
+.linkExercises:hover,
+.linkExercises:focus {
+  color: var(--white);
+}

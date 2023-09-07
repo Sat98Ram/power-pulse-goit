@@ -36,8 +36,6 @@ export const SignUpForm = () => {
     validationSchema,
     onSubmit,
   });
-  // console.log(formik.touched, "touched");
-  // console.log(formik.errors);
   return (
     <form className={css.signup} onSubmit={formik.handleSubmit}>
       <input

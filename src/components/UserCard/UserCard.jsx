@@ -9,6 +9,7 @@ import { ExclamationMark } from "./ExclamationMark/ExclamationMark";
 import BasicModalWindow from "../BasicModalWindow/BasicModalWindow";
 import ModalLogOut from "../Layout/ModalLogOut/ModalLogOut";
 import { changeAvatarThunk, logoutThunk } from "../../redux/auth/operations";
+import symbolDefs from "../../assets/images/symbol-defs.svg";
 
 import css from "./UserCard.module.css";
 
@@ -41,7 +42,13 @@ export const UserCard = () => {
       <div className={css.profileSettings}>
         <div className={css.avatarContainer}>
           <div className={css.avatar}>
-            <img src={avatar} alt="avatar" className={css.avatarImage} />
+            {!avatar ? (
+              <svg className={css.profileAvatar}>
+                <use href={symbolDefs + "#user-icon"}></use>
+              </svg>
+            ) : (
+              <img src={avatar} alt="avatar" className={css.avatarImage} />
+            )}
           </div>
           <div className={css.addPhotoBtn}>
             <label htmlFor="file-input">

@@ -15,6 +15,13 @@
   height: 90px;
   border: solid 1px var(--primary-accent);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileAvatar {
+  width: 61px;
 }
 
 .avatarImage {
@@ -140,6 +147,9 @@
   }
   .profileContainer {
     margin-bottom: 0px;
+  }
+  .profileAvatar {
+    width: 102px;
   }
 }
 

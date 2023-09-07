@@ -10,23 +10,25 @@ const DayExercises = ({ doneExercises, date }) => {
   const dispatch = useDispatch();
   dispatch;
 
-  // const returnExercisesString = (string_length = "", number = 16) => {
-  //   if (string_length.length > number) {
-  //     let newString = "";
-  //     for (let index = 0; index < number - 3; index++) {
-  //       newString = newString + string_length[index];
-  //     }
-  //     return (newString = newString + "...");
-  //   }
-  //   return string_length;
-  // };
-
   const handleDelete = (id) => {
     dispatch(
       deleteDiaryExerciseThunk({
         date,
         exerciseId: id,
       })
+    );
+  };
+
+  const addExersicesBtn = () => {
+    return (
+      <Link to="/exercises" className={styles.linkExercises}>
+        <p className={styles.btnAddExersisec}>
+          Add exercise
+          <svg className={styles.arrowIcon}>
+            <use href={symbolDefs + "#arrow-icon"}></use>
+          </svg>
+        </p>
+      </Link>
     );
   };
 
@@ -40,15 +42,17 @@ const DayExercises = ({ doneExercises, date }) => {
         <td className={styles.tdEquipment}>
           <div>{obj.exercise.equipment}</div>
         </td>
-        <td className={styles.tdName}>{obj.exercise.name}</td>
+        <td className={styles.tdName}>
+          <div>{obj.exercise.name}</div>
+        </td>
         <td className={styles.tdTarget}>
           <div>{obj.exercise.target}</div>
         </td>
         <td className={styles.tdBurnedCalories}>
-          <div>{obj.exercise.burnedCalories}</div>
+          <div>{obj.burnedCalories}</div>
         </td>
         <td className={styles.tdTime}>
-          <div>{obj.exercise.time}</div>
+          <div>{obj.time}</div>
         </td>
 
         <td className={styles.tdDellete}>
@@ -67,7 +71,7 @@ const DayExercises = ({ doneExercises, date }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <Link to="/exercises/bodyparts">Add exercise</Link>
+            {addExersicesBtn()}
           </div>
           <div className={styles.DayExercisesTable}>
             <table>
@@ -89,7 +93,7 @@ const DayExercises = ({ doneExercises, date }) => {
         <div className={styles.DayExercises}>
           <div className={styles.DayExercisesHead}>
             <h2>Exercises</h2>
-            <Link to="/exercises/bodyparts">Add exercise</Link>
+            {addExersicesBtn()}
           </div>
           <div className={styles.DayExercisesTable}>
             <p className={styles.not_found}>Not found exercises</p>

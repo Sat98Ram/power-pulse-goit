@@ -71,13 +71,14 @@ const StepOne = ({ formik, nextStep }) => {
               </p>
             )}
           </label>
-          <label>
+          <label className={css.label}>
             <Calendar
               // max={}
+              onBlur={formik.handleBlur}
               onChange={(value) => formik.setFieldValue("birthday", value)}
               value={formik.values.birthday}
             />
-            {formik.touched.birthday && formik.errors.birthday ? (
+            {/* {formik.touched.birthday && formik.errors.birthday ? (
               <p className={`${css.error} ${css.bastard}`}>
                 {formik.errors.birthday}
               </p>
@@ -85,15 +86,16 @@ const StepOne = ({ formik, nextStep }) => {
               <p className={`${css.labelText} ${css.bastard}`}>
                 Desired Weight
               </p>
-            )}
+            )} */}
           </label>
         </div>
         <button
           disabled={
-            (formik.touched.height && formik.errors.height) ||
-            (formik.touched.currentWeight && formik.errors.currentWeight) ||
-            (formik.touched.desiredWeight && formik.errors.desiredWeight) ||
-            (formik.touched.birthday && formik.errors.birthday)
+            formik.errors.height ||
+            formik.errors.currentWeight ||
+            formik.errors.desiredWeight ||
+            formik.errors.birthday ||
+            !Object.keys(formik.touched).length
               ? true
               : false
           }

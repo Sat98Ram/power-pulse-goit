@@ -26,6 +26,7 @@
     max-height: calc(100vh - 364px);
     gap: 32px 16px;
     max-width: 100%;
+    max-height: 726px;
   }
 }
 

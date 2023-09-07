@@ -143,7 +143,7 @@ export const getDateFromInputValue = (inputValue) => {
 };
 
 const validValueRegex = /^\d{2}-\d{2}-\d{4}$/;
-
+// |||| /^\d{2}[/]\d{2}[/]\d{4}$/;
 export const isValidDateString = (value) => {
   if (!validValueRegex.test(value)) {
     return false;

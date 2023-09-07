@@ -150,6 +150,16 @@ span p {
   width: 14px;
   height: 14px;
 }
+.btnAddProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+}
 
 @media screen and (max-width: 1439px) {
   .DayProducts table {
@@ -320,4 +330,14 @@ span p {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+.linkProducts {
+  transition: color var(--transition-duration) var(--transition-cubic);
+}
+
+.linkProducts:hover,
+.linkProducts:focus {
+  color: var(--white);
 }
